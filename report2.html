@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ミチルシリカ 3ヶ月データ総合分析 | 指標レポート</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --primary: #1a237e; --primary-light: #3949ab;
+  --success: #1b5e20; --success-light: #43a047;
+  --warning: #e65100; --warning-light: #fb8c00;
+  --danger: #b71c1c; --danger-light: #e53935;
+  --info: #006064; --info-light: #00acc1;
+  --neutral: #37474f;
+  --bg: #f0f2f5; --card: #fff;
+  --border: #e0e4e8;
+  --radius: 12px;
+  --shadow: 0 2px 12px rgba(0,0,0,0.07);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.12);
+}
+body {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  background: var(--bg); color: #1a1a2e; line-height: 1.7; font-size: 14px;
+}
+.container { max-width: 1300px; margin: 0 auto; padding: 28px 20px 60px; }
+
+/* ===== HERO ===== */
+.hero {
+  background: linear-gradient(135deg, #0d1b4b 0%, #1a237e 45%, #283593 100%);
+  color: #fff; border-radius: var(--radius); padding: 40px 44px 36px;
+  margin-bottom: 30px; box-shadow: var(--shadow-lg); position: relative; overflow: hidden;
+}
+.hero::before {
+  content:''; position: absolute; right: -40px; top: -40px;
+  width: 220px; height: 220px; border-radius: 50%;
+  background: rgba(255,255,255,0.04);
+}
+.hero::after {
+  content:''; position: absolute; right: 80px; bottom: -80px;
+  width: 160px; height: 160px; border-radius: 50%;
+  background: rgba(255,255,255,0.03);
+}
+.hero-badge {
+  display: inline-block; background: #ffd54f; color: #0d1b4b;
+  font-weight: 800; font-size: 0.7em; padding: 3px 12px;
+  border-radius: 4px; margin-bottom: 12px; letter-spacing: 0.06em;
+}
+.hero h1 { font-size: 1.75em; font-weight: 800; margin-bottom: 6px; }
+.hero .sub { font-size: 0.92em; opacity: 0.8; }
+.hero-meta { display: flex; gap: 24px; flex-wrap: wrap; font-size: 0.8em; opacity: 0.6; margin-top: 14px; }
+
+/* ===== SECTION ===== */
+.section {
+  background: var(--card); border-radius: var(--radius);
+  box-shadow: var(--shadow); margin-bottom: 24px; overflow: hidden;
+}
+.sec-head {
+  padding: 16px 24px; font-size: 1em; font-weight: 700;
+  color: #fff; display: flex; align-items: center; gap: 10px;
+}
+.sec-head.blue   { background: linear-gradient(135deg, var(--primary), var(--primary-light)); }
+.sec-head.green  { background: linear-gradient(135deg, var(--success), var(--success-light)); }
+.sec-head.orange { background: linear-gradient(135deg, var(--warning), var(--warning-light)); }
+.sec-head.red    { background: linear-gradient(135deg, var(--danger), var(--danger-light)); }
+.sec-head.teal   { background: linear-gradient(135deg, var(--info), var(--info-light)); }
+.sec-head.gray   { background: linear-gradient(135deg, #455a64, #607d8b); }
+.sec-body { padding: 24px; }
+
+/* ===== MONTH CARDS ===== */
+.month-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-bottom: 24px; }
+.month-card {
+  border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow);
+}
+.month-card .mc-head {
+  padding: 14px 18px; font-weight: 800; font-size: 1em; color: #fff;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.month-card .mc-head.dec { background: linear-gradient(135deg, #37474f, #607d8b); }
+.month-card .mc-head.jan { background: linear-gradient(135deg, #1b5e20, #2e7d32); }
+.month-card .mc-head.feb { background: linear-gradient(135deg, #0d47a1, #1565c0); }
+.month-card .mc-body { padding: 16px; background: #fff; }
+.mc-kpi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.mc-kpi {
+  background: #f8f9fb; border-radius: 8px; padding: 10px 12px; text-align: center;
+  border: 1px solid var(--border);
+}
+.mc-kpi .lbl { font-size: 0.7em; color: #78909c; margin-bottom: 2px; }
+.mc-kpi .val { font-size: 1.2em; font-weight: 800; }
+.mc-kpi .val.green { color: var(--success); }
+.mc-kpi .val.orange { color: var(--warning); }
+.mc-kpi .val.blue { color: var(--primary); }
+.mc-kpi .val.red { color: var(--danger); }
+.mc-tag {
+  font-size: 0.7em; padding: 2px 10px; border-radius: 12px; font-weight: 700;
+}
+.mc-tag.best { background: #e8f5e9; color: var(--success); border: 1px solid #a5d6a7; }
+.mc-tag.worst { background: #ffebee; color: var(--danger); border: 1px solid #ef9a9a; }
+.mc-tag.mid { background: #fff3e0; color: var(--warning); border: 1px solid #ffcc80; }
+
+/* ===== DATA TABLE ===== */
+.data-table { width: 100%; border-collapse: collapse; font-size: 0.84em; }
+.data-table thead { background: #1a237e; color: #fff; }
+.data-table th { padding: 9px 11px; font-weight: 600; text-align: center; white-space: nowrap; font-size: 0.8em; }
+.data-table th:first-child { text-align: left; }
+.data-table td { padding: 8px 11px; border-bottom: 1px solid #e8ecf0; text-align: right; white-space: nowrap; }
+.data-table td:first-child { text-align: left; font-weight: 600; }
+.data-table tr:hover { background: #f5f7ff; }
+.data-table .good-row { background: #f0fff4 !important; }
+.data-table .bad-row  { background: #fff5f5 !important; }
+.data-table .total-row { background: #e8eaf6 !important; font-weight: 700; }
+.data-table .march-row { background: #fff8e1 !important; }
+
+/* ===== COMPARE BOX ===== */
+.compare-2col { display: grid; grid-template-columns: 1fr 60px 1fr; gap: 12px; align-items: center; }
+.compare-vs { text-align: center; font-size: 1.5em; font-weight: 900; color: #b0bec5; }
+.cbox {
+  padding: 20px; border-radius: 10px; text-align: center;
+}
+.cbox.good { background: #e8f5e9; border: 2px solid #66bb6a; }
+.cbox.bad  { background: #ffebee; border: 2px solid #ef5350; }
+.cbox .cx-label { font-size: 0.75em; color: #78909c; margin-bottom: 4px; }
+.cbox .cx-title { font-size: 1em; font-weight: 800; margin-bottom: 12px; }
+.cbox .cx-items { text-align: left; font-size: 0.82em; line-height: 1.9; }
+.cbox .cx-v { font-weight: 700; }
+.cbox.good .cx-v { color: #2e7d32; }
+.cbox.bad  .cx-v { color: #c62828; }
+
+/* ===== NOTE BOX ===== */
+.note {
+  padding: 13px 17px; border-radius: 8px; font-size: 0.86em;
+  line-height: 1.75; margin: 12px 0;
+}
+.note.success { background: #e8f5e9; border-left: 4px solid #4caf50; }
+.note.info    { background: #e3f2fd; border-left: 4px solid #2196f3; }
+.note.warning { background: #fff3e0; border-left: 4px solid #ff9800; }
+.note.danger  { background: #ffebee; border-left: 4px solid #f44336; }
+
+/* ===== KPI ROW ===== */
+.kpi-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin: 12px 0; }
+.kpi { background: #f8f9fb; border-radius: 8px; padding: 12px; text-align: center; border: 1px solid var(--border); }
+.kpi .k-lbl { font-size: 0.7em; color: #78909c; margin-bottom: 2px; }
+.kpi .k-val { font-size: 1.3em; font-weight: 900; }
+.kpi .k-sub { font-size: 0.7em; color: #90a4ae; margin-top: 2px; }
+.kpi .k-val.green  { color: #2e7d32; }
+.kpi .k-val.orange { color: #e65100; }
+.kpi .k-val.red    { color: #c62828; }
+.kpi .k-val.blue   { color: #1a237e; }
+
+/* ===== CHANNEL BAR ===== */
+.ch-row { margin: 8px 0; }
+.ch-label { display: flex; justify-content: space-between; font-size: 0.82em; font-weight: 600; margin-bottom: 3px; }
+.ch-bar-bg { height: 22px; background: #eceff1; border-radius: 4px; overflow: hidden; }
+.ch-bar-fill { height: 100%; border-radius: 4px; display: flex; align-items: center; padding: 0 8px; font-size: 0.72em; font-weight: 700; color: #fff; transition: width 0.3s; }
+.ch-bar-fill.meta    { background: linear-gradient(90deg, #6a1b9a, #e91e8c); }
+.ch-bar-fill.yahoo   { background: linear-gradient(90deg, #b71c1c, #e53935); }
+.ch-bar-fill.direct  { background: linear-gradient(90deg, #37474f, #607d8b); }
+.ch-bar-fill.organic { background: linear-gradient(90deg, #1b5e20, #43a047); }
+.ch-bar-fill.amazon  { background: linear-gradient(90deg, #e65100, #ff9800); }
+
+/* ===== MARCH TABLE ===== */
+.march-day {
+  border-radius: 10px; border: 2px solid var(--border);
+  margin-bottom: 12px; overflow: hidden;
+}
+.march-day .md-head {
+  padding: 10px 16px; font-weight: 700; font-size: 0.9em;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.march-day .md-head.purchase { background: #e8f5e9; border-bottom: 2px solid #a5d6a7; }
+.march-day .md-head.normal   { background: #f5f5f5; border-bottom: 2px solid #e0e0e0; }
+.march-day .md-head.hot      { background: #fff3e0; border-bottom: 2px solid #ffcc80; }
+.march-day .md-body { padding: 12px 16px; display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 8px; }
+.md-item { text-align: center; }
+.md-item .mi-lbl { font-size: 0.68em; color: #78909c; }
+.md-item .mi-val { font-size: 1em; font-weight: 700; }
+.mi-val.up   { color: #2e7d32; }
+.mi-val.down { color: #c62828; }
+.mi-val.warn { color: #e65100; }
+
+/* ===== SCROLL DEPTH CHART ===== */
+.scroll-chart { margin: 10px 0; }
+.scroll-row { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
+.scroll-pct { width: 36px; font-size: 0.78em; font-weight: 700; color: #546e7a; text-align: right; }
+.scroll-bg { flex: 1; height: 18px; background: #eceff1; border-radius: 4px; overflow: hidden; }
+.scroll-fill { height: 100%; border-radius: 4px; }
+.scroll-count { width: 50px; font-size: 0.75em; color: #90a4ae; }
+.scroll-drop { width: 55px; font-size: 0.75em; font-weight: 600; text-align: right; }
+
+/* ===== ALERT BOX ===== */
+.alert-box {
+  border-radius: 10px; padding: 16px 20px;
+  font-size: 0.88em; line-height: 1.75; margin: 14px 0;
+  display: flex; gap: 12px; align-items: flex-start;
+}
+.alert-box.critical { background: #ffebee; border: 2px solid #ef5350; }
+.alert-box.positive { background: #e8f5e9; border: 2px solid #66bb6a; }
+.alert-box .a-icon { font-size: 1.3em; flex-shrink: 0; margin-top: 2px; }
+
+/* ===== CVR INSIGHT ===== */
+.cvr-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.cvr-card {
+  border-radius: 10px; padding: 18px; text-align: center;
+}
+.cvr-card.high { background: linear-gradient(135deg, #e8f5e9, #f1f8f1); border: 2px solid #a5d6a7; }
+.cvr-card.low  { background: linear-gradient(135deg, #ffebee, #fff5f5); border: 2px solid #ef9a9a; }
+.cvr-card .cv-ch  { font-size: 0.8em; font-weight: 700; margin-bottom: 4px; }
+.cvr-card .cv-cvr { font-size: 2.2em; font-weight: 900; }
+.cvr-card .cv-sub { font-size: 0.75em; color: #78909c; margin-top: 4px; }
+.cvr-card.high .cv-cvr { color: #1b5e20; }
+.cvr-card.low  .cv-cvr { color: #b71c1c; }
+
+/* ===== 指標定義 ===== */
+.def-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.def-item { background: #f8f9fb; border-radius: 8px; padding: 12px 14px; border-left: 3px solid; }
+.def-item.meta   { border-color: #9c27b0; }
+.def-item.yahoo  { border-color: #f44336; }
+.def-item.lp     { border-color: #ff9800; }
+.def-item.ga4    { border-color: #2196f3; }
+.def-item .dt    { font-weight: 700; font-size: 0.88em; margin-bottom: 4px; }
+.def-item .dd    { font-size: 0.8em; color: #546e7a; line-height: 1.6; }
+.def-item .dv    { font-size: 0.9em; font-weight: 700; margin-top: 4px; }
+
+@media (max-width: 768px) {
+  .month-grid { grid-template-columns: 1fr; }
+  .compare-2col { grid-template-columns: 1fr; }
+  .compare-vs { transform: rotate(90deg); }
+  .cvr-grid { grid-template-columns: 1fr; }
+  .def-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">3ヶ月データ総合分析</div>
+  <h1>ミチルシリカ 広告・LP 指標レポート</h1>
+  <div class="sub">2025年12月〜2026年2月 全チャネル分析 + 3月直近指標（3/1〜3/5）</div>
+  <div class="hero-meta">
+    <span>分析期間: 2025年12月1日〜2026年3月5日</span>
+    <span>作成日: 2026年3月6日</span>
+    <span>データソース: Meta / Yahoo / GA4 / Microsoft Clarity</span>
+  </div>
+</div>
+
+<!-- ===== 1. 月別サマリー ===== -->
+<div class="section">
+  <div class="sec-head blue">① 3ヶ月 月別サマリー — Meta × Yahoo × 購入実績</div>
+  <div class="sec-body">
+
+    <div class="month-grid">
+      <!-- 12月 -->
+      <div class="month-card">
+        <div class="mc-head dec">
+          <span>12月（12/1〜31）</span>
+          <span class="mc-tag mid">立ち上げ期</span>
+        </div>
+        <div class="mc-body">
+          <div class="mc-kpi-grid">
+            <div class="mc-kpi">
+              <div class="lbl">Meta費用</div>
+              <div class="val orange">〜¥15,000</div>
+            </div>
+            <div class="mc-kpi">
+              <div class="lbl">Yahoo費用</div>
+              <div class="val blue">¥52,462</div>
+            </div>
+            <div class="mc-kpi">
+              <div class="lbl">Meta CPM</div>
+              <div class="val red">¥3,000〜8,000</div>
+            </div>
+            <div class="mc-kpi">
+              <div class="lbl">Yahoo CPC</div>
+              <div class="val blue">¥39〜70</div>
+            </div>
+            <div class="mc-kpi">
+              <div class="lbl">Amazon購入</div>
+              <div class="val green">—</div>
+            </div>
+            <div class="mc-kpi">
+              <div class="lbl">Yahoo購入</div>
+              <div class="val orange">1件</div>
+            </div>
+          </div>
+          <div class="note warning" style="margin-top:10px; font-size:0.8em;">
+            Meta CPMが¥3,000〜¥8,000と高すぎ。ターゲット絞りすぎ・学習不足が原因。ミスコン認知用広告も並走。
+          </div>
+        </div>
+      </div>
+
+      <!-- 1月 -->
+      <div class="month-card">
+        <div class="mc-head jan">
+          <span>1月（1/1〜31）</span>
+          <span class="mc-tag best">最良月</span>
+        </div>
+        <div class="mc-body">
+          <div class="mc-kpi-grid">
+            <div class="mc-kpi">
+              <div class="lbl">Meta費用</div>
+              <div class="val green">〜¥42,000</div>
+            </div>
+            <div class="mc-kpi">
+              <div class="lbl">Yahoo費用</div>
+              <div class="val blue">¥22,077</div>
+            </div>
+            <div class="mc-kpi">
+              <div class="lbl">Meta CPM (IG)</div>
+              <div class="val green">¥630〜¥2,000</div>
+            </div>
+            <div class="mc-kpi">
+              <div class="lbl">Yahoo CPC</div>
+              <div class="val green">¥26〜52</div>
+            </div>
+            <div class="mc-kpi">
+              <div class="lbl">Amazon購入</div>
+              <div class="val green">57件</div>
+            </div>
+            <div class="mc-kpi">
+              <div class="lbl">Yahoo購入</div>
+              <div class="val green">2件</div>
+            </div>
+          </div>
+          <div class="note success" style="margin-top:10px; font-size:0.8em;">
+            Amazon57件・Meta多数購入。CPM最低・CTR最高期間。「価格訴求-口コミ版」が正月明けの購入意欲に直撃。
+          </div>
+        </div>
+      </div>
+
+      <!-- 2月 -->
+      <div class="month-card">
+        <div class="mc-head feb">
+          <span>2月（2/6〜28）</span>
+          <span class="mc-tag mid">後退期</span>
+        </div>
+        <div class="mc-body">
+          <div class="mc-kpi-grid">
+            <div class="mc-kpi">
+              <div class="lbl">Meta費用</div>
+              <div class="val orange">¥20,671</div>
+            </div>
+            <div class="mc-kpi">
+              <div class="lbl">Yahoo費用</div>
+              <div class="val blue">¥23,754</div>
+            </div>
+            <div class="mc-kpi">
+              <div class="lbl">Meta CPM (IG)</div>
+              <div class="val orange">¥630〜¥2,845</div>
+            </div>
+            <div class="mc-kpi">
+              <div class="lbl">Yahoo CPC</div>
+              <div class="val orange">¥37〜54</div>
+            </div>
+            <div class="mc-kpi">
+              <div class="lbl">Amazon購入</div>
+              <div class="val orange">33件</div>
+            </div>
+            <div class="mc-kpi">
+              <div class="lbl">EC確認購入</div>
+              <div class="val orange">14件</div>
+            </div>
+          </div>
+          <div class="note danger" style="margin-top:10px; font-size:0.8em;">
+            Meta日平均¥940（目標¥3,000の31%）しか消化できず。後半の失速深刻。2/25「悩み訴求」追加後に学習リセット。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3ヶ月合計 -->
+    <div style="background: linear-gradient(135deg, #1a237e, #283593); color: #fff; border-radius: var(--radius); padding: 18px 24px; margin-top: 4px;">
+      <div style="font-size: 0.88em; opacity: 0.8; margin-bottom: 10px;">3ヶ月（12/1〜2/28）合計</div>
+      <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; text-align: center;">
+        <div><div style="font-size: 0.72em; opacity: 0.7;">Meta総費用</div><div style="font-size: 1.5em; font-weight: 900;">¥83,631</div></div>
+        <div><div style="font-size: 0.72em; opacity: 0.7;">Yahoo総費用</div><div style="font-size: 1.5em; font-weight: 900;">¥104,784</div></div>
+        <div><div style="font-size: 0.72em; opacity: 0.7;">Meta総クリック</div><div style="font-size: 1.5em; font-weight: 900;">759件</div></div>
+        <div><div style="font-size: 0.72em; opacity: 0.7;">Yahoo総クリック</div><div style="font-size: 1.5em; font-weight: 900;">2,292件</div></div>
+        <div><div style="font-size: 0.72em; opacity: 0.7;">Meta平均CPM</div><div style="font-size: 1.5em; font-weight: 900;">¥1,554</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 2. チャネル別CVR（最重要発見） ===== -->
+<div class="section">
+  <div class="sec-head green">② チャネル別 CVR 比較 — 最重要な発見</div>
+  <div class="sec-body">
+
+    <div class="alert-box positive">
+      <div class="a-icon">🏆</div>
+      <div><strong>Instagram広告のCVRはYahoo広告の約5.3倍</strong><br>
+      GA4 キーイベント（購入）の計測データより。予算配分をInstagramに集中すべき根拠がデータで確認された。</div>
+    </div>
+
+    <div class="cvr-grid">
+      <div class="cvr-card high">
+        <div class="cv-ch">Instagram 有料広告（instagram/paid_social）</div>
+        <div class="cv-cvr">2.77%</div>
+        <div class="cv-sub">19購入 / 685セッション<br>エンゲージメント率: 27.4%</div>
+      </div>
+      <div class="cvr-card low">
+        <div class="cv-ch">Yahoo CPC（yahoo/cpc）</div>
+        <div class="cv-cvr">0.52%</div>
+        <div class="cv-sub">11購入 / 2,115セッション<br>エンゲージメント率: 56.3%（滞在は長い）</div>
+      </div>
+    </div>
+
+    <div style="margin-top: 16px;">
+      <div style="font-weight: 700; font-size: 0.92em; margin-bottom: 10px; color: #37474f;">全チャネル別 購入件数 + CVR（12/1〜2/28）</div>
+      <div class="ch-row">
+        <div class="ch-label">
+          <span>Instagram有料（paid_social）</span>
+          <span style="color:#1b5e20; font-weight:800;">19件 / CVR 2.77%</span>
+        </div>
+        <div class="ch-bar-bg">
+          <div class="ch-bar-fill meta" style="width:70%;">19件</div>
+        </div>
+      </div>
+      <div class="ch-row">
+        <div class="ch-label">
+          <span>Yahoo CPC</span>
+          <span style="color:#b71c1c;">11件 / CVR 0.52%</span>
+        </div>
+        <div class="ch-bar-bg">
+          <div class="ch-bar-fill yahoo" style="width:41%;">11件</div>
+        </div>
+      </div>
+      <div class="ch-row">
+        <div class="ch-label">
+          <span>Direct（直接流入）</span>
+          <span style="color:#37474f;">4件 / CVR 1.02%</span>
+        </div>
+        <div class="ch-bar-bg">
+          <div class="ch-bar-fill direct" style="width:15%;">4件</div>
+        </div>
+      </div>
+      <div class="ch-row">
+        <div class="ch-label">
+          <span>Google オーガニック</span>
+          <span style="color:#1b5e20;">3件 / CVR 0.78%</span>
+        </div>
+        <div class="ch-bar-bg">
+          <div class="ch-bar-fill organic" style="width:11%;">3件</div>
+        </div>
+      </div>
+      <div class="ch-row">
+        <div class="ch-label">
+          <span>Yahoo オーガニック</span>
+          <span style="color:#546e7a;">1件</span>
+        </div>
+        <div class="ch-bar-bg">
+          <div class="ch-bar-fill yahoo" style="width:4%; opacity:0.6;">1</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="note info" style="margin-top: 14px;">
+      <strong>重要な矛盾:</strong> Yahoo広告はセッション数（2,115）がInstagramの3倍以上あるが、CVRが0.52%と低い。対してInstagramはセッション数は少ないが購入率が高い。<strong>月¥104,784かけているYahoo広告の予算効率を見直し、Instagramに配分を移すことで大幅な改善が見込める。</strong>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 3. 良い時期 vs 悪い時期 ===== -->
+<div class="section">
+  <div class="sec-head orange">③ 良かった時期 vs 悪かった時期 — 指標詳細比較</div>
+  <div class="sec-body">
+
+    <div class="compare-2col">
+      <div class="cbox good">
+        <div class="cx-label">最良期間</div>
+        <div class="cx-title">1月中旬〜下旬（1/12〜1/28）</div>
+        <div class="cx-items">
+          <div>IG インプレッション: <span class="cx-v">800〜1,600/日</span></div>
+          <div>IG CPM: <span class="cx-v">¥630〜¥1,300（安い！）</span></div>
+          <div>IG CTR: <span class="cx-v">1.0〜2.5%</span></div>
+          <div>IG CPC（リンク）: <span class="cx-v">¥60〜¥100</span></div>
+          <div>FB CTR: <span class="cx-v">3〜17%（高CTR）</span></div>
+          <div>IG クリック/日: <span class="cx-v">10〜21件</span></div>
+          <div>Yahoo CPC: <span class="cx-v">¥26〜44（安い）</span></div>
+          <div>購入発生: <span class="cx-v">毎日または隔日</span></div>
+          <div>Amazon: <span class="cx-v">57件/月（1月合計）</span></div>
+          <hr style="margin:8px 0; border-color:#a5d6a7;">
+          <div style="font-size:0.9em; font-weight:700; color:#1b5e20;">🔑 成功要因</div>
+          <div>・「価格訴求-口コミ版」クリエイティブ単体</div>
+          <div>・正月明けの高い購買意欲</div>
+          <div>・Meta広告が学習完了済みで安定消化</div>
+          <div>・CPMが低くコスパ良くリーチ拡大</div>
+        </div>
+      </div>
+      <div class="compare-vs">↔</div>
+      <div class="cbox bad">
+        <div class="cx-label">最悪期間</div>
+        <div class="cx-title">2月後半〜月末（2/21〜2/28）</div>
+        <div class="cx-items">
+          <div>IG インプレッション: <span class="cx-v">80〜600/日（激減）</span></div>
+          <div>IG CPM: <span class="cx-v">¥1,700〜¥2,845（高い）</span></div>
+          <div>IG CTR: <span class="cx-v">0.76〜1.35%（低い）</span></div>
+          <div>IG CPC（リンク）: <span class="cx-v">¥200〜¥338（高い）</span></div>
+          <div>IG クリック/日: <span class="cx-v">3〜9件（激減）</span></div>
+          <div>Meta日平均費用: <span class="cx-v">¥721（目標¥3,000の24%）</span></div>
+          <div>Yahoo CPC: <span class="cx-v">¥41〜54</span></div>
+          <div>購入発生: <span class="cx-v">11日間で1日のみ</span></div>
+          <div>Amazon: <span class="cx-v">週¥16,002（直近）</span></div>
+          <hr style="margin:8px 0; border-color:#ef9a9a;">
+          <div style="font-size:0.9em; font-weight:700; color:#c62828;">🔴 失敗要因</div>
+          <div>・2/25「悩み訴求」追加で学習リセット</div>
+          <div>・Meta予算が消化できない状態に</div>
+          <div>・CPMが急騰（効率悪化）</div>
+          <div>・ターゲットのオーディエンス疲れ</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 日別詳細テーブル -->
+    <div style="margin-top: 20px; overflow-x: auto;">
+      <div style="font-weight: 700; font-size: 0.92em; margin-bottom: 10px; color: #37474f;">購入発生日 vs 購入なし日 — Meta（Instagram）指標の差</div>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th style="text-align:left;">日付</th>
+            <th>Meta(IG)<br>費用</th>
+            <th>IG<br>インプレ</th>
+            <th>IG<br>CPM</th>
+            <th>IG<br>クリック</th>
+            <th>IG<br>CPC</th>
+            <th>Meta<br>CTR</th>
+            <th>Yahoo<br>費用</th>
+            <th>Yahoo<br>CPC</th>
+            <th>購入状況</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- 良い日 -->
+          <tr class="good-row">
+            <td>1/20（火）最良</td><td>¥1,484</td><td>1,678</td><td><strong style="color:#1b5e20;">¥884</strong></td><td>18</td><td>¥82</td><td>1.07%</td><td>¥323</td><td>¥27</td><td style="text-align:center; color:#1b5e20; font-weight:700;">◎ 購入多数</td>
+          </tr>
+          <tr class="good-row">
+            <td>1/15（木）</td><td>¥1,268</td><td>605</td><td><strong style="color:#1b5e20;">¥2,096</strong></td><td>9</td><td>¥141</td><td>1.49%</td><td>¥594</td><td>¥37</td><td style="text-align:center; color:#1b5e20; font-weight:700;">◎ 購入多数</td>
+          </tr>
+          <tr class="good-row">
+            <td>2/9（月）良好</td><td>¥1,058</td><td>1,284</td><td><strong style="color:#1b5e20;">¥824</strong></td><td>17</td><td>¥62</td><td>1.87%</td><td>¥678</td><td>¥45</td><td style="text-align:center; color:#1b5e20; font-weight:700;">◯ 購入あり</td>
+          </tr>
+          <tr class="good-row">
+            <td>2/11（祝）良好</td><td>¥1,092</td><td>1,100</td><td><strong style="color:#1b5e20;">¥993</strong></td><td>19</td><td>¥57</td><td>1.73%</td><td>¥1,338</td><td>¥54</td><td style="text-align:center; color:#1b5e20; font-weight:700;">◯ 購入あり</td>
+          </tr>
+          <tr class="good-row">
+            <td>2/16（月）良好</td><td>¥992</td><td>887</td><td><strong style="color:#1b5e20;">¥1,118</strong></td><td>15</td><td>¥66</td><td>1.58%</td><td>¥1,208</td><td>¥43</td><td style="text-align:center; color:#1b5e20; font-weight:700;">◯ 購入あり</td>
+          </tr>
+          <tr style="background:#f5f5f5;">
+            <td colspan="10" style="text-align:center; font-size:0.78em; color:#90a4ae; padding:6px;">— 悪い日 —</td>
+          </tr>
+          <!-- 悪い日 -->
+          <tr class="bad-row">
+            <td>2/21（土）悪</td><td>¥1,016</td><td>524</td><td><strong style="color:#c62828;">¥1,939</strong></td><td>3</td><td>¥339</td><td>0.76%</td><td>¥1,661</td><td>¥54</td><td style="text-align:center; color:#c62828;">× 購入なし</td>
+          </tr>
+          <tr class="bad-row">
+            <td>2/22（日）悪</td><td>¥1,747</td><td>614</td><td><strong style="color:#c62828;">¥2,845</strong></td><td>6</td><td>¥291</td><td>1.14%</td><td>¥1,025</td><td>¥49</td><td style="text-align:center; color:#c62828;">— 不明</td>
+          </tr>
+          <tr class="bad-row">
+            <td>2/26（木）悪</td><td>¥583</td><td>425</td><td><strong style="color:#c62828;">¥1,958</strong></td><td>7（低）</td><td>¥44</td><td>6.12%</td><td>¥1,037</td><td>¥52</td><td style="text-align:center; color:#c62828;">— 不明</td>
+          </tr>
+          <tr class="bad-row">
+            <td>2/28（土）悪</td><td>¥845</td><td>592</td><td><strong style="color:#c62828;">¥1,427</strong></td><td>9</td><td>¥94</td><td>1.35%</td><td>¥752</td><td>¥44</td><td style="text-align:center; color:#c62828;">× 購入なし</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note warning" style="margin-top: 14px;">
+      <strong>購入が発生する日の条件（パターン抽出）:</strong><br>
+      ① <strong>CPM ¥1,000以下</strong>（安くリーチできている）<br>
+      ② <strong>IGクリック 10件以上/日</strong>（十分なLP流入量）<br>
+      ③ <strong>CTR 1.2%以上</strong>（広告への反応が高い）<br>
+      ④ <strong>「価格訴求-口コミ版」が主力</strong>（悩み訴求追加前）
+    </div>
+  </div>
+</div>
+
+<!-- ===== 4. LPパフォーマンス（Clarity） ===== -->
+<div class="section">
+  <div class="sec-head red">④ LPパフォーマンス（Clarity） — 訪問者がどこで離脱しているか</div>
+  <div class="sec-body">
+
+    <div class="kpi-row">
+      <div class="kpi">
+        <div class="k-lbl">ページ速度スコア</div>
+        <div class="k-val red">53/100</div>
+        <div class="k-sub">目標80以上</div>
+      </div>
+      <div class="kpi">
+        <div class="k-lbl">LCP（表示速度）</div>
+        <div class="k-val red">3.86秒</div>
+        <div class="k-sub">目標2.5秒以下</div>
+      </div>
+      <div class="kpi">
+        <div class="k-lbl">スクロール深度平均</div>
+        <div class="k-val red">23.5%</div>
+        <div class="k-sub">LP1/4しか読まれていない</div>
+      </div>
+      <div class="kpi">
+        <div class="k-lbl">デッドクリック率</div>
+        <div class="k-val orange">8.83%</div>
+        <div class="k-sub">反応しないボタンあり</div>
+      </div>
+      <div class="kpi">
+        <div class="k-lbl">アクティブ閲覧時間</div>
+        <div class="k-val orange">67秒</div>
+        <div class="k-sub">所要時間132秒のうち</div>
+      </div>
+      <div class="kpi">
+        <div class="k-lbl">100%スクロール到達</div>
+        <div class="k-val red">2.1%</div>
+        <div class="k-sub">890人中19人のみ</div>
+      </div>
+    </div>
+
+    <!-- スクロール深度グラフ -->
+    <div style="margin-top: 16px;">
+      <div style="font-weight: 700; font-size: 0.88em; margin-bottom: 10px;">スクロール深度別 ドロップオフ（1〜2月 トップページ 890PV）</div>
+      <div class="scroll-chart">
+        <div class="scroll-row">
+          <div class="scroll-pct">5%</div>
+          <div class="scroll-bg"><div class="scroll-fill" style="width:58%; height:100%; background:#43a047; border-radius:4px;"></div></div>
+          <div class="scroll-count">519人</div>
+          <div class="scroll-drop" style="color:#e53935;">-41.7%</div>
+        </div>
+        <div class="scroll-row">
+          <div class="scroll-pct">10%</div>
+          <div class="scroll-bg"><div class="scroll-fill" style="width:46%; height:100%; background:#7cb342; border-radius:4px;"></div></div>
+          <div class="scroll-count">409人</div>
+          <div class="scroll-drop" style="color:#e53935;">-54%</div>
+        </div>
+        <div class="scroll-row">
+          <div class="scroll-pct">25%</div>
+          <div class="scroll-bg"><div class="scroll-fill" style="width:26%; height:100%; background:#fdd835; border-radius:4px;"></div></div>
+          <div class="scroll-count">236人</div>
+          <div class="scroll-drop" style="color:#e53935;">-73.5%</div>
+        </div>
+        <div class="scroll-row">
+          <div class="scroll-pct">50%</div>
+          <div class="scroll-bg"><div class="scroll-fill" style="width:20%; height:100%; background:#fb8c00; border-radius:4px;"></div></div>
+          <div class="scroll-count">174人</div>
+          <div class="scroll-drop" style="color:#e53935;">-80.5%</div>
+        </div>
+        <div class="scroll-row">
+          <div class="scroll-pct">75%</div>
+          <div class="scroll-bg"><div class="scroll-fill" style="width:13%; height:100%; background:#f4511e; border-radius:4px;"></div></div>
+          <div class="scroll-count">119人</div>
+          <div class="scroll-drop" style="color:#e53935;">-86.6%</div>
+        </div>
+        <div class="scroll-row">
+          <div class="scroll-pct">100%</div>
+          <div class="scroll-bg"><div class="scroll-fill" style="width:2%; height:100%; background:#b71c1c; border-radius:4px;"></div></div>
+          <div class="scroll-count">19人</div>
+          <div class="scroll-drop" style="color:#e53935;">-97.9%</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="alert-box critical" style="margin-top: 14px;">
+      <div class="a-icon">⚠️</div>
+      <div>
+        <strong>最重要LP問題:</strong> 890人のうち<strong>519人（58.3%）がスクロール5%以下で離脱</strong>しています。ファーストビューで心をつかめていない。広告費を上げても、このLPでは購入率が上がりにくい。<br>
+        <strong>→ InstagramAppからの流入が26.8%</strong>でモバイル最適化が不十分。LCP 3.86秒は改善必須（1秒遅くなるごとにCVRが7%低下するという研究あり）。
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px; font-size: 0.84em;">
+      <div style="background: #fff3e0; border-radius: 8px; padding: 12px 14px;">
+        <strong style="color: #e65100;">アクセス端末の内訳</strong><br>
+        MobileSafari（iPhone）: <strong>45.5%</strong><br>
+        InstagramApp内ブラウザ: <strong>26.8%</strong><br>
+        ChromeMobile: 9.1%<br>
+        Chrome（PC）: 6.5%<br>
+        Edge（PC）: 5.7%<br>
+        <span style="font-size:0.85em; color:#78909c; margin-top:4px; display:block;">→ スマホユーザーが<strong>80%超</strong></span>
+      </div>
+      <div style="background: #e8f5e9; border-radius: 8px; padding: 12px 14px;">
+        <strong style="color: #1b5e20;">改善で期待できる効果</strong><br>
+        LCP 3.86秒 → 2.5秒に改善: <strong>CVR +20〜30%</strong><br>
+        スクロール率改善（FV強化）: <strong>購入数+30〜50%</strong><br>
+        デッドクリック解消（8.83%）: <strong>離脱率改善</strong><br>
+        現状CVR 2.77% → 3.5〜4%に: <strong>+9〜11件/月</strong>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 5. 3月直近指標 ===== -->
+<div class="section">
+  <div class="sec-head teal">⑤ 3月 直近指標（3/1〜3/5） — 日別詳細</div>
+  <div class="sec-body">
+
+    <div class="alert-box critical" style="margin-bottom: 16px;">
+      <div class="a-icon">🚨</div>
+      <div>
+        <strong>緊急アラート: Meta費用が5日間で¥19,674（月換算¥122,000超）</strong><br>
+        このペースが続くと月予算12万円を3月14〜15日前後で使い切ります。今週中に日次上限設定が必要です。
+      </div>
+    </div>
+
+    <!-- 3/1 -->
+    <div class="march-day">
+      <div class="md-head normal">
+        <span>3月1日（日）</span>
+        <span style="font-size:0.8em; color:#78909c;">購入: 0件</span>
+      </div>
+      <div class="md-body">
+        <div class="md-item"><div class="mi-lbl">Meta費用</div><div class="mi-val warn">¥1,183</div></div>
+        <div class="md-item"><div class="mi-lbl">Meta imp</div><div class="mi-val">799</div></div>
+        <div class="md-item"><div class="mi-lbl">Meta CPM</div><div class="mi-val warn">¥1,481</div></div>
+        <div class="md-item"><div class="mi-lbl">Meta クリック</div><div class="mi-val">9</div></div>
+        <div class="md-item"><div class="mi-lbl">Meta CPC</div><div class="mi-val warn">¥131</div></div>
+        <div class="md-item"><div class="mi-lbl">Meta CTR</div><div class="mi-val">1.50%</div></div>
+        <div class="md-item"><div class="mi-lbl">Yahoo費用</div><div class="mi-val">¥514</div></div>
+        <div class="md-item"><div class="mi-lbl">Yahoo CPC</div><div class="mi-val">¥40</div></div>
+        <div class="md-item"><div class="mi-lbl">GA4 セッション</div><div class="mi-val down">24</div></div>
+      </div>
+    </div>
+
+    <!-- 3/2 -->
+    <div class="march-day">
+      <div class="md-head normal">
+        <span>3月2日（月）</span>
+        <span style="font-size:0.8em; color:#78909c;">購入: 0件</span>
+      </div>
+      <div class="md-body">
+        <div class="md-item"><div class="mi-lbl">Meta費用</div><div class="mi-val warn">¥1,105</div></div>
+        <div class="md-item"><div class="mi-lbl">Meta imp</div><div class="mi-val">533</div></div>
+        <div class="md-item"><div class="mi-lbl">Meta CPM</div><div class="mi-val down">¥2,073</div></div>
+        <div class="md-item"><div class="mi-lbl">Meta クリック</div><div class="mi-val">8</div></div>
+        <div class="md-item"><div class="mi-lbl">Meta CPC</div><div class="mi-val down">¥138</div></div>
+        <div class="md-item"><div class="mi-lbl">Meta CTR</div><div class="mi-val warn">1.69%</div></div>
+        <div class="md-item"><div class="mi-lbl">Yahoo費用</div><div class="mi-val">¥518</div></div>
+        <div class="md-item"><div class="mi-lbl">Yahoo CPC</div><div class="mi-val">¥40</div></div>
+        <div class="md-item"><div class="mi-lbl">GA4 セッション</div><div class="mi-val down">26</div></div>
+      </div>
+    </div>
+
+    <!-- 3/3 -->
+    <div class="march-day">
+      <div class="md-head purchase">
+        <span>3月3日（火）</span>
+        <span style="font-size:0.8em; color:#1b5e20; font-weight:800;">✅ 購入: 1件（カラーミーリピート）</span>
+      </div>
+      <div class="md-body">
+        <div class="md-item"><div class="mi-lbl">Meta費用</div><div class="mi-val up">¥2,679</div></div>
+        <div class="md-item"><div class="mi-lbl">Meta imp</div><div class="mi-val up">2,377</div></div>
+        <div class="md-item"><div class="mi-lbl">Meta CPM</div><div class="mi-val up">¥1,127</div></div>
+        <div class="md-item"><div class="mi-lbl">Meta クリック</div><div class="mi-val up">16</div></div>
+        <div class="md-item"><div class="mi-lbl">Meta CPC</div><div class="mi-val warn">¥167</div></div>
+        <div class="md-item"><div class="mi-lbl">Meta CTR</div><div class="mi-val">0.88%</div></div>
+        <div class="md-item"><div class="mi-lbl">Yahoo費用</div><div class="mi-val">¥843</div></div>
+        <div class="md-item"><div class="mi-lbl">Yahoo CPC</div><div class="mi-val">¥44</div></div>
+        <div class="md-item"><div class="mi-lbl">GA4 セッション</div><div class="mi-val up">51</div></div>
+      </div>
+    </div>
+
+    <!-- 3/4 -->
+    <div class="march-day">
+      <div class="md-head hot">
+        <span>3月4日（水）</span>
+        <span style="font-size:0.8em; color:#e65100; font-weight:800;">⚠️ 購入: 0件（費用急増）</span>
+      </div>
+      <div class="md-body">
+        <div class="md-item"><div class="mi-lbl">Meta費用</div><div class="mi-val down">¥5,831</div></div>
+        <div class="md-item"><div class="mi-lbl">Meta imp</div><div class="mi-val up">3,456</div></div>
+        <div class="md-item"><div class="mi-lbl">Meta CPM</div><div class="mi-val down">¥1,687</div></div>
+        <div class="md-item"><div class="mi-lbl">Meta クリック</div><div class="mi-val up">24</div></div>
+        <div class="md-item"><div class="mi-lbl">Meta CPC</div><div class="mi-val down">¥243</div></div>
+        <div class="md-item"><div class="mi-lbl">Meta CTR</div><div class="mi-val">1.48%</div></div>
+        <div class="md-item"><div class="mi-lbl">Yahoo費用</div><div class="mi-val">¥1,216</div></div>
+        <div class="md-item"><div class="mi-lbl">Yahoo CPC</div><div class="mi-val">¥47</div></div>
+        <div class="md-item"><div class="mi-lbl">GA4 セッション</div><div class="mi-val">51</div></div>
+      </div>
+    </div>
+
+    <!-- 3/5 -->
+    <div class="march-day" style="border-color: #1b5e20; border-width: 3px;">
+      <div class="md-head purchase">
+        <span>3月5日（木）🏆 最高記録</span>
+        <span style="font-size:0.8em; color:#1b5e20; font-weight:800;">✅ Meta購入3件 / GA4購入1件（¥1,980）</span>
+      </div>
+      <div class="md-body">
+        <div class="md-item"><div class="mi-lbl">Meta費用</div><div class="mi-val down">¥9,555</div></div>
+        <div class="md-item"><div class="mi-lbl">Meta imp</div><div class="mi-val up">4,284</div></div>
+        <div class="md-item"><div class="mi-lbl">Meta CPM</div><div class="mi-val down">¥2,230</div></div>
+        <div class="md-item"><div class="mi-lbl">Meta クリック</div><div class="mi-val up">36</div></div>
+        <div class="md-item"><div class="mi-lbl">Meta CPC</div><div class="mi-val down">¥265</div></div>
+        <div class="md-item"><div class="mi-lbl">Meta CTR</div><div class="mi-val">1.12%</div></div>
+        <div class="md-item"><div class="mi-lbl">Yahoo費用</div><div class="mi-val">¥1,018</div></div>
+        <div class="md-item"><div class="mi-lbl">Yahoo CPC</div><div class="mi-val up">¥39</div></div>
+        <div class="md-item"><div class="mi-lbl">GA4 セッション</div><div class="mi-val up">79</div></div>
+      </div>
+    </div>
+
+    <!-- 3月5日間サマリー -->
+    <div style="background: #f8f9fb; border-radius: var(--radius); padding: 18px; margin-top: 16px; border: 1px solid var(--border);">
+      <div style="font-weight: 700; font-size: 0.9em; margin-bottom: 12px;">3/1〜3/5 累計・平均</div>
+      <div class="kpi-row">
+        <div class="kpi">
+          <div class="k-lbl">Meta累計費用</div>
+          <div class="k-val red">¥20,353</div>
+          <div class="k-sub">月換算 ¥126,000</div>
+        </div>
+        <div class="kpi">
+          <div class="k-lbl">Yahoo累計費用</div>
+          <div class="k-val blue">¥4,109</div>
+          <div class="k-sub">月換算 ¥25,500</div>
+        </div>
+        <div class="kpi">
+          <div class="k-lbl">確認購入件数</div>
+          <div class="k-val orange">2件</div>
+          <div class="k-sub">EC:1 + GA4:1</div>
+        </div>
+        <div class="kpi">
+          <div class="k-lbl">Meta購入（Meta計上）</div>
+          <div class="k-val green">3件</div>
+          <div class="k-sub">3/5のみ</div>
+        </div>
+        <div class="kpi">
+          <div class="k-lbl">CPA（3/5のみ）</div>
+          <div class="k-val green">¥3,185</div>
+          <div class="k-sub">目標¥3,333以下 ✅</div>
+        </div>
+        <div class="kpi">
+          <div class="k-lbl">目標達成率</div>
+          <div class="k-val red">5.6%</div>
+          <div class="k-sub">2件/36件目標</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3月トレンド評価 -->
+    <div class="note warning" style="margin-top: 14px;">
+      <strong>3月のトレンド評価:</strong><br>
+      Meta費用が3/1: ¥1,183 → 3/5: ¥9,555と<strong>8倍に急増</strong>しています。費用増加に伴いインプレッション・クリックも増加しているのは良い兆候ですが、<strong>CPCが¥131〜¥265と高く</strong>、1月の良好期（¥60〜¥100）と比べて2〜4倍コストがかかっています。<br><br>
+      ただし<strong>3/5に初めて1日3件の購入を記録</strong>しており、費用増加で購入も出始めています。CPA ¥3,185は月目標CPA ¥3,333（12万÷36件）を下回っており、<strong>このCPAを維持できれば36件到達は可能</strong>です。
+    </div>
+  </div>
+</div>
+
+<!-- ===== 6. 指標の定義と目標値 ===== -->
+<div class="section">
+  <div class="sec-head gray">⑥ 各指標の定義・現状値・目標値 一覧</div>
+  <div class="sec-body">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th style="text-align:left;">指標名</th>
+          <th style="text-align:left;">意味</th>
+          <th>12月値</th>
+          <th>1月良好期</th>
+          <th>2月悪化期</th>
+          <th>3月直近<br>（3/1〜5）</th>
+          <th>目標値</th>
+          <th>判定</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Meta CPM（IG）</td>
+          <td style="text-align:left; font-size:0.82em;">1,000インプレッションあたりの費用。低いほど安くリーチできる</td>
+          <td style="color:#c62828;">¥3,000〜8,000</td>
+          <td style="color:#1b5e20;">¥630〜1,300</td>
+          <td style="color:#c62828;">¥1,400〜2,845</td>
+          <td style="color:#c62828;">¥1,127〜2,230</td>
+          <td><strong>¥1,000以下</strong></td>
+          <td style="text-align:center; color:#c62828;">✗ 高い</td>
+        </tr>
+        <tr>
+          <td>Meta CTR（IG）</td>
+          <td style="text-align:left; font-size:0.82em;">インプレッションのうちクリックされた割合。高いほど広告が刺さっている</td>
+          <td style="color:#c62828;">0.5〜4%</td>
+          <td style="color:#1b5e20;">1.0〜2.5%</td>
+          <td style="color:#c62828;">0.76〜2.0%</td>
+          <td style="color:#e65100;">0.88〜1.69%</td>
+          <td><strong>1.5%以上</strong></td>
+          <td style="text-align:center; color:#e65100;">△ 低め</td>
+        </tr>
+        <tr>
+          <td>Meta CPC（リンク）</td>
+          <td style="text-align:left; font-size:0.82em;">1クリックあたりの費用。低いほど効率的にLPに誘導できている</td>
+          <td style="color:#c62828;">¥200〜500</td>
+          <td style="color:#1b5e20;">¥60〜100</td>
+          <td style="color:#c62828;">¥57〜338</td>
+          <td style="color:#c62828;">¥131〜265</td>
+          <td><strong>¥100以下</strong></td>
+          <td style="text-align:center; color:#c62828;">✗ 高い</td>
+        </tr>
+        <tr>
+          <td>Yahoo CPC</td>
+          <td style="text-align:left; font-size:0.82em;">Yahoo検索広告の1クリック単価。検索ユーザーを何円でLPに誘導できるか</td>
+          <td>¥39〜70</td>
+          <td style="color:#1b5e20;">¥26〜44</td>
+          <td>¥37〜54</td>
+          <td style="color:#1b5e20;">¥39〜47</td>
+          <td><strong>¥50以下</strong></td>
+          <td style="text-align:center; color:#1b5e20;">✓ 良好</td>
+        </tr>
+        <tr>
+          <td>Yahoo CVR</td>
+          <td style="text-align:left; font-size:0.82em;">Yahoo広告からの購入率。3ヶ月の実測値</td>
+          <td colspan="3" style="text-align:center; color:#c62828;">0.52%（3ヶ月平均）</td>
+          <td>測定中</td>
+          <td><strong>1.0%以上</strong></td>
+          <td style="text-align:center; color:#c62828;">✗ 低い</td>
+        </tr>
+        <tr>
+          <td>Instagram CVR</td>
+          <td style="text-align:left; font-size:0.82em;">Instagram広告からの購入率。3ヶ月の実測値（GA4キーイベント）</td>
+          <td colspan="3" style="text-align:center; color:#1b5e20;">2.77%（3ヶ月平均）</td>
+          <td>3/5: 高い</td>
+          <td><strong>3.0%以上</strong></td>
+          <td style="text-align:center; color:#1b5e20;">✓ 良好</td>
+        </tr>
+        <tr>
+          <td>Meta 日次費用消化</td>
+          <td style="text-align:left; font-size:0.82em;">1日あたりMetaに実際に使った費用。目標は¥3,000〜4,000/日</td>
+          <td style="color:#c62828;">¥300〜900</td>
+          <td style="color:#1b5e20;">¥1,200〜1,700</td>
+          <td style="color:#c62828;">平均¥940</td>
+          <td style="color:#c62828;">¥1,105〜9,555</td>
+          <td><strong>¥3,500〜4,000</strong></td>
+          <td style="text-align:center; color:#e65100;">△ 不安定</td>
+        </tr>
+        <tr>
+          <td>LCP（表示速度）</td>
+          <td style="text-align:left; font-size:0.82em;">ページの最大コンテンツが表示されるまでの時間。速いほどCVRが高い</td>
+          <td colspan="4" style="text-align:center; color:#c62828;">3.86秒（Clarityより）</td>
+          <td><strong>2.5秒以下</strong></td>
+          <td style="text-align:center; color:#c62828;">✗ 遅い</td>
+        </tr>
+        <tr>
+          <td>スクロール深度50%</td>
+          <td style="text-align:left; font-size:0.82em;">LPの半分まで読んだユーザーの割合。高いほどコンテンツが刺さっている</td>
+          <td colspan="4" style="text-align:center; color:#c62828;">19.5%（890人中174人）</td>
+          <td><strong>40%以上</strong></td>
+          <td style="text-align:center; color:#c62828;">✗ 低い</td>
+        </tr>
+        <tr class="total-row">
+          <td>月次CPA（目標）</td>
+          <td style="text-align:left; font-size:0.82em;">1件購入を獲得するための広告費。月12万÷36件</td>
+          <td>—</td>
+          <td style="color:#1b5e20;">推定低い</td>
+          <td>—</td>
+          <td style="color:#1b5e20;">¥3,185（3/5）</td>
+          <td><strong>¥3,333以下</strong></td>
+          <td style="text-align:center; color:#1b5e20;">✅ 3/5は達成</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ===== 7. 3月残り戦略 ===== -->
+<div class="section">
+  <div class="sec-head green">⑦ 3月 残り25日で36件達成するための 優先アクション</div>
+  <div class="sec-body">
+
+    <div class="kpi-row" style="margin-bottom: 18px;">
+      <div class="kpi">
+        <div class="k-lbl">残り日数</div>
+        <div class="k-val blue">25日</div>
+      </div>
+      <div class="kpi">
+        <div class="k-lbl">必要追加購入数</div>
+        <div class="k-val red">34件</div>
+      </div>
+      <div class="kpi">
+        <div class="k-lbl">必要日次購入</div>
+        <div class="k-val orange">1.4件/日</div>
+      </div>
+      <div class="kpi">
+        <div class="k-lbl">目標CPA</div>
+        <div class="k-val blue">¥3,333</div>
+        <div class="k-sub">12万÷36件</div>
+      </div>
+      <div class="kpi">
+        <div class="k-lbl">3/5実績CPA</div>
+        <div class="k-val green">¥3,185</div>
+        <div class="k-sub">目標内 ✅</div>
+      </div>
+    </div>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th style="width:30px;">#</th>
+          <th style="text-align:left;">アクション</th>
+          <th style="text-align:left; width:80px;">対象</th>
+          <th style="text-align:left;">具体的な内容</th>
+          <th style="width:70px;">期限</th>
+          <th style="width:70px;">優先度</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="text-align:center; font-weight:900; color:#b71c1c;">1</td>
+          <td style="text-align:left; font-weight:700;">Meta日次上限を設定</td>
+          <td style="text-align:left;">Meta</td>
+          <td style="text-align:left;">3/5に¥9,555消化。このペースだと12〜14日で予算枯渇。<strong>¥3,500〜4,000/日の上限を設定し31日間稼働させる</strong></td>
+          <td style="text-align:center;"><span style="background:#ffebee; color:#c62828; padding:2px 8px; border-radius:10px; font-size:0.8em; font-weight:700;">今すぐ</span></td>
+          <td style="text-align:center;"><span style="background:#ffebee; color:#c62828; padding:2px 8px; border-radius:10px; font-size:0.8em; font-weight:700;">最優先</span></td>
+        </tr>
+        <tr>
+          <td style="text-align:center; font-weight:900; color:#b71c1c;">2</td>
+          <td style="text-align:left; font-weight:700;">「価格訴求-口コミ版」主力に</td>
+          <td style="text-align:left;">Meta</td>
+          <td style="text-align:left;">1月〜2月前半の購入集中期は口コミ版主体。「悩み訴求」は2/25追加後から失速。<strong>口コミ版を主力に戻し、悩み訴求は学習完了（3月中旬）まで抑制</strong></td>
+          <td style="text-align:center;"><span style="background:#ffebee; color:#c62828; padding:2px 8px; border-radius:10px; font-size:0.8em; font-weight:700;">今週中</span></td>
+          <td style="text-align:center;"><span style="background:#ffebee; color:#c62828; padding:2px 8px; border-radius:10px; font-size:0.8em; font-weight:700;">最優先</span></td>
+        </tr>
+        <tr>
+          <td style="text-align:center; font-weight:900; color:#e65100;">3</td>
+          <td style="text-align:left; font-weight:700;">CPM¥1,000以下になるようターゲット調整</td>
+          <td style="text-align:left;">Meta</td>
+          <td style="text-align:left;">現在CPM¥1,127〜2,230。1月良好期はCPM¥630〜1,300。<strong>ターゲット年齢幅の見直し・類似オーディエンス追加でCPMを下げる</strong></td>
+          <td style="text-align:center;"><span style="background:#fff3e0; color:#e65100; padding:2px 8px; border-radius:10px; font-size:0.8em; font-weight:700;">今週中</span></td>
+          <td style="text-align:center;"><span style="background:#fff3e0; color:#e65100; padding:2px 8px; border-radius:10px; font-size:0.8em; font-weight:700;">高</span></td>
+        </tr>
+        <tr>
+          <td style="text-align:center; font-weight:900; color:#e65100;">4</td>
+          <td style="text-align:left; font-weight:700;">Yahoo CVR改善（KW絞り込み）</td>
+          <td style="text-align:left;">Yahoo</td>
+          <td style="text-align:left;">3ヶ月で「シリカ水」KWに10,525インプレ・466クリック・購入0件。<strong>「ミチルシリカ」「ミチル水」等ブランドKWに絞り、CVR 5〜7%のKWに予算集中</strong></td>
+          <td style="text-align:center;"><span style="background:#fff3e0; color:#e65100; padding:2px 8px; border-radius:10px; font-size:0.8em; font-weight:700;">今週中</span></td>
+          <td style="text-align:center;"><span style="background:#fff3e0; color:#e65100; padding:2px 8px; border-radius:10px; font-size:0.8em; font-weight:700;">高</span></td>
+        </tr>
+        <tr>
+          <td style="text-align:center; font-weight:600; color:#1a237e;">5</td>
+          <td style="text-align:left; font-weight:700;">LPのFV（ファーストビュー）強化</td>
+          <td style="text-align:left;">LP</td>
+          <td style="text-align:left;">スクロール5%以下離脱が41.7%。ファーストビューの文言・画像・CTAボタンを見直し。<strong>LCP 3.86秒→2.5秒への改善で購入率+20〜30%が見込まれる</strong></td>
+          <td style="text-align:center;"><span style="background:#e3f2fd; color:#1a237e; padding:2px 8px; border-radius:10px; font-size:0.8em; font-weight:700;">来週</span></td>
+          <td style="text-align:center;"><span style="background:#e3f2fd; color:#1a237e; padding:2px 8px; border-radius:10px; font-size:0.8em; font-weight:700;">中</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="note success" style="margin-top: 16px;">
+      <strong>結論:</strong> 3/5の実績（CPA ¥3,185）が毎日続けば数字上36件は達成可能です。<br>
+      カギは① <strong>Meta予算の安定消化（日次上限設定）</strong>と② <strong>購入実績のある口コミ版クリエイティブへの回帰</strong>の2点です。<br>
+      LPのスクロール深度が平均23.5%と低く、コンテンツを読んでもらえていないことも改善余地が大きいです。
+    </div>
+  </div>
+</div>
+
+<div style="text-align:center; padding: 20px; color: #90a4ae; font-size: 0.8em;">
+  ミチルシリカ 3ヶ月データ総合分析 | 2026年3月6日作成
+</div>
+
+</div>
+</body>
+</html>
