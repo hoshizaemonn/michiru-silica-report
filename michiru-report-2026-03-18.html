@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ミチルシリカ 進捗レポート | 2026年3月18日</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --primary: #0d47a1;
+            --primary-light: #1976d2;
+            --success: #2e7d32;
+            --success-light: #4caf50;
+            --warning: #ef6c00;
+            --danger: #c62828;
+            --text: #263238;
+            --text-light: #546e7a;
+            --bg: #f5f7fa;
+            --card-bg: #ffffff;
+            --border: #e0e4e8;
+            --radius: 12px;
+            --shadow: 0 2px 12px rgba(0,0,0,0.06);
+            --shadow-lg: 0 8px 30px rgba(0,0,0,0.1);
+        }
+
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--bg);
+            padding: 30px 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* ===== ヘッダー ===== */
+        .report-header {
+            background: linear-gradient(135deg, #0d47a1 0%, #1565c0 50%, #1976d2 100%);
+            color: white;
+            padding: 50px 40px;
+            border-radius: var(--radius);
+            margin-bottom: 30px;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+        .report-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 300px;
+            height: 300px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+        }
+        .report-header h1 {
+            font-size: 2em;
+            font-weight: 800;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+        .report-header .subtitle {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        .report-header .meta {
+            margin-top: 16px;
+            font-size: 0.9em;
+            opacity: 0.75;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        /* ===== セクション共通 ===== */
+        .section {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            margin-bottom: 24px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+        .section-header {
+            padding: 20px 28px;
+            font-size: 1.2em;
+            font-weight: 700;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .section-header.blue { background: linear-gradient(135deg, var(--primary), var(--primary-light)); }
+        .section-header.green { background: linear-gradient(135deg, var(--success), var(--success-light)); }
+        .section-header.orange { background: linear-gradient(135deg, #e65100, var(--warning)); }
+        .section-header.purple { background: linear-gradient(135deg, #4a148c, #7b1fa2); }
+        .section-header.teal { background: linear-gradient(135deg, #00695c, #00897b); }
+        .section-body {
+            padding: 28px;
+        }
+
+        /* ===== 購入件数ヒーロー ===== */
+        .purchase-hero {
+            background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 50%, #43a047 100%);
+            color: white;
+            padding: 40px;
+            border-radius: var(--radius);
+            margin-bottom: 24px;
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+        .purchase-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -40%;
+            left: -5%;
+            width: 200px;
+            height: 200px;
+            background: rgba(255,255,255,0.04);
+            border-radius: 50%;
+        }
+        .ph-label {
+            font-size: 1em;
+            opacity: 0.85;
+            letter-spacing: 2px;
+            margin-bottom: 4px;
+        }
+        .ph-period {
+            font-size: 0.9em;
+            opacity: 0.7;
+            margin-bottom: 16px;
+        }
+        .ph-number {
+            font-size: 5em;
+            font-weight: 900;
+            line-height: 1;
+        }
+        .ph-unit {
+            font-size: 1.2em;
+            opacity: 0.85;
+            margin-top: 4px;
+        }
+        .ph-change {
+            margin-top: 12px;
+            font-size: 0.95em;
+            opacity: 0.9;
+        }
+        .ph-change .down { color: #ef9a9a; font-weight: 700; }
+        .purchase-breakdown {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 24px;
+        }
+        .pb-item {
+            text-align: center;
+        }
+        .pb-value {
+            font-size: 2.8em;
+            font-weight: 900;
+        }
+        .pb-label {
+            font-size: 0.85em;
+            opacity: 0.8;
+        }
+
+        /* ===== サマリーカード ===== */
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        .summary-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 24px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border-top: 4px solid var(--primary);
+        }
+        .summary-card.green-border { border-top-color: var(--success); }
+        .summary-card.orange-border { border-top-color: var(--warning); }
+        .summary-card.red-border { border-top-color: var(--danger); }
+        .summary-card .sc-label {
+            font-size: 0.85em;
+            color: var(--text-light);
+            margin-bottom: 8px;
+        }
+        .summary-card .sc-value {
+            font-size: 2.2em;
+            font-weight: 900;
+        }
+        .summary-card .sc-value.blue { color: var(--primary); }
+        .summary-card .sc-value.green { color: var(--success); }
+        .summary-card .sc-value.orange { color: var(--warning); }
+        .summary-card .sc-value.red { color: var(--danger); }
+        .summary-card .sc-sub {
+            font-size: 0.8em;
+            color: var(--text-light);
+            margin-top: 6px;
+        }
+
+        /* ===== タスクテーブル ===== */
+        .task-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9em;
+        }
+        .task-table thead {
+            background: #263238;
+            color: white;
+        }
+        .task-table th {
+            padding: 12px 14px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.85em;
+            letter-spacing: 0.5px;
+        }
+        .task-table td {
+            padding: 12px 14px;
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+        }
+        .task-table tbody tr:hover {
+            background: #f5f8ff;
+        }
+
+        /* ステータスバッジ */
+        .badge {
+            display: inline-block;
+            padding: 3px 12px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+        .badge-done { background: #e8f5e9; color: var(--success); }
+        .badge-progress { background: #e3f2fd; color: var(--primary); }
+        .badge-pending { background: #fafafa; color: #999; border: 1px solid #e0e0e0; }
+        .badge-new { background: #fce4ec; color: #c62828; }
+
+        .row-done { background: #fafff9; }
+        .row-progress { background: #f8fbff; }
+        .row-new { background: #fff8f8; }
+
+        /* ===== タスクカテゴリ ===== */
+        .task-category {
+            margin-bottom: 24px;
+        }
+        .task-category-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 18px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.95em;
+            margin-bottom: 8px;
+        }
+        .tc-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 900;
+            font-size: 0.85em;
+            flex-shrink: 0;
+        }
+
+        /* ===== 比較ボックス ===== */
+        .compare-row {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 16px;
+            align-items: center;
+            margin: 16px 0;
+        }
+        .compare-box {
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .compare-box.good {
+            background: #f0f8f0;
+            border: 2px solid var(--success);
+        }
+        .compare-box.bad {
+            background: #fff5f5;
+            border: 2px solid var(--danger);
+        }
+        .compare-box .cb-label {
+            font-size: 0.8em;
+            color: var(--text-light);
+            margin-bottom: 4px;
+        }
+        .compare-box .cb-name {
+            font-size: 1.1em;
+            font-weight: 900;
+            margin-bottom: 8px;
+        }
+        .compare-box .cb-value {
+            font-size: 1.5em;
+            font-weight: 900;
+        }
+        .compare-box .cb-sub {
+            font-size: 0.85em;
+            color: var(--text-light);
+            margin-top: 6px;
+        }
+        .compare-vs {
+            font-size: 1.4em;
+            font-weight: 900;
+            color: #999;
+        }
+
+        /* ===== ノートボックス ===== */
+        .note-box {
+            padding: 16px 20px;
+            border-radius: 8px;
+            font-size: 0.9em;
+            line-height: 1.7;
+            margin: 12px 0;
+        }
+        .note-box.success {
+            background: #e8f5e9;
+            border-left: 4px solid var(--success);
+        }
+        .note-box.info {
+            background: #e3f2fd;
+            border-left: 4px solid var(--primary);
+        }
+        .note-box.warning {
+            background: #fff3e0;
+            border-left: 4px solid var(--warning);
+        }
+        .note-box.danger {
+            background: #ffebee;
+            border-left: 4px solid var(--danger);
+        }
+
+        /* ===== フローチャート ===== */
+        .flow-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: stretch;
+            gap: 12px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        .flow-step {
+            flex: 1;
+            min-width: 160px;
+            background: var(--card-bg);
+            border: 2px solid var(--border);
+            border-radius: 10px;
+            padding: 18px 14px;
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .flow-step:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+        .flow-step.active {
+            border-color: var(--primary);
+            background: #f0f5ff;
+        }
+        .flow-step.done {
+            border-color: var(--success);
+            background: #f0fff0;
+        }
+        .flow-step .fs-icon {
+            font-size: 1.8em;
+            margin-bottom: 8px;
+        }
+        .flow-step .fs-title {
+            font-weight: 700;
+            font-size: 0.9em;
+            margin-bottom: 6px;
+        }
+        .flow-step .fs-desc {
+            font-size: 0.8em;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+        .flow-step .fs-badge {
+            display: inline-block;
+            margin-top: 8px;
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 0.7em;
+            font-weight: 700;
+        }
+        .flow-step .fs-badge.done { background: #c8e6c9; color: #1b5e20; }
+        .flow-step .fs-badge.active { background: #bbdefb; color: #0d47a1; }
+        .flow-step .fs-badge.pending { background: #f5f5f5; color: #999; }
+        .flow-arrow {
+            display: flex;
+            align-items: center;
+            font-size: 1.4em;
+            color: #bbb;
+            font-weight: 900;
+        }
+
+        /* ===== 施策準備カード ===== */
+        .prep-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 18px;
+        }
+        .prep-card {
+            border: 2px solid var(--border);
+            border-radius: var(--radius);
+            padding: 22px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+        }
+        .prep-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+        .prep-card .pc-status {
+            font-size: 0.75em;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+        .prep-card .pc-status.ready { color: var(--success); }
+        .prep-card .pc-status.wip { color: var(--primary); }
+        .prep-card .pc-status.planning { color: var(--warning); }
+        .prep-card .pc-title {
+            font-size: 1.05em;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .prep-card .pc-desc {
+            font-size: 0.85em;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+        .prep-card .pc-highlight {
+            margin-top: 12px;
+            padding: 10px 14px;
+            background: #f5f8ff;
+            border-radius: 8px;
+            font-size: 0.85em;
+            border-left: 3px solid var(--primary);
+        }
+        .prep-card.ready-card {
+            border-color: var(--success);
+            background: linear-gradient(135deg, #f9fff9, #ffffff);
+        }
+        .prep-card.ready-card .pc-highlight {
+            background: #f0f8f0;
+            border-left-color: var(--success);
+        }
+
+        @media (max-width: 900px) {
+            .summary-grid { grid-template-columns: 1fr 1fr; }
+            .compare-row { grid-template-columns: 1fr; }
+            .compare-vs { text-align: center; }
+            .flow-container { flex-direction: column; }
+            .flow-arrow { justify-content: center; }
+            .container { padding: 16px; }
+            .prep-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- ===== ヘッダー ===== -->
+    <div class="report-header">
+        <h1>ミチルシリカ 進捗レポート</h1>
+        <div class="subtitle">前回会議（3/3）からの進捗報告</div>
+        <div class="meta">
+            <span>会議日: 2026年3月18日</span>
+            <span>前回会議: 2026年3月3日</span>
+        </div>
+    </div>
+
+    <!-- ===== 1. 購入件数 ===== -->
+    <div class="purchase-hero">
+        <div class="ph-label">購入件数</div>
+        <div class="ph-period">2026年3月3日 〜 3月17日（15日間）</div>
+        <div class="ph-number">4</div>
+        <div class="ph-unit">件</div>
+        <div class="ph-change"></div>
+        <div class="purchase-breakdown">
+            <div class="pb-item">
+                <div class="pb-value">2</div>
+                <div class="pb-label">Instagram経由</div>
+            </div>
+            <div class="pb-item">
+                <div class="pb-value">2</div>
+                <div class="pb-label">Google検索経由</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== サマリーKPI ===== -->
+    <div class="summary-grid">
+        <div class="summary-card">
+            <div class="sc-label">広告費/日（設定予算）</div>
+            <div class="sc-value blue">¥4,000</div>
+            <div class="sc-sub">Meta ¥3,000/日 + Yahoo ¥1,000/日</div>
+        </div>
+        <div class="summary-card green-border">
+            <div class="sc-label">リンククリック/日</div>
+            <div class="sc-value green">84</div>
+            <div class="sc-sub">3/15: 79件 / 3/16: 89件<br>Meta 60 + Yahoo 24</div>
+        </div>
+        <div class="summary-card orange-border">
+            <div class="sc-label">Meta CPC（直近）</div>
+            <div class="sc-value orange">¥78</div>
+            <div class="sc-sub">3/14: ¥59 → 3/15: ¥71 → 3/16: ¥78<br>上昇傾向</div>
+        </div>
+        <div class="summary-card">
+            <div class="sc-label">クリエイティブ</div>
+            <div class="sc-value blue">5+3</div>
+            <div class="sc-sub">配信中5本 + 制作中3本<br>（のむシリカ風・肌・膝関節）</div>
+        </div>
+    </div>
+
+    <!-- ===== 2. 実施した施策の報告 ===== -->
+    <div class="section">
+        <div class="section-header blue">実施した施策（3/3〜3/17）</div>
+        <div class="section-body">
+
+            <!-- ===== 施策1: 現在稼働中のLP ===== -->
+            <div class="task-category">
+                <div class="task-category-header" style="background: #e8f5e9; color: #2e7d32;">
+                    <div class="tc-icon" style="background: #2e7d32;">1</div>
+                    現在稼働中のLP
+                </div>
+
+                <!-- LP リンクカード -->
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px;">
+                    <a href="https://michiru.olivia-store.com/" target="_blank"
+                       style="display: block; padding: 24px; background: linear-gradient(135deg, #f3e5f5, #fff); border: 2px solid #9c27b0; border-radius: 12px; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s;"
+                       onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 6px 20px rgba(156,39,176,0.25)';"
+                       onmouseout="this.style.transform='none'; this.style.boxShadow='none';">
+                        <div style="font-size: 0.75em; color: #9c27b0; font-weight: 700; letter-spacing: 1px; margin-bottom: 6px;">META広告（Instagram）用</div>
+                        <div style="font-size: 1.1em; font-weight: 900; color: #4a148c; margin-bottom: 6px;">ミチルシリカ LP</div>
+                        <div style="font-size: 0.82em; color: #7b1fa2;">michiru.olivia-store.com</div>
+                        <div style="font-size: 0.78em; color: var(--text-light); margin-top: 8px;">日予算 ¥3,000 / page-water-ig1.php</div>
+                    </a>
+                    <a href="https://michiru.olivia-store.com/yahoo/" target="_blank"
+                       style="display: block; padding: 24px; background: linear-gradient(135deg, #fff3e0, #fff); border: 2px solid #FF5722; border-radius: 12px; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s;"
+                       onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 6px 20px rgba(255,87,34,0.25)';"
+                       onmouseout="this.style.transform='none'; this.style.boxShadow='none';">
+                        <div style="font-size: 0.75em; color: #FF5722; font-weight: 700; letter-spacing: 1px; margin-bottom: 6px;">YAHOO広告用</div>
+                        <div style="font-size: 1.1em; font-weight: 900; color: #bf360c; margin-bottom: 6px;">ミチルシリカ LP（Yahoo版）</div>
+                        <div style="font-size: 0.82em; color: #e64a19;">michiru.olivia-store.com/yahoo/</div>
+                        <div style="font-size: 0.78em; color: var(--text-light); margin-top: 8px;">日予算 ¥1,000 / page-water-yahoo.php</div>
+                    </a>
+                </div>
+
+                <table class="task-table">
+                    <thead>
+                        <tr>
+                            <th>タスク</th>
+                            <th style="width: 90px;">ステータス</th>
+                            <th style="width: 350px;">対応内容・結果</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="row-done">
+                            <td>LP高速化（3/11実施）</td>
+                            <td><span class="badge badge-done">完了</span></td>
+                            <td>PNG画像94枚をWebPに一括変換（<strong style="color: var(--success);">17.1MB → 6.5MB、70%削減</strong>）。PageSpeed 56→79点、LCP 6.2秒→4.1秒に改善</td>
+                        </tr>
+                        <tr class="row-done">
+                            <td>計測タグ整備</td>
+                            <td><span class="badge badge-done">完了</span></td>
+                            <td>PixelYourSiteプラグイン除去（二重Pixel解消）。GTM・GA4・Google Ads・FB Pixel すべて正常稼働を確認</td>
+                        </tr>
+                        <tr class="row-done">
+                            <td>キャッシュ・最適化設定</td>
+                            <td><span class="badge badge-done">完了</span></td>
+                            <td>.htaccessでブラウザキャッシュ設定（画像1年・CSS/JS1ヶ月）。Flatsome不要JS/CSSをLP上でdequeue</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- LP改善ビフォーアフター比較 -->
+                <div style="margin-top: 16px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px;">
+                    <div style="padding: 20px; background: #f0fdf4; border-radius: 10px; text-align: center; border: 2px solid #a5d6a7;">
+                        <div style="font-size: 0.8em; color: var(--text-light); margin-bottom: 6px;">PageSpeed スコア</div>
+                        <div style="font-size: 1.5em; color: var(--danger); font-weight: 700; text-decoration: line-through;">56</div>
+                        <div style="font-size: 0.9em; margin: 4px 0;">↓</div>
+                        <div style="font-size: 2em; color: var(--success); font-weight: 900;">79</div>
+                        <div style="font-size: 0.8em; color: var(--success); font-weight: 700; margin-top: 4px;">+23ポイント</div>
+                    </div>
+                    <div style="padding: 20px; background: #f0fdf4; border-radius: 10px; text-align: center; border: 2px solid #a5d6a7;">
+                        <div style="font-size: 0.8em; color: var(--text-light); margin-bottom: 6px;">LCP（表示速度）</div>
+                        <div style="font-size: 1.5em; color: var(--danger); font-weight: 700; text-decoration: line-through;">6.2秒</div>
+                        <div style="font-size: 0.9em; margin: 4px 0;">↓</div>
+                        <div style="font-size: 2em; color: var(--success); font-weight: 900;">4.1秒</div>
+                        <div style="font-size: 0.8em; color: var(--success); font-weight: 700; margin-top: 4px;">-2.1秒短縮</div>
+                    </div>
+                    <div style="padding: 20px; background: #f0fdf4; border-radius: 10px; text-align: center; border: 2px solid #a5d6a7;">
+                        <div style="font-size: 0.8em; color: var(--text-light); margin-bottom: 6px;">画像合計容量</div>
+                        <div style="font-size: 1.5em; color: var(--danger); font-weight: 700; text-decoration: line-through;">17.1MB</div>
+                        <div style="font-size: 0.9em; margin: 4px 0;">↓</div>
+                        <div style="font-size: 2em; color: var(--success); font-weight: 900;">6.5MB</div>
+                        <div style="font-size: 0.8em; color: var(--success); font-weight: 700; margin-top: 4px;">-62%削減</div>
+                    </div>
+                </div>
+
+                <div class="note-box success" style="margin-top: 14px;">
+                    <strong>LP改善の意義</strong><br>
+                    <div style="font-size: 0.88em; margin-top: 6px; line-height: 1.8;">
+                        表示速度の改善は<strong>直帰率の低下・CVR向上</strong>に直結します。特にInstagram広告経由のユーザーは「なんとなくクリック」が多いため、<strong>表示が遅いと即離脱</strong>する傾向が強い。<br>
+                        LCP 6.2秒→4.1秒の改善で、モバイルユーザーの離脱率低下が期待できます。また計測タグの二重発火が解消されたことで、<strong>正確なデータに基づく広告最適化</strong>が可能になりました。
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== 施策2: Meta広告パフォーマンス ===== -->
+            <div class="task-category">
+                <div class="task-category-header" style="background: #fff3e0; color: #e65100;">
+                    <div class="tc-icon" style="background: #e65100;">2</div>
+                    Meta広告 パフォーマンス分析（3/14〜3/16）
+                </div>
+                <table class="task-table">
+                    <thead>
+                        <tr>
+                            <th>タスク</th>
+                            <th style="width: 90px;">ステータス</th>
+                            <th style="width: 350px;">対応内容・結果</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="row-done">
+                            <td>予算増額の実施</td>
+                            <td><span class="badge badge-done">完了</span></td>
+                            <td>前回会議で決定した<strong>1日4,000円（Meta ¥3,000 + Yahoo ¥1,000）</strong>を設定・運用中</td>
+                        </tr>
+                        <tr class="row-done">
+                            <td>広告セット別パフォーマンス分析</td>
+                            <td><span class="badge badge-done">結果あり</span></td>
+                            <td><strong style="color: var(--success);">Facebook面の価格訴求がCPC ¥20と圧倒的高効率</strong>であることを発見。IG比で1/3以下のコスト</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- FB vs IG 比較 -->
+                <div class="compare-row" style="margin-top: 16px;">
+                    <div class="compare-box good">
+                        <div class="cb-label" style="font-weight: 700; color: var(--success);">Facebook 価格訴求</div>
+                        <div class="cb-name">CPC ¥20 / CTR 9.3%</div>
+                        <div class="cb-value" style="color: var(--success); font-size: 1.8em;">¥20</div>
+                        <div class="cb-sub">
+                            費用 ¥102 / クリック 5回<br>
+                            圧倒的な効率
+                        </div>
+                    </div>
+                    <div class="compare-vs">vs</div>
+                    <div class="compare-box bad">
+                        <div class="cb-label" style="font-weight: 700; color: var(--danger);">Instagram 定期便</div>
+                        <div class="cb-name">CPC ¥112 / CTR 3.2%</div>
+                        <div class="cb-value" style="color: var(--danger); font-size: 1.8em;">¥112</div>
+                        <div class="cb-sub">
+                            費用 ¥1,228 / クリック 11回<br>
+                            前日¥74から急騰（+51%）
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 広告セット詳細テーブル -->
+                <div style="margin-top: 16px; padding: 20px; background: #f8f9fa; border-radius: 10px; border: 1px solid var(--border);">
+                    <div style="font-weight: 700; font-size: 0.95em; margin-bottom: 12px;">広告セット別詳細（3/16時点）</div>
+                    <table class="task-table" style="font-size: 0.85em;">
+                        <thead>
+                            <tr>
+                                <th style="text-align: left;">広告セット</th>
+                                <th style="text-align: left;">面</th>
+                                <th style="text-align: right;">費用</th>
+                                <th style="text-align: right;">クリック</th>
+                                <th style="text-align: right;">CPC</th>
+                                <th style="text-align: right;">CTR</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="background: #f0fff0;">
+                                <td><strong>価格訴求</strong></td>
+                                <td><strong style="color: var(--primary);">FB</strong></td>
+                                <td style="text-align: right;">¥102</td>
+                                <td style="text-align: right;">5</td>
+                                <td style="text-align: right; color: var(--success); font-weight: 900;">¥20</td>
+                                <td style="text-align: right; color: var(--success); font-weight: 900;">9.3%</td>
+                            </tr>
+                            <tr style="background: #f0fff0;">
+                                <td><strong>悩み訴求</strong></td>
+                                <td><strong style="color: var(--primary);">FB</strong></td>
+                                <td style="text-align: right;">¥31</td>
+                                <td style="text-align: right;">3</td>
+                                <td style="text-align: right; color: var(--success); font-weight: 900;">¥10</td>
+                                <td style="text-align: right; color: var(--success); font-weight: 900;">25.0%</td>
+                            </tr>
+                            <tr>
+                                <td>価格訴求</td>
+                                <td style="color: #833ab4;">IG</td>
+                                <td style="text-align: right;">¥1,479</td>
+                                <td style="text-align: right;">22</td>
+                                <td style="text-align: right;">¥67</td>
+                                <td style="text-align: right;">5.1%</td>
+                            </tr>
+                            <tr>
+                                <td>日常-B</td>
+                                <td style="color: #833ab4;">IG</td>
+                                <td style="text-align: right;">¥765</td>
+                                <td style="text-align: right;">9</td>
+                                <td style="text-align: right;">¥85</td>
+                                <td style="text-align: right;">6.5%</td>
+                            </tr>
+                            <tr>
+                                <td>悩み訴求</td>
+                                <td style="color: #833ab4;">IG</td>
+                                <td style="text-align: right;">¥652</td>
+                                <td style="text-align: right;">8</td>
+                                <td style="text-align: right;">¥82</td>
+                                <td style="text-align: right;">4.9%</td>
+                            </tr>
+                            <tr style="background: #fff5f5;">
+                                <td><strong>定期便</strong></td>
+                                <td style="color: #833ab4;">IG</td>
+                                <td style="text-align: right;">¥1,228</td>
+                                <td style="text-align: right;">11</td>
+                                <td style="text-align: right; color: var(--danger); font-weight: 700;">¥112</td>
+                                <td style="text-align: right; color: var(--danger);">3.2%</td>
+                            </tr>
+                            <tr style="background: #fff5f5;">
+                                <td><strong>日常-A</strong></td>
+                                <td style="color: #833ab4;">IG</td>
+                                <td style="text-align: right;">¥317</td>
+                                <td style="text-align: right;">2</td>
+                                <td style="text-align: right; color: var(--danger); font-weight: 700;">¥159</td>
+                                <td style="text-align: right;">4.8%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="note-box success" style="margin-top: 14px;">
+                    <strong>発見: Facebook面のポテンシャル</strong><br>
+                    <div style="font-size: 0.88em; margin-top: 6px; line-height: 1.8;">
+                        Facebook面の価格訴求がCPC ¥20（IG価格訴求 ¥67の1/3以下）・CTR 9.3%と圧倒的に効率的。<br>
+                        悩み訴求もFBではCPC ¥10・CTR 25%（少量だが注目）。<strong>FB配信比率の引き上げを検討すべき。</strong>
+                    </div>
+                </div>
+
+                <div class="note-box danger" style="margin-top: 10px;">
+                    <strong>課題: 定期便（IG）のCPC高騰</strong><br>
+                    <div style="font-size: 0.88em; margin-top: 6px; line-height: 1.8;">
+                        定期便（IG）のCPCが¥74→¥112に急騰（+51%）。CTRも3.2%と低下。<strong>クリエイティブ疲労の可能性が高い。</strong><br>
+                        → 新台本B1（定期便定着・3ヶ月チャレンジ）で素材差替えを実施予定。
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== 施策3: 購入者分析 ===== -->
+            <div class="task-category">
+                <div class="task-category-header" style="background: #e8f5e9; color: #2e7d32;">
+                    <div class="tc-icon" style="background: #2e7d32;">3</div>
+                    3/15 購入者の分析
+                </div>
+                <table class="task-table">
+                    <thead>
+                        <tr>
+                            <th>タスク</th>
+                            <th style="width: 90px;">ステータス</th>
+                            <th style="width: 350px;">対応内容・結果</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="row-done">
+                            <td>購入者のGA4流入経路分析</td>
+                            <td><span class="badge badge-done">分析済</span></td>
+                            <td>3/15 22:06に定期便初回注文（¥1,980）。GA4上の流入は<strong>Google自然検索</strong>。「ミチルシリカ」ブランド指名検索のため、<strong>広告で認知→後日指名検索で購入</strong>の可能性大</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- 購入詳細カード -->
+                <div style="margin-top: 16px; padding: 20px; background: #f0fdf4; border-radius: 10px; border: 2px solid #a5d6a7;">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                        <div>
+                            <div style="font-size: 0.8em; color: var(--text-light); margin-bottom: 2px;">商品</div>
+                            <div style="font-weight: 700;">ミチルシリカ 525ml x 40本ケース</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 0.8em; color: var(--text-light); margin-bottom: 2px;">注文タイプ</div>
+                            <div style="font-weight: 700;">定期便 初回（2ヶ月サイクル）</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 0.8em; color: var(--text-light); margin-bottom: 2px;">決済金額</div>
+                            <div style="font-weight: 700;">¥1,980（クーポン適用 / 定価¥3,960）</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 0.8em; color: var(--text-light); margin-bottom: 2px;">決済方法</div>
+                            <div style="font-weight: 700;">PayPal</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GA4トラフィック -->
+                <div style="margin-top: 14px; padding: 20px; background: #f8f9fa; border-radius: 10px; border: 1px solid var(--border);">
+                    <div style="font-weight: 700; font-size: 0.95em; margin-bottom: 12px;">GA4トラフィック（3/15）</div>
+                    <table class="task-table" style="font-size: 0.85em;">
+                        <thead>
+                            <tr>
+                                <th style="text-align: left;">チャネル</th>
+                                <th style="text-align: right;">セッション</th>
+                                <th style="text-align: right;">エンゲージ率</th>
+                                <th style="text-align: right;">購入</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>instagram / paid_social</td>
+                                <td style="text-align: right;">59（64.8%）</td>
+                                <td style="text-align: right;">28.8%</td>
+                                <td style="text-align: right;">0</td>
+                            </tr>
+                            <tr>
+                                <td>yahoo / cpc</td>
+                                <td style="text-align: right;">20（22.0%）</td>
+                                <td style="text-align: right; color: var(--success); font-weight: 700;">45.0%</td>
+                                <td style="text-align: right;">0</td>
+                            </tr>
+                            <tr style="background: #f0fff0;">
+                                <td><strong>google / organic</strong></td>
+                                <td style="text-align: right;">5（5.5%）</td>
+                                <td style="text-align: right; color: var(--success); font-weight: 700;">80.0%</td>
+                                <td style="text-align: right; color: var(--success); font-weight: 900;">1</td>
+                            </tr>
+                            <tr>
+                                <td>michiru.olivia-store.com / referral</td>
+                                <td style="text-align: right;">5（5.5%）</td>
+                                <td style="text-align: right;">80.0%</td>
+                                <td style="text-align: right;">0</td>
+                            </tr>
+                            <tr>
+                                <td>(direct) / (none) + bing</td>
+                                <td style="text-align: right;">2（2.2%）</td>
+                                <td style="text-align: right;">100%</td>
+                                <td style="text-align: right;">0</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="note-box info" style="margin-top: 14px;">
+                    <strong>広告のブランドリフト効果</strong><br>
+                    <div style="font-size: 0.88em; margin-top: 6px; line-height: 1.8;">
+                        Google自然検索からの購入は「ミチルシリカ」ブランド指名検索の可能性が高い。これは<strong>Instagram/Yahoo広告で認知→後日Google検索で購入</strong>という間接的な広告効果（ブランドリフト）。<br>
+                        GA4ユーザーエクスプローラーで過去の訪問経路を確認すれば、どの広告がきっかけだったか特定できます。
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== 施策4: クリエイティブ ===== -->
+            <div class="task-category">
+                <div class="task-category-header" style="background: #f3e5f5; color: #7b1fa2;">
+                    <div class="tc-icon" style="background: #7b1fa2;">4</div>
+                    クリエイティブ（配信中5本 + 制作中3本）
+                </div>
+                <table class="task-table">
+                    <thead>
+                        <tr>
+                            <th>タスク</th>
+                            <th style="width: 90px;">ステータス</th>
+                            <th style="width: 350px;">対応内容・結果</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="row-done">
+                            <td>現行クリエイティブ5本の運用</td>
+                            <td><span class="badge badge-done">配信中</span></td>
+                            <td>価格訴求・悩み訴求・定期便・日常A・日常Bの5本体制でMeta広告を運用中</td>
+                        </tr>
+                        <tr class="row-progress">
+                            <td>新規クリエイティブ3本の制作</td>
+                            <td><span class="badge badge-progress">制作中</span></td>
+                            <td>のむシリカ風バージョン・肌（美容）訴求・膝関節（健康）訴求の3本を制作中</td>
+                        </tr>
+                        <tr class="row-done">
+                            <td>動画生成パイプライン構築</td>
+                            <td><span class="badge badge-done">完了</span></td>
+                            <td>台本 → VOICEVOX音声 → Ken Burnsクリップ → テロップ自動合成 → MP4出力の一気通貫パイプラインを構築。<strong>Premiere Proで最終仕上げ</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- 現行5本 -->
+                <div style="margin-top: 16px; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; color: var(--success);">現在配信中（5本）</div>
+                <div class="prep-grid">
+                    <div class="prep-card ready-card">
+                        <div class="pc-status ready">配信中</div>
+                        <div class="pc-title">1. 価格訴求</div>
+                        <div class="pc-desc">元々あった最初期のクリエイティブ。口コミ・科学的根拠ベースの価格訴求。</div>
+                        <div class="pc-highlight">IG CPC¥67で安定稼働。FB面ではCPC¥20と圧倒的効率</div>
+                        <div style="margin-top: 8px;"><a href="file:///Users/hoshizaki/Desktop/広告/価格訴求.mp4" style="font-size: 0.82em; color: var(--primary); text-decoration: none; border-bottom: 1px dashed var(--primary);">動画ファイルを開く（価格訴求.mp4）</a></div>
+                    </div>
+                    <div class="prep-card ready-card">
+                        <div class="pc-status ready">配信中</div>
+                        <div class="pc-title">2. 悩み訴求</div>
+                        <div class="pc-desc">3月頭から配信開始。「こんなお悩みありませんか？」型で認知・興味喚起を狙う。</div>
+                        <div class="pc-highlight">FB面でCPC¥10・CTR 25%と高効率（少量配信）</div>
+                        <div style="margin-top: 8px;"><a href="file:///Users/hoshizaki/Desktop/広告/悩み訴求.mp4" style="font-size: 0.82em; color: var(--primary); text-decoration: none; border-bottom: 1px dashed var(--primary);">動画ファイルを開く（悩み訴求.mp4）</a></div>
+                    </div>
+                    <div class="prep-card ready-card">
+                        <div class="pc-status ready">配信中</div>
+                        <div class="pc-title">3. 定期便</div>
+                        <div class="pc-desc">定期購入のメリットを訴求。「定期便がお得ですよ」という切り口。</div>
+                        <div class="pc-highlight" style="border-left-color: var(--danger); background: #fff5f5;">CPC¥112に高騰中。クリエイティブ疲労の可能性あり</div>
+                        <div style="margin-top: 8px;"><a href="file:///Users/hoshizaki/Desktop/広告/定期便.mp4" style="font-size: 0.82em; color: var(--primary); text-decoration: none; border-bottom: 1px dashed var(--primary);">動画ファイルを開く（定期便.mp4）</a></div>
+                    </div>
+                    <div class="prep-card ready-card">
+                        <div class="pc-status ready">配信中</div>
+                        <div class="pc-title">4. 日常A</div>
+                        <div class="pc-desc">アンバサダーの方に投稿していただいた日常動画。実際にInstagramに投稿されたそのままの素材を使用。</div>
+                        <div style="margin-top: 8px;"><a href="file:///Users/hoshizaki/Desktop/広告/日常A.mp4" style="font-size: 0.82em; color: var(--primary); text-decoration: none; border-bottom: 1px dashed var(--primary);">動画ファイルを開く（日常A.mp4）</a></div>
+                    </div>
+                    <div class="prep-card ready-card">
+                        <div class="pc-status ready">配信中</div>
+                        <div class="pc-title">5. 日常B</div>
+                        <div class="pc-desc">日常Aと同じアンバサダー素材で、音楽のみに変更（ナレーションなし）バージョン。</div>
+                        <div style="margin-top: 8px;"><a href="file:///Users/hoshizaki/Desktop/広告/日常B.mp4" style="font-size: 0.82em; color: var(--primary); text-decoration: none; border-bottom: 1px dashed var(--primary);">動画ファイルを開く（日常B.mp4）</a></div>
+                    </div>
+                </div>
+
+                <!-- 制作中3本 -->
+                <div style="margin-top: 24px; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; color: var(--primary);">新規制作中（3本）</div>
+                <div class="prep-grid">
+                    <div class="prep-card" style="border-color: var(--primary); background: linear-gradient(135deg, #f5f8ff, #fff);">
+                        <div class="pc-status wip">制作中</div>
+                        <div class="pc-title">6. のむシリカ風バージョン</div>
+                        <div class="pc-desc">のむシリカの最新クリエイティブを参考にした新パターン。競合の成功要素を取り入れた訴求。</div>
+                    </div>
+                    <div class="prep-card" style="border-color: var(--primary); background: linear-gradient(135deg, #f5f8ff, #fff);">
+                        <div class="pc-status wip">制作中</div>
+                        <div class="pc-title">7. 健康訴求（肌・美容）</div>
+                        <div class="pc-desc">シリカ水の肌への効果を訴求。コラーゲン生成・肌のハリ・潤いなど美容面からのアプローチ。</div>
+                    </div>
+                    <div class="prep-card" style="border-color: var(--primary); background: linear-gradient(135deg, #f5f8ff, #fff);">
+                        <div class="pc-status wip">制作中</div>
+                        <div class="pc-title">8. 健康訴求（膝関節）</div>
+                        <div class="pc-desc">膝関節・骨密度など、シニア層の健康課題に直結する訴求。50代以上ターゲット。</div>
+                    </div>
+                </div>
+
+                <div class="note-box info" style="margin-top: 14px;">
+                    <strong>動画生成パイプラインについて</strong><br>
+                    <div style="font-size: 0.88em; margin-top: 6px; line-height: 1.8;">
+                        台本（Markdown）→ VOICEVOX音声 → Ken Burns効果付きクリップ → テロップ自動合成 → MP4出力の自動パイプラインを構築済み。<br>
+                        最終仕上げはPremiere Proで実施。<strong>台本さえ書けば素材一式が自動生成される体制</strong>が整っています。
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== 施策5: LP制作 ===== -->
+            <div class="task-category">
+                <div class="task-category-header" style="background: #e3f2fd; color: #0d47a1;">
+                    <div class="tc-icon" style="background: #0d47a1;">5</div>
+                    LP制作・A/Bテスト戦略
+                </div>
+                <table class="task-table">
+                    <thead>
+                        <tr>
+                            <th>タスク</th>
+                            <th style="width: 90px;">ステータス</th>
+                            <th style="width: 350px;">対応内容・結果</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="row-done">
+                            <td>LP検証レポート作成（3/3〜3/11）</td>
+                            <td><span class="badge badge-done">完了</span></td>
+                            <td>Microsoft ClarityデータをMeta広告（IG）とYahoo広告で分離分析。LP上のユーザー行動を詳細に可視化</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- 現行LP一覧 -->
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px;">
+                    <div class="flow-step done">
+                        <div class="fs-icon">LP1</div>
+                        <div class="fs-title">Instagram用LP</div>
+                        <div class="fs-desc"><a href="https://michiru.olivia-store.com/water-ig1/" style="color: var(--primary);">page-water-ig1.php</a></div>
+                        <div class="fs-badge done">稼働中</div>
+                    </div>
+                    <div class="flow-step done">
+                        <div class="fs-icon">LP2</div>
+                        <div class="fs-title">Yahoo用LP</div>
+                        <div class="fs-desc"><a href="https://michiru.olivia-store.com/water-yahoo/" style="color: var(--primary);">page-water-yahoo.php</a></div>
+                        <div class="fs-badge done">稼働中</div>
+                    </div>
+                </div>
+
+                <!-- 今後のLP拡充戦略 -->
+                <div class="note-box info" style="margin-top: 14px;">
+                    <strong>今後のLP拡充方針</strong><br>
+                    <div style="font-size: 0.88em; margin-top: 6px; line-height: 1.8;">
+                        広告クリエイティブと同様に、<strong>LPもどんどん増やしていく</strong>方針です。<br>
+                        具体的には、広告で効果の高かったクリエイティブに合わせて<strong>ファーストビュー（FV）を差し替えたLPバリエーション</strong>を制作していきます。<br>
+                        例: 美容訴求クリエイティブが好調 → 美容のFVに変えたLPを制作 / 価格訴求が好調 → 価格FVのLPを制作<br>
+                        <strong>「勝ちクリエイティブ × 最適化LP」の組み合わせ</strong>を見つけることでCVR最大化を目指します。
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== 施策6: ポストカード ===== -->
+            <div class="task-category">
+                <div class="task-category-header" style="background: #e8f5e9; color: #2e7d32;">
+                    <div class="tc-icon" style="background: #2e7d32;">6</div>
+                    ポストカード（解約顧客リターゲティング）
+                </div>
+                <table class="task-table">
+                    <thead>
+                        <tr>
+                            <th>タスク</th>
+                            <th style="width: 90px;">ステータス</th>
+                            <th style="width: 350px;">対応内容・結果</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="row-done">
+                            <td>ポストカード3案の制作・クライアント送付</td>
+                            <td><span class="badge badge-done">完了</span></td>
+                            <td>案A（手紙風・縦書き）、案B（損失回避・期間限定型）、案C（復帰者の声×科学的根拠型）の3案を制作し、<strong>クライアントへ送付済み</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ===== 3. 今回わかったこと ===== -->
+    <div class="section">
+        <div class="section-header orange">今回わかったこと</div>
+        <div class="section-body">
+
+            <div class="note-box success">
+                <strong>クリエイティブの数を増やすことでクリック数が大幅に改善する</strong><br>
+                <div style="font-size: 0.88em; margin-top: 6px; line-height: 1.8;">
+                    売れない時期・購入ゼロの日が続いた原因の一つは、<strong>同じクリエイティブの使い回しによるユーザーの「飽き」（クリエイティブ疲労）</strong>でした。<br>
+                    クリエイティブを2本体制（価格訴求・悩み訴求）から5本体制（＋定期便・日常A・日常B）に増やした結果、<strong>リンククリック数が倍以上に増加</strong>。同じ予算でもクリエイティブの種類が多いほど、Meta広告のアルゴリズムが最適な配信先を見つけやすくなり、CPC低下・CTR向上につながることが確認できました。
+                </div>
+            </div>
+
+            <div class="note-box info" style="margin-top: 12px;">
+                <strong>Facebook面が想定以上に効率的</strong><br>
+                <div style="font-size: 0.88em; margin-top: 6px; line-height: 1.8;">
+                    Instagram中心で運用していたが、Facebook面の価格訴求がCPC ¥20（IG比1/3以下）・CTR 9.3%と圧倒的に効率的であることが判明。<strong>配信面を広げることでさらに効率改善の余地がある。</strong>
+                </div>
+            </div>
+
+            <div class="note-box warning" style="margin-top: 12px;">
+                <strong>クリエイティブは常に入れ替え続ける必要がある</strong><br>
+                <div style="font-size: 0.88em; margin-top: 6px; line-height: 1.8;">
+                    定期便クリエイティブのCPCが¥74→¥112に急騰したように、<strong>どんなに良いクリエイティブでも時間が経つと効率が落ちる</strong>のがSNS広告の特性です。常に新しいクリエイティブを制作・投入し続ける体制（今回構築した動画生成パイプライン）が重要。<br>
+                    今後は現行5本に加え、制作中の3本（のむシリカ風・肌訴求・膝関節訴求）を順次投入し、<strong>常時5〜8本が回る状態</strong>を維持していきます。
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ===== 4. 今後のアクション ===== -->
+    <div class="section">
+        <div class="section-header green">今後のアクション</div>
+        <div class="section-body">
+
+            <div class="flow-container">
+                <div class="flow-step active">
+                    <div class="fs-icon">1</div>
+                    <div class="fs-title">クリエイティブ追加</div>
+                    <div class="fs-desc">制作中の3本を完成<br>→ 順次Meta広告へ入稿</div>
+                    <div class="fs-badge active">進行中</div>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step active">
+                    <div class="fs-icon">2</div>
+                    <div class="fs-title">LP A/Bテスト</div>
+                    <div class="fs-desc">勝ちクリエイティブに合わせた<br>FV違いのLPを順次制作・検証</div>
+                    <div class="fs-badge active">進行中</div>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">
+                    <div class="fs-icon">3</div>
+                    <div class="fs-title">クリエイティブ×LP検証</div>
+                    <div class="fs-desc">どの組み合わせが<br>最も購入につながるか特定</div>
+                    <div class="fs-badge pending">次ステップ</div>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">
+                    <div class="fs-icon">4</div>
+                    <div class="fs-title">勝ちパターンにスケール</div>
+                    <div class="fs-desc">効果の高い組み合わせに<br>予算を集中投下</div>
+                    <div class="fs-badge pending">目標</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
