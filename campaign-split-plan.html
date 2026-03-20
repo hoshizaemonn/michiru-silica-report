@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meta広告 キャンペーン分割プラン</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: "Hiragino Sans", "Noto Sans JP", sans-serif;
+            background: #f0f4f8;
+            padding: 24px;
+            color: #1a2744;
+            line-height: 1.6;
+        }
+        .container { max-width: 900px; margin: 0 auto; }
+        h1 {
+            text-align: center;
+            font-size: 1.5em;
+            margin-bottom: 8px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #546e7a;
+            font-size: 0.9em;
+            margin-bottom: 32px;
+        }
+
+        /* セクション */
+        .section {
+            background: white;
+            border-radius: 16px;
+            padding: 28px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+        .section h2 {
+            font-size: 1.15em;
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e8963e;
+        }
+        .section h2 .num {
+            display: inline-block;
+            background: #1a2744;
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 28px;
+            font-size: 0.85em;
+            margin-right: 8px;
+        }
+
+        /* キャンペーン図 */
+        .campaigns {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .campaign-box {
+            border: 2px solid #ccc;
+            border-radius: 12px;
+            padding: 16px;
+            flex: 1;
+            min-width: 280px;
+            max-width: 400px;
+        }
+        .campaign-box.main {
+            border-color: #1565c0;
+            background: #f5f9ff;
+        }
+        .campaign-box.test {
+            border-color: #e65100;
+            background: #fff8f0;
+        }
+        .campaign-title {
+            font-weight: 700;
+            font-size: 1em;
+            margin-bottom: 4px;
+        }
+        .campaign-box.main .campaign-title { color: #1565c0; }
+        .campaign-box.test .campaign-title { color: #e65100; }
+        .budget {
+            font-size: 0.85em;
+            color: #546e7a;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px dashed #ddd;
+        }
+        .budget strong { font-size: 1.2em; }
+
+        .adset {
+            display: flex;
+            align-items: center;
+            padding: 6px 10px;
+            border-radius: 8px;
+            margin-bottom: 6px;
+            font-size: 0.88em;
+        }
+        .adset.active {
+            background: #e3f2fd;
+        }
+        .adset.sleeping {
+            background: #f5f5f5;
+            color: #9e9e9e;
+        }
+        .adset.test-active {
+            background: #fff3e0;
+        }
+        .adset .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+        .dot.green { background: #4caf50; }
+        .dot.gray { background: #bdbdbd; }
+        .dot.orange { background: #ff9800; }
+        .adset .spend {
+            margin-left: auto;
+            font-size: 0.8em;
+            color: #78909c;
+            white-space: nowrap;
+        }
+
+        /* 矢印 */
+        .arrow-section {
+            text-align: center;
+            padding: 16px 0;
+            font-size: 1.5em;
+            color: #90a4ae;
+        }
+
+        /* フロー図 */
+        .flow {
+            display: flex;
+            align-items: stretch;
+            gap: 0;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 8px;
+        }
+        .flow-step {
+            background: #f5f7fa;
+            border-radius: 10px;
+            padding: 14px 16px;
+            text-align: center;
+            flex: 1;
+            min-width: 160px;
+            max-width: 200px;
+            font-size: 0.85em;
+        }
+        .flow-step strong {
+            display: block;
+            margin-bottom: 4px;
+            font-size: 0.95em;
+        }
+        .flow-arrow {
+            display: flex;
+            align-items: center;
+            font-size: 1.3em;
+            color: #90a4ae;
+            padding: 0 4px;
+        }
+
+        /* ポイント */
+        .point-box {
+            background: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            border-radius: 8px;
+            padding: 14px 18px;
+            margin-top: 16px;
+            font-size: 0.9em;
+        }
+        .point-box.warn {
+            background: #fff3e0;
+            border-left-color: #ff9800;
+        }
+
+        /* 学習の仕組み図 */
+        .learning-diagram {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 16px 0;
+        }
+        .learn-box {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 14px 18px;
+            text-align: center;
+            min-width: 200px;
+        }
+        .learn-box .label {
+            font-size: 0.8em;
+            color: #78909c;
+            margin-bottom: 4px;
+        }
+        .learn-box .value {
+            font-weight: 700;
+            font-size: 1em;
+        }
+        .learn-arrow {
+            display: flex;
+            align-items: center;
+            font-size: 1.2em;
+            color: #bbb;
+        }
+
+        @media (max-width: 600px) {
+            .campaigns { flex-direction: column; }
+            .flow { flex-direction: column; align-items: center; }
+            .flow-arrow { transform: rotate(90deg); padding: 4px 0; }
+            .learning-diagram { flex-direction: column; align-items: center; }
+            .learn-arrow { transform: rotate(90deg); padding: 4px 0; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <h1>ミチルシリカ Meta広告 キャンペーン分割プラン</h1>
+    <p class="subtitle">2026年3月19日作成 → <span style="color:#4caf50; font-weight:700;">3月20日 設定完了 ✅</span></p>
+
+    <!-- 現状 -->
+    <div class="section">
+        <h2><span class="num">1</span>現状（1キャンペーン・7セット）</h2>
+        <div class="campaigns">
+            <div class="campaign-box main" style="border-color:#546e7a; background:#f9fafb; max-width:500px;">
+                <div class="campaign-title" style="color:#546e7a;">既存キャンペーン（予算 ¥3,000/日）</div>
+                <div class="budget">実消化 ¥2,344（3/18） — <strong>予算の78%</strong></div>
+                <div class="adset active">
+                    <div class="dot green"></div>
+                    価格訴求
+                    <span class="spend">¥1,948（83%占有）</span>
+                </div>
+                <div class="adset active">
+                    <div class="dot green"></div>
+                    悩み訴求
+                    <span class="spend">¥188</span>
+                </div>
+                <div class="adset active">
+                    <div class="dot green"></div>
+                    定期便
+                    <span class="spend">¥166</span>
+                </div>
+                <div class="adset active">
+                    <div class="dot green"></div>
+                    日常-B
+                    <span class="spend">¥42</span>
+                </div>
+                <div class="adset sleeping">
+                    <div class="dot gray"></div>
+                    健康訴求（骨関節）
+                    <span class="spend">¥0 配信なし</span>
+                </div>
+                <div class="adset sleeping">
+                    <div class="dot gray"></div>
+                    肌訴求
+                    <span class="spend">¥0 配信なし</span>
+                </div>
+                <div class="adset sleeping">
+                    <div class="dot gray"></div>
+                    新セット3
+                    <span class="spend">¥0 配信なし</span>
+                </div>
+            </div>
+        </div>
+        <div class="point-box warn" style="margin-top:16px;">
+            価格訴求が強すぎて、新しい3セットにデータが溜まらない「鶏と卵」状態
+        </div>
+    </div>
+
+    <!-- 矢印 -->
+    <div class="arrow-section">▼ 分割する ▼</div>
+
+    <!-- 分割後 -->
+    <div class="section">
+        <h2><span class="num">2</span>分割後（2キャンペーン）</h2>
+        <div class="campaigns">
+            <div class="campaign-box main">
+                <div class="campaign-title">既存キャンペーン</div>
+                <div class="budget">予算 <strong>¥3,000/日</strong>（変更なし）</div>
+                <div class="adset active">
+                    <div class="dot green"></div>
+                    価格訴求
+                    <span class="spend">主力</span>
+                </div>
+                <div class="adset active">
+                    <div class="dot green"></div>
+                    悩み訴求
+                </div>
+                <div class="adset active">
+                    <div class="dot green"></div>
+                    定期便
+                </div>
+                <div class="adset active">
+                    <div class="dot green"></div>
+                    日常-B
+                </div>
+                <div class="adset sleeping">
+                    <div class="dot gray"></div>
+                    新3セット（残すが配信ほぼ0）
+                    <span class="spend">保険</span>
+                </div>
+                <div class="point-box" style="margin-top:8px; font-size:0.82em;">
+                    売上を支える本体。触らない。
+                </div>
+            </div>
+
+            <div class="campaign-box test">
+                <div class="campaign-title">テストキャンペーン ✅ 作成済み</div>
+                <div class="budget">キャンペーン名: <code style="font-size:0.9em;">ミチルシリカ_テスト_2026-03</code><br>予算 <strong>¥500/日</strong>（追加）</div>
+                <div class="adset test-active">
+                    <div class="dot orange"></div>
+                    健康訴求（骨関節）
+                    <span class="spend">複製</span>
+                </div>
+                <div class="adset test-active">
+                    <div class="dot orange"></div>
+                    肌訴求
+                    <span class="spend">複製</span>
+                </div>
+                <div class="adset test-active">
+                    <div class="dot orange"></div>
+                    のむシリカ風バージョン
+                    <span class="spend">複製</span>
+                </div>
+                <div class="point-box warn" style="margin-top:8px; font-size:0.82em;">
+                    ¥500の中で3セットだけの競争。確実に配信される。
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 1〜2週間後の判断 -->
+    <div class="section">
+        <h2><span class="num">3</span>1〜2週間後の判断フロー</h2>
+        <div class="flow">
+            <div class="flow-step">
+                <strong>テスト結果を確認</strong>
+                CPC・CTR・購入を比較
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step" style="background:#e8f5e9;">
+                <strong>良いセットあり</strong>
+                テスト側の予算を増額<br>既存側の同セットを停止
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step" style="background:#fff3e0;">
+                <strong>全部ダメ</strong>
+                テスト側を停止<br>クリエイティブ差し替えて再テスト
+            </div>
+        </div>
+
+        <div class="point-box" style="margin-top:20px;">
+            <strong>ラップしたとき（既存と同じくらい配信されたとき）：</strong><br>
+            CPCが安い方に寄せて、もう片方を停止。データの分散を防ぐ。
+        </div>
+    </div>
+
+    <!-- 学習の仕組み -->
+    <div class="section">
+        <h2><span class="num">4</span>学習データの仕組み</h2>
+        <div class="learning-diagram">
+            <div class="learn-box" style="border-color:#1565c0;">
+                <div class="label">キャンペーン単位の学習</div>
+                <div class="value">「どの動画が良いか」</div>
+                <div style="font-size:0.8em; color:#d32f2f; margin-top:4px;">共有されない（独立）</div>
+            </div>
+            <div class="learn-arrow">≠</div>
+            <div class="learn-box" style="border-color:#4caf50;">
+                <div class="label">ピクセル単位の学習</div>
+                <div class="value">「どんな人が買うか」</div>
+                <div style="font-size:0.8em; color:#2e7d32; margin-top:4px;">共有される（アカウント全体）</div>
+            </div>
+        </div>
+        <div class="point-box" style="margin-top:12px;">
+            テスト側で購入が出れば、ピクセル経由でアカウント全体の「購入しやすい人」の精度が上がる。<br>
+            ただし「この動画が売れやすい」はキャンペーンごと独立。自動では助け合わない。
+        </div>
+    </div>
+
+    <!-- まとめ -->
+    <div class="section" style="background:linear-gradient(135deg,#1a2744,#2d4a7a); color:white;">
+        <h2 style="border-bottom-color:rgba(255,255,255,0.3); color:white;"><span class="num" style="background:white; color:#1a2744;">!</span>まとめ：やること</h2>
+        <div style="font-size:0.95em; line-height:2;">
+            <strong>1.</strong> ✅ 新キャンペーン作成済み（<code>ミチルシリカ_テスト_2026-03</code> ¥500/日）<br>
+            <strong>2.</strong> ✅ 既存から3セットを複製済み（健康訴求・肌訴求・のむシリカ風）<br>
+            <strong>3.</strong> ✅ 既存側の3セットはそのまま残す（停止しない = 保険）<br>
+            <strong>4.</strong> ✅ Yahoo広告を ¥1,000→¥500 に減額（日予算¥4,000枠内に収める）<br>
+            <strong>5.</strong> ⏳ 4/1〜3頃にテスト結果を確認 → CPC・CTR・購入で判断<br>
+            <div style="margin-top:8px; padding:10px 14px; background:rgba(255,255,255,0.12); border-radius:8px; font-size:0.88em;">
+                Meta広告 合計予算：¥3,000 + ¥500 = <strong>¥3,500/日</strong> + Yahoo ¥500/日 = <strong>合計 ¥4,000/日</strong>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
