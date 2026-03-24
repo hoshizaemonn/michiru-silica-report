@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ミチルシリカ 解約理由ヒアリングシート</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:"Hiragino Sans","Noto Sans JP",sans-serif; line-height:1.8; color:#1a2744; background:#f0f4f8; padding:20px; }
+.container { max-width:900px; margin:0 auto; }
+.header { background:linear-gradient(135deg,#1a2744,#2d4a7a); color:#fff; padding:36px 32px; border-radius:16px 16px 0 0; text-align:center; }
+.header h1 { font-size:1.5em; } .header p { opacity:.8; margin-top:8px; font-size:.9em; }
+.intro { background:#fff; padding:24px 32px; border-bottom:1px solid #eee; font-size:.9em; color:#546e7a; }
+.intro strong { color:#1a2744; }
+
+.customer-card { background:#fff; margin:0; padding:20px 32px; border-bottom:1px solid #f0f0f0; }
+.customer-card:last-of-type { border-radius:0 0 16px 16px; }
+.customer-header { display:flex; align-items:center; gap:16px; margin-bottom:12px; flex-wrap:wrap; }
+.customer-num { background:#1a2744; color:#fff; width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:.8em; font-weight:700; flex-shrink:0; }
+.customer-name { font-weight:700; font-size:1.05em; }
+.customer-date { font-size:.82em; color:#78909c; }
+.customer-note { font-size:.82em; color:#e65100; background:#fff3e0; padding:2px 8px; border-radius:4px; }
+.status-tag { font-size:.75em; padding:2px 10px; border-radius:10px; font-weight:600; }
+.status-cancel { background:#ffebee; color:#c62828; }
+.status-active { background:#e8f5e9; color:#2e7d32; }
+
+.reason-section { margin-top:8px; }
+.reason-label { font-size:.85em; color:#546e7a; font-weight:600; margin-bottom:6px; }
+.reason-options { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:10px; }
+.reason-btn { padding:6px 14px; border:2px solid #e0e0e0; border-radius:8px; font-size:.82em; cursor:pointer; transition:all .2s; background:#fff; }
+.reason-btn:hover { border-color:#1565c0; background:#e3f2fd; }
+.reason-btn.selected { border-color:#1565c0; background:#1565c0; color:#fff; }
+.reason-text { width:100%; padding:8px 12px; border:1px solid #e0e0e0; border-radius:8px; font-size:.85em; font-family:inherit; resize:vertical; min-height:40px; }
+.reason-text:focus { outline:none; border-color:#1565c0; }
+
+.actions { background:#fff; padding:24px 32px; border-radius:0 0 16px 16px; text-align:center; border-top:2px solid #f0f0f0; }
+.save-btn { background:linear-gradient(135deg,#1a2744,#2d4a7a); color:#fff; border:none; padding:14px 48px; border-radius:10px; font-size:1em; font-weight:700; cursor:pointer; transition:transform .2s; }
+.save-btn:hover { transform:scale(1.02); }
+.save-btn:active { transform:scale(.98); }
+.saved-msg { display:none; margin-top:12px; color:#2e7d32; font-weight:600; }
+
+.summary { background:#fff; margin-top:16px; padding:24px 32px; border-radius:16px; }
+.summary h2 { font-size:1.1em; border-left:4px solid #e8963e; padding-left:12px; margin-bottom:12px; }
+.summary-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; }
+.summary-card { text-align:center; padding:16px; border-radius:10px; background:#f5f7fa; }
+.summary-card .num { font-size:1.8em; font-weight:700; }
+.summary-card .label { font-size:.8em; color:#78909c; }
+
+@media(max-width:600px) {
+    .customer-card { padding:16px; } .intro { padding:16px; }
+    .reason-options { gap:4px; } .summary-grid { grid-template-columns:1fr; }
+    .customer-header { gap:8px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+    <h1>ミチルシリカ 解約理由ヒアリングシート</h1>
+    <p>解約されたお客様の理由を記録してください（約3分）</p>
+</div>
+
+<div class="intro">
+    <strong>記入方法:</strong> 各お客様の横にある選択肢をクリックするか、自由記述欄に理由を記入してください。<br>
+    記入後、下の「回答を保存する」ボタンでデータをダウンロードできます。
+</div>
+
+<div id="customers">
+<!-- 解約者（理由不明・補足が必要な方） -->
+
+<div class="customer-card" data-id="1">
+    <div class="customer-header">
+        <div class="customer-num">1</div>
+        <div class="customer-name">土屋 由衣子</div>
+        <div class="customer-date">申込: 11/23</div>
+        <span class="status-tag status-cancel">解約</span>
+        <div class="customer-note">初回金額誤りで解約連絡あり</div>
+    </div>
+    <div class="reason-section">
+        <div class="reason-label">解約理由（該当するものをクリック）</div>
+        <div class="reason-options">
+            <div class="reason-btn" onclick="selectReason(this)">初回金額の誤認</div>
+            <div class="reason-btn" onclick="selectReason(this)">価格が高い</div>
+            <div class="reason-btn" onclick="selectReason(this)">効果を感じない</div>
+            <div class="reason-btn" onclick="selectReason(this)">他社商品に乗り換え</div>
+            <div class="reason-btn" onclick="selectReason(this)">飲みきれない</div>
+            <div class="reason-btn" onclick="selectReason(this)">理由不明</div>
+        </div>
+        <input type="text" class="reason-text" placeholder="補足があれば記入...">
+    </div>
+</div>
+
+<div class="customer-card" data-id="2">
+    <div class="customer-header">
+        <div class="customer-num">2</div>
+        <div class="customer-name">星崎めぐみ</div>
+        <div class="customer-date">申込: 11/26</div>
+        <span class="status-tag status-cancel">解約</span>
+        <div class="customer-note">12/15 解約のメールあり</div>
+    </div>
+    <div class="reason-section">
+        <div class="reason-label">解約理由（該当するものをクリック）</div>
+        <div class="reason-options">
+            <div class="reason-btn" onclick="selectReason(this)">初回金額の誤認</div>
+            <div class="reason-btn" onclick="selectReason(this)">価格が高い</div>
+            <div class="reason-btn" onclick="selectReason(this)">効果を感じない</div>
+            <div class="reason-btn" onclick="selectReason(this)">他社商品に乗り換え</div>
+            <div class="reason-btn" onclick="selectReason(this)">飲みきれない</div>
+            <div class="reason-btn" onclick="selectReason(this)">理由不明</div>
+        </div>
+        <input type="text" class="reason-text" placeholder="補足があれば記入...">
+    </div>
+</div>
+
+<div class="customer-card" data-id="3">
+    <div class="customer-header">
+        <div class="customer-num">3</div>
+        <div class="customer-name">水野 直美</div>
+        <div class="customer-date">申込: 12/15</div>
+        <span class="status-tag status-cancel">解約</span>
+        <div class="customer-note">3/15 解約のLINEあり</div>
+    </div>
+    <div class="reason-section">
+        <div class="reason-label">解約理由（該当するものをクリック）</div>
+        <div class="reason-options">
+            <div class="reason-btn" onclick="selectReason(this)">初回金額の誤認</div>
+            <div class="reason-btn" onclick="selectReason(this)">価格が高い</div>
+            <div class="reason-btn" onclick="selectReason(this)">効果を感じない</div>
+            <div class="reason-btn" onclick="selectReason(this)">他社商品に乗り換え</div>
+            <div class="reason-btn" onclick="selectReason(this)">飲みきれない</div>
+            <div class="reason-btn" onclick="selectReason(this)">理由不明</div>
+        </div>
+        <input type="text" class="reason-text" placeholder="補足があれば記入...">
+    </div>
+</div>
+
+<div class="customer-card" data-id="4">
+    <div class="customer-header">
+        <div class="customer-num">4</div>
+        <div class="customer-name">上村 沫</div>
+        <div class="customer-date">申込: 12/15</div>
+        <span class="status-tag status-cancel">解約</span>
+        <div class="customer-note">12/24 解約の電話あり</div>
+    </div>
+    <div class="reason-section">
+        <div class="reason-label">解約理由（該当するものをクリック）</div>
+        <div class="reason-options">
+            <div class="reason-btn" onclick="selectReason(this)">初回金額の誤認</div>
+            <div class="reason-btn" onclick="selectReason(this)">価格が高い</div>
+            <div class="reason-btn" onclick="selectReason(this)">効果を感じない</div>
+            <div class="reason-btn" onclick="selectReason(this)">他社商品に乗り換え</div>
+            <div class="reason-btn" onclick="selectReason(this)">飲みきれない</div>
+            <div class="reason-btn" onclick="selectReason(this)">理由不明</div>
+        </div>
+        <input type="text" class="reason-text" placeholder="補足があれば記入...">
+    </div>
+</div>
+
+<div class="customer-card" data-id="5">
+    <div class="customer-header">
+        <div class="customer-num">5</div>
+        <div class="customer-name">森あこ</div>
+        <div class="customer-date">申込: 1/01</div>
+        <span class="status-tag status-cancel">解約</span>
+        <div class="customer-note">1/10 解約のメールあり</div>
+    </div>
+    <div class="reason-section">
+        <div class="reason-label">解約理由（該当するものをクリック）</div>
+        <div class="reason-options">
+            <div class="reason-btn" onclick="selectReason(this)">初回金額の誤認</div>
+            <div class="reason-btn" onclick="selectReason(this)">価格が高い</div>
+            <div class="reason-btn" onclick="selectReason(this)">効果を感じない</div>
+            <div class="reason-btn" onclick="selectReason(this)">他社商品に乗り換え</div>
+            <div class="reason-btn" onclick="selectReason(this)">飲みきれない</div>
+            <div class="reason-btn" onclick="selectReason(this)">理由不明</div>
+        </div>
+        <input type="text" class="reason-text" placeholder="補足があれば記入...">
+    </div>
+</div>
+
+<div class="customer-card" data-id="6">
+    <div class="customer-header">
+        <div class="customer-num">6</div>
+        <div class="customer-name">結城彰子</div>
+        <div class="customer-date">申込: 1/02</div>
+        <span class="status-tag status-cancel">解約</span>
+        <div class="customer-note">1/20 解約の電話あり</div>
+    </div>
+    <div class="reason-section">
+        <div class="reason-label">解約理由（該当するものをクリック）</div>
+        <div class="reason-options">
+            <div class="reason-btn" onclick="selectReason(this)">初回金額の誤認</div>
+            <div class="reason-btn" onclick="selectReason(this)">価格が高い</div>
+            <div class="reason-btn" onclick="selectReason(this)">効果を感じない</div>
+            <div class="reason-btn" onclick="selectReason(this)">他社商品に乗り換え</div>
+            <div class="reason-btn" onclick="selectReason(this)">飲みきれない</div>
+            <div class="reason-btn" onclick="selectReason(this)">理由不明</div>
+        </div>
+        <input type="text" class="reason-text" placeholder="補足があれば記入...">
+    </div>
+</div>
+
+<div class="customer-card" data-id="7">
+    <div class="customer-header">
+        <div class="customer-num">7</div>
+        <div class="customer-name">戸田智恵子</div>
+        <div class="customer-date">申込: 1/06</div>
+        <span class="status-tag status-cancel">解約</span>
+        <div class="customer-note">商品受け取り拒否</div>
+    </div>
+    <div class="reason-section">
+        <div class="reason-label">解約理由（該当するものをクリック）</div>
+        <div class="reason-options">
+            <div class="reason-btn" onclick="selectReason(this)">初回金額の誤認</div>
+            <div class="reason-btn" onclick="selectReason(this)">衝動的に申込→気が変わった</div>
+            <div class="reason-btn" onclick="selectReason(this)">他社商品と間違えた</div>
+            <div class="reason-btn" onclick="selectReason(this)">家族に反対された</div>
+            <div class="reason-btn" onclick="selectReason(this)">理由不明</div>
+        </div>
+        <input type="text" class="reason-text" placeholder="補足があれば記入...">
+    </div>
+</div>
+
+<div class="customer-card" data-id="8">
+    <div class="customer-header">
+        <div class="customer-num">8</div>
+        <div class="customer-name">井原美奈</div>
+        <div class="customer-date">申込: 1/10</div>
+        <span class="status-tag status-cancel">解約</span>
+        <div class="customer-note">受け取りなし・連絡つかず</div>
+    </div>
+    <div class="reason-section">
+        <div class="reason-label">解約理由（該当するものをクリック）</div>
+        <div class="reason-options">
+            <div class="reason-btn" onclick="selectReason(this)">連絡つかず</div>
+            <div class="reason-btn" onclick="selectReason(this)">衝動的に申込→気が変わった</div>
+            <div class="reason-btn" onclick="selectReason(this)">理由不明</div>
+        </div>
+        <input type="text" class="reason-text" placeholder="補足があれば記入...">
+    </div>
+</div>
+
+<div class="customer-card" data-id="9">
+    <div class="customer-header">
+        <div class="customer-num">9</div>
+        <div class="customer-name">中村 真子</div>
+        <div class="customer-date">申込: 1/13</div>
+        <span class="status-tag status-cancel">解約</span>
+        <div class="customer-note">3/2 解約メールあり</div>
+    </div>
+    <div class="reason-section">
+        <div class="reason-label">解約理由（該当するものをクリック）</div>
+        <div class="reason-options">
+            <div class="reason-btn" onclick="selectReason(this)">初回金額の誤認</div>
+            <div class="reason-btn" onclick="selectReason(this)">価格が高い</div>
+            <div class="reason-btn" onclick="selectReason(this)">効果を感じない</div>
+            <div class="reason-btn" onclick="selectReason(this)">他社商品に乗り換え</div>
+            <div class="reason-btn" onclick="selectReason(this)">飲みきれない</div>
+            <div class="reason-btn" onclick="selectReason(this)">理由不明</div>
+        </div>
+        <input type="text" class="reason-text" placeholder="補足があれば記入...">
+    </div>
+</div>
+
+<div class="customer-card" data-id="10">
+    <div class="customer-header">
+        <div class="customer-num">10</div>
+        <div class="customer-name">大石裕美</div>
+        <div class="customer-date">申込: 2/06</div>
+        <span class="status-tag status-cancel">解約</span>
+        <div class="customer-note">のむシリカと間違えて申込</div>
+    </div>
+    <div class="reason-section">
+        <div class="reason-label">解約理由（該当するものをクリック）</div>
+        <div class="reason-options">
+            <div class="reason-btn" onclick="selectReason(this)">のむシリカと間違えた</div>
+            <div class="reason-btn" onclick="selectReason(this)">他社商品と間違えた</div>
+            <div class="reason-btn" onclick="selectReason(this)">理由不明</div>
+        </div>
+        <input type="text" class="reason-text" placeholder="補足があれば記入...（再連絡の可能性あり？）">
+    </div>
+</div>
+
+<!-- カラーミー側の解約者（理由不明） -->
+<div class="customer-card" data-id="11">
+    <div class="customer-header">
+        <div class="customer-num">11</div>
+        <div class="customer-name">堤よし子</div>
+        <div class="customer-date">申込: 10/12</div>
+        <span class="status-tag status-cancel">即キャンセル</span>
+    </div>
+    <div class="reason-section">
+        <div class="reason-label">解約理由（該当するものをクリック）</div>
+        <div class="reason-options">
+            <div class="reason-btn" onclick="selectReason(this)">初回金額の誤認</div>
+            <div class="reason-btn" onclick="selectReason(this)">衝動的に申込→気が変わった</div>
+            <div class="reason-btn" onclick="selectReason(this)">他社商品と間違えた</div>
+            <div class="reason-btn" onclick="selectReason(this)">操作ミス</div>
+            <div class="reason-btn" onclick="selectReason(this)">理由不明</div>
+        </div>
+        <input type="text" class="reason-text" placeholder="補足があれば記入...">
+    </div>
+</div>
+
+<div class="customer-card" data-id="12">
+    <div class="customer-header">
+        <div class="customer-num">12</div>
+        <div class="customer-name">杉井京子</div>
+        <div class="customer-date">申込: 11/02</div>
+        <span class="status-tag status-cancel">1回で解約</span>
+    </div>
+    <div class="reason-section">
+        <div class="reason-label">解約理由（該当するものをクリック）</div>
+        <div class="reason-options">
+            <div class="reason-btn" onclick="selectReason(this)">初回金額の誤認</div>
+            <div class="reason-btn" onclick="selectReason(this)">価格が高い</div>
+            <div class="reason-btn" onclick="selectReason(this)">効果を感じない</div>
+            <div class="reason-btn" onclick="selectReason(this)">他社商品に乗り換え</div>
+            <div class="reason-btn" onclick="selectReason(this)">飲みきれない</div>
+            <div class="reason-btn" onclick="selectReason(this)">理由不明</div>
+        </div>
+        <input type="text" class="reason-text" placeholder="補足があれば記入...">
+    </div>
+</div>
+
+<div class="customer-card" data-id="13">
+    <div class="customer-header">
+        <div class="customer-num">13</div>
+        <div class="customer-name">山村 栄美</div>
+        <div class="customer-date">申込: 11/12</div>
+        <span class="status-tag status-cancel">1回で解約</span>
+    </div>
+    <div class="reason-section">
+        <div class="reason-label">解約理由</div>
+        <div class="reason-options">
+            <div class="reason-btn" onclick="selectReason(this)">初回金額の誤認</div>
+            <div class="reason-btn" onclick="selectReason(this)">価格が高い</div>
+            <div class="reason-btn" onclick="selectReason(this)">効果を感じない</div>
+            <div class="reason-btn" onclick="selectReason(this)">他社商品に乗り換え</div>
+            <div class="reason-btn" onclick="selectReason(this)">飲みきれない</div>
+            <div class="reason-btn" onclick="selectReason(this)">理由不明</div>
+        </div>
+        <input type="text" class="reason-text" placeholder="補足があれば記入...">
+    </div>
+</div>
+
+<div class="customer-card" data-id="14">
+    <div class="customer-header">
+        <div class="customer-num">14</div>
+        <div class="customer-name">荒木ゆかり</div>
+        <div class="customer-date">申込: 12/05</div>
+        <span class="status-tag status-cancel">1回で解約</span>
+    </div>
+    <div class="reason-section">
+        <div class="reason-label">解約理由</div>
+        <div class="reason-options">
+            <div class="reason-btn" onclick="selectReason(this)">初回金額の誤認</div>
+            <div class="reason-btn" onclick="selectReason(this)">価格が高い</div>
+            <div class="reason-btn" onclick="selectReason(this)">効果を感じない</div>
+            <div class="reason-btn" onclick="selectReason(this)">他社商品に乗り換え</div>
+            <div class="reason-btn" onclick="selectReason(this)">飲みきれない</div>
+            <div class="reason-btn" onclick="selectReason(this)">理由不明</div>
+        </div>
+        <input type="text" class="reason-text" placeholder="補足があれば記入...">
+    </div>
+</div>
+
+<div class="customer-card" data-id="15">
+    <div class="customer-header">
+        <div class="customer-num">15</div>
+        <div class="customer-name">長谷川 久代</div>
+        <div class="customer-date">申込: 12/14</div>
+        <span class="status-tag status-cancel">1回で解約</span>
+    </div>
+    <div class="reason-section">
+        <div class="reason-label">解約理由</div>
+        <div class="reason-options">
+            <div class="reason-btn" onclick="selectReason(this)">初回金額の誤認</div>
+            <div class="reason-btn" onclick="selectReason(this)">価格が高い</div>
+            <div class="reason-btn" onclick="selectReason(this)">効果を感じない</div>
+            <div class="reason-btn" onclick="selectReason(this)">他社商品に乗り換え</div>
+            <div class="reason-btn" onclick="selectReason(this)">飲みきれない</div>
+            <div class="reason-btn" onclick="selectReason(this)">理由不明</div>
+        </div>
+        <input type="text" class="reason-text" placeholder="補足があれば記入...">
+    </div>
+</div>
+
+<div class="customer-card" data-id="16">
+    <div class="customer-header">
+        <div class="customer-num">16</div>
+        <div class="customer-name">後藤瑞枝</div>
+        <div class="customer-date">申込: 12/17</div>
+        <span class="status-tag status-cancel">1回で解約</span>
+    </div>
+    <div class="reason-section">
+        <div class="reason-label">解約理由</div>
+        <div class="reason-options">
+            <div class="reason-btn" onclick="selectReason(this)">初回金額の誤認</div>
+            <div class="reason-btn" onclick="selectReason(this)">価格が高い</div>
+            <div class="reason-btn" onclick="selectReason(this)">効果を感じない</div>
+            <div class="reason-btn" onclick="selectReason(this)">他社商品に乗り換え</div>
+            <div class="reason-btn" onclick="selectReason(this)">飲みきれない</div>
+            <div class="reason-btn" onclick="selectReason(this)">理由不明</div>
+        </div>
+        <input type="text" class="reason-text" placeholder="補足があれば記入...">
+    </div>
+</div>
+
+<div class="customer-card" data-id="17">
+    <div class="customer-header">
+        <div class="customer-num">17</div>
+        <div class="customer-name">木下 真理子</div>
+        <div class="customer-date">申込: 12/29</div>
+        <span class="status-tag status-cancel">1回で解約</span>
+    </div>
+    <div class="reason-section">
+        <div class="reason-label">解約理由</div>
+        <div class="reason-options">
+            <div class="reason-btn" onclick="selectReason(this)">初回金額の誤認</div>
+            <div class="reason-btn" onclick="selectReason(this)">価格が高い</div>
+            <div class="reason-btn" onclick="selectReason(this)">効果を感じない</div>
+            <div class="reason-btn" onclick="selectReason(this)">他社商品に乗り換え</div>
+            <div class="reason-btn" onclick="selectReason(this)">飲みきれない</div>
+            <div class="reason-btn" onclick="selectReason(this)">理由不明</div>
+        </div>
+        <input type="text" class="reason-text" placeholder="補足があれば記入...">
+    </div>
+</div>
+
+<!-- カラーミー1月以降 -->
+<div class="customer-card" data-id="18">
+    <div class="customer-header">
+        <div class="customer-num">18</div>
+        <div class="customer-name">長谷川 薫</div>
+        <div class="customer-date">申込: 1/06</div>
+        <span class="status-tag status-cancel">即キャンセル</span>
+    </div>
+    <div class="reason-section">
+        <div class="reason-label">解約理由</div>
+        <div class="reason-options">
+            <div class="reason-btn" onclick="selectReason(this)">代引きに切替（継続中）</div>
+            <div class="reason-btn" onclick="selectReason(this)">操作ミス</div>
+            <div class="reason-btn" onclick="selectReason(this)">理由不明</div>
+        </div>
+        <input type="text" class="reason-text" placeholder="補足があれば記入...">
+    </div>
+</div>
+
+<div class="customer-card" data-id="19">
+    <div class="customer-header">
+        <div class="customer-num">19</div>
+        <div class="customer-name">井桁 多永子</div>
+        <div class="customer-date">申込: 1/07</div>
+        <span class="status-tag status-cancel">1回で解約</span>
+    </div>
+    <div class="reason-section">
+        <div class="reason-label">解約理由</div>
+        <div class="reason-options">
+            <div class="reason-btn" onclick="selectReason(this)">初回金額の誤認</div>
+            <div class="reason-btn" onclick="selectReason(this)">価格が高い</div>
+            <div class="reason-btn" onclick="selectReason(this)">効果を感じない</div>
+            <div class="reason-btn" onclick="selectReason(this)">他社商品に乗り換え</div>
+            <div class="reason-btn" onclick="selectReason(this)">飲みきれない</div>
+            <div class="reason-btn" onclick="selectReason(this)">理由不明</div>
+        </div>
+        <input type="text" class="reason-text" placeholder="補足があれば記入...">
+    </div>
+</div>
+
+<div class="customer-card" data-id="20">
+    <div class="customer-header">
+        <div class="customer-num">20</div>
+        <div class="customer-name">岩井浩子</div>
+        <div class="customer-date">申込: 1/10</div>
+        <span class="status-tag status-cancel">1回で解約</span>
+    </div>
+    <div class="reason-section">
+        <div class="reason-label">解約理由</div>
+        <div class="reason-options">
+            <div class="reason-btn" onclick="selectReason(this)">初回金額の誤認</div>
+            <div class="reason-btn" onclick="selectReason(this)">価格が高い</div>
+            <div class="reason-btn" onclick="selectReason(this)">効果を感じない</div>
+            <div class="reason-btn" onclick="selectReason(this)">他社商品に乗り換え</div>
+            <div class="reason-btn" onclick="selectReason(this)">飲みきれない</div>
+            <div class="reason-btn" onclick="selectReason(this)">理由不明</div>
+        </div>
+        <input type="text" class="reason-text" placeholder="補足があれば記入...">
+    </div>
+</div>
+
+<div class="customer-card" data-id="21">
+    <div class="customer-header">
+        <div class="customer-num">21</div>
+        <div class="customer-name">堤加奈</div>
+        <div class="customer-date">申込: 1/11</div>
+        <span class="status-tag status-cancel">1回で解約</span>
+    </div>
+    <div class="reason-section">
+        <div class="reason-label">解約理由</div>
+        <div class="reason-options">
+            <div class="reason-btn" onclick="selectReason(this)">初回金額の誤認</div>
+            <div class="reason-btn" onclick="selectReason(this)">価格が高い</div>
+            <div class="reason-btn" onclick="selectReason(this)">効果を感じない</div>
+            <div class="reason-btn" onclick="selectReason(this)">他社商品に乗り換え</div>
+            <div class="reason-btn" onclick="selectReason(this)">飲みきれない</div>
+            <div class="reason-btn" onclick="selectReason(this)">理由不明</div>
+        </div>
+        <input type="text" class="reason-text" placeholder="補足があれば記入...">
+    </div>
+</div>
+
+<div class="customer-card" data-id="22">
+    <div class="customer-header">
+        <div class="customer-num">22</div>
+        <div class="customer-name">田村 貴信</div>
+        <div class="customer-date">申込: 1/14</div>
+        <span class="status-tag status-cancel">1回で解約</span>
+    </div>
+    <div class="reason-section">
+        <div class="reason-label">解約理由</div>
+        <div class="reason-options">
+            <div class="reason-btn" onclick="selectReason(this)">初回金額の誤認</div>
+            <div class="reason-btn" onclick="selectReason(this)">価格が高い</div>
+            <div class="reason-btn" onclick="selectReason(this)">効果を感じない</div>
+            <div class="reason-btn" onclick="selectReason(this)">他社商品に乗り換え</div>
+            <div class="reason-btn" onclick="selectReason(this)">飲みきれない</div>
+            <div class="reason-btn" onclick="selectReason(this)">理由不明</div>
+        </div>
+        <input type="text" class="reason-text" placeholder="補足があれば記入...">
+    </div>
+</div>
+
+<div class="customer-card" data-id="23">
+    <div class="customer-header">
+        <div class="customer-num">23</div>
+        <div class="customer-name">小野寺千晶</div>
+        <div class="customer-date">申込: 2/01</div>
+        <span class="status-tag status-cancel">1回で解約</span>
+    </div>
+    <div class="reason-section">
+        <div class="reason-label">解約理由</div>
+        <div class="reason-options">
+            <div class="reason-btn" onclick="selectReason(this)">初回金額の誤認</div>
+            <div class="reason-btn" onclick="selectReason(this)">価格が高い</div>
+            <div class="reason-btn" onclick="selectReason(this)">効果を感じない</div>
+            <div class="reason-btn" onclick="selectReason(this)">他社商品に乗り換え</div>
+            <div class="reason-btn" onclick="selectReason(this)">飲みきれない</div>
+            <div class="reason-btn" onclick="selectReason(this)">理由不明</div>
+        </div>
+        <input type="text" class="reason-text" placeholder="補足があれば記入...">
+    </div>
+</div>
+
+<div class="customer-card" data-id="24">
+    <div class="customer-header">
+        <div class="customer-num">24</div>
+        <div class="customer-name">安達勝行</div>
+        <div class="customer-date">申込: 2/02</div>
+        <span class="status-tag status-cancel">1回で解約</span>
+    </div>
+    <div class="reason-section">
+        <div class="reason-label">解約理由</div>
+        <div class="reason-options">
+            <div class="reason-btn" onclick="selectReason(this)">初回金額の誤認</div>
+            <div class="reason-btn" onclick="selectReason(this)">価格が高い</div>
+            <div class="reason-btn" onclick="selectReason(this)">効果を感じない</div>
+            <div class="reason-btn" onclick="selectReason(this)">他社商品に乗り換え</div>
+            <div class="reason-btn" onclick="selectReason(this)">飲みきれない</div>
+            <div class="reason-btn" onclick="selectReason(this)">理由不明</div>
+        </div>
+        <input type="text" class="reason-text" placeholder="補足があれば記入...">
+    </div>
+</div>
+
+<div class="customer-card" data-id="25">
+    <div class="customer-header">
+        <div class="customer-num">25</div>
+        <div class="customer-name">高須康行</div>
+        <div class="customer-date">申込: 2/15</div>
+        <span class="status-tag status-cancel">1回で解約</span>
+    </div>
+    <div class="reason-section">
+        <div class="reason-label">解約理由</div>
+        <div class="reason-options">
+            <div class="reason-btn" onclick="selectReason(this)">初回金額の誤認</div>
+            <div class="reason-btn" onclick="selectReason(this)">価格が高い</div>
+            <div class="reason-btn" onclick="selectReason(this)">効果を感じない</div>
+            <div class="reason-btn" onclick="selectReason(this)">他社商品に乗り換え</div>
+            <div class="reason-btn" onclick="selectReason(this)">飲みきれない</div>
+            <div class="reason-btn" onclick="selectReason(this)">理由不明</div>
+        </div>
+        <input type="text" class="reason-text" placeholder="補足があれば記入...">
+    </div>
+</div>
+
+</div>
+
+<div class="actions">
+    <button class="save-btn" onclick="saveData()">回答を保存する</button>
+    <div class="saved-msg" id="savedMsg">保存しました</div>
+</div>
+
+<div class="summary">
+    <h2>現在の集計</h2>
+    <div class="summary-grid">
+        <div class="summary-card"><div class="num" id="totalCount">25</div><div class="label">解約者数</div></div>
+        <div class="summary-card"><div class="num" id="answeredCount">0</div><div class="label">回答済み</div></div>
+        <div class="summary-card"><div class="num" id="unknownCount">0</div><div class="label">理由不明</div></div>
+    </div>
+</div>
+
+</div>
+
+<script>
+function selectReason(btn) {
+    const options = btn.parentElement.querySelectorAll('.reason-btn');
+    options.forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+    updateCounts();
+}
+
+function updateCounts() {
+    const cards = document.querySelectorAll('.customer-card');
+    let answered = 0, unknown = 0;
+    cards.forEach(card => {
+        const selected = card.querySelector('.reason-btn.selected');
+        if (selected) {
+            answered++;
+            if (selected.textContent === '理由不明') unknown++;
+        }
+    });
+    document.getElementById('answeredCount').textContent = answered;
+    document.getElementById('unknownCount').textContent = unknown;
+}
+
+function saveData() {
+    const cards = document.querySelectorAll('.customer-card');
+    let lines = ['No,氏名,申込日,ステータス,解約理由,補足'];
+    cards.forEach(card => {
+        const id = card.dataset.id;
+        const name = card.querySelector('.customer-name').textContent;
+        const date = card.querySelector('.customer-date').textContent.replace('申込: ','');
+        const status = card.querySelector('.status-tag').textContent;
+        const selected = card.querySelector('.reason-btn.selected');
+        const reason = selected ? selected.textContent : '未回答';
+        const note = card.querySelector('.reason-text').value || '';
+        lines.push(`${id},${name},${date},${status},${reason},${note}`);
+    });
+
+    const blob = new Blob([lines.join('\n')], {type:'text/csv;charset=utf-8'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    const now = new Date().toISOString().slice(0,10);
+    a.href = url;
+    a.download = `ミチルシリカ_解約理由_${now}.csv`;
+    a.click();
+
+    document.getElementById('savedMsg').style.display = 'block';
+    setTimeout(() => document.getElementById('savedMsg').style.display = 'none', 3000);
+}
+</script>
+</body>
+</html>
