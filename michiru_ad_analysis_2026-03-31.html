@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ミチルシリカ 広告分析レポート — 2026年3月</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans JP", sans-serif; max-width: 900px; margin: 0 auto; padding: 20px; background: #f5f6fa; color: #2d3436; line-height: 1.8; font-size: 14px; }
+
+.cover { background: linear-gradient(135deg, #0c2461, #1e3799, #0a3d62); color: white; padding: 48px 40px; border-radius: 20px; margin-bottom: 28px; position: relative; overflow: hidden; }
+.cover::after { content: ''; position: absolute; top: -50%; right: -20%; width: 300px; height: 300px; background: rgba(255,255,255,0.04); border-radius: 50%; }
+.cover h1 { font-size: 1.7em; margin-bottom: 8px; letter-spacing: 0.02em; }
+.cover .sub { opacity: 0.75; font-size: 0.9em; }
+.cover .date { margin-top: 16px; font-size: 0.85em; opacity: 0.6; }
+
+.toc { background: white; border-radius: 16px; padding: 28px 32px; margin-bottom: 28px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+.toc h2 { font-size: 1.1em; color: #0c2461; margin-bottom: 14px; }
+.toc ol { padding-left: 22px; }
+.toc li { margin-bottom: 6px; font-size: 0.95em; }
+.toc a { color: #1e3799; text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+
+.section { background: white; border-radius: 16px; margin-bottom: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); overflow: hidden; }
+.section-header { padding: 22px 28px 18px; border-bottom: 2px solid #f0f2f5; }
+.section-header h2 { font-size: 1.2em; color: #0c2461; display: flex; align-items: center; gap: 10px; }
+.section-num { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background: #0c2461; color: white; font-size: 0.85em; font-weight: 700; flex-shrink: 0; }
+.section-body { padding: 24px 28px; }
+
+.highlight-box { border-radius: 12px; padding: 20px 24px; margin: 16px 0; }
+.highlight-box.red { background: #fff5f5; border-left: 5px solid #e74c3c; }
+.highlight-box.green { background: #f0fff4; border-left: 5px solid #27ae60; }
+.highlight-box.blue { background: #f0f4ff; border-left: 5px solid #2980b9; }
+.highlight-box.orange { background: #fffbf0; border-left: 5px solid #f39c12; }
+.highlight-box .hl-title { font-weight: 700; font-size: 1em; margin-bottom: 6px; }
+.highlight-box p { font-size: 0.92em; color: #555; }
+
+table { width: 100%; border-collapse: collapse; font-size: 0.88em; margin: 12px 0; }
+th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid #f0f0f0; }
+th { font-weight: 600; color: #666; font-size: 0.85em; background: #fafbfc; }
+td { color: #333; }
+.num-cell { text-align: right; font-variant-numeric: tabular-nums; }
+.good { color: #27ae60; font-weight: 700; }
+.bad { color: #e74c3c; font-weight: 700; }
+.neutral { color: #f39c12; font-weight: 700; }
+
+.diagram { background: #fafbfc; border-radius: 14px; padding: 28px; margin: 20px 0; }
+.diagram-title { font-weight: 700; font-size: 1em; color: #0c2461; margin-bottom: 16px; text-align: center; }
+
+.flow-row { display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap; margin: 12px 0; }
+.flow-box { padding: 12px 18px; border-radius: 10px; font-size: 0.88em; font-weight: 600; text-align: center; min-width: 120px; }
+.flow-arrow { font-size: 1.4em; color: #999; }
+.flow-box.blue { background: #dfe6f6; color: #1e3799; border: 2px solid #1e3799; }
+.flow-box.green { background: #d5f5e3; color: #1e8449; border: 2px solid #27ae60; }
+.flow-box.red { background: #fde8e8; color: #c0392b; border: 2px solid #e74c3c; }
+.flow-box.orange { background: #fef3d5; color: #b7791f; border: 2px solid #f39c12; }
+.flow-box.gray { background: #eee; color: #666; border: 2px solid #bbb; }
+.flow-box.purple { background: #f0e6ff; color: #6c3483; border: 2px solid #8e44ad; }
+
+.compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0; }
+.compare-card { border-radius: 14px; padding: 22px; text-align: center; }
+.compare-card.win { background: linear-gradient(135deg, #d5f5e3, #a9dfbf); border: 3px solid #27ae60; }
+.compare-card.lose { background: linear-gradient(135deg, #fde8e8, #f5b7b1); border: 3px solid #e74c3c; }
+.compare-card .cc-label { font-size: 0.8em; color: #666; font-weight: 600; margin-bottom: 4px; }
+.compare-card .cc-value { font-size: 2em; font-weight: 900; }
+.compare-card .cc-sub { font-size: 0.82em; color: #555; margin-top: 4px; }
+.compare-card.win .cc-value { color: #1e8449; }
+.compare-card.lose .cc-value { color: #c0392b; }
+
+.timeline { position: relative; padding-left: 30px; margin: 16px 0; }
+.timeline::before { content: ''; position: absolute; left: 11px; top: 0; bottom: 0; width: 3px; background: #ddd; border-radius: 2px; }
+.tl-item { position: relative; margin-bottom: 18px; }
+.tl-item::before { content: ''; position: absolute; left: -24px; top: 6px; width: 14px; height: 14px; border-radius: 50%; border: 3px solid white; box-shadow: 0 0 0 2px #ddd; }
+.tl-item.good::before { background: #27ae60; box-shadow: 0 0 0 2px #27ae60; }
+.tl-item.bad::before { background: #e74c3c; box-shadow: 0 0 0 2px #e74c3c; }
+.tl-item.neutral::before { background: #f39c12; box-shadow: 0 0 0 2px #f39c12; }
+.tl-date { font-weight: 700; font-size: 0.88em; color: #0c2461; }
+.tl-text { font-size: 0.88em; color: #555; margin-top: 2px; }
+
+.kpi-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 16px 0; }
+.kpi { background: white; border: 2px solid #eee; padding: 18px; border-radius: 12px; text-align: center; }
+.kpi .kpi-num { font-size: 1.8em; font-weight: 900; }
+.kpi .kpi-label { font-size: 0.75em; color: #666; margin-top: 4px; }
+.kpi.kpi-green { border-color: #27ae60; }
+.kpi.kpi-green .kpi-num { color: #27ae60; }
+.kpi.kpi-red { border-color: #e74c3c; }
+.kpi.kpi-red .kpi-num { color: #e74c3c; }
+.kpi.kpi-blue { border-color: #2980b9; }
+.kpi.kpi-blue .kpi-num { color: #2980b9; }
+.kpi.kpi-orange { border-color: #f39c12; }
+.kpi.kpi-orange .kpi-num { color: #f39c12; }
+
+.rule-card { background: white; border: 3px solid #e74c3c; border-radius: 14px; padding: 22px 26px; margin: 14px 0; }
+.rule-card .rule-title { font-weight: 800; font-size: 1.05em; color: #c0392b; margin-bottom: 8px; }
+.rule-card .rule-body { font-size: 0.9em; color: #555; }
+
+.footer { text-align: center; margin-top: 32px; font-size: 0.78em; color: #999; padding: 16px; }
+
+@media (max-width: 600px) {
+  .kpi-row { grid-template-columns: repeat(2, 1fr); }
+  .compare-grid { grid-template-columns: 1fr; }
+  .cover { padding: 32px 24px; }
+  .section-body { padding: 18px 20px; }
+}
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <h1>ミチルシリカ 広告運用分析レポート</h1>
+  <div class="sub">3月後半の売上停滞 — 原因特定と改善提案</div>
+  <div class="date">2026年3月31日 作成</div>
+</div>
+
+<div class="toc">
+  <h2>目次</h2>
+  <ol>
+    <li><a href="#s1">エグゼクティブサマリー</a></li>
+    <li><a href="#s2">3月の売上実績（正確な数字）</a></li>
+    <li><a href="#s3">問題：なぜ5日間売れなかったのか</a></li>
+    <li><a href="#s4">発見：Yahoo広告は実は最高効率だった</a></li>
+    <li><a href="#s5">法則：「足すと売れる・止めると止まる」の実証</a></li>
+    <li><a href="#s6">提案：今後の広告設定</a></li>
+    <li><a href="#s7">絶対やってはいけないことリスト</a></li>
+  </ol>
+</div>
+
+<!-- 1. エグゼクティブサマリー -->
+<div class="section" id="s1">
+  <div class="section-header"><h2><span class="section-num">1</span>エグゼクティブサマリー</h2></div>
+  <div class="section-body">
+    <div class="highlight-box red">
+      <div class="hl-title">3/26-30の5日間、新規購入がゼロになった</div>
+      <p>3/27に広告を一気に絞った（8本→3本）ことと、Yahoo広告を停止したことが原因。</p>
+    </div>
+    <div class="highlight-box green">
+      <div class="hl-title">3/29に広告を復旧 → 3/31に購入が回復</div>
+      <p>広告を元に戻したことでMetaの配信が正常化し始め、3/31に1件購入。</p>
+    </div>
+    <div class="highlight-box blue">
+      <div class="hl-title">最大の発見：Yahoo広告はCPA最高効率チャネルだった</div>
+      <p>Yahoo広告の管理画面ではCV=0件だったが、GA4で確認するとcv_40（購入完了）が3件。CPA ¥2,700でMeta（CPA ¥17,500）の6倍効率が良い。計測の仕組みの問題で見えていなかっただけ。</p>
+    </div>
+  </div>
+</div>
+
+<!-- 2. 3月の売上実績 -->
+<div class="section" id="s2">
+  <div class="section-header"><h2><span class="section-num">2</span>3月の売上実績</h2></div>
+  <div class="section-body">
+
+    <div class="kpi-row">
+      <div class="kpi kpi-blue"><div class="kpi-num">50+</div><div class="kpi-label">定期配送（既存顧客）</div></div>
+      <div class="kpi kpi-green"><div class="kpi-num">6件+</div><div class="kpi-label">新規獲得（スプシ）</div></div>
+      <div class="kpi kpi-orange"><div class="kpi-num">8件</div><div class="kpi-label">新規（カラーミー直接）</div></div>
+      <div class="kpi kpi-red"><div class="kpi-num">3件</div><div class="kpi-label">解約</div></div>
+    </div>
+
+    <h3 style="font-size:0.95em; color:#0c2461; margin: 20px 0 10px;">新規獲得の日別推移</h3>
+    <table>
+      <thead><tr><th>日付</th><th>新規顧客</th><th>経路</th><th>GA4 cv_40</th></tr></thead>
+      <tbody>
+        <tr><td>3/3</td><td>小川和伯</td><td>カラーミー直接</td><td>-</td></tr>
+        <tr><td>3/8</td><td>大小田真希子</td><td>ネット検索</td><td>-</td></tr>
+        <tr><td>3/15</td><td>芳田富士子</td><td>カラーミー直接</td><td>google / organic</td></tr>
+        <tr><td>3/17</td><td>大武忍保 / 荒木千保</td><td>カラーミー+電話</td><td class="good">yahoo / cpc</td></tr>
+        <tr><td>3/19</td><td>箕田紗人</td><td>カラーミー直接</td><td>meta / paid</td></tr>
+        <tr><td>3/20</td><td>榎本貢</td><td>Facebook</td><td>-</td></tr>
+        <tr><td>3/21</td><td>葛巻拓生</td><td>カラーミー直接</td><td class="good">yahoo / cpc</td></tr>
+        <tr><td>3/22</td><td>藤原節子・原豊美</td><td>カラーミー直接</td><td class="good">yahoo / cpc</td></tr>
+        <tr><td>3/23</td><td>杉田渚</td><td>カラーミー直接</td><td>instagram / paid_social</td></tr>
+        <tr><td>3/24</td><td>藤田順子</td><td>Facebook</td><td>-</td></tr>
+        <tr><td>3/25</td><td>坂下利恵</td><td>Instagram</td><td>-</td></tr>
+        <tr style="background:#fff5f5;"><td>3/26-30</td><td colspan="3" class="bad" style="text-align:center;">5日間 新規購入ゼロ</td></tr>
+        <tr style="background:#f0fff4;"><td>3/31</td><td colspan="3" class="good" style="text-align:center;">購入回復（1件）</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- 3. なぜ5日間売れなかったか -->
+<div class="section" id="s3">
+  <div class="section-header"><h2><span class="section-num">3</span>問題：なぜ5日間売れなかったのか</h2></div>
+  <div class="section-body">
+
+    <div class="diagram">
+      <div class="diagram-title">3/27に実施した変更</div>
+      <div class="flow-row">
+        <div class="flow-box red">広告8本→3本に<br>一気に削減</div>
+        <span class="flow-arrow">+</span>
+        <div class="flow-box red">Yahoo広告<br>停止</div>
+        <span class="flow-arrow">+</span>
+        <div class="flow-box red">予算変更<br>同日実施</div>
+      </div>
+      <div style="text-align:center; margin: 12px 0;">
+        <span class="flow-arrow" style="font-size:2em;">&#8595;</span>
+      </div>
+      <div class="flow-row">
+        <div class="flow-box red">CPC +71%高騰<br>&#165;64→&#165;106</div>
+        <span class="flow-arrow">+</span>
+        <div class="flow-box red">フォーム到達<br>日3人→0人</div>
+        <span class="flow-arrow">+</span>
+        <div class="flow-box red">Yahooの購入<br>供給が消滅</div>
+      </div>
+      <div style="text-align:center; margin: 12px 0;">
+        <span class="flow-arrow" style="font-size:2em;">&#8595;</span>
+      </div>
+      <div class="flow-row">
+        <div class="flow-box red" style="font-size: 1em; padding: 16px 32px;">5日間 購入ゼロ</div>
+      </div>
+    </div>
+
+    <h3 style="font-size:0.95em; color:#0c2461; margin: 20px 0 10px;">変更前後の数値比較</h3>
+    <table>
+      <thead><tr><th>指標</th><th class="num-cell">3/20-25（変更前）</th><th class="num-cell">3/26-30（変更後）</th><th class="num-cell">変化</th></tr></thead>
+      <tbody>
+        <tr><td>配信中の広告本数</td><td class="num-cell">8本</td><td class="num-cell bad">3本</td><td class="num-cell bad">-5本</td></tr>
+        <tr><td>日消化額</td><td class="num-cell">&#165;2,730</td><td class="num-cell">&#165;3,344</td><td class="num-cell">+22%</td></tr>
+        <tr><td>日リンククリック</td><td class="num-cell">40</td><td class="num-cell bad">32</td><td class="num-cell bad">-18%</td></tr>
+        <tr><td>CPC</td><td class="num-cell">&#165;64</td><td class="num-cell bad">&#165;106</td><td class="num-cell bad">+71%</td></tr>
+        <tr><td>フォーム開始/日</td><td class="num-cell">3.0人</td><td class="num-cell bad">0.6人</td><td class="num-cell bad">-80%</td></tr>
+        <tr><td>Yahooセッション/日</td><td class="num-cell">18</td><td class="num-cell bad">4→0</td><td class="num-cell bad">消滅</td></tr>
+        <tr><td>新規購入</td><td class="num-cell good">8件/6日</td><td class="num-cell bad">0件/5日</td><td class="num-cell bad">ゼロ</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:0.85em; color:#888; margin-top:8px;">※予算を22%増やしたのにクリックが18%減少。CPC高騰により予算増の効果が相殺された。</p>
+  </div>
+</div>
+
+<!-- 4. Yahoo広告の発見 -->
+<div class="section" id="s4">
+  <div class="section-header"><h2><span class="section-num">4</span>発見：Yahoo広告は実は最高効率だった</h2></div>
+  <div class="section-body">
+
+    <div class="diagram">
+      <div class="diagram-title">なぜYahoo広告のCVが見えなかったか</div>
+      <div style="margin-bottom: 20px;">
+        <p style="font-weight:700; margin-bottom:8px; color:#e74c3c;">Yahoo広告の管理画面が見える範囲：</p>
+        <div class="flow-row">
+          <div class="flow-box blue">Yahoo広告<br>クリック</div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-box blue">LP表示</div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-box gray">カラーミー<br>購入フォーム</div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-box gray">購入完了</div>
+        </div>
+        <p style="text-align:center; font-size:0.85em; color:#e74c3c; font-weight:600; margin-top:6px;">LP→カラーミー遷移でトラッキングが切れる → CV=0と表示される</p>
+      </div>
+      <div>
+        <p style="font-weight:700; margin-bottom:8px; color:#27ae60;">GA4（正しい計測）が見える範囲：</p>
+        <div class="flow-row">
+          <div class="flow-box green">Yahoo広告<br>クリック</div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-box green">LP表示</div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-box green">CTAクリック<br>（cv_40発火）</div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-box green">購入完了</div>
+        </div>
+        <p style="text-align:center; font-size:0.85em; color:#27ae60; font-weight:600; margin-top:6px;">LP上のcv_40イベントで購入を検知 → CV=3件と判明</p>
+      </div>
+    </div>
+
+    <h3 style="font-size:0.95em; color:#0c2461; margin: 20px 0 10px;">Yahoo経由の購入（GA4 cv_40で確認）</h3>
+    <table>
+      <thead><tr><th>日付</th><th>GA4 cv_40 経路</th><th>カラーミー新規注文（照合）</th></tr></thead>
+      <tbody>
+        <tr><td class="good">3/17</td><td class="good">yahoo / cpc</td><td>大武忍保さん</td></tr>
+        <tr><td class="good">3/21</td><td class="good">yahoo / cpc</td><td>葛巻拓生さん</td></tr>
+        <tr><td class="good">3/22</td><td class="good">yahoo / cpc</td><td>藤原節子さん or 原豊美さん</td></tr>
+      </tbody>
+    </table>
+
+    <h3 style="font-size:0.95em; color:#0c2461; margin: 24px 0 12px;">チャネル別CPA比較（3月実績）</h3>
+    <div class="compare-grid">
+      <div class="compare-card win">
+        <div class="cc-label">Yahoo広告</div>
+        <div class="cc-value">&#165;2,700</div>
+        <div class="cc-sub">消化 &#165;8,000 / 購入 3件</div>
+        <div style="margin-top:8px; font-size:0.85em; font-weight:700; color:#1e8449;">CPA最高効率</div>
+      </div>
+      <div class="compare-card lose">
+        <div class="cc-label">Meta広告</div>
+        <div class="cc-value">&#165;17,500</div>
+        <div class="cc-sub">消化 &#165;70,000 / 購入 4件</div>
+        <div style="margin-top:8px; font-size:0.85em; font-weight:700; color:#c0392b;">Yahooの6.5倍のコスト</div>
+      </div>
+    </div>
+
+    <div class="highlight-box red">
+      <div class="hl-title">Yahoo広告を「効果なし」と誤判断して停止していた</div>
+      <p>広告管理画面のCVだけで判断した結果、最も効率の良いチャネルを失った。Yahoo停止後、購入の供給源の37.5%が消滅した。</p>
+    </div>
+  </div>
+</div>
+
+<!-- 5. 足すと売れる・止めると止まる -->
+<div class="section" id="s5">
+  <div class="section-header"><h2><span class="section-num">5</span>法則：「足すと売れる・止めると止まる」</h2></div>
+  <div class="section-body">
+
+    <div class="diagram">
+      <div class="diagram-title">3月の3つのフェーズ</div>
+      <div class="timeline">
+        <div class="tl-item neutral">
+          <div class="tl-date">Phase 1: 3/10-12（広告2本・絞っていた時期）</div>
+          <div class="tl-text">悩み訴求＋価格訴求の2本だけ。CPC &#165;64で安定だが購入ゼロ。</div>
+        </div>
+        <div class="tl-item good">
+          <div class="tl-date">Phase 2: 3/13午後〜3/25（広告を一気に追加）</div>
+          <div class="tl-text">5〜8本に増やした。新規8件獲得。CPC &#165;64で安定のまま母数が増加。</div>
+        </div>
+        <div class="tl-item bad">
+          <div class="tl-date">Phase 3: 3/26-30（広告を一気に削減）</div>
+          <div class="tl-text">8本→3本に絞った。CPC &#165;106に高騰、5日間購入ゼロ。</div>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="font-size:0.95em; color:#0c2461; margin: 20px 0 10px;">3フェーズの数値比較</h3>
+    <table>
+      <thead><tr><th>指標</th><th class="num-cell">Phase 1<br>2本（3/10-12）</th><th class="num-cell">Phase 2<br>5-8本（3/15-25）</th><th class="num-cell">Phase 3<br>3本（3/26-30）</th></tr></thead>
+      <tbody>
+        <tr><td>日消化額</td><td class="num-cell">&#165;1,986</td><td class="num-cell">&#165;3,044</td><td class="num-cell">&#165;3,344</td></tr>
+        <tr><td>日クリック</td><td class="num-cell">31</td><td class="num-cell good">43</td><td class="num-cell bad">32</td></tr>
+        <tr><td>CPC</td><td class="num-cell">&#165;64</td><td class="num-cell good">&#165;64</td><td class="num-cell bad">&#165;106</td></tr>
+        <tr><td>フォーム開始/日</td><td class="num-cell">0</td><td class="num-cell good">2.6人</td><td class="num-cell bad">0.6人</td></tr>
+        <tr><td>新規購入</td><td class="num-cell">0件/3日</td><td class="num-cell good">8件/11日</td><td class="num-cell bad">0件/5日</td></tr>
+      </tbody>
+    </table>
+
+    <div class="diagram" style="margin-top:24px;">
+      <div class="diagram-title">なぜ「足す」と売れるのか</div>
+      <div class="flow-row">
+        <div class="flow-box green">広告の種類が<br>増える</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-box green">Metaが新しい<br>オーディエンスを探索</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-box green">安いクリックが<br>増える</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-box green">母数が増え<br>購入が出る</div>
+      </div>
+      <div style="height:20px;"></div>
+      <div class="diagram-title">なぜ「止める」と売れなくなるのか</div>
+      <div class="flow-row">
+        <div class="flow-box red">広告の種類が<br>減る</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-box red">同じ人に<br>同じ広告が繰り返し</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-box red">飽きられて<br>CPC高騰</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-box red">クリック減<br>購入ゼロ</div>
+      </div>
+    </div>
+
+    <div class="highlight-box green">
+      <div class="hl-title">12月のミスコン認知動画＋価格訴求の「2段階ファネル」が最も効果的だった</div>
+      <p>ミスコン動画で温めた人に、後から価格訴求を見せて購入させる構造。価格訴求単体より、認知→購入の2段階の方がCVRが高い。</p>
+    </div>
+
+    <div class="diagram">
+      <div class="diagram-title">2段階ファネル（12月に実証済み）</div>
+      <div class="flow-row">
+        <div class="flow-box purple">認知動画<br>（ミスコン等）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-box orange">記憶に残る<br>「有名人も飲んでる」</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-box green">数日後に<br>価格訴求が表示</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-box green">「あの水が安い」<br>→購入</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 6. 今後の提案 -->
+<div class="section" id="s6">
+  <div class="section-header"><h2><span class="section-num">6</span>提案：今後の広告設定</h2></div>
+  <div class="section-body">
+
+    <h3 style="font-size:0.95em; color:#0c2461; margin: 0 0 12px;">予算配分（日予算 合計 &#165;4,000）</h3>
+
+    <table>
+      <thead><tr><th>チャネル</th><th>キャンペーン</th><th>広告内容</th><th class="num-cell">日予算</th><th>目的</th></tr></thead>
+      <tbody>
+        <tr style="background:#f0fff4;">
+          <td style="font-weight:700; color:#27ae60;">Yahoo広告</td>
+          <td>既存キャンペーン</td>
+          <td>シリカ水関連KW</td>
+          <td class="num-cell" style="font-weight:700;">&#165;1,000</td>
+          <td>CPA最高効率での刈り取り</td>
+        </tr>
+        <tr>
+          <td rowspan="3" style="font-weight:700; color:#1e3799;">Meta広告</td>
+          <td>CV最適化</td>
+          <td>価格訴求＋悩み訴求＋定期便＋日常B＋画像（5本以上）</td>
+          <td class="num-cell" style="font-weight:700;">&#165;2,000</td>
+          <td>購入促進（メイン）</td>
+        </tr>
+        <tr>
+          <td>テスト</td>
+          <td>のむシリカ風</td>
+          <td class="num-cell">&#165;500</td>
+          <td>新パターン探索</td>
+        </tr>
+        <tr>
+          <td>認知（新規作成）</td>
+          <td>ミスコン or ブランドリフト動画</td>
+          <td class="num-cell">&#165;500</td>
+          <td>動画視聴で温める</td>
+        </tr>
+        <tr style="background:#fafbfc; font-weight:700;">
+          <td colspan="3">合計</td>
+          <td class="num-cell">&#165;4,000</td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 style="font-size:0.95em; color:#0c2461; margin: 28px 0 12px;">実施スケジュール</h3>
+    <div class="timeline">
+      <div class="tl-item good">
+        <div class="tl-date">4/1（即日）</div>
+        <div class="tl-text">Yahoo広告を&#165;1,000/日で再開。Meta広告は現状維持（復旧済みを確認のみ）。</div>
+      </div>
+      <div class="tl-item neutral">
+        <div class="tl-date">4/2-3（様子見）</div>
+        <div class="tl-text">GA4のcv_40＋カラーミー＋スプシで毎日チェック。設定は変更しない。</div>
+      </div>
+      <div class="tl-item good">
+        <div class="tl-date">4/4（追加のみ）</div>
+        <div class="tl-text">認知キャンペーン（動画再生目的）を新規追加。既存は一切触らない。</div>
+      </div>
+      <div class="tl-item neutral">
+        <div class="tl-date">4/5-7（経過観察）</div>
+        <div class="tl-text">1週間分のデータで効果判定。</div>
+      </div>
+    </div>
+
+    <h3 style="font-size:0.95em; color:#0c2461; margin: 24px 0 12px;">4/7の判定基準</h3>
+    <table>
+      <thead><tr><th>シナリオ</th><th class="num-cell">新規購入/週</th><th>判断</th></tr></thead>
+      <tbody>
+        <tr><td class="good">好調</td><td class="num-cell">3件以上</td><td>現状維持。認知動画の予算を少し増やす</td></tr>
+        <tr><td class="neutral">回復中</td><td class="num-cell">1-2件</td><td>もう1週間継続。焦って変えない</td></tr>
+        <tr><td class="bad">不調</td><td class="num-cell">0件</td><td>LP・カラーミーフォーム側を調査。広告は「追加」で対応</td></tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>
+
+<!-- 7. 絶対やってはいけないこと -->
+<div class="section" id="s7">
+  <div class="section-header"><h2><span class="section-num">7</span>絶対やってはいけないことリスト</h2></div>
+  <div class="section-body">
+
+    <div class="rule-card">
+      <div class="rule-title">1. 広告を一気に複数本止めない</div>
+      <div class="rule-body">
+        止めたい時は<strong>1本ずつ、7日間隔</strong>で。3/27に4本同時停止→CPC +71%→5日間CVゼロ。<br>
+        売れない時は<strong>止めるのではなく「足す」</strong>。3/13に足して翌日から売れた実績あり。
+      </div>
+    </div>
+
+    <div class="rule-card">
+      <div class="rule-title">2. 広告管理画面のCVだけで効果判定しない</div>
+      <div class="rule-body">
+        LP→カラーミーの外部フォーム遷移で、広告側のCVトラッキングは切れる。<br>
+        必ず<strong>GA4のcv_40イベント</strong>で裏を取る。Yahoo広告はこれで3件のCVが判明した。
+      </div>
+    </div>
+
+    <div class="rule-card">
+      <div class="rule-title">3. 予算変更と広告停止を同じ日にやらない</div>
+      <div class="rule-body">
+        Metaの学習が二重に崩れる。変更は1つずつ、効果を見てから次の変更を行う。
+      </div>
+    </div>
+
+    <div class="rule-card">
+      <div class="rule-title">4. 配信中の広告を3本以下にしない</div>
+      <div class="rule-body">
+        3本以下になるとMetaの「探索」が止まり、同じオーディエンスを繰り返してCPCが高騰する。<br>
+        <strong>常時5本以上を維持</strong>する。
+      </div>
+    </div>
+
+    <div class="rule-card">
+      <div class="rule-title">5. Yahoo広告を止めない</div>
+      <div class="rule-body">
+        3月のcv_40の37.5%がYahoo経由。CPA &#165;2,700はMetaの6.5倍効率が良い。<br>
+        広告管理画面でCV=0でも、GA4では購入に繋がっている。
+      </div>
+    </div>
+
+    <div class="highlight-box blue" style="margin-top:24px;">
+      <div class="hl-title">判断に迷ったら</div>
+      <p>
+        <strong>「止める」より「足す」を選ぶ。</strong><br>
+        効果判定は<strong>GA4のcv_40 + カラーミーCSV + スプシの3点突合</strong>で行う。<br>
+        広告管理画面の数字だけで判断しない。
+      </p>
+    </div>
+
+  </div>
+</div>
+
+<div class="footer">
+  ミチルシリカ 広告運用分析レポート | 2026年3月31日<br>
+  データソース: GA4 / Meta Ads / Yahoo Ads / カラーミーリピート / 顧客管理スプレッドシート
+</div>
+
+</body>
+</html>
