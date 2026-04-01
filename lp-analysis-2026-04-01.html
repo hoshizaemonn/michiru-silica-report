@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LP改善指示書 — 2026年04月01日</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; background: #f0f2f5; color: #333; line-height: 1.7; font-size: 14px; }
+.header { background: linear-gradient(135deg, #0d47a1, #1565c0); color: white; padding: 28px; border-radius: 14px; margin-bottom: 20px; }
+.header h1 { font-size: 1.4em; margin-bottom: 6px; }
+.header .sub { opacity: 0.85; font-size: 0.85em; }
+.kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 20px; }
+.kpi { background: white; padding: 16px; border-radius: 10px; text-align: center; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+.kpi .num { font-size: 1.6em; font-weight: 900; }
+.kpi .label { font-size: 0.75em; color: #666; margin-top: 2px; }
+.kpi.red .num { color: #dc3545; }
+.kpi.green .num { color: #2e7d32; }
+.kpi.blue .num { color: #1565c0; }
+.kpi.orange .num { color: #e65100; }
+.section { background: white; border-radius: 12px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); overflow: hidden; }
+.section-title { padding: 16px 20px; font-weight: 700; font-size: 1em; border-bottom: 1px solid #eee; }
+.section-body { padding: 16px 20px; }
+table { width: 100%; border-collapse: collapse; font-size: 0.88em; }
+th, td { padding: 8px 10px; text-align: left; border-bottom: 1px solid #f0f0f0; }
+th { font-weight: 600; color: #666; font-size: 0.85em; }
+.action-card { border: 2px solid #e0e0e0; border-radius: 10px; padding: 18px; margin: 10px 0; }
+.action-card.urgent { border-color: #dc3545; background: #fff5f5; }
+.action-card.high { border-color: #ff9800; background: #fff8e1; }
+.action-card.normal { border-color: #1976d2; background: #e3f2fd; }
+.action-card .ac-header { font-weight: 700; font-size: 1em; margin-bottom: 4px; }
+.action-card .ac-reason { font-size: 0.85em; color: #666; margin-bottom: 10px; }
+.action-card ol { padding-left: 20px; font-size: 0.9em; }
+.action-card ol li { margin-bottom: 6px; }
+.lp-section { display: grid; grid-template-columns: 60px 1fr 1fr; gap: 8px; padding: 10px 0; border-bottom: 1px solid #f0f0f0; font-size: 0.85em; }
+.lp-section:last-child { border-bottom: none; }
+.lp-pct { font-weight: 700; color: #1565c0; text-align: center; padding-top: 2px; }
+.lp-current { color: #666; }
+.lp-fix { color: #c62828; font-weight: 500; }
+.priority-badge { display: inline-block; width: 24px; height: 24px; border-radius: 50%; color: white; text-align: center; line-height: 24px; font-size: 0.75em; font-weight: 700; margin-right: 8px; }
+.priority-badge.urgent { background: #dc3545; }
+.priority-badge.high { background: #ff9800; }
+.priority-badge.normal { background: #1976d2; }
+.lp-block { margin-bottom: 32px; border: 3px solid #ddd; border-radius: 16px; overflow: hidden; }
+.badge-good { display:inline-block; padding:2px 10px; border-radius:12px; font-size:0.8em; font-weight:700; background:#e8f5e9; color:#2e7d32; }
+.badge-avg { display:inline-block; padding:2px 10px; border-radius:12px; font-size:0.8em; font-weight:700; background:#fff3e0; color:#e65100; }
+.badge-bad { display:inline-block; padding:2px 10px; border-radius:12px; font-size:0.8em; font-weight:700; background:#ffebee; color:#c62828; }
+.footer { text-align: center; margin-top: 20px; font-size: 0.75em; color: #999; padding: 10px; }
+</style>
+</head>
+<body>
+<div class="header">
+    <h1>LP改善指示書</h1>
+    <div class="sub">ミチルシリカ | 直近1日間 | 2026-04-01 09:30 自動生成</div>
+    <div class="sub">Clarity API + GA4 | LP別レポート</div>
+</div>
+
+<!-- 全体サマリー -->
+<div class="kpi-grid">
+    <div class="kpi blue"><div class="num">45</div><div class="label">総セッション（Clarity）</div></div>
+    <div class="kpi green"><div class="num">6</div><div class="label">実ユーザー</div></div>
+    <div class="kpi red"><div class="num">87%</div><div class="label">ボット率</div></div>
+    <div class="kpi blue"><div class="num">110</div><div class="label">GA4セッション</div></div>
+</div>
+
+<div class="section">
+    <div class="section-title">全体トラフィック（ソース別）</div>
+    <div class="section-body">
+        <table>
+            <thead><tr><th>ソース</th><th style="text-align:right">総セッション</th><th style="text-align:right">実ユーザー</th><th style="text-align:right">ボット率</th></tr></thead>
+            <tbody><tr><td>meta</td><td style="text-align:right">26</td><td style="text-align:right">20</td><td style="text-align:right;color:#ff9800;font-weight:700">23%</td></tr><tr><td>(direct)</td><td style="text-align:right">10</td><td style="text-align:right">-23</td><td style="text-align:right;color:#dc3545;font-weight:700">330%</td></tr><tr><td>google</td><td style="text-align:right">5</td><td style="text-align:right">5</td><td style="text-align:right;color:#333;font-weight:400">0%</td></tr><tr><td>michiru.olivia-store.com</td><td style="text-align:right">2</td><td style="text-align:right">2</td><td style="text-align:right;color:#333;font-weight:400">0%</td></tr><tr><td>instagram</td><td style="text-align:right">1</td><td style="text-align:right">1</td><td style="text-align:right;color:#333;font-weight:400">0%</td></tr><tr><td>yahoo</td><td style="text-align:right">1</td><td style="text-align:right">1</td><td style="text-align:right;color:#333;font-weight:400">0%</td></tr></tbody>
+        </table>
+    </div>
+</div>
+
+<!-- LP別レポート -->
+
+<div class="lp-block">
+    <div class="section-title" style="background:#E1306C;color:white;font-size:1.1em;padding:18px 20px;">
+        Meta LP
+    </div>
+
+    <div class="kpi-grid" style="margin:16px 0;">
+        <div class="kpi blue"><div class="num">26</div><div class="label">Clarityセッション</div></div>
+        <div class="kpi green"><div class="num">20</div><div class="label">実ユーザー</div></div>
+        <div class="kpi orange"><div class="num">23%</div><div class="label">ボット率</div></div>
+        <div class="kpi blue"><div class="num">88</div><div class="label">GA4セッション</div></div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">GA4: ソース別パフォーマンス</div>
+        <div class="section-body">
+            <table>
+                <thead><tr><th>ソース</th><th style="text-align:right">セッション</th><th style="text-align:right">エンゲージ率</th><th style="text-align:right">滞在時間</th><th style="text-align:right">直帰率</th></tr></thead>
+                <tbody><tr><td>meta / paid</td><td style="text-align:right">88</td><td style="text-align:right">49%</td><td style="text-align:right">155秒</td><td style="text-align:right;color:#333">49%</td></tr></tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">CVイベント</div>
+        <div class="section-body">
+            <table>
+                <thead><tr><th>イベント</th><th>流入元</th><th style="text-align:right">件数</th><th>日付</th></tr></thead>
+                <tbody><tr><td>form_start</td><td>meta / paid</td><td style="text-align:right">2</td><td>20260331</td></tr><tr><td>form_start</td><td>meta / paid</td><td style="text-align:right">1</td><td>20260330</td></tr><tr><td>form_start</td><td>meta / paid</td><td style="text-align:right">1</td><td>20260329</td></tr><tr><td>purchase_form_view</td><td>meta / paid</td><td style="text-align:right">1</td><td>20260329</td></tr></tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title" style="background:#1565c0;color:white;">ベンチマーク比較</div>
+        <div class="section-body">
+            <table>
+                <thead><tr><th>指標</th><th style="text-align:right">自社</th><th style="text-align:right">業界平均</th><th style="text-align:right">優良水準</th><th style="text-align:center">判定</th></tr></thead>
+                <tbody><tr><td>直帰率</td><td style="text-align:right;font-weight:700">51%</td><td style="text-align:right;color:#666">60〜70%</td><td style="text-align:right;color:#666">50%以下</td><td style="text-align:center"><span class="badge-avg">平均</span></td></tr><tr><td>エンゲージメント率</td><td style="text-align:right;font-weight:700">49%</td><td style="text-align:right;color:#666">30〜40%</td><td style="text-align:right;color:#666">50%以上</td><td style="text-align:center"><span class="badge-avg">平均</span></td></tr><tr><td>平均滞在時間</td><td style="text-align:right;font-weight:700">155秒</td><td style="text-align:right;color:#666">30〜60秒</td><td style="text-align:right;color:#666">90秒以上</td><td style="text-align:center"><span class="badge-good">良好</span></td></tr><tr><td>ボット率</td><td style="text-align:right;font-weight:700">23%</td><td style="text-align:right;color:#666">15〜25%</td><td style="text-align:right;color:#666">10%以下</td><td style="text-align:center"><span class="badge-avg">平均</span></td></tr><tr><td>デッドクリック率</td><td style="text-align:right;font-weight:700">19%</td><td style="text-align:right;color:#666">5〜10%</td><td style="text-align:right;color:#666">3%以下</td><td style="text-align:center"><span class="badge-bad">要改善</span></td></tr><tr><td>レイジクリック率</td><td style="text-align:right;font-weight:700">0%</td><td style="text-align:right;color:#666">3〜5%</td><td style="text-align:right;color:#666">1%以下</td><td style="text-align:center"><span class="badge-good">良好</span></td></tr><tr><td>クイックバック率</td><td style="text-align:right;font-weight:700">4%</td><td style="text-align:right;color:#666">15〜25%</td><td style="text-align:right;color:#666">10%以下</td><td style="text-align:center"><span class="badge-good">良好</span></td></tr><tr><td>JSエラー数</td><td style="text-align:right;font-weight:700">2件</td><td style="text-align:right;color:#666">0〜3件</td><td style="text-align:right;color:#666">0件</td><td style="text-align:center"><span class="badge-avg">平均</span></td></tr></tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="section"><div class="section-title" style="background:#c62828;color:white;">やるべきこと</div><div class="section-body"><div class="action-card high"><div class="ac-header"><span class="priority-badge high">1</span>重要: デッドクリック 19%</div><div class="ac-reason">タップしても反応しない箇所がある</div><ol><li>Clarity → ヒートマップ → クリックマップで確認</li><li>画像にリンク追加 or CTA配置</li></ol></div></div></div>
+
+    <div class="section">
+        <div class="section-title">LP構成マップ（セクション別 改善ガイド）</div>
+        <div class="section-body"><div class="lp-section"><div class="lp-pct">0-5%</div><div class="lp-current">ファーストビュー（FV）<br><small>キャッチコピー「1本49円」+ メイン画像 + Amazon評価</small></div><div class="lp-fix">広告クリエイティブの訴求と一致させる。価格訴求広告→価格FV、悩み訴求広告→悩みFV に切り替え（FVマッチング）</div></div><div class="lp-section"><div class="lp-pct">5-15%</div><div class="lp-current">価格CTA + 代引きCTA<br><small>初回限定価格ボタン + 代引き対応テキスト</small></div><div class="lp-fix">ボタンの色を目立つ色（赤orオレンジ）に。「定期縛りなし」を追加して不安解消</div></div><div class="lp-section"><div class="lp-pct">15-30%</div><div class="lp-current">Amazon口コミ + 商品紹介動画<br><small>口コミ3件 + 商品動画</small></div><div class="lp-fix">口コミを50代以上女性の声に入れ替え。動画は自動再生OFF→サムネイルタップ再生に</div></div><div class="lp-section"><div class="lp-pct">30-50%</div><div class="lp-current">競合比較表 + シリカ説明<br><small>他社シリカ水との比較表 + シリカの効果説明</small></div><div class="lp-fix">比較表を画像→テーブルに変更（読み込み速度改善）。シリカの効果を3つに絞る</div></div><div class="lp-section"><div class="lp-pct">50-70%</div><div class="lp-current">ユーザーインタビュー + 書籍紹介<br><small>利用者の声5件 + 書籍情報</small></div><div class="lp-fix">インタビューを3件に減らす（5件は冗長）。「購入の決め手」を太字で強調</div></div><div class="lp-section"><div class="lp-pct">70-85%</div><div class="lp-current">取扱店舗 + FAQ<br><small>実店舗リスト + よくある質問</small></div><div class="lp-fix">FAQを「定期便の解約方法」「届くまでの日数」に絞る</div></div><div class="lp-section"><div class="lp-pct">85-100%</div><div class="lp-current">注文フォーム + フッターCTA<br><small>購入フォーム（カラーミーリピート埋め込み）</small></div><div class="lp-fix">フォーム入力項目を最小限に。「2分で完了」の表記追加</div></div></div>
+    </div>
+</div>
+
+<div class="lp-block">
+    <div class="section-title" style="background:#FF0033;color:white;font-size:1.1em;padding:18px 20px;">
+        Yahoo検索 LP
+    </div>
+
+    <div class="kpi-grid" style="margin:16px 0;">
+        <div class="kpi blue"><div class="num">1</div><div class="label">Clarityセッション</div></div>
+        <div class="kpi green"><div class="num">1</div><div class="label">実ユーザー</div></div>
+        <div class="kpi green"><div class="num">0%</div><div class="label">ボット率</div></div>
+        <div class="kpi blue"><div class="num">5</div><div class="label">GA4セッション</div></div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">GA4: ソース別パフォーマンス</div>
+        <div class="section-body">
+            <table>
+                <thead><tr><th>ソース</th><th style="text-align:right">セッション</th><th style="text-align:right">エンゲージ率</th><th style="text-align:right">滞在時間</th><th style="text-align:right">直帰率</th></tr></thead>
+                <tbody><tr><td>yahoo / organic</td><td style="text-align:right">3</td><td style="text-align:right">100%</td><td style="text-align:right">198秒</td><td style="text-align:right;color:#333">0%</td></tr><tr><td>yahoo / cpc</td><td style="text-align:right">2</td><td style="text-align:right">0%</td><td style="text-align:right">93秒</td><td style="text-align:right;color:#dc3545">100%</td></tr></tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">CVイベント</div>
+        <div class="section-body">
+            <table>
+                <thead><tr><th>イベント</th><th>流入元</th><th style="text-align:right">件数</th><th>日付</th></tr></thead>
+                <tbody><tr><td>form_start</td><td>yahoo / organic</td><td style="text-align:right">2</td><td>20260329</td></tr></tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title" style="background:#1565c0;color:white;">ベンチマーク比較</div>
+        <div class="section-body">
+            <table>
+                <thead><tr><th>指標</th><th style="text-align:right">自社</th><th style="text-align:right">業界平均</th><th style="text-align:right">優良水準</th><th style="text-align:center">判定</th></tr></thead>
+                <tbody><tr><td>直帰率</td><td style="text-align:right;font-weight:700">40%</td><td style="text-align:right;color:#666">60〜70%</td><td style="text-align:right;color:#666">50%以下</td><td style="text-align:center"><span class="badge-good">良好</span></td></tr><tr><td>エンゲージメント率</td><td style="text-align:right;font-weight:700">60%</td><td style="text-align:right;color:#666">30〜40%</td><td style="text-align:right;color:#666">50%以上</td><td style="text-align:center"><span class="badge-good">良好</span></td></tr><tr><td>平均滞在時間</td><td style="text-align:right;font-weight:700">128秒</td><td style="text-align:right;color:#666">30〜60秒</td><td style="text-align:right;color:#666">90秒以上</td><td style="text-align:center"><span class="badge-good">良好</span></td></tr><tr><td>ボット率</td><td style="text-align:right;font-weight:700">0%</td><td style="text-align:right;color:#666">15〜25%</td><td style="text-align:right;color:#666">10%以下</td><td style="text-align:center"><span class="badge-good">良好</span></td></tr><tr><td>デッドクリック率</td><td style="text-align:right;font-weight:700">0%</td><td style="text-align:right;color:#666">5〜10%</td><td style="text-align:right;color:#666">3%以下</td><td style="text-align:center"><span class="badge-good">良好</span></td></tr><tr><td>レイジクリック率</td><td style="text-align:right;font-weight:700">0%</td><td style="text-align:right;color:#666">3〜5%</td><td style="text-align:right;color:#666">1%以下</td><td style="text-align:center"><span class="badge-good">良好</span></td></tr><tr><td>クイックバック率</td><td style="text-align:right;font-weight:700">0%</td><td style="text-align:right;color:#666">15〜25%</td><td style="text-align:right;color:#666">10%以下</td><td style="text-align:center"><span class="badge-good">良好</span></td></tr><tr><td>JSエラー数</td><td style="text-align:right;font-weight:700">0件</td><td style="text-align:right;color:#666">0〜3件</td><td style="text-align:right;color:#666">0件</td><td style="text-align:center"><span class="badge-good">良好</span></td></tr></tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="section"><div class="section-title" style="background:#2e7d32;color:white;">現時点で緊急の改善項目なし</div></div>
+
+    <div class="section">
+        <div class="section-title">LP構成マップ（セクション別 改善ガイド）</div>
+        <div class="section-body"><div class="lp-section"><div class="lp-pct">0-5%</div><div class="lp-current">ファーストビュー（FV）<br><small>検索キーワードに応じたキャッチコピー + 商品画像</small></div><div class="lp-fix">検索意図に合わせたFV。「シリカ水」検索→成分訴求、「ミチルシリカ」指名検索→価格訴求</div></div><div class="lp-section"><div class="lp-pct">5-25%</div><div class="lp-current">価格・メリット訴求<br><small>価格メリット + 定期便の説明</small></div><div class="lp-fix">検索ユーザーは比較検討中。「他社との違い」を上部に移動</div></div><div class="lp-section"><div class="lp-pct">25-65%</div><div class="lp-current">成分説明 + 比較表 + 口コミ<br><small>シリカの効果 + 競合比較 + 利用者の声</small></div><div class="lp-fix">検索ユーザーは情報を読む。65%で離脱する崖があるので、65%地点にCTAボタンを追加</div></div><div class="lp-section"><div class="lp-pct">65-85%</div><div class="lp-current">FAQ + 安心材料<br><small>FAQ + 取扱店舗 + メディア掲載</small></div><div class="lp-fix">ここで離脱が急増。「初回限定50%OFF」のリマインドCTAを65%地点に挿入</div></div><div class="lp-section"><div class="lp-pct">85-100%</div><div class="lp-current">注文フォーム<br><small>購入フォーム</small></div><div class="lp-fix">フォーム到達者の購入率が低い。入力項目の削減 + 「代引き対応」の強調</div></div></div>
+    </div>
+</div>
+
+
+<div class="footer">
+    自動生成 by clarity_lp_analyzer.py<br>
+    Clarity Project: uxlt6cj6pr | GA4 Property: 310114593
+</div>
+</body>
+</html>
