@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ミチルシリカ 広告設定変更報告 — 2026年4月1日</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans JP", sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; background: #f5f6fa; color: #2d3436; line-height: 1.8; font-size: 14px; }
+.cover { background: linear-gradient(135deg, #1e3799, #0a3d62); color: white; padding: 40px 36px; border-radius: 18px; margin-bottom: 24px; }
+.cover h1 { font-size: 1.5em; margin-bottom: 6px; }
+.cover .sub { opacity: 0.75; font-size: 0.9em; }
+.cover .date { margin-top: 12px; font-size: 0.85em; opacity: 0.6; }
+.section { background: white; border-radius: 14px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); overflow: hidden; }
+.section-header { padding: 20px 24px 16px; border-bottom: 2px solid #f0f2f5; }
+.section-header h2 { font-size: 1.1em; color: #0c2461; display: flex; align-items: center; gap: 10px; }
+.section-num { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; background: #0c2461; color: white; font-size: 0.8em; font-weight: 700; flex-shrink: 0; }
+.section-body { padding: 20px 24px; }
+table { width: 100%; border-collapse: collapse; font-size: 0.88em; margin: 12px 0; }
+th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid #f0f0f0; }
+th { font-weight: 600; color: #666; font-size: 0.85em; background: #fafbfc; }
+.highlight-box { border-radius: 10px; padding: 18px 22px; margin: 14px 0; }
+.highlight-box.blue { background: #f0f4ff; border-left: 4px solid #2980b9; }
+.highlight-box.green { background: #f0fff4; border-left: 4px solid #27ae60; }
+.highlight-box.orange { background: #fffbf0; border-left: 4px solid #f39c12; }
+.highlight-box .hl-title { font-weight: 700; font-size: 0.95em; margin-bottom: 4px; }
+.highlight-box p { font-size: 0.9em; color: #555; }
+.good { color: #27ae60; font-weight: 700; }
+.num-cell { text-align: right; font-variant-numeric: tabular-nums; }
+.footer { text-align: center; margin-top: 28px; font-size: 0.78em; color: #999; padding: 12px; }
+.badge { display: inline-block; padding: 3px 12px; border-radius: 20px; font-size: 0.78em; font-weight: 700; }
+.badge-done { background: #d5f5e3; color: #1e8449; }
+.badge-new { background: #dfe6f6; color: #1e3799; }
+.badge-scheduled { background: #fef3d5; color: #b7791f; }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <h1>広告設定変更報告</h1>
+  <div class="sub">ミチルシリカ — 3月分析レポートに基づく改善実施</div>
+  <div class="date">2026年4月1日 実施</div>
+</div>
+
+<!-- 背景 -->
+<div class="section">
+  <div class="section-header"><h2><span class="section-num">1</span>背景</h2></div>
+  <div class="section-body">
+    <p>3月後半（3/26-30）に5日間新規購入がゼロになりました。原因を分析した結果、以下の2点が判明しました。</p>
+    <div class="highlight-box blue">
+      <div class="hl-title">原因1: 広告を一気に絞りすぎた（8本→3本）</div>
+      <p>CPCが¥64→¥106に高騰（+71%）し、フォーム到達が日3人→0人に激減。</p>
+    </div>
+    <div class="highlight-box blue">
+      <div class="hl-title">原因2: Yahoo広告を誤って停止していた</div>
+      <p>Yahoo広告管理画面ではCV=0件だったため停止したが、GA4で確認すると3月のcv_40（購入完了）の37.5%がYahoo経由だった（CPA ¥2,700 — Metaの6.5倍効率が良い）。広告→LP→カラーミーの外部ドメイン遷移でYahoo側のCV計測が切れていたことが原因。</p>
+    </div>
+    <p style="margin-top:12px;">詳細な分析レポート: <a href="https://hoshizaemonn.github.io/michiru-silica-report/michiru_ad_analysis_2026-03-31.html" target="_blank">3月広告分析レポート</a></p>
+  </div>
+</div>
+
+<!-- 本日の変更内容 -->
+<div class="section">
+  <div class="section-header"><h2><span class="section-num">2</span>本日（4/1）実施した変更</h2></div>
+  <div class="section-body">
+
+    <h3 style="font-size:0.95em; color:#0c2461; margin-bottom:10px;">変更一覧</h3>
+    <table>
+      <thead><tr><th>項目</th><th>変更前</th><th>変更後</th><th>状態</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Yahoo広告</strong></td>
+          <td>停止中（¥500/日）</td>
+          <td class="good">再開（¥1,000/日）</td>
+          <td><span class="badge badge-done">完了</span></td>
+        </tr>
+        <tr>
+          <td><strong>Meta CV最適化</strong></td>
+          <td>¥3,500/日</td>
+          <td>¥2,000/日</td>
+          <td><span class="badge badge-done">完了</span></td>
+        </tr>
+        <tr>
+          <td><strong>Meta テスト</strong></td>
+          <td>¥500/日</td>
+          <td>¥500/日（変更なし）</td>
+          <td><span class="badge badge-done">確認済</span></td>
+        </tr>
+        <tr>
+          <td><strong>Meta 認知キャンペーン</strong></td>
+          <td>なし</td>
+          <td class="good">新規作成（¥500/日）</td>
+          <td><span class="badge badge-new">新規</span></td>
+        </tr>
+        <tr>
+          <td><strong>Yahoo CVタグ修正</strong></td>
+          <td>購入完了ページでのみ発火（別ドメインで計測不可）</td>
+          <td class="good">CTAクリック時にLP上で発火</td>
+          <td><span class="badge badge-scheduled">アップロード待ち</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 style="font-size:0.95em; color:#0c2461; margin: 24px 0 10px;">予算配分（変更後）</h3>
+    <table>
+      <thead><tr><th>チャネル</th><th>キャンペーン</th><th>内容</th><th class="num-cell">日予算</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Yahoo広告</strong></td><td>Y!提案_Olivia</td><td>シリカ水関連キーワード</td><td class="num-cell"><strong>¥1,000</strong></td></tr>
+        <tr><td rowspan="3"><strong>Meta広告</strong></td><td>CV最適化</td><td>価格訴求＋悩み訴求＋定期便＋日常B＋画像（5本以上）</td><td class="num-cell"><strong>¥2,000</strong></td></tr>
+        <tr><td>テスト</td><td>のむシリカ風</td><td class="num-cell">¥500</td></tr>
+        <tr><td>認知（新規）</td><td>日常1（新規動画）＋ 日常-B</td><td class="num-cell">¥500</td></tr>
+        <tr style="background:#fafbfc; font-weight:700;"><td colspan="3">日予算合計</td><td class="num-cell">¥4,000</td></tr>
+        <tr style="background:#fafbfc;"><td colspan="3">月予算見込み（30日）</td><td class="num-cell">¥120,000</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- 認知キャンペーンの詳細 -->
+<div class="section">
+  <div class="section-header"><h2><span class="section-num">3</span>認知キャンペーンの詳細</h2></div>
+  <div class="section-body">
+    <div class="highlight-box green">
+      <div class="hl-title">狙い: 12月のミスコン認知動画と同じ「2段階ファネル」の再構築</div>
+      <p>12月にミスコン認知動画＋価格訴求の2段構成で新規4件獲得した実績あり。認知動画で「ミチルシリカ」を記憶に残し、後から価格訴求で購入に誘導する。</p>
+    </div>
+    <table>
+      <thead><tr><th>項目</th><th>設定値</th></tr></thead>
+      <tbody>
+        <tr><td>キャンペーン名</td><td>ミチルシリカ_認知_4月1日〜</td></tr>
+        <tr><td>目的</td><td>トラフィック（ランディングページビューの最大化）</td></tr>
+        <tr><td>日予算</td><td>¥500</td></tr>
+        <tr><td>ターゲット</td><td>45〜65+歳・女性・日本</td></tr>
+        <tr><td>配置</td><td>Instagram + Facebook（フィード・ストーリーズ・リール）</td></tr>
+        <tr><td>広告1</td><td>日常1_新規（新規動画・32秒・縦型1080x1920）</td></tr>
+        <tr><td>広告2</td><td>日常-B_認知用（既存投稿の使い回し）</td></tr>
+        <tr><td>CTA</td><td>「詳しくはこちら」（購入ではなく認知目的のため）</td></tr>
+        <tr><td>ピクセル</td><td>ミチルシリカ 反応（CV最適化と同一）</td></tr>
+      </tbody>
+    </table>
+    <div class="highlight-box orange">
+      <div class="hl-title">CV最適化との連動</div>
+      <p>同じピクセルを使用しているため、認知キャンペーンでLPに来た人のデータが自動的にCV最適化キャンペーンと共有される。認知動画を見た人に後からMetaが自動で価格訴求を配信する仕組み。</p>
+    </div>
+  </div>
+</div>
+
+<!-- Yahoo CVタグ修正 -->
+<div class="section">
+  <div class="section-header"><h2><span class="section-num">4</span>Yahoo CVタグの修正（技術対応）</h2></div>
+  <div class="section-body">
+    <div class="highlight-box blue">
+      <div class="hl-title">問題: Yahoo広告の管理画面でCVがゼロだった原因</div>
+      <p>Yahoo CVタグは購入完了ページ（michiru.olivia-store.com/thanks/）で発火する設定だったが、実際の購入はカラーミーリピート（colorme-repeat.jp）で完結するため、購入完了ページに遷移しない。さらに、Yahooのcookieはolivia-store.comドメインに保存されるため、別ドメインのカラーミー側ではYahoo広告クリックとの紐付けが不可能。</p>
+    </div>
+    <p><strong>対応:</strong> LP上のCTAボタン（カラーミーへのリンク）クリック時にYahoo CVタグを発火するコードを追加。GA4のcv_40と同じタイミングでの計測。functions.phpに追加済み、本番サーバーへのアップロード待ち。</p>
+    <p style="margin-top:8px;"><strong>効果:</strong> Yahoo広告管理画面にCVが反映されるようになり、正確なCPA確認とYahoo側の自動入札最適化が可能になる。</p>
+  </div>
+</div>
+
+<!-- 今後のスケジュール -->
+<div class="section">
+  <div class="section-header"><h2><span class="section-num">5</span>今後のスケジュール</h2></div>
+  <div class="section-body">
+    <table>
+      <thead><tr><th>日程</th><th>やること</th></tr></thead>
+      <tbody>
+        <tr><td><strong>4/1</strong></td><td><span class="badge badge-done">完了</span> Yahoo再開・Meta予算調整・認知キャンペーン公開</td></tr>
+        <tr><td>4/2-6</td><td>経過観察。GA4 cv_40 + カラーミー + スプシで毎日確認。設定変更なし</td></tr>
+        <tr><td><strong>4/7</strong></td><td>1週間分のデータで効果判定</td></tr>
+      </tbody>
+    </table>
+    <h3 style="font-size:0.95em; color:#0c2461; margin: 20px 0 10px;">4/7の判定基準</h3>
+    <table>
+      <thead><tr><th>シナリオ</th><th class="num-cell">新規購入/週</th><th>判断</th></tr></thead>
+      <tbody>
+        <tr><td class="good">好調</td><td class="num-cell">3件以上</td><td>現状維持。認知動画の予算を少し増やす</td></tr>
+        <tr><td style="color:#f39c12; font-weight:700;">回復中</td><td class="num-cell">1-2件</td><td>もう1週間継続。焦って変えない</td></tr>
+        <tr><td style="color:#e74c3c; font-weight:700;">不調</td><td class="num-cell">0件</td><td>LP・カラーミーフォーム側を調査。広告は「追加」で対応</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="footer">
+  ミチルシリカ 広告設定変更報告 | 2026年4月1日 実施<br>
+  分析レポート: <a href="https://hoshizaemonn.github.io/michiru-silica-report/michiru_ad_analysis_2026-03-31.html">3月広告分析レポート</a>
+</div>
+
+</body>
+</html>
