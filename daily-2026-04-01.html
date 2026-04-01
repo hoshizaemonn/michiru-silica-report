@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ミチルシリカ 日次レポート 2026-04-01</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:"Hiragino Sans","Noto Sans JP",sans-serif; line-height:1.8; color:#1a2744; background:#f0f4f8; padding:20px; }
+.container { max-width:860px; margin:0 auto; background:#fff; border-radius:16px; box-shadow:0 4px 24px rgba(0,0,0,.08); overflow:hidden; }
+.header { background:linear-gradient(135deg,#1a2744,#2d4a7a); color:#fff; padding:36px 32px; text-align:center; }
+.header h1 { font-size:1.6em; } .header .date { opacity:.8; margin-top:4px; }
+.content { padding:32px; }
+.section { margin-bottom:28px; }
+.section h2 { font-size:1.15em; color:#1a2744; border-left:4px solid #e8963e; padding-left:12px; margin-bottom:14px; }
+.grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; margin:12px 0; }
+.grid4 { display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:12px; margin:12px 0; }
+.card { text-align:center; padding:16px; border-radius:10px; background:#f5f7fa; }
+.card .num { font-size:1.8em; font-weight:700; } .card .label { font-size:.82em; color:#78909c; margin-top:2px; }
+.card.green .num { color:#2e7d32; } .card.red .num { color:#c62828; } .card.blue .num { color:#1565c0; } .card.orange .num { color:#e65100; }
+table { width:100%; border-collapse:collapse; font-size:.85em; margin:10px 0; }
+th,td { padding:8px 10px; border-bottom:1px solid #eee; text-align:left; }
+th { background:#f5f7fa; color:#546e7a; font-weight:600; font-size:.82em; }
+.num-cell { text-align:right; font-variant-numeric:tabular-nums; }
+.total-row { background:#f0f4ff; font-weight:700; }
+.tag { display:inline-block; padding:2px 8px; border-radius:10px; font-size:.75em; font-weight:600; }
+.tag-green { background:#e8f5e9; color:#2e7d32; } .tag-red { background:#ffebee; color:#c62828; }
+.tag-blue { background:#e3f2fd; color:#1565c0; } .tag-orange { background:#fff3e0; color:#e65100; }
+.note { background:#f5f7fa; border-radius:8px; padding:14px 18px; font-size:.88em; color:#546e7a; margin:12px 0; }
+.note.info { background:#e3f2fd; border-left:4px solid #1565c0; }
+.note.warn { background:#fff3e0; border-left:4px solid #e65100; }
+.note.good { background:#e8f5e9; border-left:4px solid #2e7d32; }
+.footer { text-align:center; padding:16px; font-size:.78em; color:#90a4ae; border-top:1px solid #eee; }
+@media(max-width:600px) { .grid,.grid4 { grid-template-columns:1fr; } .content { padding:20px 16px; } }
+</style>
+</head>
+<body>
+<div class="container">
+<div class="header">
+<h1>ミチルシリカ 日次レポート</h1>
+<div class="date">2026年4月1日（水）</div>
+</div>
+<div class="content">
+
+<div class="section">
+<h2>広告費サマリー</h2>
+<div class="grid">
+<div class="card blue"><div class="num">¥4,113</div><div class="label">広告費合計</div></div>
+<div class="card"><div class="num">¥3,011</div><div class="label">Meta広告</div></div>
+<div class="card"><div class="num">¥1,102</div><div class="label">Yahoo広告</div></div>
+</div>
+<div class="note info">4/1から予算配分変更: Meta CV最適化 ¥2,000 + テスト ¥500 + 認知(新規) ¥500 / Yahoo ¥1,000</div>
+</div>
+
+<div class="section">
+<h2>Meta広告</h2>
+<div class="grid4">
+<div class="card"><div class="num">1,227</div><div class="label">インプレッション</div></div>
+<div class="card"><div class="num">36</div><div class="label">リンククリック</div></div>
+<div class="card blue"><div class="num">¥84</div><div class="label">CPC</div></div>
+<div class="card"><div class="num">0</div><div class="label">購入</div></div>
+</div>
+
+<h3 style="font-size:.95em; margin:16px 0 8px; color:#546e7a;">キャンペーン別</h3>
+<table>
+<tr><th>キャンペーン</th><th class="num-cell">費用</th><th class="num-cell">Click</th><th class="num-cell">CPC</th><th>備考</th></tr>
+<tr><td>CV最適化（¥2,000/日）</td><td class="num-cell">¥2,140</td><td class="num-cell">22</td><td class="num-cell">¥97</td><td></td></tr>
+<tr><td>認知（¥500/日）<span class="tag tag-blue">新規</span></td><td class="num-cell">¥441</td><td class="num-cell">13</td><td class="num-cell">¥34</td><td>CPC良好</td></tr>
+<tr><td>テスト（¥500/日）</td><td class="num-cell">¥430</td><td class="num-cell">1</td><td class="num-cell">¥430</td><td>学習中</td></tr>
+<tr class="total-row"><td>合計</td><td class="num-cell">¥3,011</td><td class="num-cell">36</td><td class="num-cell">¥84</td><td></td></tr>
+</table>
+
+<h3 style="font-size:.95em; margin:16px 0 8px; color:#546e7a;">広告別内訳</h3>
+<table>
+<tr><th>広告名</th><th class="num-cell">費用</th><th class="num-cell">Click</th><th class="num-cell">CPC</th><th class="num-cell">IMP</th></tr>
+<tr><td>価格訴求（動画）</td><td class="num-cell">¥1,498</td><td class="num-cell">12</td><td class="num-cell">¥125</td><td class="num-cell">449</td></tr>
+<tr><td>のむシリカ風バージョン</td><td class="num-cell">¥430</td><td class="num-cell">1</td><td class="num-cell">¥430</td><td class="num-cell">139</td></tr>
+<tr><td>日常-B_認知用 <span class="tag tag-blue">新規</span></td><td class="num-cell">¥393</td><td class="num-cell">13</td><td class="num-cell">¥30</td><td class="num-cell">427</td></tr>
+<tr><td>悩み訴求</td><td class="num-cell">¥227</td><td class="num-cell">0</td><td class="num-cell">—</td><td class="num-cell">30</td></tr>
+<tr><td>定期便</td><td class="num-cell">¥215</td><td class="num-cell">3</td><td class="num-cell">¥72</td><td class="num-cell">66</td></tr>
+<tr><td>価格訴求 - 画像</td><td class="num-cell">¥156</td><td class="num-cell">4</td><td class="num-cell">¥39</td><td class="num-cell">52</td></tr>
+<tr><td>日常1_新規 <span class="tag tag-blue">新規</span></td><td class="num-cell">¥48</td><td class="num-cell">0</td><td class="num-cell">—</td><td class="num-cell">47</td></tr>
+<tr><td>日常-B（CV最適化内）</td><td class="num-cell">¥44</td><td class="num-cell">3</td><td class="num-cell">¥15</td><td class="num-cell">17</td></tr>
+<tr class="total-row"><td>合計</td><td class="num-cell">¥3,011</td><td class="num-cell">36</td><td class="num-cell">¥84</td><td class="num-cell">1,227</td></tr>
+</table>
+
+<div class="note good">
+<strong>認知キャンペーン初日:</strong> 日常-B_認知用がCPC ¥30で13クリック。トラフィック獲得効率が非常に良い。日常1_新規は配信がまだ少なく学習中。
+</div>
+<div class="note warn">
+<strong>注意:</strong> 悩み訴求の配信がほぼゼロ（IMP 30）。予算配分の変更で配信量が減った可能性。CV最適化内で価格訴求に予算が集中（¥1,498 / ¥2,140 = 70%）。
+</div>
+</div>
+
+<div class="section">
+<h2>Yahoo広告</h2>
+<div class="grid4">
+<div class="card"><div class="num">639</div><div class="label">インプレッション</div></div>
+<div class="card"><div class="num">19</div><div class="label">クリック</div></div>
+<div class="card blue"><div class="num">¥58</div><div class="label">CPC</div></div>
+<div class="card orange"><div class="num">2.97%</div><div class="label">CTR</div></div>
+</div>
+<div class="note info">
+<strong>¥1,000/日に増額初日。</strong>入札戦略は学習中（クリック数の最大化）。CPC ¥58は3月平均（¥35）より高いが、増額直後の学習期間のため想定内。CVタグ修正（CTAクリック発火）は本番アップロード待ち。
+</div>
+</div>
+
+</div>
+<div class="footer">ミチルシリカ 日次レポート | 2026-04-01 | 株式会社斗</div>
+</div>
+</body>
+</html>
