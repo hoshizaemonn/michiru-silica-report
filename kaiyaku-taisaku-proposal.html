@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ミチルシリカ 解約対策 戦略提案書</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap');
+:root {
+  --primary: #0d47a1; --primary-light: #1976d2; --primary-bg: #e3f2fd;
+  --success: #2e7d32; --success-bg: #e8f5e9;
+  --warning: #e65100; --warning-bg: #fff3e0;
+  --danger: #c62828; --danger-bg: #ffebee;
+  --purple: #6a1b9a; --purple-bg: #f3e5f5;
+  --teal: #00695c; --teal-bg: #e0f2f1;
+  --text: #263238; --text-light: #546e7a;
+  --bg: #f5f7fa; --card: #fff; --border: #e0e4e8;
+  --radius: 14px; --shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Noto Sans JP',sans-serif; line-height:1.8; color:var(--text); background:var(--bg); }
+
+.hero { background:linear-gradient(135deg,#0d47a1 0%,#1565c0 50%,#1976d2 100%); color:#fff; padding:60px 40px; text-align:center; }
+.hero h1 { font-size:2.2em; font-weight:900; margin-bottom:8px; }
+.hero .sub { font-size:1.1em; opacity:.9; }
+.hero .meta { margin-top:16px; font-size:.9em; opacity:.7; }
+
+.container { max-width:1000px; margin:0 auto; padding:30px 24px; }
+
+.section { background:var(--card); border-radius:var(--radius); margin-bottom:28px; box-shadow:var(--shadow); overflow:hidden; }
+.sh { padding:20px 28px; font-size:1.2em; font-weight:700; color:#fff; }
+.sh.blue { background:linear-gradient(135deg,var(--primary),var(--primary-light)); }
+.sh.green { background:linear-gradient(135deg,var(--success),#43a047); }
+.sh.orange { background:linear-gradient(135deg,#e65100,#ff9800); }
+.sh.purple { background:linear-gradient(135deg,var(--purple),#ab47bc); }
+.sh.teal { background:linear-gradient(135deg,var(--teal),#00897b); }
+.sh.dark { background:linear-gradient(135deg,#263238,#455a64); }
+.sh.red { background:linear-gradient(135deg,#b71c1c,#e53935); }
+.sb { padding:28px; }
+
+table { width:100%; border-collapse:collapse; font-size:.9em; }
+th { background:#263238; color:#fff; padding:12px 14px; text-align:left; font-weight:600; font-size:.85em; }
+td { padding:12px 14px; border-bottom:1px solid var(--border); }
+tbody tr:hover { background:#f5f8ff; }
+.num { text-align:right; font-variant-numeric:tabular-nums; }
+.total-row { background:#f0f4ff; font-weight:700; }
+.hl-row { background:#fff8e1; }
+
+.note { padding:16px 20px; border-radius:8px; font-size:.9em; line-height:1.7; margin:12px 0; }
+.note.info { background:var(--primary-bg); border-left:4px solid var(--primary); }
+.note.good { background:var(--success-bg); border-left:4px solid var(--success); }
+.note.warn { background:var(--warning-bg); border-left:4px solid var(--warning); }
+.note.bad { background:var(--danger-bg); border-left:4px solid var(--danger); }
+.note.purple { background:var(--purple-bg); border-left:4px solid var(--purple); }
+
+.badge { display:inline-block; padding:3px 12px; border-radius:20px; font-size:.8em; font-weight:700; }
+.badge-up { background:#e8f5e9; color:var(--success); }
+.badge-down { background:#ffebee; color:var(--danger); }
+.badge-info { background:#e3f2fd; color:var(--primary); }
+.badge-warn { background:#fff3e0; color:var(--warning); }
+.badge-purple { background:#f3e5f5; color:var(--purple); }
+
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:16px; margin:16px 0; }
+.card { text-align:center; padding:24px; border-radius:var(--radius); background:var(--bg); }
+.card .val { font-size:2.4em; font-weight:900; }
+.card .lbl { font-size:.85em; color:var(--text-light); margin-top:4px; }
+.card.red .val { color:var(--danger); }
+.card.green .val { color:var(--success); }
+.card.blue .val { color:var(--primary); }
+.card.orange .val { color:var(--warning); }
+
+.compare-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin:16px 0; }
+.compare-box { padding:24px; border-radius:var(--radius); text-align:center; }
+.compare-box.before { background:#ffebee; border:2px solid var(--danger); }
+.compare-box.after { background:#e8f5e9; border:2px solid var(--success); }
+.compare-box .cb-label { font-size:.85em; color:var(--text-light); margin-bottom:4px; }
+.compare-box .cb-title { font-size:1.1em; font-weight:900; margin-bottom:12px; }
+.compare-box .cb-val { font-size:1.8em; font-weight:900; }
+.compare-box .cb-sub { font-size:.85em; color:var(--text-light); margin-top:6px; }
+
+.step-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px; margin:20px 0; }
+.step-card { border:2px solid var(--border); border-radius:var(--radius); padding:24px; position:relative; }
+.step-card .step-num { position:absolute; top:-12px; left:20px; background:var(--primary); color:#fff; width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:.85em; font-weight:900; }
+.step-card h4 { font-size:1em; font-weight:700; margin-bottom:8px; margin-top:4px; }
+.step-card p { font-size:.85em; color:var(--text-light); line-height:1.6; }
+
+.timeline { margin:20px 0; }
+.tl-item { display:flex; gap:16px; margin-bottom:16px; }
+.tl-dot { width:12px; height:12px; border-radius:50%; margin-top:8px; flex-shrink:0; }
+.tl-content { flex:1; }
+.tl-content h4 { font-size:.95em; font-weight:700; }
+.tl-content p { font-size:.85em; color:var(--text-light); }
+
+.footer { text-align:center; margin-top:30px; padding:20px; font-size:.8em; color:var(--text-light); }
+
+@media(max-width:768px) {
+  .hero h1 { font-size:1.6em; }
+  .compare-grid { grid-template-columns:1fr; }
+  .grid { grid-template-columns:1fr 1fr; }
+  .step-grid { grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>解約対策 戦略提案書</h1>
+  <div class="sub">継続率50% → 80%を実現する3つの施策</div>
+  <div class="meta">ミチルシリカ | 2026年4月</div>
+</div>
+
+<div class="container">
+
+<!-- ===== 1. 現状の課題 ===== -->
+<div class="section">
+  <div class="sh red">現状の課題</div>
+  <div class="sb">
+    <div class="grid">
+      <div class="card red"><div class="val">50%</div><div class="lbl">解約率（10月〜3月）</div></div>
+      <div class="card red"><div class="val">25人</div><div class="lbl">解約者 / 新規60人</div></div>
+      <div class="card orange"><div class="val">50%</div><div class="lbl">1回目で解約する割合</div></div>
+      <div class="card blue"><div class="val">80%</div><div class="lbl">目標継続率</div></div>
+    </div>
+
+    <h3 style="margin:20px 0 12px; font-size:1em;">1回目解約者の理由内訳（約25名の分析）</h3>
+    <table>
+      <thead><tr><th>解約理由</th><th class="num">件数</th><th class="num">割合</th><th>対策可能性</th></tr></thead>
+      <tbody>
+        <tr><td><strong>理由不明・無回答</strong></td><td class="num">6件</td><td class="num">24%</td><td><span class="badge badge-warn">ヒアリング必要</span></td></tr>
+        <tr><td><strong>他社商品に乗り換え</strong>（ウォーターサーバー・安い他社シリカ水・のむシリカ）</td><td class="num">5件</td><td class="num">20%</td><td><span class="badge badge-up">差別化で対策可</span></td></tr>
+        <tr><td><strong>身体・味覚に合わない</strong></td><td class="num">5件</td><td class="num">20%</td><td><span class="badge badge-down">対策困難</span></td></tr>
+        <tr><td><strong>価格が高い・金額誤認</strong></td><td class="num">3件</td><td class="num">12%</td><td><span class="badge badge-info">初回割引変更で対策</span></td></tr>
+        <tr><td><strong>飲まなくなった・飲みきれない</strong></td><td class="num">3件</td><td class="num">12%</td><td><span class="badge badge-up">飲み方提案で対策可</span></td></tr>
+        <tr><td><strong>その他</strong>（のむシリカ混同・冷たい水が嫌等）</td><td class="num">3件</td><td class="num">12%</td><td><span class="badge badge-info">同梱物で対策可</span></td></tr>
+      </tbody>
+    </table>
+
+    <div class="note bad" style="margin-top:16px;">
+      <strong>最大の問題:</strong> 解約者の半数が1回目で離脱。初回50%OFFで「安いから試そう」と入ってくるが、2回目に¥3,960の請求が来て「思ったより高い」と感じて解約。<strong>初回割引の大きさが2回目のギャップショックを生んでいる。</strong>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 2. 競合の状況 ===== -->
+<div class="section">
+  <div class="sh dark">競合の解約対策の状況</div>
+  <div class="sb">
+    <table>
+      <thead><tr><th>ブランド</th><th>シリカ(mg/L)</th><th>1本あたり(定期)</th><th>初回割引</th><th>ポイント制度</th><th>継続特典</th></tr></thead>
+      <tbody>
+        <tr><td><strong>のむシリカ</strong></td><td class="num">97</td><td class="num">¥103〜120</td><td>20%OFF</td><td><strong style="color:var(--danger);">なし</strong></td><td><strong style="color:var(--danger);">なし</strong></td></tr>
+        <tr><td><strong>フィジーウォーター</strong></td><td class="num">91〜93</td><td class="num">¥214</td><td>初回30%OFF</td><td>購入額の1%</td><td>なし</td></tr>
+        <tr><td><strong>シリカシリカ</strong></td><td class="num">72</td><td class="num">¥108</td><td>あり</td><td><strong style="color:var(--danger);">なし</strong></td><td><strong style="color:var(--danger);">なし</strong></td></tr>
+        <tr><td><strong>ドクターウォーター</strong></td><td class="num">86</td><td class="num">¥104〜125</td><td>—</td><td><strong style="color:var(--danger);">なし</strong></td><td><strong style="color:var(--danger);">なし</strong></td></tr>
+        <tr class="hl-row"><td><strong>ミチルシリカ</strong></td><td class="num">72</td><td class="num">¥99</td><td>50%OFF</td><td><strong style="color:var(--danger);">なし</strong></td><td><strong style="color:var(--danger);">なし</strong></td></tr>
+      </tbody>
+    </table>
+
+    <div class="note good" style="margin-top:16px;">
+      <strong>発見:</strong> シリカ水業界で<strong>ポイント制度を持つブランドはフィジーウォーター（1%）のみ</strong>。のむシリカですらポイント制度がない。ここは業界の空白地帯であり、先に取れば大きな差別化になる。
+    </div>
+  </div>
+</div>
+
+<!-- ===== 3. 施策1: 初回割引の変更 ===== -->
+<div class="section">
+  <div class="sh orange">施策1: 初回割引を50%→30%に変更</div>
+  <div class="sb">
+
+    <div class="note warn">
+      <strong>目的:</strong> 2回目とのギャップショックを減らし、「安さ目当て」の流入を減らして「本気で続けたい人」の割合を増やす。
+    </div>
+
+    <div class="compare-grid">
+      <div class="compare-box before">
+        <div class="cb-label">現在</div>
+        <div class="cb-title">50%OFF</div>
+        <div class="cb-val">¥1,980</div>
+        <div class="cb-sub">2回目との差額: <strong>¥1,980</strong><br>→ いきなり倍の請求</div>
+      </div>
+      <div class="compare-box after">
+        <div class="cb-label">変更後</div>
+        <div class="cb-title">30%OFF</div>
+        <div class="cb-val">¥2,772</div>
+        <div class="cb-sub">2回目との差額: <strong>¥1,188</strong><br>→ ギャップが40%縮小</div>
+      </div>
+    </div>
+
+    <h3 style="margin:20px 0 12px; font-size:1em;">シミュレーション</h3>
+    <table>
+      <thead><tr><th></th><th class="num">現在（50%OFF）</th><th class="num">変更後（30%OFF）</th></tr></thead>
+      <tbody>
+        <tr><td>初回価格</td><td class="num">¥1,980</td><td class="num">¥2,772</td></tr>
+        <tr><td>月間新規申込（想定）</td><td class="num">10人</td><td class="num">7人（-30%）</td></tr>
+        <tr><td>継続率</td><td class="num">50%</td><td class="num">70%（想定）</td></tr>
+        <tr><td>3回目まで残る人</td><td class="num">5人</td><td class="num">4.9人</td></tr>
+        <tr class="total-row"><td>3回分の売上合計</td><td class="num">¥59,400</td><td class="num"><strong style="color:var(--success);">¥72,198</strong></td></tr>
+      </tbody>
+    </table>
+
+    <div class="note good" style="margin-top:16px;">
+      <strong>結果:</strong> 新規が30%減っても、継続率が70%に上がれば<strong>3回分の売上は+22%増加</strong>。申込数は減るが、残る人が増えるのでLTVが上がる。
+    </div>
+
+    <div class="note info">
+      <strong>のむシリカとの比較:</strong> のむシリカの初回割引は20%OFF。ミチルシリカが30%OFFなら、まだのむシリカより手厚い割引を維持しつつ、ギャップショックを軽減できる。
+    </div>
+  </div>
+</div>
+
+<!-- ===== 4. 施策2: ポイント制度 ===== -->
+<div class="section">
+  <div class="sh purple">施策2: ポイント制度の導入（業界初レベル）</div>
+  <div class="sb">
+
+    <div class="note purple">
+      <strong>コンセプト:</strong> 初回割引を下げた分の原資を「続けた人へのリワード」に回す。入口で全部使い切る構造から、<strong>続けるほど得になる構造</strong>へ転換。
+    </div>
+
+    <h3 style="margin:20px 0 12px; font-size:1em;">ポイント制度の設計案</h3>
+    <table>
+      <thead><tr><th>仕組み</th><th>内容</th><th>顧客メリット</th></tr></thead>
+      <tbody>
+        <tr><td><strong>基本還元</strong></td><td>毎回の購入額の5%をポイント付与</td><td>¥3,960 × 5% = 198pt/回</td></tr>
+        <tr class="hl-row"><td><strong>3回継続ボーナス</strong></td><td>3回目の発送時に+500pt</td><td>合計 約1,100pt（約¥1,100分）</td></tr>
+        <tr class="hl-row"><td><strong>6回継続ボーナス</strong></td><td>6回目の発送時に+1,000pt + オリジナルグッズ</td><td>累計 約2,700pt + グッズ</td></tr>
+        <tr><td><strong>12回継続</strong></td><td>+2,000pt + 次回1箱無料</td><td>年間ロイヤル顧客として特別扱い</td></tr>
+        <tr><td><strong>友達紹介</strong></td><td>紹介者・被紹介者に各500pt</td><td>口コミ拡散の動機づけ</td></tr>
+        <tr><td><strong>ポイント使途</strong></td><td>1pt = ¥1として次回購入時に値引き</td><td>いつでも使える安心感</td></tr>
+        <tr><td><strong>有効期限</strong></td><td>最終購入日から1年間</td><td>解約するとポイントが消える → 抑止力</td></tr>
+      </tbody>
+    </table>
+
+    <div class="note good" style="margin-top:16px;">
+      <strong>なぜこれが効くのか:</strong>
+      <ul style="margin-top:8px; padding-left:20px;">
+        <li><strong>解約時の「もったいない」を作る</strong> — 貯まったポイントが消えるので、解約を思いとどまる</li>
+        <li><strong>3回目の壁を越えさせる</strong> — 解約が最も多い1〜2回目を乗り越えると500ptがもらえる。3回続ければ習慣化する</li>
+        <li><strong>のむシリカにない差別化</strong> — 「ミチルシリカは続けるほどお得。のむシリカにはこの仕組みがない」</li>
+        <li><strong>友達紹介でCPA ¥0の新規獲得</strong> — 広告費をかけずに口コミで広がる</li>
+      </ul>
+    </div>
+
+    <h3 style="margin:24px 0 12px; font-size:1em;">コスト試算</h3>
+    <table>
+      <thead><tr><th>項目</th><th class="num">コスト</th><th>備考</th></tr></thead>
+      <tbody>
+        <tr><td>基本還元（5%/回）</td><td class="num">¥198/人/回</td><td>10人×12回で年間¥23,760</td></tr>
+        <tr><td>3回ボーナス</td><td class="num">¥500/人</td><td>継続者のみ。離脱者にはかからない</td></tr>
+        <tr><td>6回ボーナス + グッズ</td><td class="num">¥1,500/人</td><td>グッズ原価¥500想定</td></tr>
+        <tr class="total-row"><td>6回継続者1人あたりの総還元</td><td class="num">¥3,188</td><td>6回分売上¥23,760のうち13%</td></tr>
+      </tbody>
+    </table>
+
+    <div class="note info" style="margin-top:16px;">
+      <strong>対比:</strong> 現在は初回50%OFFで¥1,980を値引きしている（1人¥1,980のコスト）。初回30%OFFに変更すると値引きは¥1,188。浮いた¥792を原資にポイント制度を運用できる。<strong>新規獲得コストを減らし、継続コストに配分を移す</strong>という考え方。
+    </div>
+  </div>
+</div>
+
+<!-- ===== 5. 施策3: 同梱物 ===== -->
+<div class="section">
+  <div class="sh teal">施策3: 同梱物で「続ける理由」を伝える（コストほぼゼロ）</div>
+  <div class="sb">
+
+    <div class="step-grid">
+      <div class="step-card" style="border-color:var(--primary);">
+        <div class="step-num">A</div>
+        <h4>価格・継続のご案内</h4>
+        <p>
+          <strong>防げる解約理由:</strong> 金額誤認（12%）<br><br>
+          ・2回目以降は¥3,960です（明記）<br>
+          ・3回続けると500ptボーナス<br>
+          ・いつでも解約OK、安心してお続けください<br>
+          ・ポイント残高の確認方法
+        </p>
+      </div>
+      <div class="step-card" style="border-color:var(--success);">
+        <div class="step-num" style="background:var(--success);">B</div>
+        <h4>ミチルシリカだけの価値</h4>
+        <p>
+          <strong>防げる解約理由:</strong> 他社乗り換え（20%）<br><br>
+          ・のむシリカLIGHTと同じシリカ72mg/L<br>
+          ・1本¥99は業界最安水準（比較表付き）<br>
+          ・大分県産の天然水、無添加<br>
+          ・「安さの理由」= 広告費を抑えて商品価格に還元
+        </p>
+      </div>
+      <div class="step-card" style="border-color:var(--warning);">
+        <div class="step-num" style="background:var(--warning);">C</div>
+        <h4>おいしい飲み方ガイド</h4>
+        <p>
+          <strong>防げる解約理由:</strong> 味覚に合わない（20%）+ 飲みきれない（12%）<br><br>
+          ・常温がおすすめ（ミネラル吸収率UP）<br>
+          ・お湯割り・白湯として<br>
+          ・炊飯・スープ・味噌汁に<br>
+          ・「3ヶ月タイムライン」— 1ヶ月目・2ヶ月目・3ヶ月目の変化
+        </p>
+      </div>
+    </div>
+
+    <div class="note good">
+      <strong>この3枚で、理由が判明している解約の約64%に対策できます。</strong>コストはA4用紙3枚の印刷代のみ。
+    </div>
+  </div>
+</div>
+
+<!-- ===== 6. 全体戦略マップ ===== -->
+<div class="section">
+  <div class="sh blue">全体戦略: お金の使い方を「入口」から「継続」に移す</div>
+  <div class="sb">
+
+    <div class="compare-grid">
+      <div class="compare-box before">
+        <div class="cb-label">現在のお金の使い方</div>
+        <div class="cb-title" style="color:var(--danger);">入口に全振り</div>
+        <div style="text-align:left; font-size:.9em; padding:0 12px;">
+          <p>・初回50%OFF（¥1,980値引き）</p>
+          <p>・継続特典なし</p>
+          <p>・同梱物なし</p>
+          <p>・ポイント制度なし</p>
+          <p style="margin-top:12px; color:var(--danger); font-weight:700;">→ 10人入って5人辞める</p>
+        </div>
+      </div>
+      <div class="compare-box after">
+        <div class="cb-label">変更後のお金の使い方</div>
+        <div class="cb-title" style="color:var(--success);">継続に配分</div>
+        <div style="text-align:left; font-size:.9em; padding:0 12px;">
+          <p>・初回30%OFF（¥1,188値引き）</p>
+          <p>・ポイント5%還元</p>
+          <p>・3回ボーナス500pt</p>
+          <p>・同梱物3点セット</p>
+          <p style="margin-top:12px; color:var(--success); font-weight:700;">→ 7人入って5.6人残る</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="note info" style="margin-top:16px;">
+      <strong>本質:</strong> 1人あたりにかけるコストの総額はほとんど変わらない。変わるのは<strong>「いつ」「誰に」お金を使うか</strong>。「安いから入った人」ではなく「続けてくれた人」にお金を使う構造に変える。
+    </div>
+  </div>
+</div>
+
+<!-- ===== 7. 実行スケジュール ===== -->
+<div class="section">
+  <div class="sh green">実行スケジュール</div>
+  <div class="sb">
+    <table>
+      <thead><tr><th>時期</th><th>施策</th><th>内容</th><th>優先度</th></tr></thead>
+      <tbody>
+        <tr class="hl-row">
+          <td><strong>4月中</strong></td>
+          <td><strong>同梱物3点セット</strong></td>
+          <td>A4用紙3枚を作成・印刷。次回発送分から同梱開始</td>
+          <td><span class="badge badge-up">最優先</span></td>
+        </tr>
+        <tr class="hl-row">
+          <td><strong>4月中</strong></td>
+          <td><strong>解約フォームに理由を必須化</strong></td>
+          <td>選択式の解約理由を追加。データ収集開始</td>
+          <td><span class="badge badge-up">最優先</span></td>
+        </tr>
+        <tr>
+          <td><strong>5月〜</strong></td>
+          <td><strong>初回割引を30%に変更</strong></td>
+          <td>LP価格表記変更、広告クリエイティブ差替え</td>
+          <td><span class="badge badge-info">重要</span></td>
+        </tr>
+        <tr>
+          <td><strong>5月〜</strong></td>
+          <td><strong>ポイント制度の設計・開発</strong></td>
+          <td>カラーミーリピートでの実装方法検討、または手動運用開始</td>
+          <td><span class="badge badge-info">重要</span></td>
+        </tr>
+        <tr>
+          <td><strong>6月〜</strong></td>
+          <td><strong>ポイント制度の本格運用</strong></td>
+          <td>ポイント付与開始、3回継続ボーナスの案内開始</td>
+          <td><span class="badge badge-purple">中期</span></td>
+        </tr>
+        <tr>
+          <td><strong>7月</strong></td>
+          <td><strong>効果測定</strong></td>
+          <td>4月以降の新規申込者の継続率を集計。目標70%以上</td>
+          <td><span class="badge badge-purple">中期</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ===== 8. 期待される効果 ===== -->
+<div class="section">
+  <div class="sh dark">期待される効果</div>
+  <div class="sb">
+    <div class="grid">
+      <div class="card red"><div class="val">50%</div><div class="lbl">現在の継続率</div></div>
+      <div class="card orange"><div class="val">65%</div><div class="lbl">同梱物のみ（4月〜）</div></div>
+      <div class="card blue"><div class="val">75%</div><div class="lbl">+初回割引変更（5月〜）</div></div>
+      <div class="card green"><div class="val">80%</div><div class="lbl">+ポイント制度（6月〜）</div></div>
+    </div>
+
+    <div class="note good" style="margin-top:16px;">
+      <strong>段階的に積み上げる:</strong> 同梱物（コストゼロ）→ 初回割引変更（LPのみ）→ ポイント制度（システム開発）の順に実行。リスクが低いものから始めて、効果を確認しながら次の施策を追加する。
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  ミチルシリカ 解約対策 戦略提案書 | 2026年4月 | 株式会社斗<br>
+  データソース: カラーミーリピート解約データ / 競合公式サイト調査
+</div>
+
+</div>
+</body>
+</html>
