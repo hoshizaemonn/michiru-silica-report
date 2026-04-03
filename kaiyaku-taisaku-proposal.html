@@ -449,7 +449,111 @@ tbody tr:hover { background:#f5f8ff; }
   </div>
 </div>
 
-<!-- ===== 10. 全体戦略マップ ===== -->
+<!-- ===== 10. 競合情報の修正 ===== -->
+<div class="section">
+  <div class="sh dark">補足: のむシリカの会員ランク制度</div>
+  <div class="sb">
+    <div class="note warn">
+      <strong>調査で判明:</strong> のむシリカはポイント制度こそないが、<strong>「会員ランク制度」を導入済み</strong>。生涯累計購入箱数に応じて1つ星〜7つ星のランクが上がり、最大3%割引。
+    </div>
+
+    <table>
+      <thead><tr><th>ランク</th><th>条件</th><th>割引率</th></tr></thead>
+      <tbody>
+        <tr><td>1つ星</td><td>初回〜</td><td>0%</td></tr>
+        <tr><td>2つ星</td><td>累計2箱〜</td><td>0.5%</td></tr>
+        <tr><td>3つ星</td><td>累計3箱〜</td><td>1%</td></tr>
+        <tr><td>4つ星</td><td>累計5箱〜</td><td>1.5%</td></tr>
+        <tr><td>5つ星</td><td>累計8箱〜</td><td>2%</td></tr>
+        <tr><td>6つ星</td><td>累計12箱〜</td><td>2.5%</td></tr>
+        <tr><td>7つ星（最高）</td><td>累計18箱〜</td><td>3%</td></tr>
+      </tbody>
+    </table>
+
+    <div class="note good" style="margin-top:16px;">
+      <strong>ミチルシリカの勝ち筋:</strong> のむシリカの最大3%割引は<strong>かなり弱い</strong>（¥3,600の3% = たった¥108引き）。やずやの最大25%と比較すると見劣りする。ミチルシリカがポイント5%還元+継続ボーナスを入れれば、<strong>のむシリカの会員ランク制度を大きく上回る還元率</strong>になる。
+    </div>
+
+    <h3 style="margin:20px 0 12px; font-size:1em;">のむシリカ vs ミチルシリカ（提案後）の比較</h3>
+    <table>
+      <thead><tr><th></th><th>のむシリカ</th><th>ミチルシリカ（提案）</th></tr></thead>
+      <tbody>
+        <tr><td><strong>制度</strong></td><td>会員ランク（星）</td><td>ポイント制度+サプライズ</td></tr>
+        <tr><td><strong>還元率</strong></td><td>最大3%（7つ星・18箱〜）</td><td><strong>5%還元+継続ボーナス</strong></td></tr>
+        <tr><td><strong>6回継続時の還元額</strong></td><td>約¥540（3%×6回）</td><td><strong>約¥3,188</strong>（ポイント+ボーナス）</td></tr>
+        <tr><td><strong>解約時</strong></td><td>ランクリセット（推定）</td><td><strong>ポイント全消滅</strong></td></tr>
+        <tr><td><strong>サプライズ</strong></td><td>なし</td><td><strong>3回目・6回目・12回目</strong></td></tr>
+        <tr><td><strong>お休み制度</strong></td><td>配送間隔変更可</td><td><strong>スキップ制度+ポイント維持</strong></td></tr>
+        <tr><td><strong>紹介特典</strong></td><td>なし</td><td><strong>紹介者・被紹介者に各500pt</strong></td></tr>
+      </tbody>
+    </table>
+
+    <div class="note info" style="margin-top:16px;">
+      <strong>結論:</strong> のむシリカの会員ランク制度は「割引率が低すぎて解約抑止力が弱い」。ミチルシリカが提案するポイント制度は、<strong>還元率・解約抑止力・サプライズの全てでのむシリカを上回る</strong>設計。これは広告で「ミチルシリカは続けるほどお得」と訴求できる差別化ポイントになる。
+    </div>
+  </div>
+</div>
+
+<!-- ===== 11. 顧客マスター統合 ===== -->
+<div class="section">
+  <div class="sh" style="background:linear-gradient(135deg,#4527a0,#7c4dff);">運用基盤: 顧客マスターの統合</div>
+  <div class="sb">
+
+    <div class="note bad">
+      <strong>現状の問題:</strong> 代引きリスト・解約者リスト・カラーミー注文データが<strong>バラバラのスプレッドシートで管理</strong>されている。「この人は通算何回買ったか」「ポイントは何ptか」「解約したのか休止中なのか」が一目でわからない。ポイント制度を導入するには、まず顧客データの統合が必要。
+    </div>
+
+    <h3 style="margin:20px 0 12px; font-size:1em;">現状（バラバラ）</h3>
+    <div class="step-grid">
+      <div class="step-card" style="border-color:var(--danger);">
+        <h4>カラーミー注文データ</h4>
+        <p>定期便の注文。代引き顧客が入っていない</p>
+      </div>
+      <div class="step-card" style="border-color:var(--danger);">
+        <h4>代引きリスト</h4>
+        <p>代引き注文。カラーミー顧客と紐づいていない</p>
+      </div>
+      <div class="step-card" style="border-color:var(--danger);">
+        <h4>解約者リスト</h4>
+        <p>解約理由。誰が何回買ったかわからない</p>
+      </div>
+    </div>
+
+    <h3 style="margin:20px 0 12px; font-size:1em;">統合後: 顧客マスター1枚で全て管理</h3>
+    <table>
+      <thead><tr><th>顧客名</th><th>申込日</th><th>経路</th><th>購入回数</th><th>ステータス</th><th>解約理由</th><th>ポイント残高</th><th>ランク</th><th>紹介コード</th></tr></thead>
+      <tbody>
+        <tr><td>渡辺千鶴</td><td>4/2</td><td>カラーミー</td><td>1</td><td><span class="badge badge-up">継続中</span></td><td>—</td><td class="num">198pt</td><td>ブロンズ</td><td>MC-042</td></tr>
+        <tr><td>榎本貢</td><td>3/20</td><td>代引き</td><td>1</td><td><span class="badge badge-up">継続中</span></td><td>—</td><td class="num">198pt</td><td>ブロンズ</td><td>MC-035</td></tr>
+        <tr><td>高須康行</td><td>2/15</td><td>カラーミー</td><td>1</td><td><span class="badge badge-down">解約</span></td><td>価格が高い</td><td class="num">0pt</td><td>—</td><td>—</td></tr>
+        <tr><td>長谷川知子</td><td>10/17</td><td>カラーミー</td><td>6</td><td><span class="badge badge-up">継続中</span></td><td>—</td><td class="num">2,688pt</td><td>ゴールド</td><td>MC-001</td></tr>
+      </tbody>
+    </table>
+
+    <div class="note good" style="margin-top:16px;">
+      <strong>この1枚があれば:</strong>
+      <ul style="margin-top:8px; padding-left:20px;">
+        <li><strong>ポイント残高が一目でわかる</strong> — 数え間違えない</li>
+        <li><strong>フォロー電話リスト</strong> — 「購入回数1・ステータス継続中」でフィルタ</li>
+        <li><strong>解約理由の統計</strong> — 自動集計</li>
+        <li><strong>紹介コード管理</strong> — 誰が誰を紹介したかを追跡</li>
+        <li><strong>24本/40本でポイント自動計算</strong> — 購入金額ベースなので自動反映</li>
+      </ul>
+    </div>
+
+    <h3 style="margin:20px 0 12px; font-size:1em;">実装方法</h3>
+    <table>
+      <thead><tr><th>方法</th><th>内容</th><th>タイミング</th></tr></thead>
+      <tbody>
+        <tr class="hl-row"><td><strong>GAS（Google Apps Script）で自動化</strong></td><td>カラーミーCSV + 代引きスプシ + 解約者リストを自動統合。ポイント残高・ランクを自動計算。購入があるたびに自動更新</td><td>4月中に構築</td></tr>
+        <tr><td><strong>フォロー電話リスト自動生成</strong></td><td>「購入回数1 × ステータス継続中 × 初回から2週間経過」の顧客を自動抽出</td><td>4月中</td></tr>
+        <tr><td><strong>月次レポート自動出力</strong></td><td>継続率・解約理由内訳・ポイント発行額を自動集計</td><td>5月〜</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ===== 12. 全体戦略マップ ===== -->
 <div class="section">
   <div class="sh blue">全体戦略: お金の使い方を「入口」から「継続」に移す</div>
   <div class="sb">
@@ -520,6 +624,13 @@ tbody tr:hover { background:#f5f8ff; }
           <td><strong>解約フォームに理由を必須化</strong></td>
           <td>選択式の解約理由を追加。データ収集開始</td>
           <td>ゼロ</td>
+          <td><span class="badge badge-up">最優先</span></td>
+        </tr>
+        <tr class="hl-row">
+          <td><strong>4月中</strong></td>
+          <td><strong>顧客マスター統合</strong></td>
+          <td>カラーミー+代引き+解約者リストを1つのスプシに統合。GASで自動化</td>
+          <td>構築工数</td>
           <td><span class="badge badge-up">最優先</span></td>
         </tr>
         <tr>
