@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ミチルシリカ 解約対策・継続率改善 総合提案書</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap');
+:root {
+  --primary: #0d47a1; --primary-light: #1976d2; --primary-bg: #e3f2fd;
+  --success: #2e7d32; --success-bg: #e8f5e9;
+  --warning: #e65100; --warning-bg: #fff3e0;
+  --danger: #c62828; --danger-bg: #ffebee;
+  --purple: #6a1b9a; --purple-bg: #f3e5f5;
+  --teal: #00695c; --teal-bg: #e0f2f1;
+  --text: #263238; --text-light: #546e7a;
+  --bg: #f5f7fa; --card: #fff; --border: #e0e4e8;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Noto Sans JP',sans-serif; line-height:1.8; color:var(--text); background:var(--bg); }
+
+.hero {
+  background: linear-gradient(135deg, #0d47a1 0%, #1565c0 50%, #1976d2 100%);
+  color: #fff; padding: 48px 32px; text-align: center;
+}
+.hero h1 { font-size: 2em; font-weight: 900; margin-bottom: 8px; }
+.hero .sub { font-size: 1.1em; opacity: .85; }
+.hero .date { margin-top: 12px; font-size: .85em; opacity: .6; }
+
+.container { max-width: 900px; margin: 0 auto; padding: 28px 20px; }
+
+.section {
+  background: var(--card); border-radius: 14px;
+  margin-bottom: 24px; box-shadow: 0 2px 12px rgba(0,0,0,.06);
+  overflow: hidden;
+}
+.sh { padding: 18px 24px; font-size: 1.15em; font-weight: 700; color: #fff; }
+.sh.blue { background: linear-gradient(135deg, var(--primary), var(--primary-light)); }
+.sh.orange { background: linear-gradient(135deg, #e65100, #ff9800); }
+.sh.green { background: linear-gradient(135deg, var(--success), #43a047); }
+.sh.red { background: linear-gradient(135deg, #b71c1c, #e53935); }
+.sh.dark { background: linear-gradient(135deg, #263238, #455a64); }
+.sh.purple { background: linear-gradient(135deg, var(--purple), #ab47bc); }
+.sh.teal { background: linear-gradient(135deg, var(--teal), #00897b); }
+.sb { padding: 24px; }
+
+.stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; margin: 16px 0; }
+.stat-card { text-align: center; padding: 20px; border-radius: 12px; background: var(--bg); }
+.stat-card .val { font-size: 2.2em; font-weight: 900; }
+.stat-card .lbl { font-size: .85em; color: var(--text-light); margin-top: 4px; }
+.stat-card.red .val { color: var(--danger); }
+.stat-card.green .val { color: var(--success); }
+.stat-card.blue .val { color: var(--primary); }
+.stat-card.orange .val { color: var(--warning); }
+.stat-card.purple .val { color: var(--purple); }
+
+table { width: 100%; border-collapse: collapse; font-size: .9em; }
+th { background: #263238; color: #fff; padding: 12px 14px; text-align: left; font-weight: 600; font-size: .85em; }
+td { padding: 12px 14px; border-bottom: 1px solid var(--border); }
+tbody tr:hover { background: #f5f8ff; }
+.num { text-align: right; font-variant-numeric: tabular-nums; }
+.total-row { background: #f0f4ff; font-weight: 700; }
+.hl-row { background: #fff8e1; }
+
+.note { padding: 14px 18px; border-radius: 8px; font-size: .9em; line-height: 1.7; margin: 12px 0; }
+.note.info { background: var(--primary-bg); border-left: 4px solid var(--primary); }
+.note.good { background: var(--success-bg); border-left: 4px solid var(--success); }
+.note.warn { background: var(--warning-bg); border-left: 4px solid var(--warning); }
+.note.bad { background: var(--danger-bg); border-left: 4px solid var(--danger); }
+.note.purple { background: var(--purple-bg); border-left: 4px solid var(--purple); }
+
+.compare-grid { display: grid; grid-template-columns: 1fr 60px 1fr; gap: 16px; align-items: center; margin: 16px 0; }
+.compare-box { padding: 24px; border-radius: 14px; text-align: center; }
+.compare-box.before { background: #ffebee; border: 2px solid var(--danger); }
+.compare-box.after { background: #e8f5e9; border: 2px solid var(--success); }
+.compare-box .cb-label { font-size: .85em; color: var(--text-light); margin-bottom: 4px; }
+.compare-box .cb-title { font-size: 1.1em; font-weight: 900; margin-bottom: 16px; }
+.compare-box .cb-title.red { color: var(--danger); }
+.compare-box .cb-title.green { color: var(--success); }
+.compare-box .price-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px dashed rgba(0,0,0,.1); }
+.compare-box .price-row:last-child { border-bottom: none; }
+.compare-box .price-label { font-size: .85em; color: var(--text-light); }
+.compare-box .price-val { font-size: 1.3em; font-weight: 900; }
+.compare-box .price-val.highlight { color: var(--danger); }
+.compare-box .price-val.good { color: var(--success); }
+.compare-arrow { text-align: center; font-size: 2em; color: var(--primary); }
+
+.gap-bar-wrap { margin: 16px 0; }
+.gap-bar-label { display: flex; justify-content: space-between; font-size: .85em; color: var(--text-light); margin-bottom: 6px; }
+.gap-bar { height: 32px; border-radius: 8px; position: relative; overflow: hidden; }
+.gap-bar .fill { height: 100%; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 700; font-size: .85em; }
+
+.bar-chart { display: flex; align-items: flex-end; gap: 24px; justify-content: center; margin: 24px 0; padding: 0 20px; }
+.bar-item { text-align: center; flex: 1; max-width: 140px; }
+.bar-item .bar { width: 100%; border-radius: 8px 8px 0 0; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 8px; color: #fff; font-weight: 900; font-size: 1em; min-height: 40px; }
+.bar-item .bar-label { font-size: .78em; color: var(--text-light); margin-top: 6px; line-height: 1.4; }
+
+.flow { display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap; margin: 16px 0; }
+.flow-step { background: var(--primary); color: #fff; padding: 10px 18px; border-radius: 10px; font-weight: 700; font-size: .85em; text-align: center; }
+.flow-arrow { font-size: 1.4em; color: var(--primary); }
+
+.proposal-card {
+  border: 2px solid var(--border); border-radius: 14px;
+  padding: 24px; margin: 16px 0; position: relative;
+}
+.proposal-card .card-num {
+  position: absolute; top: -14px; left: 20px;
+  background: var(--primary); color: #fff;
+  width: 32px; height: 32px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: .9em; font-weight: 900;
+}
+.proposal-card h3 { font-size: 1.05em; font-weight: 700; margin: 4px 0 10px 20px; }
+.proposal-card p { font-size: .9em; color: var(--text-light); line-height: 1.7; }
+.proposal-card .effect {
+  margin-top: 12px; padding: 10px 14px; border-radius: 8px;
+  background: var(--success-bg); font-size: .85em; color: var(--success);
+  font-weight: 600;
+}
+
+.toc { padding: 20px 24px; background: #f5f7fa; border-radius: 10px; margin: 16px 0; }
+.toc h3 { font-size: .95em; color: var(--text-light); margin-bottom: 10px; }
+.toc ol { padding-left: 24px; font-size: .9em; }
+.toc li { padding: 4px 0; }
+
+.lp-mockup {
+  border: 2px solid var(--border); border-radius: 14px; overflow: hidden; margin: 16px 0;
+}
+.lp-mockup .lp-header { background: #263238; color: #fff; padding: 10px 16px; font-size: .8em; text-align: center; }
+.lp-mockup .lp-body { padding: 20px; }
+.lp-mockup .lp-section {
+  padding: 14px 16px; margin: 8px 0; border-radius: 8px;
+  font-size: .85em; color: var(--text-light);
+}
+.lp-mockup .lp-section.existing { background: #f5f7fa; border: 1px solid #e0e4e8; }
+.lp-mockup .lp-section.new { background: #e3f2fd; border: 2px solid var(--primary); }
+.lp-mockup .lp-section.modified { background: #fff3e0; border: 2px solid #ff9800; }
+.lp-mockup .lp-section .tag {
+  display: inline-block; padding: 2px 8px; border-radius: 4px;
+  font-size: .75em; font-weight: 700; margin-right: 6px;
+}
+.lp-mockup .lp-section .tag.new-tag { background: var(--primary); color: #fff; }
+.lp-mockup .lp-section .tag.mod-tag { background: #ff9800; color: #fff; }
+
+.doujin-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin: 16px 0; }
+.doujin-card {
+  border: 2px solid var(--border); border-radius: 12px;
+  padding: 18px; text-align: center;
+}
+.doujin-card h4 { font-size: .95em; color: var(--primary); margin-bottom: 8px; }
+.doujin-card p { font-size: .8em; color: var(--text-light); line-height: 1.6; }
+.doujin-card .prevent { font-size: .75em; color: var(--success); font-weight: 700; margin-top: 8px; }
+
+.timeline-table td:first-child { white-space: nowrap; font-weight: 700; color: var(--primary); }
+
+.footer { text-align: center; margin-top: 28px; padding: 20px; font-size: .8em; color: var(--text-light); }
+
+@media(max-width:768px) {
+  .hero h1 { font-size: 1.5em; }
+  .compare-grid { grid-template-columns: 1fr; }
+  .compare-arrow { transform: rotate(90deg); }
+  .doujin-grid { grid-template-columns: 1fr; }
+}
+@media print {
+  body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .section { break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>ミチルシリカ 継続率改善 総合提案書</h1>
+  <div class="sub">価格改定 × LP改善 × 同梱物で「続けたくなる仕組み」を作る</div>
+  <div class="date">2026年4月 | 株式会社斗</div>
+</div>
+
+<div class="container">
+
+<!-- 目次 -->
+<div class="toc">
+  <h3>目次</h3>
+  <ol>
+    <li>現状の課題 — なぜ半分が解約するのか</li>
+    <li>施策① 価格改定 — ギャップショックをなくす</li>
+    <li>施策② LP改善 — 購入前に「続ける価値」を伝える</li>
+    <li>施策③ 同梱物 — 届いた瞬間に「続ける理由」を渡す</li>
+    <li>施策④ 半年ギフト — 続けてくれた人への感謝</li>
+    <li>全体の効果シミュレーション</li>
+    <li>実行スケジュール</li>
+  </ol>
+</div>
+
+<!-- ======================================== -->
+<!-- 1. 現状の課題 -->
+<!-- ======================================== -->
+<div class="section">
+  <div class="sh red">1. 現状の課題 — なぜ半分が解約するのか</div>
+  <div class="sb">
+    <div class="stat-grid">
+      <div class="stat-card red">
+        <div class="val">50%</div>
+        <div class="lbl">解約率</div>
+      </div>
+      <div class="stat-card red">
+        <div class="val">25人</div>
+        <div class="lbl">解約者（10月〜3月）</div>
+      </div>
+      <div class="stat-card orange">
+        <div class="val">¥1,980</div>
+        <div class="lbl">初回→2回目の価格差</div>
+      </div>
+      <div class="stat-card blue">
+        <div class="val">60人</div>
+        <div class="lbl">新規申込（10月〜3月）</div>
+      </div>
+    </div>
+
+    <h3 style="margin: 20px 0 12px;">解約理由の内訳</h3>
+    <table>
+      <thead>
+        <tr><th>解約理由</th><th class="num">件数</th><th class="num">割合</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>理由不明・無回答</td><td class="num">6件</td><td class="num">24%</td></tr>
+        <tr><td>他社商品に乗り換え</td><td class="num">5件</td><td class="num">20%</td></tr>
+        <tr><td>身体・味覚に合わない</td><td class="num">5件</td><td class="num">20%</td></tr>
+        <tr><td>価格が高い・金額誤認</td><td class="num">3件</td><td class="num">12%</td></tr>
+        <tr><td>飲まなくなった・飲みきれない</td><td class="num">3件</td><td class="num">12%</td></tr>
+        <tr><td>その他</td><td class="num">3件</td><td class="num">12%</td></tr>
+      </tbody>
+    </table>
+
+    <div class="note bad" style="margin-top: 16px;">
+      <strong>根本原因：</strong>初回¥1,980で「安いから試そう」と入り、2回目¥3,960で「高い」と感じて解約。<br>
+      購入前に「これは続けるもの」「続ける価値がある」と理解していないまま買っている。
+    </div>
+  </div>
+</div>
+
+<!-- ======================================== -->
+<!-- 2. 価格改定 -->
+<!-- ======================================== -->
+<div class="section">
+  <div class="sh blue">2. 施策① 価格改定 — ギャップショックをなくす</div>
+  <div class="sb">
+
+    <div class="compare-grid">
+      <div class="compare-box before">
+        <div class="cb-label">現状</div>
+        <div class="cb-title red">ギャップ ¥1,980</div>
+        <div class="price-row">
+          <span class="price-label">初回（50%OFF）</span>
+          <span class="price-val highlight">¥1,980</span>
+        </div>
+        <div class="price-row">
+          <span class="price-label">2回目以降（割引なし）</span>
+          <span class="price-val">¥3,960</span>
+        </div>
+        <div class="price-row">
+          <span class="price-label">1本あたり（2回目〜）</span>
+          <span class="price-val">¥99</span>
+        </div>
+      </div>
+      <div class="compare-arrow">→</div>
+      <div class="compare-box after">
+        <div class="cb-label">改定後</div>
+        <div class="cb-title green">ギャップ ¥396</div>
+        <div class="price-row">
+          <span class="price-label">初回（30%OFF）</span>
+          <span class="price-val good">¥2,772</span>
+        </div>
+        <div class="price-row">
+          <span class="price-label">定期便ずっと20%OFF</span>
+          <span class="price-val good">¥3,168</span>
+        </div>
+        <div class="price-row">
+          <span class="price-label">1本あたり（2回目〜）</span>
+          <span class="price-val good">¥79</span>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="margin: 20px 0 12px;">ギャップの変化</h3>
+    <div class="gap-bar-wrap">
+      <div class="gap-bar-label"><span>現状</span></div>
+      <div class="gap-bar" style="background: #ffcdd2;">
+        <div class="fill" style="width: 100%; background: var(--danger);">¥1,980（2倍に跳ね上がる）</div>
+      </div>
+    </div>
+    <div class="gap-bar-wrap" style="margin-top: 8px;">
+      <div class="gap-bar-label"><span>改定後</span></div>
+      <div class="gap-bar" style="background: #c8e6c9;">
+        <div class="fill" style="width: 20%; background: var(--success);">¥396</div>
+      </div>
+    </div>
+    <p style="text-align: center; margin-top: 8px; font-size: .9em; color: var(--success); font-weight: 700;">ギャップ 80%縮小</p>
+
+    <div class="note info" style="margin-top: 16px;">
+      <strong>考え方：</strong>初回の値引きを抑えた分、2回目以降を安くする。<br>
+      「安さで試す人」ではなく「納得して続ける人」が集まる構造に変える。<br>
+      <strong>1本¥79はシリカ水業界で圧倒的な最安価格。</strong>のむシリカ¥103、フィジー¥214と比較して大幅に安い。
+    </div>
+
+    <h3 style="margin: 24px 0 12px;">競合との価格比較（改定後）</h3>
+    <table>
+      <thead>
+        <tr><th>ブランド</th><th class="num">シリカ</th><th class="num">1本あたり</th><th class="num">初回割引</th></tr>
+      </thead>
+      <tbody>
+        <tr class="hl-row">
+          <td><strong>ミチルシリカ（改定後）</strong></td>
+          <td class="num">72mg/L</td>
+          <td class="num" style="color:var(--success); font-weight:900; font-size:1.2em">¥79</td>
+          <td class="num">30%OFF</td>
+        </tr>
+        <tr>
+          <td>のむシリカ</td>
+          <td class="num">97mg/L</td>
+          <td class="num">¥103〜120</td>
+          <td class="num">20%OFF</td>
+        </tr>
+        <tr>
+          <td>シリカシリカ</td>
+          <td class="num">72mg/L</td>
+          <td class="num">¥108</td>
+          <td class="num">あり</td>
+        </tr>
+        <tr>
+          <td>フィジーウォーター</td>
+          <td class="num">93mg/L</td>
+          <td class="num">¥214〜</td>
+          <td class="num">30%OFF</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 style="margin: 24px 0 12px;">売上シミュレーション（6ヶ月間）</h3>
+    <table>
+      <thead>
+        <tr><th></th><th class="num">現状</th><th class="num">改定後</th><th class="num">差</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>月間新規</td>
+          <td class="num">10人</td>
+          <td class="num">7人</td>
+          <td class="num" style="color:var(--danger)">-3人</td>
+        </tr>
+        <tr>
+          <td>継続率</td>
+          <td class="num">50%</td>
+          <td class="num" style="color:var(--success); font-weight:700">70%</td>
+          <td class="num" style="color:var(--success)">+20pt</td>
+        </tr>
+        <tr>
+          <td>6ヶ月間の2回目以降売上</td>
+          <td class="num">¥99,000</td>
+          <td class="num" style="color:var(--success); font-weight:700">¥110,880</td>
+          <td class="num" style="color:var(--success)">+¥11,880</td>
+        </tr>
+        <tr class="total-row">
+          <td>6ヶ月間の総売上</td>
+          <td class="num">¥118,800</td>
+          <td class="num" style="color:var(--success)">¥130,284</td>
+          <td class="num" style="color:var(--success); font-weight:900">+9.7%</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="note good" style="margin-top: 16px;">
+      <strong>新規が3人減っても、継続率が上がれば売上は+9.7%増加します。</strong>
+    </div>
+  </div>
+</div>
+
+<!-- ======================================== -->
+<!-- 3. LP改善 -->
+<!-- ======================================== -->
+<div class="section">
+  <div class="sh purple">3. 施策② LP改善 — 購入前に「続ける価値」を伝える</div>
+  <div class="sb">
+
+    <div class="note purple">
+      <strong>目的：</strong>購入前の段階で「これは1回で終わりではなく、毎日続けるもの」と理解してもらう。<br>
+      理解した上で購入する人は、2回目以降も続ける確率が高い。
+    </div>
+
+    <h3 style="margin: 20px 0 12px;">LPへの追加・変更箇所</h3>
+
+    <div class="lp-mockup">
+      <div class="lp-header">michiru.olivia-store.com — LP構成（上から順）</div>
+      <div class="lp-body">
+        <div class="lp-section existing">FV（ファーストビュー）</div>
+        <div class="lp-section existing">悩み共感 — 健康の土台を支える</div>
+        <div class="lp-section existing">シリカ教育 — 加齢で減少、体内で作れない</div>
+        <div class="lp-section new">
+          <span class="tag new-tag">NEW</span>
+          <strong>「だから毎日続けることが大切です」セクション</strong><br>
+          シリカは1回飲んで終わりではない → 毎日の習慣として補給 → 3ヶ月で生活の一部に
+        </div>
+        <div class="lp-section existing">CTA① — 今すぐ注文する</div>
+        <div class="lp-section existing">製品特徴＋専門家推薦</div>
+        <div class="lp-section existing">愛飲者の声</div>
+        <div class="lp-section existing">CTA② — 今すぐ注文する</div>
+        <div class="lp-section existing">比較表 — 他社との価格・成分比較</div>
+        <div class="lp-section new">
+          <span class="tag new-tag">NEW</span>
+          <strong>「ミチルシリカが選ばれる理由」セクション</strong><br>
+          1本¥79の業界最安 / 安さの理由 / 品質の証明 / 525ml大容量 / 大分県産天然水
+        </div>
+        <div class="lp-section existing">LP動画</div>
+        <div class="lp-section modified">
+          <span class="tag mod-tag">変更</span>
+          <strong>定期便のお得さ — 価格表記を改定後に差し替え</strong><br>
+          初回¥2,772（30%OFF）→ 定期便ずっと¥3,168（20%OFF）→ 1本¥79
+        </div>
+        <div class="lp-section new">
+          <span class="tag new-tag">NEW</span>
+          <strong>「続けるほどうれしい特典」セクション</strong><br>
+          半年ごとの感謝ギフト / お客様からの「手紙が嬉しかった」の声
+        </div>
+        <div class="lp-section existing">製造・採水地</div>
+        <div class="lp-section existing">CTA③ — 今すぐ注文する</div>
+        <div class="lp-section existing">FAQ</div>
+      </div>
+    </div>
+
+    <h3 style="margin: 24px 0 12px;">追加セクションの詳細</h3>
+
+    <div class="proposal-card">
+      <div class="card-num" style="background: var(--purple);">A</div>
+      <h3>「だから毎日続けることが大切です」</h3>
+      <p>
+        シリカ教育セクションの直後に配置。<br>
+        <strong>内容：</strong>シリカは体内で作れない → 年齢とともに減り続ける → 1回飲んだだけでは補えない → 毎日の水分補給をシリカ水に変えることで、日々の習慣として継続的に補給できる。<br>
+        <strong>見せ方：</strong>1ヶ月目（新しい習慣のスタート）→ 2ヶ月目（習慣として定着）→ 3ヶ月目（日常の一部に）の3ステップ図解。
+      </p>
+      <div class="effect">防ぐ効果：「1回だけ試して終わり」の購入を減らす</div>
+    </div>
+
+    <div class="proposal-card">
+      <div class="card-num" style="background: var(--purple);">B</div>
+      <h3>「ミチルシリカが選ばれる理由」</h3>
+      <p>
+        比較表セクションの直後に配置。<br>
+        <strong>内容：</strong>
+      </p>
+      <ul style="margin: 8px 0 8px 20px; font-size: .9em; color: var(--text-light);">
+        <li><strong>1本¥79で業界最安</strong> — のむシリカ¥103と比べて月¥960お得</li>
+        <li><strong>安さの理由</strong> — テレビCMを使わず広告費を抑え、商品価格に還元</li>
+        <li><strong>品質の証明</strong> — 大分県産100%天然水、無添加、シリカ72mg/L</li>
+        <li><strong>大容量525ml</strong> — 他社500mlより25ml多い</li>
+        <li><strong>専門家推薦済み</strong> — 秋田県立大学名誉教授による品質評価</li>
+      </ul>
+      <div class="effect">防ぐ効果：他社への乗り換え（解約理由の20%）</div>
+    </div>
+
+    <div class="proposal-card">
+      <div class="card-num" style="background: var(--purple);">C</div>
+      <h3>「続けるほどうれしい特典」</h3>
+      <p>
+        定期便セクションの直後、CTA③の手前に配置。<br>
+        <strong>内容：</strong>半年ごとに感謝のギフト（厳選したお茶・コーヒーのセット）をお届けしていること。<br>
+        お客様から「お手紙が嬉しかった」という声もあること。<br>
+        <strong>見せ方：</strong>ギフトボックスのイメージ＋お客様の声。購入ボタンの直前に置くことで「続けたい」と思わせてから購入に進ませる。
+      </p>
+      <div class="effect">防ぐ効果：「続ける動機がない」による離脱</div>
+    </div>
+  </div>
+</div>
+
+<!-- ======================================== -->
+<!-- 4. 同梱物 -->
+<!-- ======================================== -->
+<div class="section">
+  <div class="sh teal">4. 施策③ 同梱物 — 届いた瞬間に「続ける理由」を渡す</div>
+  <div class="sb">
+
+    <div class="note info">
+      <strong>目的：</strong>商品が届いた瞬間に「この商品は続ける価値がある」と感じてもらう。<br>
+      LPで伝えきれない情報を手元に届ける。コストはA4用紙3枚の印刷代のみ。
+    </div>
+
+    <div class="doujin-grid">
+      <div class="doujin-card">
+        <h4>A. 価格・継続のご案内</h4>
+        <p>
+          2回目以降の価格を明記<br>
+          （¥3,168 = 1本¥79）<br>
+          業界最安水準であること<br>
+          半年ギフトの案内
+        </p>
+        <div class="prevent">→ 金額誤認の解約を防ぐ（12%）</div>
+      </div>
+      <div class="doujin-card">
+        <h4>B. ミチルシリカの価値</h4>
+        <p>
+          シリカ水の比較表<br>
+          安さの理由<br>
+          品質へのこだわり<br>
+          525ml大容量ボトル
+        </p>
+        <div class="prevent">→ 他社乗り換えを防ぐ（20%）</div>
+      </div>
+      <div class="doujin-card">
+        <h4>C. おいしい飲み方ガイド</h4>
+        <p>
+          5つの飲み方提案<br>
+          お料理への活用法<br>
+          40本の消費ペース目安<br>
+          3ヶ月タイムライン
+        </p>
+        <div class="prevent">→ 味覚・飲みきれないを防ぐ（32%）</div>
+      </div>
+    </div>
+
+    <div class="note good">
+      <strong>3枚で解約理由の64%に対策できます。</strong>コストはA4カラー印刷代のみ。<br>
+      原稿は作成済みです。印刷して次回発送分から同梱するだけで即効果が出ます。
+    </div>
+  </div>
+</div>
+
+<!-- ======================================== -->
+<!-- 5. 半年ギフト -->
+<!-- ======================================== -->
+<div class="section">
+  <div class="sh orange">5. 施策④ 半年ギフト — 続けてくれた人への感謝</div>
+  <div class="sb">
+
+    <div class="note warn">
+      <strong>現在も実施中：</strong>半年ごとにお茶やコーヒーのギフトセットをお届けしています。<br>
+      この施策をLP・同梱物に明記して、「続ける動機」として可視化します。
+    </div>
+
+    <h3 style="margin: 16px 0 12px;">お客様の反応</h3>
+    <div style="background: #fff8e1; border-radius: 10px; padding: 20px; margin: 12px 0; border-left: 4px solid #ff9800;">
+      <p style="font-size: 1em; font-style: italic; color: #4e342e;">
+        「お手紙と一緒にプレゼントが届いて、とても嬉しかったです」
+      </p>
+      <p style="font-size: .85em; color: #8d6e63; margin-top: 8px;">— ご愛飲者様より</p>
+    </div>
+
+    <h3 style="margin: 20px 0 12px;">LP・同梱物での見せ方</h3>
+    <table>
+      <thead>
+        <tr><th>掲載場所</th><th>内容</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>LP（CTA手前）</td>
+          <td>「続けてくださっているお客様に、半年ごとに感謝のギフトをお届けしています」＋お客様の声</td>
+        </tr>
+        <tr>
+          <td>同梱物A</td>
+          <td>「6ヶ月ご継続いただいたお客様に、厳選したお茶やコーヒーのギフトセットをお届けしています」</td>
+        </tr>
+        <tr>
+          <td>広告テキスト</td>
+          <td>「定期便をお続けの方には半年ごとに感謝のプレゼント」（メインテキスト末尾に追記）</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ======================================== -->
+<!-- 6. 全体の効果 -->
+<!-- ======================================== -->
+<div class="section">
+  <div class="sh green">6. 全体の効果シミュレーション</div>
+  <div class="sb">
+
+    <h3 style="margin-bottom: 14px;">4つの施策を組み合わせた効果</h3>
+
+    <table>
+      <thead>
+        <tr><th>施策</th><th>防げる解約理由</th><th class="num">対象割合</th><th class="num">コスト</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>価格改定（ギャップ縮小）</td>
+          <td>金額誤認・安さ目当ての流入</td>
+          <td class="num">12%</td>
+          <td class="num">なし</td>
+        </tr>
+        <tr>
+          <td>LP改善（続ける価値の教育）</td>
+          <td>1回で終わりの購入</td>
+          <td class="num">24%（理由不明層）</td>
+          <td class="num">制作費のみ</td>
+        </tr>
+        <tr>
+          <td>同梱物3点セット</td>
+          <td>金額誤認・他社乗換・味覚・飲みきれない</td>
+          <td class="num">64%</td>
+          <td class="num">印刷代のみ</td>
+        </tr>
+        <tr>
+          <td>半年ギフトの可視化</td>
+          <td>継続動機不足</td>
+          <td class="num">—</td>
+          <td class="num">既存施策の活用</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 style="margin: 28px 0 16px;">継続率の改善見込み</h3>
+    <div class="bar-chart" style="height: 220px;">
+      <div class="bar-item">
+        <div class="bar" style="background: #ef5350; height: 110px;">50%</div>
+        <div class="bar-label">現状<br><span style="font-size:.75em">対策なし</span></div>
+      </div>
+      <div class="bar-item">
+        <div class="bar" style="background: #ff9800; height: 143px;">65%</div>
+        <div class="bar-label">価格改定<br>のみ</div>
+      </div>
+      <div class="bar-item">
+        <div class="bar" style="background: #66bb6a; height: 154px;">70%</div>
+        <div class="bar-label">+LP改善<br>+同梱物</div>
+      </div>
+      <div class="bar-item">
+        <div class="bar" style="background: #43a047; height: 176px;">80%</div>
+        <div class="bar-label">+半年ギフト<br>全施策実施</div>
+      </div>
+    </div>
+
+    <div class="stat-grid" style="margin-top: 20px;">
+      <div class="stat-card green">
+        <div class="val">+9.7%</div>
+        <div class="lbl">売上増加（6ヶ月）</div>
+      </div>
+      <div class="stat-card green">
+        <div class="val">-66%</div>
+        <div class="lbl">解約ロス削減</div>
+      </div>
+      <div class="stat-card blue">
+        <div class="val">¥79</div>
+        <div class="lbl">業界最安の1本単価</div>
+      </div>
+      <div class="stat-card purple">
+        <div class="val">80%</div>
+        <div class="lbl">目標継続率</div>
+      </div>
+    </div>
+
+    <div class="note good" style="margin-top: 16px;">
+      <strong>お金の使い方を「入口」から「継続」に移す。</strong><br>
+      初回の値引きを抑えた分、2回目以降を安くする。<br>
+      購入前にLP で「続ける価値」を伝え、届いた瞬間に同梱物で「続ける理由」を渡す。<br>
+      半年続けた人にはギフトで感謝する。<br>
+      <strong>この一貫した流れで「続けたくなる仕組み」を作ります。</strong>
+    </div>
+  </div>
+</div>
+
+<!-- ======================================== -->
+<!-- 7. スケジュール -->
+<!-- ======================================== -->
+<div class="section">
+  <div class="sh dark">7. 実行スケジュール</div>
+  <div class="sb">
+
+    <table class="timeline-table">
+      <thead>
+        <tr><th>時期</th><th>施策</th><th>内容</th><th class="num">コスト</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>4月中</td>
+          <td>同梱物3点セット</td>
+          <td>原稿作成済み → 印刷 → 次回発送分から同梱</td>
+          <td class="num">印刷代のみ</td>
+        </tr>
+        <tr>
+          <td>4月中</td>
+          <td>半年ギフトの可視化</td>
+          <td>LP＋同梱物に「半年ギフト」の案内を追加</td>
+          <td class="num">なし</td>
+        </tr>
+        <tr>
+          <td>5月〜</td>
+          <td>LP改善</td>
+          <td>「続ける価値」「選ばれる理由」「特典」セクション追加</td>
+          <td class="num">制作費のみ</td>
+        </tr>
+        <tr>
+          <td>5月〜</td>
+          <td>価格改定</td>
+          <td>LP価格表記＋カラーミークーポン＋広告クリエイティブを同日一斉切替</td>
+          <td class="num">なし</td>
+        </tr>
+        <tr class="hl-row">
+          <td>6月〜</td>
+          <td>効果測定</td>
+          <td>改定後の新規数・継続率・解約理由を集計。目標：継続率70%以上</td>
+          <td class="num">—</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="note warn" style="margin-top: 16px;">
+      <strong>価格改定の切り替えタイミング：</strong>LP・カラーミー・広告の価格が一致しない期間を作らないため、切り替えは全て同日に行います。<br>
+      切り替え日は次回お打ち合わせで決定。
+    </div>
+
+    <h3 style="margin: 24px 0 12px;">切り替え作業フロー</h3>
+    <div class="flow">
+      <div class="flow-step">同梱物<br>印刷開始</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">LP改善<br>セクション追加</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">LP価格表記<br>変更</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">カラーミー<br>クーポン変更</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">広告<br>差し替え</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">同日<br>一斉切替</div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<div class="footer">
+  ミチルシリカ 継続率改善 総合提案書 | 2026年4月 | 株式会社斗
+</div>
+
+</body>
+</html>
