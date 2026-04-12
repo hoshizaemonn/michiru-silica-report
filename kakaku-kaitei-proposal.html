@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ミチルシリカ 価格改定のご提案</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap');
+:root {
+  --primary: #0d47a1; --primary-light: #1976d2; --primary-bg: #e3f2fd;
+  --success: #2e7d32; --success-bg: #e8f5e9;
+  --warning: #e65100; --warning-bg: #fff3e0;
+  --danger: #c62828; --danger-bg: #ffebee;
+  --text: #263238; --text-light: #546e7a;
+  --bg: #f5f7fa; --card: #fff; --border: #e0e4e8;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Noto Sans JP',sans-serif; line-height:1.8; color:var(--text); background:var(--bg); }
+
+.hero {
+  background: linear-gradient(135deg, #0d47a1 0%, #1565c0 50%, #1976d2 100%);
+  color: #fff; padding: 48px 32px; text-align: center;
+}
+.hero h1 { font-size: 2em; font-weight: 900; margin-bottom: 8px; }
+.hero .sub { font-size: 1.1em; opacity: .85; }
+.hero .date { margin-top: 12px; font-size: .85em; opacity: .6; }
+
+.container { max-width: 900px; margin: 0 auto; padding: 28px 20px; }
+
+.section {
+  background: var(--card); border-radius: 14px;
+  margin-bottom: 24px; box-shadow: 0 2px 12px rgba(0,0,0,.06);
+  overflow: hidden;
+}
+.sh {
+  padding: 18px 24px; font-size: 1.15em; font-weight: 700; color: #fff;
+}
+.sh.blue { background: linear-gradient(135deg, var(--primary), var(--primary-light)); }
+.sh.orange { background: linear-gradient(135deg, #e65100, #ff9800); }
+.sh.green { background: linear-gradient(135deg, var(--success), #43a047); }
+.sh.red { background: linear-gradient(135deg, #b71c1c, #e53935); }
+.sh.dark { background: linear-gradient(135deg, #263238, #455a64); }
+.sb { padding: 24px; }
+
+/* 比較グリッド */
+.compare-grid { display: grid; grid-template-columns: 1fr 60px 1fr; gap: 16px; align-items: center; margin: 16px 0; }
+.compare-box { padding: 24px; border-radius: 14px; text-align: center; }
+.compare-box.before { background: #ffebee; border: 2px solid var(--danger); }
+.compare-box.after { background: #e8f5e9; border: 2px solid var(--success); }
+.compare-box .cb-label { font-size: .85em; color: var(--text-light); margin-bottom: 4px; }
+.compare-box .cb-title { font-size: 1.1em; font-weight: 900; margin-bottom: 16px; }
+.compare-box .cb-title.red { color: var(--danger); }
+.compare-box .cb-title.green { color: var(--success); }
+.compare-box .price-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px dashed rgba(0,0,0,.1); }
+.compare-box .price-row:last-child { border-bottom: none; }
+.compare-box .price-label { font-size: .85em; color: var(--text-light); }
+.compare-box .price-val { font-size: 1.3em; font-weight: 900; }
+.compare-box .price-val.highlight { color: var(--danger); }
+.compare-box .price-val.good { color: var(--success); }
+.compare-arrow { text-align: center; font-size: 2em; color: var(--primary); }
+
+/* カード */
+.stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; margin: 16px 0; }
+.stat-card { text-align: center; padding: 20px; border-radius: 12px; background: var(--bg); }
+.stat-card .val { font-size: 2.2em; font-weight: 900; }
+.stat-card .lbl { font-size: .85em; color: var(--text-light); margin-top: 4px; }
+.stat-card.red .val { color: var(--danger); }
+.stat-card.green .val { color: var(--success); }
+.stat-card.blue .val { color: var(--primary); }
+.stat-card.orange .val { color: var(--warning); }
+
+/* テーブル */
+table { width: 100%; border-collapse: collapse; font-size: .9em; }
+th { background: #263238; color: #fff; padding: 12px 14px; text-align: left; font-weight: 600; font-size: .85em; }
+td { padding: 12px 14px; border-bottom: 1px solid var(--border); }
+tbody tr:hover { background: #f5f8ff; }
+.num { text-align: right; font-variant-numeric: tabular-nums; }
+.total-row { background: #f0f4ff; font-weight: 700; }
+.hl-row { background: #fff8e1; }
+
+/* ノート */
+.note { padding: 14px 18px; border-radius: 8px; font-size: .9em; line-height: 1.7; margin: 12px 0; }
+.note.info { background: var(--primary-bg); border-left: 4px solid var(--primary); }
+.note.good { background: var(--success-bg); border-left: 4px solid var(--success); }
+.note.warn { background: var(--warning-bg); border-left: 4px solid var(--warning); }
+.note.bad { background: var(--danger-bg); border-left: 4px solid var(--danger); }
+
+/* ギャップバー */
+.gap-bar-wrap { margin: 20px 0; }
+.gap-bar-label { display: flex; justify-content: space-between; font-size: .85em; color: var(--text-light); margin-bottom: 6px; }
+.gap-bar { height: 32px; border-radius: 8px; position: relative; overflow: hidden; }
+.gap-bar .fill { height: 100%; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 700; font-size: .85em; }
+
+/* 棒グラフ風 */
+.bar-chart { display: flex; align-items: flex-end; gap: 24px; justify-content: center; margin: 24px 0; padding: 0 20px; }
+.bar-item { text-align: center; flex: 1; max-width: 140px; }
+.bar-item .bar { width: 100%; border-radius: 8px 8px 0 0; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 8px; color: #fff; font-weight: 900; font-size: 1.1em; min-height: 40px; }
+.bar-item .bar-label { font-size: .8em; color: var(--text-light); margin-top: 6px; line-height: 1.4; }
+
+/* フロー */
+.flow { display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap; margin: 16px 0; }
+.flow-step { background: var(--primary); color: #fff; padding: 10px 18px; border-radius: 10px; font-weight: 700; font-size: .9em; text-align: center; }
+.flow-arrow { font-size: 1.4em; color: var(--primary); }
+
+.footer { text-align: center; margin-top: 28px; padding: 20px; font-size: .8em; color: var(--text-light); }
+
+@media(max-width:768px) {
+  .hero h1 { font-size: 1.5em; }
+  .compare-grid { grid-template-columns: 1fr; }
+  .compare-arrow { transform: rotate(90deg); }
+  .bar-chart { gap: 12px; }
+}
+@media print {
+  body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .section { break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>ミチルシリカ 価格改定のご提案</h1>
+  <div class="sub">初回・2回目以降の価格を見直し、継続率を改善する</div>
+  <div class="date">2026年4月 | 株式会社斗</div>
+</div>
+
+<div class="container">
+
+<!-- ======================================== -->
+<!-- 1. 現状の課題 -->
+<!-- ======================================== -->
+<div class="section">
+  <div class="sh red">現状の課題</div>
+  <div class="sb">
+    <div class="stat-grid">
+      <div class="stat-card red">
+        <div class="val">50%</div>
+        <div class="lbl">解約率</div>
+      </div>
+      <div class="stat-card red">
+        <div class="val">¥1,980</div>
+        <div class="lbl">初回→2回目の差額</div>
+      </div>
+      <div class="stat-card orange">
+        <div class="val">25人</div>
+        <div class="lbl">10月以降の解約者</div>
+      </div>
+      <div class="stat-card blue">
+        <div class="val">60人</div>
+        <div class="lbl">10月以降の新規</div>
+      </div>
+    </div>
+
+    <div class="note bad">
+      <strong>最大の問題：</strong>初回¥1,980（50%OFF）で「安いから試そう」と入り、2回目に¥3,960の請求が来て「思ったより高い」と感じて解約。<br>
+      <strong>初回と2回目の差額¥1,980が、ギャップショックを生んでいます。</strong>
+    </div>
+
+    <h3 style="margin: 20px 0 12px; font-size: 1em;">初回→2回目の価格ギャップ</h3>
+    <div class="gap-bar-wrap">
+      <div class="gap-bar-label"><span>初回 ¥1,980</span><span>2回目 ¥3,960</span></div>
+      <div class="gap-bar" style="background: #ffcdd2;">
+        <div class="fill" style="width: 50%; background: var(--danger);">¥1,980</div>
+      </div>
+      <p style="text-align: center; margin-top: 8px; font-size: .85em; color: var(--danger); font-weight: 700;">← 2倍に跳ね上がる →</p>
+    </div>
+  </div>
+</div>
+
+<!-- ======================================== -->
+<!-- 2. 価格改定の提案 -->
+<!-- ======================================== -->
+<div class="section">
+  <div class="sh blue">価格改定のご提案</div>
+  <div class="sb">
+
+    <div class="compare-grid">
+      <div class="compare-box before">
+        <div class="cb-label">現状</div>
+        <div class="cb-title red">ギャップ ¥1,980</div>
+        <div class="price-row">
+          <span class="price-label">初回（50%OFF）</span>
+          <span class="price-val highlight">¥1,980</span>
+        </div>
+        <div class="price-row">
+          <span class="price-label">2回目以降</span>
+          <span class="price-val">¥3,960</span>
+        </div>
+        <div class="price-row">
+          <span class="price-label">1本あたり（初回）</span>
+          <span class="price-val">¥49</span>
+        </div>
+        <div class="price-row">
+          <span class="price-label">1本あたり（2回目〜）</span>
+          <span class="price-val">¥99</span>
+        </div>
+      </div>
+
+      <div class="compare-arrow">→</div>
+
+      <div class="compare-box after">
+        <div class="cb-label">改定後</div>
+        <div class="cb-title green">ギャップ ¥396</div>
+        <div class="price-row">
+          <span class="price-label">初回（30%OFF）</span>
+          <span class="price-val good">¥2,772</span>
+        </div>
+        <div class="price-row">
+          <span class="price-label">2回目以降（20%OFF）</span>
+          <span class="price-val good">¥3,168</span>
+        </div>
+        <div class="price-row">
+          <span class="price-label">1本あたり（初回）</span>
+          <span class="price-val good">¥69</span>
+        </div>
+        <div class="price-row">
+          <span class="price-label">1本あたり（2回目〜）</span>
+          <span class="price-val good">¥79</span>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="margin: 20px 0 12px; font-size: 1em;">ギャップの変化</h3>
+    <div class="gap-bar-wrap">
+      <div class="gap-bar-label"><span>現状のギャップ</span><span></span></div>
+      <div class="gap-bar" style="background: #ffcdd2;">
+        <div class="fill" style="width: 100%; background: var(--danger);">¥1,980</div>
+      </div>
+    </div>
+    <div class="gap-bar-wrap" style="margin-top: 8px;">
+      <div class="gap-bar-label"><span>改定後のギャップ</span><span></span></div>
+      <div class="gap-bar" style="background: #c8e6c9;">
+        <div class="fill" style="width: 20%; background: var(--success);">¥396</div>
+      </div>
+    </div>
+    <p style="text-align: center; margin-top: 8px; font-size: .9em; color: var(--success); font-weight: 700;">ギャップ 80%縮小</p>
+
+    <div class="note info" style="margin-top: 20px;">
+      <strong>ポイント：</strong>初回を上げた分、2回目以降を下げる。<br>
+      お客様から見ると「初回も2回目もほぼ同じ価格」に見えるので、2回目のショックがなくなります。<br>
+      <strong>1本¥79は業界で圧倒的に安い価格です。</strong>（のむシリカ¥103、フィジー¥214、シリカシリカ¥108）
+    </div>
+  </div>
+</div>
+
+<!-- ======================================== -->
+<!-- 3. 売上シミュレーション -->
+<!-- ======================================== -->
+<div class="section">
+  <div class="sh green">売上シミュレーション（6ヶ月間）</div>
+  <div class="sb">
+
+    <div class="note info">
+      <strong>前提：</strong>初回価格を上げると新規数は減るが、ギャップ縮小で継続率が上がる。<br>
+      現状の月間新規10人をベースに、改定後は新規7人（-30%）・継続率70%（+20pt）で試算。
+    </div>
+
+    <table style="margin-top: 16px;">
+      <thead>
+        <tr>
+          <th></th>
+          <th class="num">現状</th>
+          <th class="num">改定後</th>
+          <th class="num">差</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>月間新規</td>
+          <td class="num">10人</td>
+          <td class="num">7人</td>
+          <td class="num" style="color:var(--danger)">-3人</td>
+        </tr>
+        <tr>
+          <td>継続率</td>
+          <td class="num">50%</td>
+          <td class="num" style="font-weight:700; color:var(--success)">70%</td>
+          <td class="num" style="color:var(--success)">+20pt</td>
+        </tr>
+        <tr>
+          <td>6ヶ月後の残存者</td>
+          <td class="num">5.0人</td>
+          <td class="num" style="font-weight:700">4.9人</td>
+          <td class="num">ほぼ同じ</td>
+        </tr>
+        <tr><td colspan="4" style="background:#f5f7fa; font-weight:700; color:var(--text-light);">売上の内訳</td></tr>
+        <tr>
+          <td>初回売上（月間）</td>
+          <td class="num">¥19,800</td>
+          <td class="num">¥19,404</td>
+          <td class="num">-¥396</td>
+        </tr>
+        <tr>
+          <td>2回目以降の単価</td>
+          <td class="num">¥3,960</td>
+          <td class="num">¥3,168</td>
+          <td class="num" style="color:var(--danger)">-¥792</td>
+        </tr>
+        <tr>
+          <td>6ヶ月間の2回目以降売上<br><span style="font-size:.8em;color:#90a4ae">（継続者×5回分）</span></td>
+          <td class="num">¥99,000<br><span style="font-size:.8em">5人×5回×¥3,960</span></td>
+          <td class="num" style="font-weight:700; color:var(--success)">¥110,880<br><span style="font-size:.8em">7人×5回×¥3,168</span></td>
+          <td class="num" style="color:var(--success); font-weight:700">+¥11,880</td>
+        </tr>
+        <tr class="total-row">
+          <td>6ヶ月間の総売上</td>
+          <td class="num">¥118,800</td>
+          <td class="num" style="color:var(--success)">¥130,284</td>
+          <td class="num" style="color:var(--success); font-weight:900">+¥11,484<br>(+9.7%)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 style="margin: 28px 0 16px; font-size: 1em;">売上の推移イメージ（6ヶ月間累計）</h3>
+    <div class="bar-chart" style="height: 220px;">
+      <div class="bar-item">
+        <div class="bar" style="background: #ef5350; height: 180px;">¥118,800</div>
+        <div class="bar-label">現状<br><span style="font-size:.75em">新規10人×継続50%</span></div>
+      </div>
+      <div class="bar-item">
+        <div class="bar" style="background: #43a047; height: 198px;">¥130,284</div>
+        <div class="bar-label">改定後<br><span style="font-size:.75em">新規7人×継続70%</span></div>
+      </div>
+    </div>
+
+    <div class="note good">
+      <strong>結論：新規が3人減っても、継続率が20pt上がれば売上は+9.7%増加します。</strong><br>
+      さらに、解約者が減ることで広告費のロス（解約者にかけたCPA）も削減されます。
+    </div>
+  </div>
+</div>
+
+<!-- ======================================== -->
+<!-- 4. 広告費ロスの削減 -->
+<!-- ======================================== -->
+<div class="section">
+  <div class="sh orange">解約によるロスの削減</div>
+  <div class="sb">
+    <div class="note warn">
+      解約者1人ごとに「初回の割引額」＋「広告費（CPA）」が回収不能になります。<br>
+      この損失がどれだけ減るかを試算します。
+    </div>
+
+    <table style="margin-top: 16px;">
+      <thead>
+        <tr>
+          <th></th>
+          <th class="num">現状</th>
+          <th class="num">改定後</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>月間新規</td>
+          <td class="num">10人</td>
+          <td class="num">7人</td>
+        </tr>
+        <tr>
+          <td>解約者数（月間）</td>
+          <td class="num" style="color:var(--danger)">5人</td>
+          <td class="num" style="color:var(--success)">2.1人</td>
+        </tr>
+        <tr>
+          <td>初回割引額/人</td>
+          <td class="num">¥1,980</td>
+          <td class="num">¥1,188</td>
+        </tr>
+        <tr>
+          <td>解約者の割引ロス（月間）</td>
+          <td class="num" style="color:var(--danger)">¥9,900</td>
+          <td class="num" style="color:var(--success)">¥2,495</td>
+        </tr>
+        <tr>
+          <td>広告CPA（仮: ¥2,000/人）</td>
+          <td class="num">¥2,000</td>
+          <td class="num">¥2,000</td>
+        </tr>
+        <tr>
+          <td>解約者の広告費ロス（月間）</td>
+          <td class="num" style="color:var(--danger)">¥10,000</td>
+          <td class="num" style="color:var(--success)">¥4,200</td>
+        </tr>
+        <tr class="total-row">
+          <td>月間の総ロス</td>
+          <td class="num" style="color:var(--danger)">¥19,900</td>
+          <td class="num" style="color:var(--success)">¥6,695</td>
+        </tr>
+        <tr class="hl-row">
+          <td><strong>ロス削減額</strong></td>
+          <td class="num"></td>
+          <td class="num" style="color:var(--success); font-weight:900">月 ¥13,205 削減<br>（66%減）</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ======================================== -->
+<!-- 5. 競合との価格比較 -->
+<!-- ======================================== -->
+<div class="section">
+  <div class="sh dark">改定後の競合比較 — 業界最安を大幅強化</div>
+  <div class="sb">
+
+    <table>
+      <thead>
+        <tr>
+          <th>ブランド</th>
+          <th class="num">シリカ</th>
+          <th class="num">1本あたり（定期）</th>
+          <th class="num">初回割引</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="hl-row">
+          <td><strong>ミチルシリカ（改定後）</strong></td>
+          <td class="num">72mg/L</td>
+          <td class="num" style="color:var(--success); font-weight:900; font-size:1.2em">¥79</td>
+          <td class="num">30%OFF</td>
+        </tr>
+        <tr>
+          <td>ミチルシリカ（現状）</td>
+          <td class="num">72mg/L</td>
+          <td class="num">¥99</td>
+          <td class="num">50%OFF</td>
+        </tr>
+        <tr>
+          <td>のむシリカ</td>
+          <td class="num">97mg/L</td>
+          <td class="num">¥103〜120</td>
+          <td class="num">20%OFF</td>
+        </tr>
+        <tr>
+          <td>シリカシリカ</td>
+          <td class="num">72mg/L</td>
+          <td class="num">¥108</td>
+          <td class="num">あり</td>
+        </tr>
+        <tr>
+          <td>フィジーウォーター</td>
+          <td class="num">93mg/L</td>
+          <td class="num">¥214〜</td>
+          <td class="num">30%OFF</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="note good" style="margin-top: 16px;">
+      <strong>1本¥79はシリカ水業界で圧倒的な最安価格です。</strong><br>
+      のむシリカの¥103と比較して24円安い。月40本で¥960の差。<br>
+      「続けるほど他社より圧倒的にお得」という訴求がさらに強くなります。
+    </div>
+  </div>
+</div>
+
+<!-- ======================================== -->
+<!-- 6. まとめ -->
+<!-- ======================================== -->
+<div class="section">
+  <div class="sh blue">まとめ</div>
+  <div class="sb">
+
+    <div class="stat-grid">
+      <div class="stat-card green">
+        <div class="val">+9.7%</div>
+        <div class="lbl">売上増加（6ヶ月）</div>
+      </div>
+      <div class="stat-card green">
+        <div class="val">-66%</div>
+        <div class="lbl">ロス削減</div>
+      </div>
+      <div class="stat-card blue">
+        <div class="val">¥79</div>
+        <div class="lbl">業界最安の1本単価</div>
+      </div>
+      <div class="stat-card orange">
+        <div class="val">80%縮小</div>
+        <div class="lbl">価格ギャップ</div>
+      </div>
+    </div>
+
+    <div class="note info" style="margin-top: 20px;">
+      <strong>お金の使い方を「入口」から「継続」に移す。</strong><br><br>
+      初回の値引きを抑えた分、2回目以降を安くする。<br>
+      「安さで試す人」ではなく「納得して続ける人」が集まる構造になり、<br>
+      <strong>新規が減っても、残る人が増えるので売上は上がります。</strong>
+    </div>
+
+    <h3 style="margin: 24px 0 14px; font-size: 1em;">切り替えに必要な作業</h3>
+    <div class="flow">
+      <div class="flow-step">LP価格表記の変更</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">カラーミーの<br>クーポン変更</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">広告クリエイティブの<br>価格差し替え</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">同時切り替え</div>
+    </div>
+
+    <div class="note warn" style="margin-top: 16px;">
+      LP・カラーミー・広告の価格が一致しない期間を作らないため、<strong>切り替えは全て同日に行う</strong>必要があります。
+    </div>
+  </div>
+</div>
+
+</div>
+
+<div class="footer">
+  ミチルシリカ 価格改定提案書 | 2026年4月 | 株式会社斗
+</div>
+
+</body>
+</html>
