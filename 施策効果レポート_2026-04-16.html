@@ -523,42 +523,73 @@ tbody tr:hover { background:#f5f8ff; }
     <h4 style="margin:24px 0 10px;">前任 vs 現在の運用比較</h4>
     <table>
       <thead>
-        <tr><th>指標</th><th class="num">前任Yahoo<br>（2025年4〜9月）</th><th class="num">現在Yahoo<br>（2026年4月）</th><th class="num">現在Meta<br>（2026年4月）</th></tr>
+        <tr><th>指標</th><th class="num">前任Yahoo<br>（2025年4〜9月）</th><th class="num">現在 合計<br>（2026年4月）</th></tr>
       </thead>
       <tbody>
-        <tr><td>運用期間</td><td class="num">6ヶ月</td><td class="num">15日</td><td class="num">15日</td></tr>
-        <tr><td>日予算</td><td class="num">¥1,800/日</td><td class="num">¥700/日</td><td class="num">約¥3,100/日</td></tr>
-        <tr><td>月間広告費</td><td class="num">約¥54,000</td><td class="num">約¥14,000</td><td class="num">約¥93,000</td></tr>
-        <tr><td>月間CV</td><td class="num">2.5件/月</td><td class="num">約1件/月</td><td class="num">約5件/月</td></tr>
+        <tr><td>運用期間</td><td class="num">6ヶ月</td><td class="num">15日</td></tr>
+        <tr><td>日予算</td><td class="num">¥1,800/日</td><td class="num">約¥3,800/日</td></tr>
+        <tr><td>月間広告費</td><td class="num">約¥54,000</td><td class="num">約¥115,000</td></tr>
+        <tr><td>月間CV</td><td class="num">2.5件/月</td><td class="num">16件/月ペース</td></tr>
         <tr class="hl-row">
           <td><strong>CPA</strong></td>
           <td class="num" style="color:var(--danger); font-weight:700">¥21,828</td>
-          <td class="num" style="color:var(--warning); font-weight:700">¥7,148</td>
-          <td class="num" style="color:var(--warning); font-weight:700">¥6,300</td>
+          <td class="num" style="color:var(--warning); font-weight:700">¥7,184</td>
         </tr>
         <tr>
           <td>初回ROAS</td>
           <td class="num">0.09</td>
           <td class="num">0.28</td>
-          <td class="num">0.31</td>
         </tr>
         <tr class="hl-row">
           <td><strong>LTV ROAS（推定）</strong></td>
           <td class="num" style="color:var(--danger)">0.54</td>
-          <td class="num" style="color:var(--warning)">1.66</td>
-          <td class="num" style="color:var(--warning)">1.89</td>
+          <td class="num" style="color:var(--warning)">1.65</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="note warn" style="margin-top:16px;">
+      <strong>予算の違いに注意：</strong>現在の月間広告費は前任の<strong>約2.1倍</strong>（¥54,000→¥115,000）です。<br>
+      予算が多い分CVも多くなるのは当然なので、<strong>「同じ広告費あたりの効率」で比較</strong>する必要があります。
+    </div>
+
+    <h4 style="margin:24px 0 10px;">広告費あたりの効率比較（予算差を考慮）</h4>
+    <table>
+      <thead>
+        <tr><th>指標</th><th class="num">前任</th><th class="num">現在</th><th class="num">改善率</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>CPA（1件あたりの獲得費用）</td>
+          <td class="num">¥21,828</td>
+          <td class="num">¥7,184</td>
+          <td class="num" style="color:var(--success); font-weight:700">67%改善</td>
+        </tr>
+        <tr class="hl-row">
+          <td><strong>¥10,000あたりのCV数</strong></td>
+          <td class="num">0.46件</td>
+          <td class="num"><strong>1.39件</strong></td>
+          <td class="num" style="color:var(--success); font-weight:700"><strong>3.0倍</strong></td>
+        </tr>
+        <tr>
+          <td>同じ¥54,000/月を使った場合のCV</td>
+          <td class="num">2.5件/月</td>
+          <td class="num">7.5件/月</td>
+          <td class="num" style="color:var(--success); font-weight:700">3.0倍</td>
         </tr>
       </tbody>
     </table>
 
     <div class="note good" style="margin-top:16px;">
-      <strong>前任と比較して大幅に改善しています。</strong><br><br>
+      <strong>同じ広告費で比較すると、現在は前任の3倍の効率で獲得できています。</strong><br><br>
       <ul style="margin:0 0 0 20px;">
-        <li>Yahoo CPA: ¥21,828 → <strong>¥7,148（67%改善）</strong></li>
+        <li>CPA: ¥21,828 → <strong>¥7,184（67%改善）</strong></li>
+        <li>¥10,000あたりのCV: 0.46件 → <strong>1.39件（3.0倍）</strong></li>
+        <li>仮に前任と同じ¥54,000/月の予算なら、<strong>月7.5件</strong>（前任は2.5件）</li>
         <li>Meta広告を新規導入し、Yahoo単体より効率の良い獲得チャネルを構築</li>
-        <li>LTV ROASも0.54 → 1.66〜1.89と3倍に改善</li>
       </ul>
       <br>
+      予算を2.1倍に増やした結果、CVは<strong>6.4倍に増加</strong>。予算増以上の成果が出ています。<br>
       ただし健全ライン（ROAS 3.0）にはまだ届いていないため、引き続きCPA改善と解約対策を進めます。
     </div>
 
