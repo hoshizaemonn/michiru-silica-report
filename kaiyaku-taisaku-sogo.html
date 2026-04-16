@@ -181,7 +181,7 @@ tbody tr:hover { background: #f5f8ff; }
 <div class="toc">
   <h3>目次</h3>
   <ol>
-    <li>現状の課題 — なぜ半分が解約するのか</li>
+    <li>現状の課題 — 解約者の9割が1回で辞めている</li>
     <li>施策① 価格改定 — ギャップショックをなくす</li>
     <li>施策② LP改善 — 購入前に「続ける価値」を伝える</li>
     <li>施策③ 同梱物 — 届いた瞬間に「続ける理由」を渡す</li>
@@ -195,45 +195,77 @@ tbody tr:hover { background: #f5f8ff; }
 <!-- 1. 現状の課題 -->
 <!-- ======================================== -->
 <div class="section">
-  <div class="sh red">1. 現状の課題 — なぜ半分が解約するのか</div>
+  <div class="sh red">1. 現状の課題 — 解約者の9割が1回で辞めている</div>
   <div class="sb">
     <div class="stat-grid">
       <div class="stat-card red">
-        <div class="val">50%</div>
+        <div class="val">36.7%</div>
         <div class="lbl">解約率</div>
       </div>
       <div class="stat-card red">
-        <div class="val">25人</div>
-        <div class="lbl">解約者（10月〜3月）</div>
+        <div class="val">29人</div>
+        <div class="lbl">解約者（10月〜4月）</div>
       </div>
       <div class="stat-card orange">
-        <div class="val">¥1,980</div>
-        <div class="lbl">初回→2回目の価格差</div>
+        <div class="val">89.5%</div>
+        <div class="lbl">1回で解約する割合</div>
       </div>
       <div class="stat-card blue">
-        <div class="val">60人</div>
-        <div class="lbl">新規申込（10月〜3月）</div>
+        <div class="val">79人</div>
+        <div class="lbl">新規申込（10月〜4月）</div>
       </div>
     </div>
 
-    <h3 style="margin: 20px 0 12px;">解約理由の内訳</h3>
+    <h3 style="margin: 20px 0 12px;">全体の内訳（カラーミー48人 + 代引き31人）</h3>
+    <table>
+      <thead>
+        <tr><th></th><th class="num">カラーミー</th><th class="num">代引き</th><th class="num">合計</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>新規申込</td><td class="num">48人</td><td class="num">31人</td><td class="num">79人</td></tr>
+        <tr><td>継続中</td><td class="num">29人 (60.4%)</td><td class="num">21人 (67.7%)</td><td class="num" style="color:var(--success); font-weight:700">50人 (63.3%)</td></tr>
+        <tr><td>解約</td><td class="num">19人 (39.6%)</td><td class="num">10人 (32.3%)</td><td class="num" style="color:var(--danger); font-weight:700">29人 (36.7%)</td></tr>
+      </tbody>
+    </table>
+
+    <h3 style="margin: 20px 0 12px;">F2転換率（2回目購入率）</h3>
+    <div class="stat-grid">
+      <div class="stat-card orange">
+        <div class="val">50.0%</div>
+        <div class="lbl">F2転換率<br>（2回以上購入した割合）</div>
+      </div>
+      <div class="stat-card red">
+        <div class="val">89.5%</div>
+        <div class="lbl">解約者のうち<br>1回で辞めた割合</div>
+      </div>
+      <div class="stat-card green">
+        <div class="val">2人</div>
+        <div class="lbl">2回以上続けて<br>解約した人（極少）</div>
+      </div>
+    </div>
+
+    <h3 style="margin: 20px 0 12px;">解約理由の内訳（10月〜4月・32件）</h3>
     <table>
       <thead>
         <tr><th>解約理由</th><th class="num">件数</th><th class="num">割合</th></tr>
       </thead>
       <tbody>
-        <tr><td>理由不明・無回答</td><td class="num">6件</td><td class="num">24%</td></tr>
-        <tr><td>他社商品に乗り換え</td><td class="num">5件</td><td class="num">20%</td></tr>
-        <tr><td>身体・味覚に合わない</td><td class="num">5件</td><td class="num">20%</td></tr>
-        <tr><td>価格が高い・金額誤認</td><td class="num">3件</td><td class="num">12%</td></tr>
-        <tr><td>飲まなくなった・飲みきれない</td><td class="num">3件</td><td class="num">12%</td></tr>
-        <tr><td>その他</td><td class="num">3件</td><td class="num">12%</td></tr>
+        <tr class="hl-row"><td><strong>他社に乗り換え</strong></td><td class="num"><strong>9件</strong></td><td class="num"><strong>28.1%</strong></td></tr>
+        <tr><td>無回答・不明</td><td class="num">6件</td><td class="num">18.8%</td></tr>
+        <tr><td>その他</td><td class="num">5件</td><td class="num">15.6%</td></tr>
+        <tr><td>生活環境の変化（引越し・入院等）</td><td class="num">4件</td><td class="num">12.5%</td></tr>
+        <tr><td>商品が余る・飲みきれない</td><td class="num">4件</td><td class="num">12.5%</td></tr>
+        <tr><td>身体・味覚に合わない</td><td class="num">3件</td><td class="num">9.4%</td></tr>
+        <tr><td>価格が高い</td><td class="num">1件</td><td class="num">3.1%</td></tr>
       </tbody>
     </table>
 
     <div class="note bad" style="margin-top: 16px;">
-      <strong>根本原因：</strong>初回¥1,980で「安いから試そう」と入り、2回目¥3,960で「高い」と感じて解約。<br>
-      購入前に「これは続けるもの」「続ける価値がある」と理解していないまま買っている。
+      <strong>最大の発見：2回目を買った人はほぼ辞めない。</strong><br>
+      解約者の89.5%が1回で辞めている。2回以上続けて解約した人はわずか2人。<br>
+      つまり<strong>「1回目→2回目の壁」を越えさせることが最大の課題</strong>。<br><br>
+      解約理由の1位は<strong>「他社に乗り換え」（28.1%）</strong>。<br>
+      購入前にミチルシリカの価値を理解していないまま買い、すぐに他社に目移りしている。
     </div>
   </div>
 </div>
