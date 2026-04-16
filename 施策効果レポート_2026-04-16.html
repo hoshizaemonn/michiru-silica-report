@@ -712,6 +712,164 @@ tbody tr:hover { background:#f5f8ff; }
   </div>
 </div>
 
+<!-- 9. 現在の売上構造 -->
+<div class="section">
+  <div class="sh blue">現在の売上構造（1〜3月確定データ）</div>
+  <div class="sb">
+
+    <h3 style="margin-bottom:14px;">カラーミー月別売上</h3>
+    <table>
+      <thead>
+        <tr><th>月</th><th class="num">売上</th><th class="num">注文数</th><th class="num">初回</th><th class="num">リピート</th><th class="num">リピート率</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1月</td><td class="num">¥202,365</td><td class="num">59件</td><td class="num">9件</td><td class="num">50件</td><td class="num">91.1%</td></tr>
+        <tr><td>2月</td><td class="num">¥192,340</td><td class="num">54件</td><td class="num">5件</td><td class="num">49件</td><td class="num">94.9%</td></tr>
+        <tr><td>3月</td><td class="num">¥210,895</td><td class="num">62件</td><td class="num">11件</td><td class="num">51件</td><td class="num">88.6%</td></tr>
+        <tr class="total-row"><td>月平均</td><td class="num">¥201,866</td><td class="num">58件</td><td class="num">8件</td><td class="num">50件</td><td class="num">91.4%</td></tr>
+      </tbody>
+    </table>
+
+    <h3 style="margin:20px 0 14px;">代引き（推定）</h3>
+    <table>
+      <thead>
+        <tr><th>指標</th><th class="num">数値</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>継続中</td><td class="num">17人</td></tr>
+        <tr><td>月間売上（推定）</td><td class="num">¥41,280</td></tr>
+      </tbody>
+    </table>
+
+    <div class="stat-grid" style="margin-top:20px;">
+      <div class="stat-card blue">
+        <div class="val">¥243,146</div>
+        <div class="lbl">月間売上合計<br>（カラーミー+代引き）</div>
+      </div>
+      <div class="stat-card green">
+        <div class="val">91.4%</div>
+        <div class="lbl">リピーター売上の割合</div>
+      </div>
+      <div class="stat-card orange">
+        <div class="val">¥2,917,752</div>
+        <div class="lbl">年間売上（推定）</div>
+      </div>
+    </div>
+
+    <div class="note info" style="margin-top:16px;">
+      <strong>売上の91%がリピーター</strong>です。新規の初回売上は月¥17,000程度。<br>
+      つまり<strong>既存会員を守ることが売上の根幹</strong>であり、解約対策が最も売上に直結する施策です。
+    </div>
+
+  </div>
+</div>
+
+<!-- 10. 価格改定の検討 -->
+<div class="section">
+  <div class="sh red">価格改定の検討 — リスクと売上シミュレーション</div>
+  <div class="sb">
+
+    <h3 style="margin-bottom:14px;">なぜ価格改定を検討するのか</h3>
+    <div class="note bad">
+      <strong>現状の問題：</strong>初回¥1,980（50%OFF）→ 2回目¥3,960。<br>
+      差額¥1,980（2倍に跳ね上がる）のギャップショックで、<strong>89.5%が1回で解約</strong>しています。<br>
+      このギャップを縮小することで、2回目を買う人を増やせる可能性があります。
+    </div>
+
+    <h3 style="margin:24px 0 14px;">検討した5つのパターン</h3>
+    <table>
+      <thead>
+        <tr><th>パターン</th><th class="num">初回</th><th class="num">2回目〜</th><th class="num">ギャップ</th><th>既存への影響</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>現状</td><td class="num">¥1,980</td><td class="num">¥3,960</td><td class="num" style="color:var(--danger)">¥1,980</td><td>—</td></tr>
+        <tr><td>G案（価格変えず施策のみ）</td><td class="num">¥1,980</td><td class="num">¥3,960</td><td class="num" style="color:var(--danger)">¥1,980</td><td>✅ 影響なし</td></tr>
+        <tr class="hl-row"><td><strong>H案（初回だけ上げる）</strong></td><td class="num"><strong>¥2,772</strong></td><td class="num">¥3,960</td><td class="num" style="color:var(--success)"><strong>¥1,188</strong></td><td><strong>✅ 影響なし</strong></td></tr>
+        <tr><td>A案（初回上げ+既存そのまま+新規2回目下げ）</td><td class="num">¥2,772</td><td class="num">¥3,168</td><td class="num" style="color:var(--success)">¥396</td><td>⚠️ 不公平感リスク</td></tr>
+        <tr><td>D案（2回目下げ・全員）</td><td class="num">¥1,980</td><td class="num">¥3,168</td><td class="num" style="color:var(--success)">¥1,188</td><td>⚠️ 月¥39,600減収</td></tr>
+      </tbody>
+    </table>
+
+    <h3 style="margin:24px 0 14px;">各パターンのリスク</h3>
+    <table>
+      <thead>
+        <tr><th>パターン</th><th>新規獲得</th><th>既存の不公平感</th><th>1回きり防止</th><th>売上リスク</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>G案（価格変えない）</td><td>✅ 変わらない</td><td>✅ なし</td><td>❌ 効かない</td><td>✅ なし</td></tr>
+        <tr class="hl-row"><td><strong>H案（初回だけ上げる）</strong></td><td><strong>⚠️ 約25%減</strong></td><td><strong>✅ なし</strong></td><td><strong>✅ 効く</strong></td><td><strong>✅ 初月から上回る</strong></td></tr>
+        <tr><td>A案（初回上げ+2回目下げ）</td><td>⚠️ 約25%減</td><td>❌ あり</td><td>✅ 効く</td><td>✅ 初月から上回る</td></tr>
+        <tr><td>D案（2回目下げ・全員）</td><td>✅ 変わらない</td><td>✅ なし</td><td>❌ 効かない</td><td>❌ 7ヶ月間減収</td></tr>
+      </tbody>
+    </table>
+
+    <div class="note warn" style="margin-top:16px;">
+      <strong>既存会員が新価格のLPを見た場合のリスク：</strong><br>
+      A案（新規だけ2回目¥3,168）の場合、既存会員が「自分は¥3,960なのに新しい人は¥3,168？」と感じて<strong>解約対策のつもりが逆に解約を増やす</strong>リスクがあります。<br><br>
+      H案・G案なら2回目以降の価格が変わらないため、このリスクはありません。
+    </div>
+
+    <h3 style="margin:24px 0 14px;">月別売上推移 — いつ現状を上回るか？</h3>
+    <table>
+      <thead>
+        <tr><th>月</th><th class="num">現状</th><th class="num">G案</th><th class="num">H案</th><th class="num">D案</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1ヶ月目</td><td class="num">¥213,840</td><td class="num">¥213,840</td><td class="num" style="color:var(--success)">¥214,632 ↑</td><td class="num" style="color:var(--danger)">¥174,240 ↓</td></tr>
+        <tr><td>3ヶ月目</td><td class="num">¥213,840</td><td class="num" style="color:var(--success)">¥217,800 ↑</td><td class="num" style="color:var(--success)">¥225,324 ↑</td><td class="num" style="color:var(--danger)">¥180,576 ↓</td></tr>
+        <tr><td>6ヶ月目</td><td class="num">¥213,840</td><td class="num" style="color:var(--success)">¥243,540 ↑</td><td class="num" style="color:var(--success)">¥251,856 ↑</td><td class="num" style="color:var(--danger)">¥207,900 ↓</td></tr>
+        <tr class="hl-row"><td><strong>12ヶ月目</strong></td><td class="num">¥213,840</td><td class="num" style="color:var(--success)"><strong>¥277,200</strong></td><td class="num" style="color:var(--success)"><strong>¥299,376</strong></td><td class="num" style="color:var(--success)"><strong>¥257,400</strong></td></tr>
+      </tbody>
+    </table>
+
+    <table style="margin-top:12px;">
+      <thead>
+        <tr><th>パターン</th><th class="num">現状を上回る月</th><th class="num">年間売上</th><th class="num">現状との差</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>G案（価格変えず施策のみ）</td><td class="num">3ヶ月目</td><td class="num">¥2,948,220</td><td class="num" style="color:var(--success)">+¥382,140</td></tr>
+        <tr class="hl-row"><td><strong>H案（初回だけ上げる）</strong></td><td class="num"><strong>1ヶ月目</strong></td><td class="num"><strong>¥3,058,308</strong></td><td class="num" style="color:var(--success)"><strong>+¥492,228</strong></td></tr>
+        <tr><td>A案（初回上げ+2回目下げ）</td><td class="num">1ヶ月目</td><td class="num">¥3,067,416</td><td class="num" style="color:var(--success)">+¥501,336</td></tr>
+        <tr><td>D案（2回目下げ・全員）</td><td class="num">7ヶ月目</td><td class="num">¥2,564,100</td><td class="num">▲¥1,980</td></tr>
+      </tbody>
+    </table>
+
+    <h3 style="margin:24px 0 14px;">H案（初回だけ上げる）の詳細</h3>
+    <div style="background:var(--bg); border-radius:10px; padding:18px 20px; margin:12px 0; border:2px solid var(--primary);">
+      <table style="margin-bottom:12px;">
+        <tr><td style="width:40%">現状</td><td>初回¥1,980 → 2回目¥3,960（差額<strong style="color:var(--danger)">¥1,980</strong>）</td></tr>
+        <tr><td>H案</td><td>初回¥2,772 → 2回目¥3,960（差額<strong style="color:var(--success)">¥1,188</strong> = 40%縮小）</td></tr>
+      </table>
+      <p style="font-size:.9em; color:var(--text-light); margin-bottom:8px;"><strong>メリット：</strong></p>
+      <ul style="font-size:.9em; color:var(--text-light); margin:0 0 12px 20px;">
+        <li>2回目以降の価格は変わらない → <strong>既存会員への影響ゼロ</strong></li>
+        <li>ギャップが40%縮小 → 2回目のショックが減る</li>
+        <li>初回が高い分「安さだけで来る人」がフィルタリングされる</li>
+        <li>1ヶ月目から現状売上を上回る（減収期間なし）</li>
+      </ul>
+      <p style="font-size:.9em; color:var(--text-light); margin-bottom:8px;"><strong>デメリット：</strong></p>
+      <ul style="font-size:.9em; color:var(--text-light); margin:0 0 0 20px;">
+        <li>新規獲得数が約25%減る（8人→6人/月）</li>
+        <li>LPの「1本49円」の訴求が使えなくなる → 広告クリエイティブの変更が必要</li>
+      </ul>
+    </div>
+
+    <h3 style="margin:24px 0 14px;">おすすめの進め方</h3>
+    <div class="note good">
+      <strong>段階的アプローチが最も安全です。</strong><br><br>
+      <table style="font-size:.9em;">
+        <tr><td style="padding:6px 12px; font-weight:700; color:var(--primary);">今すぐ</td><td style="padding:6px 12px;"><strong>G案</strong> — 価格は変えず、LP改善+同梱物+広告改善のみ実施<br>→ リスクゼロで年間+¥382,140の売上増加が見込める</td></tr>
+        <tr><td style="padding:6px 12px; font-weight:700; color:var(--primary);">3ヶ月後</td><td style="padding:6px 12px;">F2転換率の改善を確認<br>→ 改善していたら → そのまま継続<br>→ 不十分なら → <strong>H案</strong>（初回だけ上げる）に移行</td></tr>
+        <tr><td style="padding:6px 12px; font-weight:700; color:var(--primary);">半年後</td><td style="padding:6px 12px;">データが揃った段階で最適な価格を決定</td></tr>
+      </table>
+      <br>
+      <strong>「価格を変えなくても、LP改善と同梱物だけで年間約38万円の売上増加が見込める」</strong>のが最も重要なポイントです。<br>
+      価格改定はリスクを伴うので、まずはリスクゼロの施策で効果を証明してから次のステップに進むのが安全です。
+    </div>
+
+  </div>
+</div>
+
 </div>
 
 <div class="footer">
