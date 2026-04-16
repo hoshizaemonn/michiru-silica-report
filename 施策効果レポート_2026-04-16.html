@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ミチルシリカ 施策効果レポート（4/10〜4/16）</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap');
+:root {
+  --primary: #0d47a1; --primary-light: #1976d2; --primary-bg: #e3f2fd;
+  --success: #2e7d32; --success-bg: #e8f5e9;
+  --warning: #e65100; --warning-bg: #fff3e0;
+  --danger: #c62828; --danger-bg: #ffebee;
+  --text: #263238; --text-light: #546e7a;
+  --bg: #f5f7fa; --card: #fff; --border: #e0e4e8;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Noto Sans JP',sans-serif; line-height:1.8; color:var(--text); background:var(--bg); }
+.hero { background:linear-gradient(135deg,#0d47a1 0%,#1565c0 50%,#1976d2 100%); color:#fff; padding:48px 32px; text-align:center; }
+.hero h1 { font-size:2em; font-weight:900; margin-bottom:8px; }
+.hero .sub { font-size:1.1em; opacity:.85; }
+.hero .date { margin-top:12px; font-size:.85em; opacity:.6; }
+.container { max-width:900px; margin:0 auto; padding:28px 20px; }
+.section { background:var(--card); border-radius:14px; margin-bottom:24px; box-shadow:0 2px 12px rgba(0,0,0,.06); overflow:hidden; }
+.sh { padding:18px 24px; font-size:1.15em; font-weight:700; color:#fff; }
+.sh.blue { background:linear-gradient(135deg,var(--primary),var(--primary-light)); }
+.sh.orange { background:linear-gradient(135deg,#e65100,#ff9800); }
+.sh.green { background:linear-gradient(135deg,var(--success),#43a047); }
+.sh.red { background:linear-gradient(135deg,#b71c1c,#e53935); }
+.sh.dark { background:linear-gradient(135deg,#263238,#455a64); }
+.sb { padding:24px; }
+table { width:100%; border-collapse:collapse; font-size:.9em; }
+th { background:#263238; color:#fff; padding:12px 14px; text-align:left; font-weight:600; font-size:.85em; }
+td { padding:12px 14px; border-bottom:1px solid var(--border); }
+tbody tr:hover { background:#f5f8ff; }
+.num { text-align:right; font-variant-numeric:tabular-nums; }
+.hl-row { background:#fff8e1; }
+.note { padding:14px 18px; border-radius:8px; font-size:.9em; line-height:1.7; margin:12px 0; }
+.note.info { background:var(--primary-bg); border-left:4px solid var(--primary); }
+.note.good { background:var(--success-bg); border-left:4px solid var(--success); }
+.note.warn { background:var(--warning-bg); border-left:4px solid var(--warning); }
+.note.bad { background:var(--danger-bg); border-left:4px solid var(--danger); }
+.stat-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:14px; margin:16px 0; }
+.stat-card { text-align:center; padding:20px; border-radius:12px; background:var(--bg); }
+.stat-card .val { font-size:2.2em; font-weight:900; }
+.stat-card .lbl { font-size:.85em; color:var(--text-light); margin-top:4px; }
+.stat-card.red .val { color:var(--danger); }
+.stat-card.green .val { color:var(--success); }
+.stat-card.blue .val { color:var(--primary); }
+.stat-card.orange .val { color:var(--warning); }
+.timeline { margin:20px 0; }
+.tl-item { display:flex; gap:16px; margin-bottom:20px; padding-bottom:20px; border-bottom:1px solid var(--border); }
+.tl-item:last-child { border-bottom:none; }
+.tl-date { width:80px; flex-shrink:0; text-align:center; }
+.tl-date .day { font-size:1.4em; font-weight:900; color:var(--primary); }
+.tl-date .month { font-size:.8em; color:var(--text-light); }
+.tl-content { flex:1; }
+.tl-content h4 { font-size:1em; font-weight:700; margin-bottom:6px; }
+.tl-content p { font-size:.85em; color:var(--text-light); line-height:1.6; }
+.tl-result { font-size:.85em; margin-top:6px; padding:4px 10px; border-radius:6px; display:inline-block; }
+.tl-result.sold { background:var(--success-bg); color:var(--success); font-weight:700; }
+.tl-result.nosale { background:var(--danger-bg); color:var(--danger); font-weight:700; }
+.effect-table td:first-child { font-weight:700; }
+.footer { text-align:center; margin-top:28px; padding:20px; font-size:.8em; color:var(--text-light); }
+@media print { body { -webkit-print-color-adjust:exact; print-color-adjust:exact; } }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>ミチルシリカ 施策効果レポート</h1>
+  <div class="sub">4/10〜4/16に実施した施策とその効果・評価</div>
+  <div class="date">2026年4月16日 | 株式会社斗</div>
+</div>
+
+<div class="container">
+
+<!-- 1. 概要 -->
+<div class="section">
+  <div class="sh blue">この1週間の結果</div>
+  <div class="sb">
+    <div class="stat-grid">
+      <div class="stat-card red">
+        <div class="val">4日</div>
+        <div class="lbl">CV 0が続いた日数<br>（4/13〜4/16朝）</div>
+      </div>
+      <div class="stat-card green">
+        <div class="val">4/16</div>
+        <div class="lbl">本日購入あり<br>CV 0を脱出</div>
+      </div>
+      <div class="stat-card blue">
+        <div class="val">6施策</div>
+        <div class="lbl">実施した対策数</div>
+      </div>
+      <div class="stat-card orange">
+        <div class="val">2〜5日</div>
+        <div class="lbl">効果発現に必要な期間</div>
+      </div>
+    </div>
+
+    <div class="note info">
+      <strong>重要:</strong> 広告の施策は翌日に結果が出るものではありません。<br>
+      Metaのピクセル学習は2〜5日の適応期間が必要です。<br>
+      本日（4/16）に購入が出たのは、施策が効き始めた兆候の可能性があります。
+    </div>
+  </div>
+</div>
+
+<!-- 2. 日別の動き -->
+<div class="section">
+  <div class="sh dark">日別の施策と結果</div>
+  <div class="sb">
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-date"><div class="day">10</div><div class="month">4月</div></div>
+        <div class="tl-content">
+          <h4>J-1（膝関節）動画を投入</h4>
+          <p>既存の膝関節広告を停止し、新しいJ-1動画に差し替え。悩み訴求の横展開として膝特化の新クリエイティブを追加。</p>
+          <span class="tl-result sold">購入 2件（CPA ¥2,059）</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date"><div class="day">11</div><div class="month">4月</div></div>
+        <div class="tl-content">
+          <h4>施策なし（様子見）</h4>
+          <p>J-1投入直後のため変更せず。配信データの蓄積を待つ。</p>
+          <span class="tl-result nosale">購入 0件</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date"><div class="day">12</div><div class="month">4月</div></div>
+        <div class="tl-content">
+          <h4>ピクニック動画（認知キャンペーン）を投入</h4>
+          <p>家族のピクニック動画を認知キャンペーンに追加。認知目的（購入ではなくブランド認知）。将来的にリターゲティング用オーディエンスを蓄積。</p>
+          <span class="tl-result sold">購入 2件（CPA ¥2,059）</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date"><div class="day">13</div><div class="month">4月</div></div>
+        <div class="tl-content">
+          <h4>テストキャンペーンの入れ替え</h4>
+          <p>テストキャンペーンの肌訴求2を停止 → 悩み訴求を追加。CV最適化キャンペーン内では価格訴求に予算を食われていた悩み訴求に、独立した予算枠を確保。</p>
+          <span class="tl-result nosale">購入 0件</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date"><div class="day">14</div><div class="month">4月</div></div>
+        <div class="tl-content">
+          <h4>広告セット分割（CV最適化キャンペーン内）</h4>
+          <p>広告セットA: 価格訴求（¥500/日）、広告セットB: それ以外全部（¥1,500/日）に分割。価格訴求（CTR 0.67%まで低下）に予算が偏っていた問題を解消。悩み訴求・J-1に確実に予算を回す。</p>
+          <span class="tl-result nosale">購入 0件（学習期間）</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date"><div class="day">15</div><div class="month">4月</div></div>
+        <div class="tl-content">
+          <h4>施策なし（学習期間）</h4>
+          <p>広告セット分割の効果を待つ。ピクニック動画のCTR 12%で認知効果は好調。</p>
+          <span class="tl-result nosale">購入 0件（学習期間）</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date"><div class="day">16</div><div class="month">4月</div></div>
+        <div class="tl-content">
+          <h4>Yahoo広告キーワード見直し + 価格訴求v2の映像制作完了</h4>
+          <p>Yahoo: インテントマッチ→フレーズ一致に変更 + 除外KW追加で無駄クリック削減。<br>価格訴求v2: 全9シーンの映像をVeo 3 Fastで生成完了。お客様確認後に投入予定。</p>
+          <span class="tl-result sold">購入あり（CV 0を脱出）</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- 3. 各施策の効果発現タイミング -->
+<div class="section">
+  <div class="sh orange">施策の効果はいつ出るのか</div>
+  <div class="sb">
+
+    <div class="note warn">
+      <strong>広告の施策は1日で結果が出るものではありません。</strong><br>
+      Metaのピクセル学習は新しい設定に適応するまで2〜5日の期間が必要です。<br>
+      この期間中にCV 0が続くのは正常な学習プロセスであり、焦って設定を変更するとさらに学習がリセットされて逆効果になります。
+    </div>
+
+    <table class="effect-table" style="margin-top:16px;">
+      <thead>
+        <tr><th>施策</th><th>実施日</th><th class="num">効果発現</th><th>現時点の評価</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>J-1（膝関節）投入</td>
+          <td>4/10</td>
+          <td class="num">2〜3日</td>
+          <td>⚠️ 配信量が少ない（IMP数件）。まだ学習不足。継続して様子見</td>
+        </tr>
+        <tr>
+          <td>ピクニック動画（認知）</td>
+          <td>4/12</td>
+          <td class="num">認知目的<br>（CV目的ではない）</td>
+          <td>✅ CTR 6〜12%で好調。リターゲティング用オーディエンス蓄積中（5月頭に活用予定）</td>
+        </tr>
+        <tr>
+          <td>テストに悩み訴求を移動</td>
+          <td>4/13</td>
+          <td class="num">3〜5日</td>
+          <td>⚠️ 独立予算で配信開始。テスト側のCTRがまだ低め。学習中</td>
+        </tr>
+        <tr class="hl-row">
+          <td><strong>広告セット分割</strong></td>
+          <td>4/14</td>
+          <td class="num"><strong>2〜3日</strong></td>
+          <td><strong>🔍 4/16に購入が出た。分割から2日後で、時間軸として合致。効果の兆候あり</strong></td>
+        </tr>
+        <tr>
+          <td>Yahoo KW見直し</td>
+          <td>4/16</td>
+          <td class="num">1〜2日</td>
+          <td>🔜 本日設定。明日以降に効果が見える</td>
+        </tr>
+        <tr>
+          <td>価格訴求v2の投入</td>
+          <td>確認待ち</td>
+          <td class="num">投入後2〜3日</td>
+          <td>⏳ 映像制作完了。お客様確認後に投入予定</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- 4. クリエイティブ追加の考え方 -->
+<div class="section">
+  <div class="sh blue">なぜクリエイティブの追加が必要だったのか</div>
+  <div class="sb">
+
+    <h3 style="margin-bottom:14px;">フロント鮮度の低下</h3>
+    <table>
+      <thead>
+        <tr><th>指標</th><th class="num">4月初旬</th><th class="num">4月中旬</th><th>変化</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>価格訴求のCTR（IG）</td>
+          <td class="num">2.82%</td>
+          <td class="num" style="color:var(--danger)">0.67%</td>
+          <td style="color:var(--danger)">▼ 76%低下 — 見飽きられている</td>
+        </tr>
+        <tr>
+          <td>悩み訴求のCTR</td>
+          <td class="num">4.55%</td>
+          <td class="num">6.10%</td>
+          <td style="color:var(--success)">▲ 反応はあるが予算が回らない</td>
+        </tr>
+        <tr>
+          <td>日常-B_認知用のCTR</td>
+          <td class="num">6.24%</td>
+          <td class="num">—</td>
+          <td>ピクニック動画に置き換え</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="note info" style="margin-top:16px;">
+      <strong>「フロント鮮度 = 売上」の法則:</strong><br>
+      同じ広告を回し続けると、ターゲット層に見飽きられてCTRが下がり、Metaのアルゴリズムが配信を絞ります。<br>
+      <strong>新しいクリエイティブを追加することで：</strong>
+      <ul style="margin:8px 0 0 20px;">
+        <li>見飽きた層に新しい刺激を与える</li>
+        <li>Metaのアルゴリズムが「新素材に反応する層」を見つけて配信を回す</li>
+        <li>古い素材との自動ローテーションで全体のパフォーマンスが安定する</li>
+      </ul>
+    </div>
+
+    <h3 style="margin:20px 0 14px;">今回追加したクリエイティブ</h3>
+    <table>
+      <thead>
+        <tr><th>クリエイティブ</th><th>目的</th><th>配信先</th><th>現状</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>J-1（膝関節動画）</td>
+          <td>悩み訴求の横展開（膝特化）</td>
+          <td>CV最適化キャンペーン</td>
+          <td>配信中（IMP少）</td>
+        </tr>
+        <tr>
+          <td>ピクニック動画（家族ver）</td>
+          <td>認知・ブランドリフト</td>
+          <td>認知キャンペーン</td>
+          <td>CTR 12%で好調</td>
+        </tr>
+        <tr>
+          <td>価格訴求v2（新映像）</td>
+          <td>価格訴求のフロント更新</td>
+          <td>CV最適化 広告セットB</td>
+          <td>映像完成・確認待ち</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- 5. 今後の判断 -->
+<div class="section">
+  <div class="sh green">今後の判断ポイント</div>
+  <div class="sb">
+
+    <h3 style="margin-bottom:14px;">明日〜3日以内に確認すること</h3>
+    <table>
+      <thead>
+        <tr><th>確認項目</th><th>期待する結果</th><th>ダメだった場合</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>広告セット分割の効果</td>
+          <td>CVが1日おき以上のペースで出る</td>
+          <td>広告セットAの価格訴求を¥300に下げる</td>
+        </tr>
+        <tr>
+          <td>Yahoo KW見直しの効果</td>
+          <td>無関係クエリのクリックが減る</td>
+          <td>さらに除外KW追加</td>
+        </tr>
+        <tr>
+          <td>テスト側の悩み訴求</td>
+          <td>CTRが改善してCV出始める</td>
+          <td>J-1をテスト側にも追加検討</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 style="margin:20px 0 14px;">来週以降に実施予定</h3>
+    <table>
+      <thead>
+        <tr><th>施策</th><th>時期</th><th>効果</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>価格訴求v2の投入</td>
+          <td>お客様確認後（今週中）</td>
+          <td>価格訴求のフロント鮮度回復</td>
+        </tr>
+        <tr>
+          <td>LP改善（3セクション追加）</td>
+          <td>デザイン確定後</td>
+          <td>LP転換率の改善 → CPA低下</td>
+        </tr>
+        <tr>
+          <td>リターゲティング設定</td>
+          <td>5月頭</td>
+          <td>認知→購入のファネル構築</td>
+        </tr>
+        <tr>
+          <td>価格改定の反映</td>
+          <td>鈴木さん承認後</td>
+          <td>1回目→2回目のギャップ解消 → 解約率低下</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+</div>
+
+<div class="footer">
+  ミチルシリカ 施策効果レポート | 2026年4月16日 | 株式会社斗
+</div>
+
+</body>
+</html>
