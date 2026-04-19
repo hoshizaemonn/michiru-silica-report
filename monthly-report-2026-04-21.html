@@ -520,11 +520,48 @@
         </div>
     </div>
 
-    <!-- ===== Why not growing ===== -->
+    <!-- ===== LP / Analysis ===== -->
     <div class="section">
         <div class="section-header teal">なぜ購入が伸びないのか？</div>
         <div class="section-body">
-            <div class="note-box info" style="margin-bottom: 16px;">
+
+            <h3 style="margin-bottom: 12px; font-size: 1em;">チャネル別LP指標（GA4 4/11〜4/18）</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>チャネル</th>
+                        <th class="num">セッション/日</th>
+                        <th class="num">直帰率</th>
+                        <th class="num">平均滞在(秒)</th>
+                        <th>評価</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Meta / paid</strong></td>
+                        <td class="num">52.8</td>
+                        <td class="num" style="color:var(--danger)">72.8%</td>
+                        <td class="num">55.6</td>
+                        <td><span class="badge badge-down">直帰率高い</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Yahoo / cpc</strong></td>
+                        <td class="num">17.2</td>
+                        <td class="num" style="color:var(--success)">55.6%</td>
+                        <td class="num">37.2</td>
+                        <td><span class="badge badge-up">良好</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Organic（Google/Yahoo/Bing）</strong></td>
+                        <td class="num">2.0</td>
+                        <td class="num">23.1%</td>
+                        <td class="num">261.6</td>
+                        <td><span class="badge badge-up">非常に良好</span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="note-box info" style="margin-top: 16px; margin-bottom: 16px;">
                 <strong>仕組みに大きな故障はない。</strong>Metaピクセルは正常（管理画面で8件計上）。FV出し分けも動作中。問題は<strong>「クリック月1,000件以上に対し、購入が9件しかない」</strong>というLP転換率の低さ。
             </div>
 
