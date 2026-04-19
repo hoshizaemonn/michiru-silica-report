@@ -560,24 +560,104 @@
                 </tbody>
             </table>
 
-            <div class="note-box danger" style="margin-top: 16px;">
-                <strong>最大の課題: Meta経由の直帰率 72.8%（4/17は80.9%）</strong><br>
-                7割以上がLPを見てすぐ離脱している。これがCV数が伸びない主因。
+            <div class="note-box warning" style="margin-top: 16px;">
+                <strong>直帰率の実態: 4/1〜4/13は3月と大差ない。4/17以降だけが異常値。</strong>
+            </div>
+            <table class="data-table" style="margin-top: 12px;">
+                <thead>
+                    <tr><th>期間</th><th class="num">Meta直帰率（平均）</th><th class="num">cta_click/日</th><th class="num">滞在時間(秒)</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>3/19〜3/31（13日間）</td>
+                        <td class="num">59%</td>
+                        <td class="num">-</td>
+                        <td class="num">88</td>
+                    </tr>
+                    <tr>
+                        <td>4/1〜4/13（13日間）</td>
+                        <td class="num">65%</td>
+                        <td class="num" style="color:var(--success)">6.8</td>
+                        <td class="num">60</td>
+                    </tr>
+                    <tr style="color:var(--danger);font-weight:700">
+                        <td>4/17〜4/18（2日間）</td>
+                        <td class="num">85%</td>
+                        <td class="num">1.5</td>
+                        <td class="num">63</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="note-box info" style="margin-top: 16px;">
+                <strong>GA4は中間イベントをちゃんと拾えている。</strong><br>
+                <ul style="margin-top: 8px; padding-left: 20px;">
+                    <li><strong>cta_click:</strong> 4月累計 87件（毎日1〜15件発火）</li>
+                    <li><strong>purchase_form_view:</strong> 7件</li>
+                    <li><strong>form_start / form_submit:</strong> 47件 / 64件</li>
+                    <li><strong>ab_test_assigned:</strong> 毎日発火（FVの出し分けは正常に動作中）</li>
+                    <li style="color:var(--danger);font-weight:700">cv_40（購入完了）: <strong>0件</strong> ← ここだけが消えている</li>
+                </ul>
             </div>
 
-            <div class="note-box warning" style="margin-top: 12px;">
-                <strong>原因の仮説: 広告クリエイティブとLPの内容がズレている。</strong><br>
-                広告で興味を持ってクリックした人が、LPに来た瞬間に「思っていたのと違う」と感じて離脱している可能性。<br>
-                <ul style="margin-top: 8px; padding-left: 20px;">
-                    <li><strong>日常系動画（ピクニック・日常-B）</strong> → 「楽しそうな水」と思ってクリック → LPは価格・成分の訴求 → ギャップ</li>
-                    <li><strong>悩み訴求</strong> → 「肌や健康の悩みが解決するかも」と期待 → LPのファーストビューは価格押し → ギャップ</li>
-                    <li><strong>価格訴求</strong> → 「安い水がある」と思ってクリック → LP到達後に定期便であることがわかる → 離脱</li>
-                </ul>
-                <strong>対策案:</strong>
-                <ul style="margin-top: 8px; padding-left: 20px;">
-                    <li>広告の訴求軸ごとにLPのファーストビューを変える（A/Bテスト機能で対応可能）</li>
-                    <li>まずはsec03-04の画像リニューアルをWordPressに反映し、直帰率の変化を検証する</li>
-                </ul>
+            <div class="note-box danger" style="margin-top: 12px;">
+                <strong>最大の課題: cv_40タグの消失がMeta広告の学習を壊している可能性。</strong><br><br>
+                Meta広告の「購入最適化」は、cv_40（購入完了）のシグナルを使って「こういう人が買う」と学習している。4月にcv_40が0件になったことで、Metaは「誰も買っていない」と認識 → <strong>購入しそうな人への配信精度が低下 → 実際に購入効率が落ちる → 悪循環</strong>。<br><br>
+                3月はcv_40が正常に発火していた（3/15〜3/26で9件記録）。4月に全て消失した原因の特定と修復が<strong>最優先</strong>。
+            </div>
+
+            <h3 style="margin-top: 24px; margin-bottom: 12px; font-size: 1em;">3月→4月の変化まとめ</h3>
+            <table class="data-table">
+                <thead>
+                    <tr><th style="width:25%">変化した項目</th><th>3月</th><th>4月</th><th>影響</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>cv_40タグ</strong></td>
+                        <td style="color:var(--success)">正常発火（9件）</td>
+                        <td style="color:var(--danger);font-weight:700">0件</td>
+                        <td><span class="badge badge-down">Meta学習データ消失</span> 最も影響が大きい</td>
+                    </tr>
+                    <tr>
+                        <td><strong>認知キャンペーン</strong></td>
+                        <td>なし</td>
+                        <td>4/1〜開始（消化&yen;8,800）</td>
+                        <td><span class="badge badge-flat">注意</span> 低意図ユーザーの流入で直帰率が上昇</td>
+                    </tr>
+                    <tr>
+                        <td><strong>広告セット構造</strong></td>
+                        <td>1広告セット</td>
+                        <td>4/14に2分割</td>
+                        <td><span class="badge badge-flat">注意</span> 学習リセットで一時的に効率低下</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Yahoo予算</strong></td>
+                        <td>&yen;1,000/日</td>
+                        <td>&yen;700/日</td>
+                        <td><span class="badge badge-down">縮小</span> 高効率チャネルが減少</td>
+                    </tr>
+                    <tr>
+                        <td><strong>FV出し分け</strong></td>
+                        <td>動作中</td>
+                        <td>動作中（ab_test_assigned発火）</td>
+                        <td><span class="badge badge-up">変化なし</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>LP×クリエイティブ</strong></td>
+                        <td>同じLP</td>
+                        <td>同じLP</td>
+                        <td><span class="badge badge-up">変化なし</span> ミスマッチは3月から同じ</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="note-box success" style="margin-top: 16px;">
+                <strong>対策の優先順位:</strong>
+                <ol style="margin-top: 8px; padding-left: 20px;">
+                    <li><strong>cv_40タグの修復（最優先）</strong> → タグが戻ればMeta広告の購入最適化が再び正常に学習する</li>
+                    <li><strong>LP改善画像のWordPress反映</strong> → 4/1〜4/13の直帰率65%をさらに改善</li>
+                    <li><strong>認知キャンペーンのトラフィックはCV最適化と分けて評価する</strong> → 認知の直帰率が高いのは想定通り</li>
+                </ol>
             </div>
 
             <h3 style="margin-top: 24px; margin-bottom: 12px; font-size: 1em;">CV関連イベント</h3>
@@ -1033,22 +1113,22 @@
                     <div class="ac-title">同梱物3点セット 印刷・同梱開始</div>
                     <div class="ac-desc">お礼カード・飲み方ガイド・3ヶ月チャレンジカードのHTML完成済み。印刷手配の判断を仰ぐ。F2転換率50% → 70%が目標。</div>
                 </div>
-                <div class="action-card progress-card">
-                    <div class="ac-status progress">継続</div>
-                    <div class="ac-title">cv_40タグの計測精度改善</div>
-                    <div class="ac-desc">4月のGA4上でcv_40が0件（カラーミーでは7件注文あり）。外部ドメイン遷移での計測漏れを修正する必要がある。</div>
+                <div class="action-card" style="border-color: var(--danger); background: linear-gradient(135deg, #fff5f5, #fff);">
+                    <div class="ac-status" style="color: var(--danger);">最優先</div>
+                    <div class="ac-title">cv_40タグの修復</div>
+                    <div class="ac-desc">3月は正常発火していたcv_40が4月に全消失。Meta広告の購入最適化の学習データが途絶えており、<strong>配信精度が低下している可能性が高い</strong>。タグ修復がCV改善の最短ルート。GA4の中間イベント（cta_click等）は正常に動いている。</div>
                 </div>
             </div>
 
             <div class="note-box info" style="margin-top: 20px;">
                 <strong>4月後半〜5月の重点:</strong>
                 <ol style="margin-top: 8px; padding-left: 20px;">
-                    <li><strong>LP改善画像の反映 + 離脱防止ポップアップ</strong> → 直帰率改善が最優先</li>
+                    <li><strong>cv_40タグの修復（最優先）</strong> → Meta広告の購入最適化の学習が止まっている。修復すれば配信精度が回復する</li>
+                    <li><strong>LP改善画像の反映 + 離脱防止ポップアップ</strong> → 直帰率65% → 55%台への改善</li>
                     <li><strong>Google検索広告の開始</strong> → Yahoo広告で実証済みのパターンをGoogleに横展開</li>
                     <li><strong>Malz 1クールテスト</strong> → 認知拡大。Google広告との相乗効果を検証</li>
                     <li><strong>リターゲティング開始（5月頭）</strong> → 認知キャンペーンの蓄積データを活用</li>
                     <li><strong>同梱物で解約率を下げる</strong> → 新規獲得と同時にLTVを伸ばす両輪</li>
-                    <li><strong>CPA &yen;7,091 → &yen;4,000へ</strong> → LP転換率改善 + Google広告追加で到達を目指す</li>
                 </ol>
             </div>
         </div>
