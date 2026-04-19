@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ミチルシリカ 月次レポート | 2026年4月21日</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #0d47a1; --primary-light: #1976d2;
+            --success: #2e7d32; --success-light: #4caf50;
+            --warning: #ef6c00; --danger: #c62828;
+            --text: #263238; --text-light: #546e7a;
+            --bg: #f5f7fa; --card-bg: #ffffff;
+            --border: #e0e4e8; --radius: 12px;
+            --shadow: 0 2px 12px rgba(0,0,0,0.06);
+            --shadow-lg: 0 8px 30px rgba(0,0,0,0.1);
+        }
+        body { font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif; line-height: 1.7; color: var(--text); background: var(--bg); padding: 30px 20px; }
+        .container { max-width: 1100px; margin: 0 auto; }
+
+        .report-header { background: linear-gradient(135deg, #0d47a1 0%, #1565c0 50%, #1976d2 100%); color: white; padding: 50px 40px; border-radius: var(--radius); margin-bottom: 30px; box-shadow: var(--shadow-lg); position: relative; overflow: hidden; }
+        .report-header::before { content: ''; position: absolute; top: -50%; right: -10%; width: 300px; height: 300px; background: rgba(255,255,255,0.05); border-radius: 50%; }
+        .report-header h1 { font-size: 2em; font-weight: 800; margin-bottom: 8px; }
+        .report-header .subtitle { font-size: 1.1em; opacity: 0.9; }
+        .report-header .meta { margin-top: 16px; font-size: 0.9em; opacity: 0.75; display: flex; gap: 20px; flex-wrap: wrap; }
+
+        .section { background: var(--card-bg); border-radius: var(--radius); margin-bottom: 24px; box-shadow: var(--shadow); overflow: hidden; }
+        .section-header { padding: 20px 28px; font-size: 1.2em; font-weight: 700; color: white; display: flex; align-items: center; gap: 10px; }
+        .section-header.blue { background: linear-gradient(135deg, var(--primary), var(--primary-light)); }
+        .section-header.green { background: linear-gradient(135deg, var(--success), var(--success-light)); }
+        .section-header.orange { background: linear-gradient(135deg, #e65100, var(--warning)); }
+        .section-header.purple { background: linear-gradient(135deg, #4a148c, #7b1fa2); }
+        .section-header.teal { background: linear-gradient(135deg, #00695c, #00897b); }
+        .section-header.dark { background: linear-gradient(135deg, #263238, #37474f); }
+        .section-header.pink { background: linear-gradient(135deg, #880e4f, #c2185b); }
+        .section-body { padding: 28px; }
+
+        .purchase-hero { background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 50%, #43a047 100%); color: white; padding: 40px; border-radius: var(--radius); margin-bottom: 24px; text-align: center; box-shadow: var(--shadow-lg); }
+        .ph-label { font-size: 1em; opacity: 0.85; letter-spacing: 2px; margin-bottom: 4px; }
+        .ph-period { font-size: 0.9em; opacity: 0.7; margin-bottom: 16px; }
+        .ph-number { font-size: 5em; font-weight: 900; line-height: 1; }
+        .ph-unit { font-size: 1.2em; opacity: 0.85; margin-top: 4px; }
+        .purchase-breakdown { display: flex; justify-content: center; gap: 40px; margin-top: 24px; flex-wrap: wrap; }
+        .pb-item { text-align: center; }
+        .pb-value { font-size: 2.8em; font-weight: 900; }
+        .pb-label { font-size: 0.85em; opacity: 0.8; }
+
+        .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 24px; }
+        .summary-card { background: var(--card-bg); border-radius: var(--radius); padding: 24px; text-align: center; box-shadow: var(--shadow); border-top: 4px solid var(--primary); }
+        .summary-card.green-border { border-top-color: var(--success); }
+        .summary-card.orange-border { border-top-color: var(--warning); }
+        .summary-card.red-border { border-top-color: var(--danger); }
+        .summary-card .sc-label { font-size: 0.85em; color: var(--text-light); margin-bottom: 8px; }
+        .summary-card .sc-value { font-size: 2.2em; font-weight: 900; }
+        .summary-card .sc-value.blue { color: var(--primary); }
+        .summary-card .sc-value.green { color: var(--success); }
+        .summary-card .sc-value.orange { color: var(--warning); }
+        .summary-card .sc-value.red { color: var(--danger); }
+        .summary-card .sc-sub { font-size: 0.8em; color: var(--text-light); margin-top: 6px; }
+
+        .data-table { width: 100%; border-collapse: collapse; font-size: 0.9em; }
+        .data-table thead { background: #263238; color: white; }
+        .data-table th { padding: 12px 14px; text-align: left; font-weight: 600; font-size: 0.85em; }
+        .data-table td { padding: 12px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+        .data-table tbody tr:hover { background: #f5f8ff; }
+        .data-table .num { text-align: right; font-variant-numeric: tabular-nums; }
+        .data-table .total-row { background: #f0f4ff; font-weight: 700; }
+        .data-table .highlight-row { background: #fff8e1; }
+
+        .note-box { padding: 16px 20px; border-radius: 8px; font-size: 0.9em; line-height: 1.7; margin: 12px 0; }
+        .note-box.success { background: #e8f5e9; border-left: 4px solid var(--success); }
+        .note-box.info { background: #e3f2fd; border-left: 4px solid var(--primary); }
+        .note-box.warning { background: #fff3e0; border-left: 4px solid var(--warning); }
+        .note-box.danger { background: #ffebee; border-left: 4px solid var(--danger); }
+
+        .badge { display: inline-block; padding: 3px 12px; border-radius: 20px; font-size: 0.8em; font-weight: 700; white-space: nowrap; }
+        .badge-up { background: #e8f5e9; color: var(--success); }
+        .badge-down { background: #ffebee; color: var(--danger); }
+        .badge-flat { background: #fff3e0; color: var(--warning); }
+        .badge-info { background: #e3f2fd; color: var(--primary); }
+
+        .action-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; }
+        .action-card { border: 2px solid var(--border); border-radius: var(--radius); padding: 22px; transition: transform 0.2s, box-shadow 0.2s; }
+        .action-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+        .action-card .ac-status { font-size: 0.75em; font-weight: 700; letter-spacing: 1px; margin-bottom: 8px; }
+        .action-card .ac-status.done { color: var(--success); }
+        .action-card .ac-status.progress { color: var(--primary); }
+        .action-card .ac-status.pending { color: var(--warning); }
+        .action-card .ac-status.new { color: #7b1fa2; }
+        .action-card .ac-title { font-size: 1.05em; font-weight: 700; margin-bottom: 10px; }
+        .action-card .ac-desc { font-size: 0.85em; color: var(--text-light); line-height: 1.6; }
+        .action-card.done-card { border-color: var(--success); background: linear-gradient(135deg, #f9fff9, #fff); }
+        .action-card.progress-card { border-color: var(--primary); background: linear-gradient(135deg, #f8fbff, #fff); }
+        .action-card.pending-card { border-color: var(--warning); background: linear-gradient(135deg, #fffdf5, #fff); }
+        .action-card.new-card { border-color: #7b1fa2; background: linear-gradient(135deg, #faf5ff, #fff); }
+
+        .malz-box { background: linear-gradient(135deg, #4a148c 0%, #7b1fa2 50%, #9c27b0 100%); color: white; padding: 30px; border-radius: var(--radius); margin-bottom: 24px; }
+        .malz-box h3 { font-size: 1.3em; margin-bottom: 16px; }
+        .malz-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .malz-item { background: rgba(255,255,255,0.12); padding: 16px; border-radius: 8px; }
+        .malz-item .label { font-size: 0.8em; opacity: 0.8; margin-bottom: 4px; }
+        .malz-item .value { font-size: 1.4em; font-weight: 900; }
+
+        @media (max-width: 900px) {
+            .summary-grid { grid-template-columns: 1fr 1fr; }
+            .container { padding: 16px; }
+            .action-grid { grid-template-columns: 1fr; }
+            .malz-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- ===== Header ===== -->
+    <div class="report-header">
+        <h1>ミチルシリカ 月次レポート</h1>
+        <div class="subtitle">前回会議（4/1）からの進捗報告 + 4月前半の実績</div>
+        <div class="meta">
+            <span>会議日: 2026年4月21日（月）</span>
+            <span>前回会議: 2026年4月1日</span>
+            <span>対象期間: 4/1 〜 4/17（17日間）</span>
+        </div>
+    </div>
+
+    <!-- ===== 1. Purchase Hero ===== -->
+    <div class="purchase-hero">
+        <div class="ph-label">新規定期便 申込件数</div>
+        <div class="ph-period">2026年4月1日 〜 4月17日（17日間）</div>
+        <div class="ph-number">7</div>
+        <div class="ph-unit">件（カラーミー確認済み）</div>
+        <div class="purchase-breakdown">
+            <div class="pb-item">
+                <div class="pb-value">7</div>
+                <div class="pb-label">カラーミー定期便</div>
+            </div>
+            <div class="pb-item">
+                <div class="pb-value">?</div>
+                <div class="pb-label">代引き（要Gスプレ確認）</div>
+            </div>
+        </div>
+        <div style="margin-top: 16px; font-size: 0.9em; opacity: 0.85;">
+            4/2 群馬 ・ 4/5 ・ 4/8 ・ 4/10 兵庫 ・ 4/12 x2件 ・ 4/16 福岡
+        </div>
+    </div>
+
+    <!-- ===== Summary KPI ===== -->
+    <div class="summary-grid">
+        <div class="summary-card">
+            <div class="sc-label">広告費合計（Meta+Yahoo）</div>
+            <div class="sc-value blue">&yen;67,443</div>
+            <div class="sc-sub">Meta &yen;53,812 + Yahoo &yen;13,631<br>日平均 &yen;3,967</div>
+        </div>
+        <div class="summary-card green-border">
+            <div class="sc-label">リンククリック合計</div>
+            <div class="sc-value green">938</div>
+            <div class="sc-sub">Meta 618 + Yahoo 320</div>
+        </div>
+        <div class="summary-card orange-border">
+            <div class="sc-label">CPA（暫定）</div>
+            <div class="sc-value orange">&yen;9,635</div>
+            <div class="sc-sub">&yen;67,443 / 7件<br>目標: &yen;4,000</div>
+        </div>
+        <div class="summary-card">
+            <div class="sc-label">配信中広告</div>
+            <div class="sc-value blue">11本</div>
+            <div class="sc-sub">CV最適化 6本 + テスト 1本<br>+ 認知 2本</div>
+        </div>
+    </div>
+
+    <!-- ===== vs Previous Period ===== -->
+    <div class="section">
+        <div class="section-header dark">前回期間との比較</div>
+        <div class="section-body">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>指標</th>
+                        <th class="num">3/19〜3/31<br>（13日間）</th>
+                        <th class="num">4/1〜4/17<br>（17日間）</th>
+                        <th class="num">日平均比較</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Meta 広告費</strong></td>
+                        <td class="num">&yen;36,268</td>
+                        <td class="num">&yen;53,812</td>
+                        <td class="num"><span class="badge badge-up">&yen;2,790 → &yen;3,165</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Meta CPC</strong></td>
+                        <td class="num">&yen;79</td>
+                        <td class="num">&yen;87</td>
+                        <td class="num"><span class="badge badge-down">+10%</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Meta クリック/日</strong></td>
+                        <td class="num">35.5</td>
+                        <td class="num">36.4</td>
+                        <td class="num"><span class="badge badge-flat">横ばい</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Yahoo 広告費</strong></td>
+                        <td class="num">&yen;5,203</td>
+                        <td class="num">&yen;13,631</td>
+                        <td class="num"><span class="badge badge-up">&yen;400 → &yen;802</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Yahoo CPC</strong></td>
+                        <td class="num">&yen;35</td>
+                        <td class="num">&yen;43</td>
+                        <td class="num"><span class="badge badge-down">+23%</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Yahoo クリック/日</strong></td>
+                        <td class="num">11.3</td>
+                        <td class="num">18.8</td>
+                        <td class="num"><span class="badge badge-up">+66%</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>カラーミー新規定期便</strong></td>
+                        <td class="num">8件</td>
+                        <td class="num">7件</td>
+                        <td class="num"><span class="badge badge-flat">0.62 → 0.41件/日</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>CPA（カラーミーのみ）</strong></td>
+                        <td class="num">&yen;5,184</td>
+                        <td class="num">&yen;9,635</td>
+                        <td class="num"><span class="badge badge-down">+86% 悪化</span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="note-box danger" style="margin-top: 16px;">
+                <strong>要注目:</strong> クリック数は増加しているがCVが減少 → LP転換率の低下がボトルネック。Meta直帰率が70〜80%台で推移しており、LP到達後の離脱が課題。
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== Meta Detail ===== -->
+    <div class="section">
+        <div class="section-header purple">Meta広告 詳細（4/1〜4/17）</div>
+        <div class="section-body">
+
+            <h3 style="margin-bottom: 16px; font-size: 1em;">広告名別パフォーマンス（4/17時点のスナップショット）</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>キャンペーン</th>
+                        <th>広告名</th>
+                        <th class="num">消費(4/17)</th>
+                        <th class="num">Click</th>
+                        <th class="num">CPC</th>
+                        <th>備考</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="highlight-row">
+                        <td>CV最適化</td>
+                        <td><strong>価格訴求</strong></td>
+                        <td class="num">&yen;593</td>
+                        <td class="num">4</td>
+                        <td class="num">&yen;148</td>
+                        <td>主力。CPC上昇傾向</td>
+                    </tr>
+                    <tr>
+                        <td>CV最適化</td>
+                        <td><strong>日常-B</strong></td>
+                        <td class="num">&yen;591</td>
+                        <td class="num">2</td>
+                        <td class="num">&yen;296</td>
+                        <td>CPC高め</td>
+                    </tr>
+                    <tr>
+                        <td>CV最適化</td>
+                        <td><strong>定期便</strong></td>
+                        <td class="num">&yen;471</td>
+                        <td class="num">6</td>
+                        <td class="num">&yen;79</td>
+                        <td style="color: var(--success);">CPC良好</td>
+                    </tr>
+                    <tr>
+                        <td>テスト</td>
+                        <td><strong>悩み訴求</strong></td>
+                        <td class="num">&yen;693</td>
+                        <td class="num">2</td>
+                        <td class="num">&yen;347</td>
+                        <td>3月はCPA&yen;870で最効率だったが4月は不調</td>
+                    </tr>
+                    <tr class="highlight-row">
+                        <td>認知</td>
+                        <td><strong>日常3_ピクニック</strong></td>
+                        <td class="num">&yen;413</td>
+                        <td class="num">28</td>
+                        <td class="num" style="color:var(--success);font-weight:900">&yen;15</td>
+                        <td style="color: var(--success);font-weight:700">CTR 8.2% 最高効率</td>
+                    </tr>
+                    <tr>
+                        <td>CV最適化</td>
+                        <td><strong>肌訴求2</strong></td>
+                        <td class="num">&yen;151</td>
+                        <td class="num">1</td>
+                        <td class="num">&yen;151</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>テスト</td>
+                        <td><strong>悩み訴求(FB)</strong></td>
+                        <td class="num">&yen;145</td>
+                        <td class="num">1</td>
+                        <td class="num">&yen;145</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>認知</td>
+                        <td><strong>日常-B_認知用</strong></td>
+                        <td class="num">&yen;73</td>
+                        <td class="num">2</td>
+                        <td class="num">&yen;37</td>
+                        <td>認知用。リーチ蓄積中</td>
+                    </tr>
+                    <tr>
+                        <td>CV最適化</td>
+                        <td><strong>のむシリカ風</strong></td>
+                        <td class="num">&yen;28</td>
+                        <td class="num">1</td>
+                        <td class="num">&yen;28</td>
+                        <td>配信少</td>
+                    </tr>
+                    <tr class="total-row">
+                        <td colspan="2">合計（4/17）</td>
+                        <td class="num">&yen;3,423</td>
+                        <td class="num">50</td>
+                        <td class="num">&yen;68</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="note-box success" style="margin-top: 16px;">
+                <strong>注目:</strong> 認知キャンペーンの「日常3_ピクニック」がCPC &yen;15・CTR 8.2%と非常に高効率。リターゲティング用のオーディエンス蓄積に貢献中。
+            </div>
+
+            <h3 style="margin-top: 24px; margin-bottom: 16px; font-size: 1em;">日別推移（4/1〜4/17）</h3>
+            <table class="data-table">
+                <thead>
+                    <tr><th>日付</th><th class="num">Meta消費</th><th class="num">Click</th><th class="num">Yahoo消費</th><th class="num">Y Click</th><th class="num">購入</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>4/1</td><td class="num">&yen;3,011</td><td class="num">36</td><td class="num">&yen;1,102</td><td class="num">19</td><td class="num">0</td></tr>
+                    <tr><td>4/2</td><td class="num">&yen;2,955</td><td class="num">30</td><td class="num">&yen;993</td><td class="num">23</td><td class="num" style="color:var(--success);font-weight:700">1 <small>カラーミー</small></td></tr>
+                    <tr><td>4/3</td><td class="num">&yen;2,829</td><td class="num">22</td><td class="num">&yen;817</td><td class="num">18</td><td class="num">0</td></tr>
+                    <tr><td>4/4</td><td class="num">&yen;3,169</td><td class="num">25</td><td class="num">&yen;729</td><td class="num">16</td><td class="num">0</td></tr>
+                    <tr><td>4/5</td><td class="num">&yen;2,953</td><td class="num">38</td><td class="num">&yen;1,326</td><td class="num">28</td><td class="num" style="color:var(--success);font-weight:700">1 <small>カラーミー</small></td></tr>
+                    <tr><td>4/6</td><td class="num">&yen;3,062</td><td class="num">30</td><td class="num">&yen;618</td><td class="num">13</td><td class="num">0</td></tr>
+                    <tr><td>4/7</td><td class="num">&yen;3,340</td><td class="num">25</td><td class="num">&yen;653</td><td class="num">15</td><td class="num">0</td></tr>
+                    <tr><td>4/8</td><td class="num">&yen;3,410</td><td class="num">40</td><td class="num">&yen;643</td><td class="num">14</td><td class="num" style="color:var(--success);font-weight:700">1 <small>カラーミー</small></td></tr>
+                    <tr><td>4/9</td><td class="num">&yen;3,123</td><td class="num">27</td><td class="num">&yen;985</td><td class="num">21</td><td class="num">0</td></tr>
+                    <tr><td>4/10</td><td class="num">&yen;3,043</td><td class="num">35</td><td class="num">&yen;543</td><td class="num">15</td><td class="num" style="color:var(--success);font-weight:700">1 <small>カラーミー</small></td></tr>
+                    <tr><td>4/11</td><td class="num">&yen;3,518</td><td class="num">49</td><td class="num">&yen;707</td><td class="num">20</td><td class="num">0</td></tr>
+                    <tr><td>4/12</td><td class="num">&yen;3,811</td><td class="num">49</td><td class="num">&yen;307</td><td class="num">8</td><td class="num" style="color:var(--success);font-weight:700">2 <small>カラーミー</small></td></tr>
+                    <tr><td>4/13</td><td class="num">&yen;3,084</td><td class="num">41</td><td class="num">&yen;1,210</td><td class="num">32</td><td class="num">0</td></tr>
+                    <tr><td>4/14</td><td class="num">&yen;2,984</td><td class="num">28</td><td class="num">&yen;778</td><td class="num">20</td><td class="num">0</td></tr>
+                    <tr><td>4/15</td><td class="num">&yen;3,163</td><td class="num">45</td><td class="num">&yen;523</td><td class="num">15</td><td class="num">0</td></tr>
+                    <tr><td>4/16</td><td class="num">&yen;2,934</td><td class="num">48</td><td class="num">&yen;816</td><td class="num">23</td><td class="num" style="color:var(--success);font-weight:700">1 <small>カラーミー</small></td></tr>
+                    <tr><td>4/17</td><td class="num">&yen;3,423</td><td class="num">50</td><td class="num">&yen;881</td><td class="num">20</td><td class="num">0</td></tr>
+                    <tr class="total-row">
+                        <td>合計</td>
+                        <td class="num">&yen;53,812</td>
+                        <td class="num">618</td>
+                        <td class="num">&yen;13,631</td>
+                        <td class="num">320</td>
+                        <td class="num" style="font-weight:900">7件</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="note-box warning" style="margin-top: 12px;">
+                <strong>傾向:</strong> 購入が3〜4日おきに1件ずつ発生。集中して出る期間がなく、安定しているが伸びていない。4/13以降は4日間購入ゼロが続いており（4/16にようやく1件）、GA4でもcv_40が出ていない。
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== Yahoo Detail ===== -->
+    <div class="section">
+        <div class="section-header orange">Yahoo広告（4/1〜4/17）</div>
+        <div class="section-body">
+            <div class="summary-grid" style="margin-bottom: 20px;">
+                <div class="summary-card">
+                    <div class="sc-label">コスト</div>
+                    <div class="sc-value blue">&yen;13,631</div>
+                    <div class="sc-sub">日平均 &yen;802</div>
+                </div>
+                <div class="summary-card green-border">
+                    <div class="sc-label">クリック</div>
+                    <div class="sc-value green">320</div>
+                    <div class="sc-sub">CPC &yen;43</div>
+                </div>
+                <div class="summary-card orange-border">
+                    <div class="sc-label">入札戦略</div>
+                    <div class="sc-value orange" style="font-size:1.2em">学習完了</div>
+                    <div class="sc-sub">クリック数の最大化 上限&yen;50</div>
+                </div>
+                <div class="summary-card">
+                    <div class="sc-label">日予算</div>
+                    <div class="sc-value blue">&yen;700</div>
+                    <div class="sc-sub">4/7に&yen;1,000→&yen;700に調整</div>
+                </div>
+            </div>
+
+            <div class="note-box info">
+                <strong>4/16にKW見直し実施:</strong> インテントマッチ → フレーズ一致に変更 + 除外KW追加。入札戦略の学習が完了し、CPC &yen;35〜44で安定。Yahoo専用LP（page-water-yahoo.php）で直帰率42〜58%と良好。
+            </div>
+
+            <div class="note-box success">
+                <strong>Yahoo広告のGA4貢献:</strong> 直近7日間のYahoo cpcセッションは日平均17.2件。直帰率53%前後でMeta（80%前後）より大幅に良好。LP内でのエンゲージメントが高く、購入に至る質の高いトラフィックを送っている。
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== GA4 / LP Quality ===== -->
+    <div class="section">
+        <div class="section-header teal">LP品質・GA4分析（4/11〜4/18）</div>
+        <div class="section-body">
+            <h3 style="margin-bottom: 12px; font-size: 1em;">チャネル別LP指標</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>チャネル</th>
+                        <th class="num">セッション/日</th>
+                        <th class="num">直帰率</th>
+                        <th class="num">平均滞在(秒)</th>
+                        <th>評価</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Meta / paid</strong></td>
+                        <td class="num">52.8</td>
+                        <td class="num" style="color:var(--danger)">72.8%</td>
+                        <td class="num">55.6</td>
+                        <td><span class="badge badge-down">直帰率高い</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Yahoo / cpc</strong></td>
+                        <td class="num">17.2</td>
+                        <td class="num" style="color:var(--success)">55.6%</td>
+                        <td class="num">37.2</td>
+                        <td><span class="badge badge-up">良好</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Organic（Google/Yahoo/Bing）</strong></td>
+                        <td class="num">2.0</td>
+                        <td class="num">23.1%</td>
+                        <td class="num">261.6</td>
+                        <td><span class="badge badge-up">非常に良好</span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="note-box danger" style="margin-top: 16px;">
+                <strong>最大の課題: Meta経由の直帰率 72.8%</strong><br>
+                4/17には80.9%まで悪化。7割以上がLPを見てすぐ離脱している。これがCV数が伸びない主因。<br>
+                <strong>対策:</strong> LP sec03-04の画像4枚リニューアルが完成済み（WordPress反映待ち）。反映後に直帰率の変化を検証する。
+            </div>
+
+            <h3 style="margin-top: 24px; margin-bottom: 12px; font-size: 1em;">CV関連イベント</h3>
+            <table class="data-table">
+                <thead>
+                    <tr><th>日付</th><th class="num">cta_click</th><th class="num">purchase_form_view</th><th class="num">cv_40</th><th class="num">form_start</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>4/1</td><td class="num">-</td><td class="num">1</td><td class="num">0</td><td class="num">-</td></tr>
+                    <tr><td>4/4</td><td class="num">-</td><td class="num">-</td><td class="num">0</td><td class="num">4</td></tr>
+                    <tr><td>4/5</td><td class="num">-</td><td class="num">-</td><td class="num">0</td><td class="num">3(Yahoo)</td></tr>
+                    <tr><td>4/6</td><td class="num">-</td><td class="num">3</td><td class="num">0</td><td class="num">35</td></tr>
+                    <tr><td>4/7</td><td class="num">-</td><td class="num">-</td><td class="num">0</td><td class="num">1</td></tr>
+                    <tr><td>4/8</td><td class="num">-</td><td class="num">1</td><td class="num">0</td><td class="num">-</td></tr>
+                    <tr><td>4/10</td><td class="num">-</td><td class="num">1</td><td class="num">0</td><td class="num">4</td></tr>
+                    <tr><td>4/11</td><td class="num">4</td><td class="num">-</td><td class="num">0</td><td class="num">-</td></tr>
+                    <tr><td>4/12</td><td class="num">7</td><td class="num">1</td><td class="num">0</td><td class="num">-</td></tr>
+                    <tr><td>4/13</td><td class="num">6</td><td class="num">-</td><td class="num">0</td><td class="num">-</td></tr>
+                    <tr><td>4/17</td><td class="num">2</td><td class="num">1</td><td class="num">0</td><td class="num">-</td></tr>
+                    <tr><td>4/18</td><td class="num">1</td><td class="num">-</td><td class="num">0</td><td class="num">-</td></tr>
+                </tbody>
+            </table>
+
+            <div class="note-box warning" style="margin-top: 12px;">
+                <strong>GA4上でcv_40が4月は0件。</strong>カラーミーでは7件の注文があるため、cv_40タグの発火漏れか、外部ドメイン遷移（olivia-store.com → colorme-repeat.jp）でイベントが計測できていない可能性が高い。<br>
+                <strong>確認事項:</strong> cv_40イベントの発火条件を再点検し、購入完了ページでの計測を確実にする。
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== Amazon ===== -->
+    <div class="section">
+        <div class="section-header" style="background: linear-gradient(135deg, #FF9900, #FFB84D);">Amazon広告（4月）</div>
+        <div class="section-body">
+            <div class="summary-grid" style="margin-bottom: 20px;">
+                <div class="summary-card green-border">
+                    <div class="sc-label">月間CV（4/1〜4/18推定）</div>
+                    <div class="sc-value green">34件</div>
+                    <div class="sc-sub">日次CV 1.89件で安定</div>
+                </div>
+                <div class="summary-card orange-border">
+                    <div class="sc-label">ROAS</div>
+                    <div class="sc-value orange">1.65</div>
+                    <div class="sc-sub">3月 3.82 → 低下傾向</div>
+                </div>
+            </div>
+            <div class="note-box info">
+                <strong>Amazon:</strong> 目標超過で好調。日次CV 1.89件は3月（1.48件/日）から+28%改善。ただしROASは低下しており、広告費対効果のバランスは要注視。
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== Actions Done ===== -->
+    <div class="section">
+        <div class="section-header green">4/1〜4/17に実施した施策</div>
+        <div class="section-body">
+            <div class="action-grid">
+                <div class="action-card done-card">
+                    <div class="ac-status done">完了</div>
+                    <div class="ac-title">CV最適化キャンペーン 広告セット分割（4/14）</div>
+                    <div class="ac-desc">広告セットAに価格訴求（&yen;500/日）、広告セットBにその他（&yen;1,500/日）を分割。価格訴求の効率を分離して検証可能に。</div>
+                </div>
+                <div class="action-card done-card">
+                    <div class="ac-status done">完了</div>
+                    <div class="ac-title">認知キャンペーン 日常3_ピクニック投入（4/7）</div>
+                    <div class="ac-desc">Veo 3 Fastで制作したピクニック家族動画。CTR 8.2%で好調。リターゲティング用オーディエンス蓄積に貢献。</div>
+                </div>
+                <div class="action-card done-card">
+                    <div class="ac-status done">完了</div>
+                    <div class="ac-title">Yahoo広告 KW見直し（4/16）</div>
+                    <div class="ac-desc">インテントマッチ → フレーズ一致に変更。除外KW追加。入札戦略の学習完了。CPC &yen;35〜44で安定。</div>
+                </div>
+                <div class="action-card done-card">
+                    <div class="ac-status done">完了</div>
+                    <div class="ac-title">LP sec03-04 画像リニューアル制作</div>
+                    <div class="ac-desc">4枚の画像を新規作成（悩みセクション・シリカ減少グラフ・解決策・続ける価値）。ig1.phpとyahoo.phpのコード更新済み。WordPressアップロード待ち。</div>
+                </div>
+                <div class="action-card done-card">
+                    <div class="ac-status done">完了</div>
+                    <div class="ac-title">解約対策 提案書作成</div>
+                    <div class="ac-desc">解約対策総合提案書・価格改定提案書・施策効果レポートの3点をGitHub Pagesで公開。同梱物3点セットのHTMLも完成。</div>
+                </div>
+                <div class="action-card done-card">
+                    <div class="ac-status done">完了</div>
+                    <div class="ac-title">Instagram投稿 1週間分制作</div>
+                    <div class="ac-desc">EKATO.風ブランドデザインで4投稿（リール2本+カルーセル2本）を制作完了。</div>
+                </div>
+                <div class="action-card done-card">
+                    <div class="ac-status done">完了</div>
+                    <div class="ac-title">価格訴求v2 動画完成</div>
+                    <div class="ac-desc">Veo 3 Fastで全9シーン制作。お客様テロップ入れ確認待ち。</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== Churn Data ===== -->
+    <div class="section">
+        <div class="section-header pink">解約データ・LTV</div>
+        <div class="section-body">
+            <div class="summary-grid" style="margin-bottom: 20px;">
+                <div class="summary-card red-border">
+                    <div class="sc-label">解約率（10月〜4月）</div>
+                    <div class="sc-value red">36.7%</div>
+                    <div class="sc-sub">79人中29人が解約</div>
+                </div>
+                <div class="summary-card orange-border">
+                    <div class="sc-label">1回解約率</div>
+                    <div class="sc-value orange">89.5%</div>
+                    <div class="sc-sub">解約者の約9割が初回で離脱</div>
+                </div>
+                <div class="summary-card green-border">
+                    <div class="sc-label">月間売上</div>
+                    <div class="sc-value green">&yen;243K</div>
+                    <div class="sc-sub">カラーミー&yen;202K + 代引き&yen;41K</div>
+                </div>
+                <div class="summary-card">
+                    <div class="sc-label">リピート率</div>
+                    <div class="sc-value blue">91%</div>
+                    <div class="sc-sub">既存顧客の継続率は高い</div>
+                </div>
+            </div>
+            <div class="note-box warning">
+                <strong>最重要課題: F2転換（2回目購入への壁）。</strong>解約者の89.5%が1回で辞めている。解約理由1位は「他社に乗り換え」（28.1%）。初回購入後すぐに「続ける理由」を訴求する同梱物が必要。<br>
+                <strong>対策:</strong> 同梱物3点セット（お礼カード・飲み方ガイド・3ヶ月チャレンジカード）のHTML完成済み。印刷・同梱開始のタイミングを決定する。
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== Malz Proposal ===== -->
+    <div class="section">
+        <div class="section-header" style="background: linear-gradient(135deg, #4a148c, #7b1fa2);">新規提案: Malz Bagging Ads（サッカー台デジタルサイネージ）</div>
+        <div class="section-body">
+            <div class="malz-box">
+                <h3>東京プラン &yen;20,000/月</h3>
+                <div class="malz-grid">
+                    <div class="malz-item">
+                        <div class="label">設置場所</div>
+                        <div class="value">丸正総本店（四谷三丁目）</div>
+                    </div>
+                    <div class="malz-item">
+                        <div class="label">サイネージ</div>
+                        <div class="value">5台 / 10インチ</div>
+                    </div>
+                    <div class="malz-item">
+                        <div class="label">想定放映回数</div>
+                        <div class="value">5,600回/月</div>
+                    </div>
+                    <div class="malz-item">
+                        <div class="label">来店者数</div>
+                        <div class="value">2,200人/日</div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="margin-bottom: 12px; font-size: 1em;">分析・所見</h3>
+            <table class="data-table">
+                <thead>
+                    <tr><th style="width:30%">観点</th><th>評価</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>コスト</strong></td>
+                        <td><span class="badge badge-up">低リスク</span> Meta広告の約5日分。テスト予算として適切。</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ターゲット適合性</strong></td>
+                        <td><span class="badge badge-up">合致</span> 30代以降の女性（主婦層）= ミチルシリカの主要ターゲット。四谷は富裕層エリア。</td>
+                    </tr>
+                    <tr>
+                        <td><strong>認知効果</strong></td>
+                        <td><span class="badge badge-up">期待できる</span> 同じ人が週2〜3回来店し繰り返し視聴。60秒の接触時間はOOH媒体の中で長い。</td>
+                    </tr>
+                    <tr>
+                        <td><strong>効果測定</strong></td>
+                        <td><span class="badge badge-down">困難</span> 直接CVは追えない。QRコード設置もサッカー台では非現実的。間接指標で判断が必要。</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Meta認知との相乗効果</strong></td>
+                        <td><span class="badge badge-info">あり得る</span> オフライン認知→Instagram広告で再接触のクロスメディア効果。</td>
+                    </tr>
+                    <tr>
+                        <td><strong>福岡エリア（筑後プラン）</strong></td>
+                        <td><span class="badge badge-flat">現時点は不要</span> 筑後朝倉エリアはミチルシリカの主要ターゲットエリアではない。</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="note-box info" style="margin-top: 16px;">
+                <strong>結論: 東京プラン&yen;20,000/月はやってみる価値あり。</strong><br>
+                <ul style="margin-top: 8px; padding-left: 20px;">
+                    <li>まず1クール（4週間）だけ試す → 効果が見えなければ撤退</li>
+                    <li>クリエイティブは既存のピクニック動画をリサイズ（1280x720px / 15秒）で流用可能 → 追加制作コストゼロ</li>
+                    <li>効果測定: 新宿区からのLP流入増加、カラーミー注文者の住所分布変化で間接的に判断</li>
+                    <li>入稿は放映開始10営業日前。動画準備を先行して進める</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== Next Actions ===== -->
+    <div class="section">
+        <div class="section-header" style="background: linear-gradient(135deg, #b71c1c, #e53935);">今後のアクション・確認事項</div>
+        <div class="section-body">
+            <div class="action-grid">
+                <div class="action-card progress-card">
+                    <div class="ac-status progress">今週中</div>
+                    <div class="ac-title">LP画像4枚 + PHP更新をWordPressに反映</div>
+                    <div class="ac-desc">sec03-04リニューアル画像（8ファイル）＋PHP 2ファイルのアップロード。直帰率72% → 60%台への改善を狙う。</div>
+                </div>
+                <div class="action-card pending-card">
+                    <div class="ac-status pending">5月頭</div>
+                    <div class="ac-title">リターゲティング設定</div>
+                    <div class="ac-desc">認知動画50%以上視聴者のカスタムオーディエンスを作成 → CV最適化キャンペーンに新広告セットとして追加。&yen;500/日から開始。</div>
+                </div>
+                <div class="action-card pending-card">
+                    <div class="ac-status pending">お客様確認待ち</div>
+                    <div class="ac-title">価格訴求v2動画 テロップ入れ → 配信</div>
+                    <div class="ac-desc">Veo 3 Fast全9シーン完成済み。お客様にテロップ内容を確認してもらい、確定後にCV最適化キャンペーンへ投入。</div>
+                </div>
+                <div class="action-card pending-card">
+                    <div class="ac-status pending">お客様確認待ち</div>
+                    <div class="ac-title">同梱物3点セット 印刷・同梱開始</div>
+                    <div class="ac-desc">お礼カード・飲み方ガイド・3ヶ月チャレンジカードのHTML完成済み。印刷手配の判断を仰ぐ。F2転換率50% → 70%が目標。</div>
+                </div>
+                <div class="action-card new-card">
+                    <div class="ac-status new">新規提案</div>
+                    <div class="ac-title">Malz Bagging Ads 東京プラン 導入検討</div>
+                    <div class="ac-desc">丸正総本店（四谷三丁目）でのサイネージ広告。&yen;20,000/月。1クール（4週間）のテスト実施を提案。ピクニック動画を15秒にリサイズして入稿。</div>
+                </div>
+                <div class="action-card progress-card">
+                    <div class="ac-status progress">継続</div>
+                    <div class="ac-title">cv_40タグの計測精度改善</div>
+                    <div class="ac-desc">4月のGA4上でcv_40が0件（カラーミーでは7件注文あり）。外部ドメイン遷移での計測漏れを修正する必要がある。</div>
+                </div>
+            </div>
+
+            <div class="note-box info" style="margin-top: 20px;">
+                <strong>4月後半〜5月の重点:</strong>
+                <ol style="margin-top: 8px; padding-left: 20px;">
+                    <li><strong>LP改善画像の反映</strong> → 直帰率改善が最優先。広告費を使っても離脱されては意味がない</li>
+                    <li><strong>リターゲティング開始（5月頭）</strong> → 認知キャンペーンの蓄積データを活用</li>
+                    <li><strong>同梱物で解約率を下げる</strong> → 新規獲得と同時にLTVを伸ばす両輪</li>
+                    <li><strong>CPA &yen;9,635 → &yen;4,000へ</strong> → LP転換率1.3%が達成できれば実現可能</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== KPI Target ===== -->
+    <div class="section">
+        <div class="section-header dark">目標ベンチマーク（夏までにCPA &yen;4,000）</div>
+        <div class="section-body">
+            <table class="data-table">
+                <thead>
+                    <tr><th>指標</th><th class="num">現状（4月）</th><th class="num">目標（7月）</th><th>ギャップ</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Meta CTR</strong></td>
+                        <td class="num">5.1%</td>
+                        <td class="num">5.0%</td>
+                        <td><span class="badge badge-up">達成済み</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>LP転換率</strong></td>
+                        <td class="num" style="color:var(--danger)">0.75%</td>
+                        <td class="num">1.3%</td>
+                        <td><span class="badge badge-down">+0.55pt必要（最重要）</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>CPA</strong></td>
+                        <td class="num" style="color:var(--danger)">&yen;9,635</td>
+                        <td class="num">&yen;4,000</td>
+                        <td><span class="badge badge-down">-58% 必要</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>月間CV</strong></td>
+                        <td class="num">7件/17日</td>
+                        <td class="num">28件/月</td>
+                        <td><span class="badge badge-down">ペース不足</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="note-box warning" style="margin-top: 12px;">
+                <strong>CTRは目標達成済み。残る課題はLP転換率のみ。</strong>LP改善画像の反映と、リターゲティングによる質の高いトラフィック追加で、LP転換率1.3%を目指す。
+            </div>
+        </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 30px; padding: 20px; font-size: 0.8em; color: var(--text-light);">
+        ミチルシリカ 月次レポート | 2026年4月21日 作成<br>
+        データソース: Meta広告マネージャー / Yahoo!広告 / カラーミーリピート / GA4
+    </div>
+
+</div>
+</body>
+</html>
