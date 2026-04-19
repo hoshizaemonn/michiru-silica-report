@@ -478,7 +478,7 @@
             </table>
 
             <div class="note-box warning" style="margin-top: 12px;">
-                <strong>傾向:</strong> 購入が3〜4日おきに1件ずつ発生。集中して出る期間がなく、安定しているが伸びていない。4/13以降は4日間購入ゼロが続いており（4/16にようやく1件）、GA4でもcv_40が出ていない。
+                <strong>傾向:</strong> 購入が2〜3日おきに発生。4/10は代引き+カラーミーで2件、4/12もカラーミー2件と、まとまって出る日もあるが、4/13〜15は3日間ゼロ。全体として安定はしているが伸びが足りない（目標50件に対し9件 = 18%）。
             </div>
         </div>
     </div>
@@ -561,9 +561,23 @@
             </table>
 
             <div class="note-box danger" style="margin-top: 16px;">
-                <strong>最大の課題: Meta経由の直帰率 72.8%</strong><br>
-                4/17には80.9%まで悪化。7割以上がLPを見てすぐ離脱している。これがCV数が伸びない主因。<br>
-                <strong>対策:</strong> LP sec03-04の画像4枚リニューアルが完成済み（WordPress反映待ち）。反映後に直帰率の変化を検証する。
+                <strong>最大の課題: Meta経由の直帰率 72.8%（4/17は80.9%）</strong><br>
+                7割以上がLPを見てすぐ離脱している。これがCV数が伸びない主因。
+            </div>
+
+            <div class="note-box warning" style="margin-top: 12px;">
+                <strong>原因の仮説: 広告クリエイティブとLPの内容がズレている。</strong><br>
+                広告で興味を持ってクリックした人が、LPに来た瞬間に「思っていたのと違う」と感じて離脱している可能性。<br>
+                <ul style="margin-top: 8px; padding-left: 20px;">
+                    <li><strong>日常系動画（ピクニック・日常-B）</strong> → 「楽しそうな水」と思ってクリック → LPは価格・成分の訴求 → ギャップ</li>
+                    <li><strong>悩み訴求</strong> → 「肌や健康の悩みが解決するかも」と期待 → LPのファーストビューは価格押し → ギャップ</li>
+                    <li><strong>価格訴求</strong> → 「安い水がある」と思ってクリック → LP到達後に定期便であることがわかる → 離脱</li>
+                </ul>
+                <strong>対策案:</strong>
+                <ul style="margin-top: 8px; padding-left: 20px;">
+                    <li>広告の訴求軸ごとにLPのファーストビューを変える（A/Bテスト機能で対応可能）</li>
+                    <li>まずはsec03-04の画像リニューアルをWordPressに反映し、直帰率の変化を検証する</li>
+                </ul>
             </div>
 
             <h3 style="margin-top: 24px; margin-bottom: 12px; font-size: 1em;">CV関連イベント</h3>
@@ -587,31 +601,59 @@
                 </tbody>
             </table>
 
-            <div class="note-box warning" style="margin-top: 12px;">
-                <strong>GA4上でcv_40が4月は0件。</strong>カラーミーでは7件の注文があるため、cv_40タグの発火漏れか、外部ドメイン遷移（olivia-store.com → colorme-repeat.jp）でイベントが計測できていない可能性が高い。<br>
-                <strong>確認事項:</strong> cv_40イベントの発火条件を再点検し、購入完了ページでの計測を確実にする。
+            <div class="note-box danger" style="margin-top: 12px;">
+                <strong>cv_40タグが4月から壊れている可能性が高い。</strong><br>
+                3月は cv_40 が正常に発火していた（3/15〜3/26で9件記録）。しかし<strong>4月は全GA4ファイルでcv_40が0件</strong>。カラーミーでは7件+代引き2件 = 9件の購入があるにもかかわらず。<br><br>
+                <strong>3月に拾えていた流入パターン:</strong>
+                <ul style="margin-top: 8px; padding-left: 20px;">
+                    <li>yahoo / cpc → cv_40（3/17, 3/21, 3/22）</li>
+                    <li>meta / paid → cv_40（3/19）</li>
+                    <li>instagram / paid_social → cv_40（3/23）</li>
+                    <li>michiru.olivia-store.com / referral → cv_40（3/26）</li>
+                </ul>
+                <strong>→ これらが4月に全て消失。3/27〜3/31の広告変更・Yahoo停止のタイミングでタグ設定が変わった可能性あり。要調査。</strong>
             </div>
         </div>
     </div>
 
     <!-- ===== Amazon ===== -->
     <div class="section">
-        <div class="section-header" style="background: linear-gradient(135deg, #FF9900, #FFB84D);">Amazon広告（4月）</div>
+        <div class="section-header" style="background: linear-gradient(135deg, #FF9900, #FFB84D);">Amazon（4月）</div>
         <div class="section-body">
             <div class="summary-grid" style="margin-bottom: 20px;">
                 <div class="summary-card green-border">
-                    <div class="sc-label">月間CV（4/1〜4/18推定）</div>
-                    <div class="sc-value green">34件</div>
-                    <div class="sc-sub">日次CV 1.89件で安定</div>
+                    <div class="sc-label">購入数（4/1〜4/19）</div>
+                    <div class="sc-value green">36件</div>
+                    <div class="sc-sub">日平均 1.89件</div>
                 </div>
-                <div class="summary-card orange-border">
-                    <div class="sc-label">ROAS</div>
-                    <div class="sc-value orange">1.65</div>
-                    <div class="sc-sub">3月 3.82 → 低下傾向</div>
+                <div class="summary-card">
+                    <div class="sc-label">月間ペース</div>
+                    <div class="sc-value blue">57件</div>
+                    <div class="sc-sub">このペースで月末まで推移した場合</div>
                 </div>
             </div>
-            <div class="note-box info">
-                <strong>Amazon:</strong> 目標超過で好調。日次CV 1.89件は3月（1.48件/日）から+28%改善。ただしROASは低下しており、広告費対効果のバランスは要注視。
+
+            <h3 style="margin-bottom: 12px; font-size: 1em;">日別購入数（Amazonスプレッドシートより）</h3>
+            <table class="data-table">
+                <thead>
+                    <tr><th>日付</th><th class="num">購入数</th><th>日付</th><th class="num">購入数</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>4/1</td><td class="num">1</td><td>4/11</td><td class="num">2</td></tr>
+                    <tr><td>4/2</td><td class="num">1</td><td>4/12</td><td class="num">1</td></tr>
+                    <tr><td>4/3</td><td class="num">1</td><td>4/13</td><td class="num">3</td></tr>
+                    <tr><td>4/4</td><td class="num">1</td><td>4/14</td><td class="num">3</td></tr>
+                    <tr><td>4/5</td><td class="num">1</td><td>4/15</td><td class="num">2</td></tr>
+                    <tr><td>4/6</td><td class="num">1</td><td>4/16</td><td class="num" style="color:var(--success);font-weight:700">4</td></tr>
+                    <tr><td>4/7</td><td class="num" style="color:var(--success);font-weight:700">3</td><td>4/17</td><td class="num">0</td></tr>
+                    <tr><td>4/8</td><td class="num" style="color:var(--success);font-weight:700">3</td><td>4/18</td><td class="num">2</td></tr>
+                    <tr><td>4/9</td><td class="num">2</td><td>4/19</td><td class="num">1</td></tr>
+                    <tr><td>4/10</td><td class="num" style="color:var(--success);font-weight:700">4</td><td colspan="2"></td></tr>
+                    <tr class="total-row"><td colspan="2">合計</td><td colspan="2" class="num" style="font-weight:900">36件</td></tr>
+                </tbody>
+            </table>
+            <div class="note-box success" style="margin-top: 12px;">
+                <strong>Amazonは好調。</strong>4/7以降は日平均2.3件に上昇。4月後半もこのペースが続けば月間50件超の見込み。
             </div>
         </div>
     </div>
