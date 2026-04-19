@@ -600,10 +600,21 @@
                 </ul>
             </div>
 
+            <div class="note-box info" style="margin-top: 12px;">
+                <strong>Metaピクセルは正常に動いている。</strong>Meta広告管理画面では4月の購入を8件計上（4/2: 3件、4/5: 1件、4/8: 1件、4/10: 1件、4/12: 2件）。Meta広告の購入最適化はMetaピクセルで学習するため、<strong>広告の学習自体は壊れていない</strong>。cv_40はGA4側の計測ツールの問題であり、修復は必要だが緊急度は下がる。
+            </div>
+
             <div class="note-box danger" style="margin-top: 12px;">
-                <strong>最大の課題: cv_40タグの消失がMeta広告の学習を壊している可能性。</strong><br><br>
-                Meta広告の「購入最適化」は、cv_40（購入完了）のシグナルを使って「こういう人が買う」と学習している。4月にcv_40が0件になったことで、Metaは「誰も買っていない」と認識 → <strong>購入しそうな人への配信精度が低下 → 実際に購入効率が落ちる → 悪循環</strong>。<br><br>
-                3月はcv_40が正常に発火していた（3/15〜3/26で9件記録）。4月に全て消失した原因の特定と修復が<strong>最優先</strong>。
+                <strong>では、なぜ購入が伸びないのか？</strong><br><br>
+                Metaピクセルは動いている。直帰率も4/1〜4/13は3月と大差ない。FV出し分けも正常。<strong>仕組みに大きな故障はない。</strong><br><br>
+                問題は<strong>「クリックは月1,000件以上来ているのに、購入が月9件しかない」</strong>という構造そのもの。LP転換率0.75%は3月からほぼ変わっておらず、改善していない。<br><br>
+                <strong>考えられる要因:</strong>
+                <ul style="margin-top: 8px; padding-left: 20px;">
+                    <li><strong>価格訴求への予算集中（61%）</strong> → Metaが最適と判断して配分しているが、価格訴求は「安い水がある」と思ってクリック → 定期便&yen;3,960とわかって離脱、というパターンが繰り返されている可能性</li>
+                    <li><strong>認知キャンペーン開始（4/1〜）</strong> → トラフィック目的の低意図ユーザーが全体の直帰率・転換率を薄めている</li>
+                    <li><strong>クリエイティブの鮮度</strong> → 3月から同じ広告を回し続けている。フリークエンシー上昇による広告疲れ</li>
+                    <li><strong>LP自体の改善が未反映</strong> → sec03-04の画像リニューアルが完成済みだがWordPressに上がっていない</li>
+                </ul>
             </div>
 
             <h3 style="margin-top: 24px; margin-bottom: 12px; font-size: 1em;">3月→4月の変化まとめ</h3>
@@ -613,16 +624,28 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td><strong>cv_40タグ</strong></td>
+                        <td><strong>Metaピクセル（購入）</strong></td>
+                        <td style="color:var(--success)">正常（3件）</td>
+                        <td style="color:var(--success)">正常（8件）</td>
+                        <td><span class="badge badge-up">問題なし</span> 広告学習は継続中</td>
+                    </tr>
+                    <tr>
+                        <td><strong>GA4 cv_40</strong></td>
                         <td style="color:var(--success)">正常発火（9件）</td>
-                        <td style="color:var(--danger);font-weight:700">0件</td>
-                        <td><span class="badge badge-down">Meta学習データ消失</span> 最も影響が大きい</td>
+                        <td style="color:var(--danger)">0件</td>
+                        <td><span class="badge badge-flat">計測ツール側の問題</span> 修復は必要だが緊急度は低</td>
                     </tr>
                     <tr>
                         <td><strong>認知キャンペーン</strong></td>
                         <td>なし</td>
                         <td>4/1〜開始（消化&yen;8,800）</td>
-                        <td><span class="badge badge-flat">注意</span> 低意図ユーザーの流入で直帰率が上昇</td>
+                        <td><span class="badge badge-flat">注意</span> 低意図ユーザー流入で直帰率が上昇</td>
+                    </tr>
+                    <tr>
+                        <td><strong>価格訴求の予算集中</strong></td>
+                        <td>消化の59%</td>
+                        <td>消化の61%</td>
+                        <td><span class="badge badge-down">悪化</span> 1本に偏りすぎ</td>
                     </tr>
                     <tr>
                         <td><strong>広告セット構造</strong></td>
@@ -643,10 +666,10 @@
                         <td><span class="badge badge-up">変化なし</span></td>
                     </tr>
                     <tr>
-                        <td><strong>LP×クリエイティブ</strong></td>
-                        <td>同じLP</td>
-                        <td>同じLP</td>
-                        <td><span class="badge badge-up">変化なし</span> ミスマッチは3月から同じ</td>
+                        <td><strong>クリエイティブ鮮度</strong></td>
+                        <td>3/14〜投入（新鮮）</td>
+                        <td>同じ素材を5週間以上配信</td>
+                        <td><span class="badge badge-down">劣化</span> フリークエンシー上昇</td>
                     </tr>
                 </tbody>
             </table>
@@ -654,9 +677,11 @@
             <div class="note-box success" style="margin-top: 16px;">
                 <strong>対策の優先順位:</strong>
                 <ol style="margin-top: 8px; padding-left: 20px;">
-                    <li><strong>cv_40タグの修復（最優先）</strong> → タグが戻ればMeta広告の購入最適化が再び正常に学習する</li>
-                    <li><strong>LP改善画像のWordPress反映</strong> → 4/1〜4/13の直帰率65%をさらに改善</li>
-                    <li><strong>認知キャンペーンのトラフィックはCV最適化と分けて評価する</strong> → 認知の直帰率が高いのは想定通り</li>
+                    <li><strong>LP改善画像のWordPress反映</strong> → 完成しているのに反映されていない。直帰率65% → 55%台への改善を狙う</li>
+                    <li><strong>新クリエイティブの投入</strong> → 価格訴求v2（完成済み）の早期投入。5週間同じ素材は広告疲れを起こす</li>
+                    <li><strong>価格訴求への予算集中を分散</strong> → 広告セット構成の見直し</li>
+                    <li><strong>認知キャンペーンのトラフィックはCV最適化と分けて評価する</strong></li>
+                    <li><strong>cv_40タグの修復</strong> → GA4での計測を正常化（緊急度は低いが修復は必要）</li>
                 </ol>
             </div>
 
@@ -1113,18 +1138,18 @@
                     <div class="ac-title">同梱物3点セット 印刷・同梱開始</div>
                     <div class="ac-desc">お礼カード・飲み方ガイド・3ヶ月チャレンジカードのHTML完成済み。印刷手配の判断を仰ぐ。F2転換率50% → 70%が目標。</div>
                 </div>
-                <div class="action-card" style="border-color: var(--danger); background: linear-gradient(135deg, #fff5f5, #fff);">
-                    <div class="ac-status" style="color: var(--danger);">最優先</div>
-                    <div class="ac-title">cv_40タグの修復</div>
-                    <div class="ac-desc">3月は正常発火していたcv_40が4月に全消失。Meta広告の購入最適化の学習データが途絶えており、<strong>配信精度が低下している可能性が高い</strong>。タグ修復がCV改善の最短ルート。GA4の中間イベント（cta_click等）は正常に動いている。</div>
+                <div class="action-card pending-card">
+                    <div class="ac-status pending">要修復</div>
+                    <div class="ac-title">GA4 cv_40タグの修復</div>
+                    <div class="ac-desc">Metaピクセルは正常（8件計上）なので広告学習への影響はない。ただしGA4での購入経路分析ができないため修復は必要。中間イベント（cta_click等）は正常。</div>
                 </div>
             </div>
 
             <div class="note-box info" style="margin-top: 20px;">
                 <strong>4月後半〜5月の重点:</strong>
                 <ol style="margin-top: 8px; padding-left: 20px;">
-                    <li><strong>cv_40タグの修復（最優先）</strong> → Meta広告の購入最適化の学習が止まっている。修復すれば配信精度が回復する</li>
-                    <li><strong>LP改善画像の反映 + 離脱防止ポップアップ</strong> → 直帰率65% → 55%台への改善</li>
+                    <li><strong>LP改善画像の反映 + 離脱防止ポップアップ</strong> → 完成済みなのに未反映。直帰率65% → 55%台への改善</li>
+                    <li><strong>新クリエイティブの早期投入</strong> → 5週間同じ素材は広告疲れ。価格訴求v2（完成済み）を投入</li>
                     <li><strong>Google検索広告の開始</strong> → Yahoo広告で実証済みのパターンをGoogleに横展開</li>
                     <li><strong>Malz 1クールテスト</strong> → 認知拡大。Google広告との相乗効果を検証</li>
                     <li><strong>リターゲティング開始（5月頭）</strong> → 認知キャンペーンの蓄積データを活用</li>
