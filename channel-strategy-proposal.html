@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ミチルシリカ 広告チャネル戦略 提案書</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #0d47a1; --primary-light: #1976d2;
+            --success: #2e7d32; --success-light: #4caf50;
+            --warning: #ef6c00; --danger: #c62828;
+            --text: #263238; --text-light: #546e7a;
+            --bg: #f5f7fa; --card-bg: #ffffff;
+            --border: #e0e4e8; --radius: 12px;
+            --shadow: 0 2px 12px rgba(0,0,0,0.06);
+            --shadow-lg: 0 8px 30px rgba(0,0,0,0.1);
+        }
+        body { font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif; line-height: 1.7; color: var(--text); background: var(--bg); padding: 30px 20px; }
+        .container { max-width: 1000px; margin: 0 auto; }
+
+        .header { background: linear-gradient(135deg, #1a237e 0%, #283593 50%, #3949ab 100%); color: white; padding: 50px 40px; border-radius: var(--radius); margin-bottom: 30px; box-shadow: var(--shadow-lg); }
+        .header h1 { font-size: 1.8em; font-weight: 800; margin-bottom: 8px; }
+        .header .subtitle { font-size: 1.1em; opacity: 0.9; }
+        .header .meta { margin-top: 16px; font-size: 0.85em; opacity: 0.7; }
+
+        .section { background: var(--card-bg); border-radius: var(--radius); margin-bottom: 24px; box-shadow: var(--shadow); overflow: hidden; }
+        .section-header { padding: 20px 28px; font-size: 1.15em; font-weight: 700; color: white; }
+        .section-body { padding: 28px; }
+
+        .data-table { width: 100%; border-collapse: collapse; font-size: 0.9em; }
+        .data-table thead { background: #263238; color: white; }
+        .data-table th { padding: 12px 14px; text-align: left; font-weight: 600; font-size: 0.85em; }
+        .data-table td { padding: 12px 14px; border-bottom: 1px solid var(--border); }
+        .data-table .num { text-align: right; font-variant-numeric: tabular-nums; }
+        .data-table .total-row { background: #f0f4ff; font-weight: 700; }
+
+        .note-box { padding: 16px 20px; border-radius: 8px; font-size: 0.9em; line-height: 1.7; margin: 12px 0; }
+        .note-box.danger { background: #ffebee; border-left: 4px solid var(--danger); }
+        .note-box.success { background: #e8f5e9; border-left: 4px solid var(--success); }
+        .note-box.info { background: #e3f2fd; border-left: 4px solid var(--primary); }
+        .note-box.warning { background: #fff3e0; border-left: 4px solid var(--warning); }
+
+        .badge { display: inline-block; padding: 3px 12px; border-radius: 20px; font-size: 0.8em; font-weight: 700; }
+        .badge-up { background: #e8f5e9; color: var(--success); }
+        .badge-down { background: #ffebee; color: var(--danger); }
+        .badge-info { background: #e3f2fd; color: var(--primary); }
+        .badge-flat { background: #fff3e0; color: var(--warning); }
+
+        .vs-box { display: grid; grid-template-columns: 1fr auto 1fr; gap: 16px; align-items: stretch; margin: 20px 0; }
+        .vs-card { padding: 24px; border-radius: var(--radius); text-align: center; }
+        .vs-card.before { background: #ffebee; border: 2px solid var(--danger); }
+        .vs-card.after { background: #e8f5e9; border: 2px solid var(--success); }
+        .vs-card .label { font-size: 0.8em; color: var(--text-light); margin-bottom: 8px; }
+        .vs-card .title { font-size: 1.1em; font-weight: 800; margin-bottom: 12px; }
+        .vs-card .detail { font-size: 0.85em; color: var(--text-light); line-height: 1.6; text-align: left; }
+        .vs-arrow { display: flex; align-items: center; font-size: 2em; color: #999; }
+
+        .channel-bar { margin: 8px 0; }
+        .channel-bar .label { font-size: 0.85em; margin-bottom: 4px; }
+        .channel-bar .bar { height: 28px; border-radius: 6px; display: flex; overflow: hidden; }
+        .channel-bar .bar .seg { display: flex; align-items: center; justify-content: center; color: white; font-size: 0.75em; font-weight: 700; }
+
+        .flow-diagram { background: #f8f9fa; padding: 24px; border-radius: var(--radius); margin: 16px 0; }
+        .flow-row { display: flex; align-items: center; gap: 12px; margin: 12px 0; flex-wrap: wrap; }
+        .flow-box { padding: 10px 16px; border-radius: 8px; font-size: 0.85em; font-weight: 700; }
+        .flow-arrow { color: #999; font-size: 1.2em; }
+
+        @media (max-width: 768px) {
+            .vs-box { grid-template-columns: 1fr; }
+            .vs-arrow { justify-content: center; transform: rotate(90deg); }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <h1>広告チャネル戦略 提案書</h1>
+        <div class="subtitle">Meta広告一本足からの脱却 &mdash; 年齢 &times; チャネル最適化</div>
+        <div class="meta">ミチルシリカ | 2026年4月21日 定例会議用 | 株式会社斗</div>
+    </div>
+
+    <!-- ===== 1. 現状の問題 ===== -->
+    <div class="section">
+        <div class="section-header" style="background: linear-gradient(135deg, #b71c1c, #e53935);">現状の問題</div>
+        <div class="section-body">
+            <div class="note-box danger">
+                <strong>月¥120,000の広告費で購入10件。CPA ¥13,137。</strong><br>
+                目標50件/月に対して達成率20%。今のペースでは夏までに目標に届かない。
+            </div>
+
+            <h3 style="margin: 20px 0 12px; font-size: 1em;">問題の構造</h3>
+
+            <div class="note-box warning">
+                <strong>Meta広告（¥3,300/日）に全予算の83%を集中している。</strong><br><br>
+                Meta広告 = Instagram / Facebookの広告。<br>
+                つまり<strong>「水を探していない人」に水を売ろうとしている。</strong><br><br>
+                SNSを見ている人の心理は「友達の投稿を見たい」「暇つぶし」。<br>
+                そこに「シリカ水どうですか？」と見せても、ほとんどの人は興味がない。<br>
+                結果: 月2,000クリックで購入8件（LP転換率 0.44%）。
+            </div>
+
+            <h3 style="margin: 20px 0 12px; font-size: 1em;">年齢層 &times; メディア利用の実態</h3>
+            <table class="data-table">
+                <thead>
+                    <tr><th>年代</th><th class="num">Instagram利用率</th><th class="num">Facebook利用率</th><th class="num">Yahoo!ニュース</th><th class="num">検索で情報収集</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>30代</strong></td><td class="num" style="color:var(--success)">64%</td><td class="num">28%</td><td class="num">50%</td><td class="num">85%</td></tr>
+                    <tr><td><strong>40代</strong></td><td class="num">49%</td><td class="num">26%</td><td class="num">58%</td><td class="num">80%</td></tr>
+                    <tr><td><strong>50代</strong></td><td class="num" style="color:var(--danger)">30%</td><td class="num">25%</td><td class="num" style="color:var(--success)">62%</td><td class="num">75%</td></tr>
+                    <tr><td><strong>60代</strong></td><td class="num" style="color:var(--danger)">16%</td><td class="num">19%</td><td class="num">48%</td><td class="num">65%</td></tr>
+                </tbody>
+            </table>
+            <div class="note-box info" style="margin-top: 12px;">
+                <strong>50-60代にMeta広告でリーチするのは効率が悪い。</strong>50代のInstagram利用率は30%、60代は16%。一方、Yahoo!ニュースは50代62%、検索は75%が利用。<br>
+                <strong>50-60代は「検索」と「ニュース」で情報を得る。</strong>そこに広告を出すべき。
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== 2. 提案 ===== -->
+    <div class="section">
+        <div class="section-header" style="background: linear-gradient(135deg, #1a237e, #3949ab);">提案: 年齢 &times; チャネルで最適化する</div>
+        <div class="section-body">
+            <div class="note-box success" style="margin-bottom: 20px;">
+                <strong>同じ¥4,000/日のまま、チャネルの配分を変えるだけ。追加予算は不要。</strong>
+            </div>
+
+            <div class="vs-box">
+                <div class="vs-card before">
+                    <div class="label">今の予算配分</div>
+                    <div class="title" style="color: var(--danger);">Meta広告に83%集中</div>
+                    <div class="detail">
+                        Meta CV最適化: &yen;2,000/日<br>
+                        Meta テスト: &yen;800/日<br>
+                        Meta 認知: &yen;500/日<br>
+                        Yahoo検索: &yen;700/日<br>
+                        <strong>= &yen;4,000/日</strong>
+                    </div>
+                </div>
+                <div class="vs-arrow">&rarr;</div>
+                <div class="vs-card after">
+                    <div class="label">提案する予算配分</div>
+                    <div class="title" style="color: var(--success);">チャネルを分散</div>
+                    <div class="detail">
+                        Meta CV最適化: &yen;1,500/日<br>
+                        Meta 認知: &yen;500/日<br>
+                        Yahoo検索: &yen;700/日<br>
+                        <strong style="color: var(--primary);">Google検索: &yen;1,000/日（新規）</strong><br>
+                        <strong style="color: var(--primary);">YDA（Yahoo!ニュース面）: &yen;300/日（新規）</strong><br>
+                        <strong>= &yen;4,000/日</strong>
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="margin: 24px 0 12px; font-size: 1em;">予算配分の比較</h3>
+
+            <div class="channel-bar">
+                <div class="label"><strong>今</strong></div>
+                <div class="bar">
+                    <div class="seg" style="width:50%; background:#e91e63;">Meta CV最適化 &yen;2,000</div>
+                    <div class="seg" style="width:20%; background:#f06292;">テスト &yen;800</div>
+                    <div class="seg" style="width:12.5%; background:#f48fb1;">認知 &yen;500</div>
+                    <div class="seg" style="width:17.5%; background:#ff9800;">Yahoo &yen;700</div>
+                </div>
+            </div>
+            <div class="channel-bar">
+                <div class="label"><strong>提案</strong></div>
+                <div class="bar">
+                    <div class="seg" style="width:37.5%; background:#e91e63;">Meta CV &yen;1,500</div>
+                    <div class="seg" style="width:12.5%; background:#f48fb1;">認知 &yen;500</div>
+                    <div class="seg" style="width:17.5%; background:#ff9800;">Yahoo検索 &yen;700</div>
+                    <div class="seg" style="width:25%; background:#1976d2;">Google検索 &yen;1,000</div>
+                    <div class="seg" style="width:7.5%; background:#ff5722;">YDA &yen;300</div>
+                </div>
+            </div>
+
+            <h3 style="margin: 28px 0 12px; font-size: 1em;">各チャネルの役割</h3>
+            <table class="data-table">
+                <thead>
+                    <tr><th>チャネル</th><th>日予算</th><th>主なターゲット</th><th>役割</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Meta CV最適化</strong></td>
+                        <td class="num">&yen;1,500</td>
+                        <td>30-50代女性（SNS利用層）</td>
+                        <td>Instagram/Facebookで購入を狙う。ターゲットを30歳〜に拡大</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Meta 認知</strong></td>
+                        <td class="num">&yen;500</td>
+                        <td>30-50代女性</td>
+                        <td>動画で興味を持たせる。リターゲティング用オーディエンス蓄積</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Yahoo検索</strong></td>
+                        <td class="num">&yen;700</td>
+                        <td>全年齢（実態は50代以上が多い）</td>
+                        <td>「シリカ水」で検索した人を獲る。50-60代のメイン接点</td>
+                    </tr>
+                    <tr style="background: #e3f2fd;">
+                        <td><strong>Google検索 <span class="badge badge-info">新規</span></strong></td>
+                        <td class="num">&yen;1,000</td>
+                        <td>全年齢（実態は30-50代中心）</td>
+                        <td>Yahoo検索で実証済みのパターンをGoogleに横展開。検索ボリュームはYahooの5倍</td>
+                    </tr>
+                    <tr style="background: #fff3e0;">
+                        <td><strong>YDA <span class="badge badge-flat">新規</span></strong></td>
+                        <td class="num">&yen;300</td>
+                        <td>45-65歳女性</td>
+                        <td>Yahoo!ニュースの記事一覧に広告表示。50-60代への認知を作り、検索行動を促す</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- ===== 3. 年齢×チャネル ===== -->
+    <div class="section">
+        <div class="section-header" style="background: linear-gradient(135deg, #00695c, #00897b);">年齢ごとの購入経路イメージ</div>
+        <div class="section-body">
+            <h3 style="margin-bottom: 16px; font-size: 1em;">30-40代の購入経路</h3>
+            <div class="flow-diagram">
+                <div class="flow-row">
+                    <div class="flow-box" style="background: #e91e63; color: white;">Meta認知広告<br><small>ピクニック動画を見る</small></div>
+                    <div class="flow-arrow">&rarr;</div>
+                    <div class="flow-box" style="background: #f5f5f5;">「シリカ水って良さそう」<br><small>数日後...</small></div>
+                    <div class="flow-arrow">&rarr;</div>
+                    <div class="flow-box" style="background: #1976d2; color: white;">Google検索<br><small>「シリカ水 おすすめ」</small></div>
+                    <div class="flow-arrow">&rarr;</div>
+                    <div class="flow-box" style="background: var(--success); color: white;">LP &rarr; 購入</div>
+                </div>
+                <div class="flow-row">
+                    <div class="flow-box" style="background: #e91e63; color: white;">Meta CV最適化広告<br><small>価格訴求を見る</small></div>
+                    <div class="flow-arrow">&rarr;</div>
+                    <div class="flow-box" style="background: var(--success); color: white;">LP &rarr; 購入</div>
+                </div>
+            </div>
+
+            <h3 style="margin: 24px 0 16px; font-size: 1em;">50-60代の購入経路</h3>
+            <div class="flow-diagram">
+                <div class="flow-row">
+                    <div class="flow-box" style="background: #666; color: white;">のむシリカのTV CM<br><small>「シリカ水は体に良い」と知る</small></div>
+                    <div class="flow-arrow">&rarr;</div>
+                    <div class="flow-box" style="background: #ff5722; color: white;">YDA（Yahoo!ニュース面）<br><small>「1本49円のシリカ水が話題」</small></div>
+                    <div class="flow-arrow">&rarr;</div>
+                    <div class="flow-box" style="background: #f5f5f5;">「へえ、安いのもあるんだ」</div>
+                </div>
+                <div class="flow-row" style="padding-left: 40px;">
+                    <div class="flow-arrow">&rarr;</div>
+                    <div class="flow-box" style="background: #ff9800; color: white;">Yahoo!で検索<br><small>「シリカ水 安い」</small></div>
+                    <div class="flow-arrow">&rarr;</div>
+                    <div class="flow-box" style="background: var(--success); color: white;">LP &rarr; 購入</div>
+                </div>
+            </div>
+
+            <div class="note-box info" style="margin-top: 16px;">
+                <strong>ポイント:</strong> 50-60代への「シリカ水って良いですよ」という教育は、のむシリカがTV CMで毎月数千万円かけてやってくれている。ミチルシリカはその教育の恩恵を受けて、<strong>「知った人が検索した瞬間を獲る」ことに集中する。</strong>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== 4. キャンペーン構造変更 ===== -->
+    <div class="section">
+        <div class="section-header" style="background: linear-gradient(135deg, #4a148c, #7b1fa2);">Meta広告のキャンペーン構造変更</div>
+        <div class="section-body">
+            <div class="vs-box">
+                <div class="vs-card before">
+                    <div class="label">今（3キャンペーン）</div>
+                    <div class="title" style="color: var(--danger);">学習データが分散</div>
+                    <div class="detail">
+                        CV最適化: &yen;2,000/日 &rarr; 7件購入<br>
+                        テスト: &yen;800/日 &rarr; 1件購入（CPC高騰）<br>
+                        認知: &yen;500/日 &rarr; 0件<br><br>
+                        <strong>問題:</strong><br>
+                        &bull; テストは予算少なすぎてCPC &yen;500超<br>
+                        &bull; 購入データが2つに分散（学習が遅い）<br>
+                        &bull; 定期便訴求 &yen;6,821消化で0件購入
+                    </div>
+                </div>
+                <div class="vs-arrow">&rarr;</div>
+                <div class="vs-card after">
+                    <div class="label">提案（2キャンペーン）</div>
+                    <div class="title" style="color: var(--success);">学習データを集約</div>
+                    <div class="detail">
+                        CV最適化: &yen;1,500/日 &rarr; テストを統合<br>
+                        認知: &yen;500/日 &rarr; 維持<br><br>
+                        <strong>改善点:</strong><br>
+                        &bull; 全素材を1つの広告セットに集約<br>
+                        &bull; 8件の購入データが1箇所で学習<br>
+                        &bull; 新素材もCV最適化内でMeta自動テスト<br>
+                        &bull; 定期便訴求を停止（&yen;6,821の無駄削減）
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="margin: 20px 0 12px; font-size: 1em;">ターゲティングの変更</h3>
+            <table class="data-table">
+                <thead>
+                    <tr><th>項目</th><th>今</th><th>提案</th><th>理由</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>年齢</strong></td>
+                        <td>45-65歳</td>
+                        <td style="color: var(--primary); font-weight: 700;">30-65歳</td>
+                        <td>30代のInstagram利用率64%。美容意識が高く購入見込みあり。Metaの自動最適化に任せる</td>
+                    </tr>
+                    <tr>
+                        <td><strong>性別</strong></td>
+                        <td>女性</td>
+                        <td>女性</td>
+                        <td>変更なし</td>
+                    </tr>
+                    <tr>
+                        <td><strong>キャンペーン数</strong></td>
+                        <td>3つ</td>
+                        <td style="color: var(--primary); font-weight: 700;">2つ</td>
+                        <td>テストをCV最適化に統合。学習データを集約</td>
+                    </tr>
+                    <tr>
+                        <td><strong>広告セット</strong></td>
+                        <td>複数</td>
+                        <td style="color: var(--primary); font-weight: 700;">CV最適化は1つ</td>
+                        <td>分けるのはリターゲティング開始時のみ</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- ===== 5. Google検索広告 ===== -->
+    <div class="section">
+        <div class="section-header" style="background: linear-gradient(135deg, #1565c0, #2196f3);">Google検索広告の詳細</div>
+        <div class="section-body">
+            <div class="note-box info" style="margin-bottom: 16px;">
+                <strong>Yahoo検索広告がCPC &yen;41で安定稼働中。同じパターンをGoogleに横展開する。</strong>検索ボリュームはYahooの約5倍。
+            </div>
+
+            <h3 style="margin-bottom: 12px; font-size: 1em;">キーワード戦略（3層構造）</h3>
+            <table class="data-table">
+                <thead>
+                    <tr><th>層</th><th>キーワード例</th><th>予算配分</th><th>想定CPC</th><th>購入意欲</th></tr>
+                </thead>
+                <tbody>
+                    <tr style="background: #e8f5e9;">
+                        <td><strong>第1層: 指名検索</strong></td>
+                        <td>「ミチルシリカ」「ミチル シリカ水」</td>
+                        <td class="num">&yen;200/日</td>
+                        <td class="num">&yen;20〜40</td>
+                        <td><span class="badge badge-up">最高</span></td>
+                    </tr>
+                    <tr style="background: #e3f2fd;">
+                        <td><strong>第2層: 比較・乗換</strong></td>
+                        <td>「のむシリカ 高い」「シリカ水 安い」「シリカ水 コスパ」</td>
+                        <td class="num">&yen;500/日</td>
+                        <td class="num">&yen;50〜100</td>
+                        <td><span class="badge badge-info">高い</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>第3層: 一般検索</strong></td>
+                        <td>「シリカ水 おすすめ」「シリカ水 効果」「天然水 定期」</td>
+                        <td class="num">&yen;300/日</td>
+                        <td class="num">&yen;60〜120</td>
+                        <td><span class="badge badge-flat">中</span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 style="margin: 24px 0 12px; font-size: 1em;">効果シミュレーション</h3>
+            <table class="data-table">
+                <thead>
+                    <tr><th>指標</th><th class="num">Yahoo検索（実績）</th><th class="num">Google検索（予測）</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>月予算</td><td class="num">&yen;21,000</td><td class="num">&yen;30,000</td></tr>
+                    <tr><td>CPC</td><td class="num">&yen;41</td><td class="num">&yen;50〜80</td></tr>
+                    <tr><td>月間クリック</td><td class="num">317</td><td class="num">375〜600</td></tr>
+                    <tr><td>LP転換率</td><td class="num">-</td><td class="num">1.5〜2.5%</td></tr>
+                    <tr class="total-row"><td><strong>月間購入（予測）</strong></td><td class="num">-</td><td class="num" style="color: var(--success); font-size: 1.2em;"><strong>4〜10件</strong></td></tr>
+                </tbody>
+            </table>
+
+            <div class="note-box success" style="margin-top: 12px;">
+                LP: <a href="https://michiru.olivia-store.com/yahoo" target="_blank">michiru.olivia-store.com/yahoo</a> をそのまま使用。追加の制作コストゼロ。
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== 6. YDA ===== -->
+    <div class="section">
+        <div class="section-header" style="background: linear-gradient(135deg, #e65100, #ff9800);">YDA（Yahoo!ニュース面広告）の詳細</div>
+        <div class="section-body">
+            <div class="note-box info" style="margin-bottom: 16px;">
+                <strong>50-60代がYahoo!ニュースを読む流れの中に、記事風の広告を出す。</strong>今のYahoo広告アカウントから設定可能。
+            </div>
+
+            <div class="flow-diagram">
+                <div style="font-size: 0.9em; line-height: 2;">
+                    Yahoo!ニュースの記事一覧:<br>
+                    &bull; 岸田首相が会見で...<br>
+                    &bull; 大谷翔平が3打席連続...<br>
+                    <span style="background: #fff3e0; padding: 4px 12px; border-radius: 4px; font-weight: 700;">&bull; 【PR】50代から始める人が急増。1本49円のシリカ水が話題</span> &larr; これ<br>
+                    &bull; 今週末の天気は...
+                </div>
+            </div>
+
+            <table class="data-table" style="margin-top: 16px;">
+                <thead>
+                    <tr><th>項目</th><th>内容</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>配信面</strong></td><td>Yahoo!ニュース、Yahoo!トップページ</td></tr>
+                    <tr><td><strong>ターゲット</strong></td><td>45-65歳 女性 / 興味: 健康食品・美容・ミネラルウォーター</td></tr>
+                    <tr><td><strong>クリエイティブ</strong></td><td>記事風の見出し + 画像（例: 「50代から始める人が急増。1本49円のシリカ水が話題」）</td></tr>
+                    <tr><td><strong>リンク先</strong></td><td><a href="https://michiru.olivia-store.com/yahoo" target="_blank">michiru.olivia-store.com/yahoo</a></td></tr>
+                    <tr><td><strong>日予算</strong></td><td>&yen;300/日（月 &yen;9,000）</td></tr>
+                    <tr><td><strong>想定CPC</strong></td><td>&yen;30〜80</td></tr>
+                    <tr><td><strong>目的</strong></td><td>直接購入 + 「シリカ水」の検索行動を促す（検索広告との連携）</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- ===== 7. 期待効果 ===== -->
+    <div class="section">
+        <div class="section-header" style="background: linear-gradient(135deg, #1b5e20, #43a047);">期待効果</div>
+        <div class="section-body">
+            <table class="data-table">
+                <thead>
+                    <tr><th>チャネル</th><th class="num">月予算</th><th class="num">今の購入</th><th class="num">期待購入</th><th class="num">期待CPA</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Meta CV最適化</td>
+                        <td class="num">&yen;45,000</td>
+                        <td class="num">8件</td>
+                        <td class="num">5〜7件</td>
+                        <td class="num">&yen;6,400〜9,000</td>
+                    </tr>
+                    <tr>
+                        <td>Meta 認知</td>
+                        <td class="num">&yen;15,000</td>
+                        <td class="num">0件</td>
+                        <td class="num">0件（蓄積目的）</td>
+                        <td class="num">-</td>
+                    </tr>
+                    <tr>
+                        <td>Yahoo検索</td>
+                        <td class="num">&yen;21,000</td>
+                        <td class="num">2件</td>
+                        <td class="num">2〜3件</td>
+                        <td class="num">&yen;7,000〜10,500</td>
+                    </tr>
+                    <tr style="background: #e3f2fd;">
+                        <td><strong>Google検索</strong></td>
+                        <td class="num">&yen;30,000</td>
+                        <td class="num">-</td>
+                        <td class="num" style="color: var(--success); font-weight: 700;">4〜10件</td>
+                        <td class="num">&yen;3,000〜7,500</td>
+                    </tr>
+                    <tr style="background: #fff3e0;">
+                        <td><strong>YDA</strong></td>
+                        <td class="num">&yen;9,000</td>
+                        <td class="num">-</td>
+                        <td class="num">0〜1件</td>
+                        <td class="num">認知目的</td>
+                    </tr>
+                    <tr class="total-row">
+                        <td><strong>合計</strong></td>
+                        <td class="num"><strong>&yen;120,000</strong></td>
+                        <td class="num"><strong>10件</strong></td>
+                        <td class="num" style="color: var(--success); font-size: 1.2em;"><strong>11〜21件</strong></td>
+                        <td class="num"><strong>&yen;5,700〜10,900</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="note-box success" style="margin-top: 16px;">
+                <strong>同じ月&yen;120,000で、10件 &rarr; 11〜21件に改善。</strong>CPA &yen;13,137 &rarr; &yen;5,700〜10,900。<br><br>
+                これに加えて「お試しセット導入」でLP転換率が2〜3倍になれば、月30〜60件が見えてくる。（お試しセットは別途ご提案）
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== 8. 実施スケジュール ===== -->
+    <div class="section">
+        <div class="section-header" style="background: linear-gradient(135deg, #263238, #37474f);">実施スケジュール</div>
+        <div class="section-body">
+            <table class="data-table">
+                <thead>
+                    <tr><th>時期</th><th>やること</th><th>備考</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>4月中（すぐ）</strong></td>
+                        <td>
+                            &bull; テストキャンペーンをCV最適化に統合<br>
+                            &bull; 定期便訴求を停止<br>
+                            &bull; Metaターゲティングを30-65歳に拡大<br>
+                            &bull; 価格訴求v2動画をCV最適化に投入
+                        </td>
+                        <td>追加費用なし。設定変更のみ</td>
+                    </tr>
+                    <tr>
+                        <td><strong>5月第1週</strong></td>
+                        <td>
+                            &bull; Google検索広告アカウント作成・開始<br>
+                            &bull; YDA配信開始<br>
+                            &bull; Meta認知キャンペーンのリターゲティング開始
+                        </td>
+                        <td>Yahoo広告と同じKW・LPを使用。立ち上げは早い</td>
+                    </tr>
+                    <tr>
+                        <td><strong>5月第3週</strong></td>
+                        <td>
+                            &bull; 2週間の効果を検証<br>
+                            &bull; Google/YDAの予算調整<br>
+                            &bull; 効果が出ていないチャネルの予算をシフト
+                        </td>
+                        <td>データを見て判断。固執しない</td>
+                    </tr>
+                    <tr>
+                        <td><strong>6月〜</strong></td>
+                        <td>
+                            &bull; お試しセット導入（別途提案）<br>
+                            &bull; 30代向けクリエイティブ制作・投入<br>
+                            &bull; 各チャネルの最適化
+                        </td>
+                        <td>チャネル構造が安定してからLP側の改善</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 30px; padding: 20px; font-size: 0.8em; color: var(--text-light);">
+        ミチルシリカ 広告チャネル戦略 提案書 | 2026年4月21日 作成<br>
+        <a href="monthly-report-2026-04-21.html">&larr; 月次レポートに戻る</a>
+    </div>
+</div>
+</body>
+</html>
