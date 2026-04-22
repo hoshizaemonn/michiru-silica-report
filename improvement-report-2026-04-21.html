@@ -133,53 +133,50 @@
                 <strong>現状: LTV ROAS 1.82 = 広告費の約1.8倍の売上。</strong>目標3.0以上にはまだ届かない。CPA &yen;7,631に対し初回売上は&yen;1,980。定期3.5回継続でLTV &yen;13,860。CPAを&yen;4,000に下げるか、解約率36.7%を改善して継続回数を増やすか、両方やることで利益が出る構造になる。
             </div>
 
-            <h3 style="margin: 28px 0 14px; font-size: 1em;">媒体別 売上帰属（推定）</h3>
+            <h3 style="margin: 28px 0 14px; font-size: 1em;">媒体別 売上帰属</h3>
             <table class="data-table">
                 <thead>
                     <tr>
                         <th>媒体</th>
-                        <th class="num">広告費</th>
-                        <th class="num">推定クリック数</th>
-                        <th class="num">推定CPC</th>
-                        <th class="num">推定購入数</th>
-                        <th class="num">推定売上（初回）</th>
-                        <th class="num">CPA（推定）</th>
+                        <th class="num">広告費（4月）</th>
+                        <th class="num">構成比</th>
+                        <th class="num">実績CPC</th>
+                        <th class="num">購入帰属</th>
+                        <th class="num">CPA</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>Meta（Instagram / Facebook）</td>
                         <td class="num">&yen;67,532</td>
-                        <td class="num">約1,350</td>
-                        <td class="num">&yen;50</td>
-                        <td class="num" style="font-weight:700; color:var(--success);">8件</td>
-                        <td class="num">&yen;15,840</td>
-                        <td class="num" style="color:var(--danger);">&yen;8,442</td>
+                        <td class="num">80%</td>
+                        <td class="num">&yen;50（平均）</td>
+                        <td class="num" style="color:var(--danger); font-weight:700;">計測不可</td>
+                        <td class="num" style="color:var(--danger);">計測不可</td>
                     </tr>
                     <tr>
                         <td>Yahoo 検索広告</td>
                         <td class="num">&yen;16,415</td>
-                        <td class="num">約421</td>
-                        <td class="num">&yen;39</td>
-                        <td class="num" style="font-weight:700; color:var(--success);">3件</td>
-                        <td class="num">&yen;5,940</td>
-                        <td class="num" style="color:var(--warning);">&yen;5,472</td>
+                        <td class="num">20%</td>
+                        <td class="num">&yen;39（安定）</td>
+                        <td class="num" style="color:var(--danger); font-weight:700;">計測不可</td>
+                        <td class="num" style="color:var(--danger);">計測不可</td>
                     </tr>
                     <tr class="total-row">
                         <td>合計</td>
                         <td class="num">&yen;83,947</td>
-                        <td class="num">約1,771</td>
-                        <td class="num">&yen;47</td>
+                        <td class="num">100%</td>
+                        <td class="num">―</td>
                         <td class="num">11件</td>
-                        <td class="num">&yen;21,780</td>
                         <td class="num">&yen;7,631</td>
                     </tr>
                 </tbody>
             </table>
-            <div class="note-box info" style="margin-top: 12px; font-size: 0.85em;">
-                ※ クリック数は実績CPC（Meta平均¥50・Yahoo¥39）と広告費から逆算した推定値。UTMパラメータが未整備のため完全な媒体別帰属は現時点では困難。<br>
-                <strong>Yahooの優位性:</strong> 「シリカ水」を能動的に検索するユーザーが対象なので購買意図が高く、CPA¥5,472とMetaより約35%効率が良い。月¥16,415で3件獲得は費用対効果として優秀。<br>
-                <strong>今後の改善:</strong> GA4にUTMパラメータ（?utm_source=meta / ?utm_source=yahoo）を設定し正確な媒体別計測を実現する。
+            <div class="note-box danger" style="margin-top: 12px; font-size: 0.88em;">
+                <strong>【課題】UTMパラメータ未設定のため媒体別の購入帰属が不可能な状態。</strong><br>
+                現在は「11件購入・広告費¥83,947」という合算しか把握できず、MetaとYahooどちらが効いているか不明。<br>
+                <strong>対応策:</strong> 広告のリンク先URLに <code>?utm_source=meta</code> / <code>?utm_source=yahoo</code> を付与 → GA4のセッション > 参照元 / メディアで媒体別CVを計測できる。<br>
+                →&nbsp;次回レポートまでに設定し、媒体別CPA・ROAS を正確に把握する。
             </div>
         </div>
     </div>
