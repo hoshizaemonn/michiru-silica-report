@@ -132,6 +132,55 @@
             <div class="note-box warning">
                 <strong>現状: LTV ROAS 1.82 = 広告費の約1.8倍の売上。</strong>目標3.0以上にはまだ届かない。CPA &yen;7,631に対し初回売上は&yen;1,980。定期3.5回継続でLTV &yen;13,860。CPAを&yen;4,000に下げるか、解約率36.7%を改善して継続回数を増やすか、両方やることで利益が出る構造になる。
             </div>
+
+            <h3 style="margin: 28px 0 14px; font-size: 1em;">媒体別 売上帰属（推定）</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>媒体</th>
+                        <th class="num">広告費</th>
+                        <th class="num">推定クリック数</th>
+                        <th class="num">推定CPC</th>
+                        <th class="num">推定購入数</th>
+                        <th class="num">推定売上（初回）</th>
+                        <th class="num">CPA（推定）</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Meta（Instagram / Facebook）</td>
+                        <td class="num">&yen;67,532</td>
+                        <td class="num">約1,350</td>
+                        <td class="num">&yen;50</td>
+                        <td class="num" style="font-weight:700; color:var(--success);">8件</td>
+                        <td class="num">&yen;15,840</td>
+                        <td class="num" style="color:var(--danger);">&yen;8,442</td>
+                    </tr>
+                    <tr>
+                        <td>Yahoo 検索広告</td>
+                        <td class="num">&yen;16,415</td>
+                        <td class="num">約421</td>
+                        <td class="num">&yen;39</td>
+                        <td class="num" style="font-weight:700; color:var(--success);">3件</td>
+                        <td class="num">&yen;5,940</td>
+                        <td class="num" style="color:var(--warning);">&yen;5,472</td>
+                    </tr>
+                    <tr class="total-row">
+                        <td>合計</td>
+                        <td class="num">&yen;83,947</td>
+                        <td class="num">約1,771</td>
+                        <td class="num">&yen;47</td>
+                        <td class="num">11件</td>
+                        <td class="num">&yen;21,780</td>
+                        <td class="num">&yen;7,631</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="note-box info" style="margin-top: 12px; font-size: 0.85em;">
+                ※ クリック数は実績CPC（Meta平均¥50・Yahoo¥39）と広告費から逆算した推定値。UTMパラメータが未整備のため完全な媒体別帰属は現時点では困難。<br>
+                <strong>Yahooの優位性:</strong> 「シリカ水」を能動的に検索するユーザーが対象なので購買意図が高く、CPA¥5,472とMetaより約35%効率が良い。月¥16,415で3件獲得は費用対効果として優秀。<br>
+                <strong>今後の改善:</strong> GA4にUTMパラメータ（?utm_source=meta / ?utm_source=yahoo）を設定し正確な媒体別計測を実現する。
+            </div>
         </div>
     </div>
 
@@ -268,6 +317,54 @@
                     </tr>
                 </tbody>
             </table>
+        </div>
+    </div>
+
+    <!-- ===== 2.5 LP変更ログ ===== -->
+    <div class="section">
+        <div class="section-header" style="background: linear-gradient(135deg, #e65100, #f57c00);">LP変更ログ</div>
+        <div class="section-body">
+            <div class="note-box info" style="margin-bottom: 16px; font-size: 0.88em;">
+                何をいつ変えたか・なぜ変えたか・結果どうなったかを時系列で記録。<strong>広告のピクセル学習を壊さないため、価格・CTAボタン・決済フォームは変更していない。</strong>変えているのは画像・FV構成のみ。
+            </div>
+
+            <div class="log-entry" style="border-left-color: var(--warning);">
+                <div class="log-date">2026-04-19 ― 制作完了・WordPress反映待ち</div>
+                <div class="log-action">sec03-04 画像4枚リニューアル &nbsp;<a href="https://hoshizaemonn.github.io/michiru-silica-report/lp-renewal-preview.html" target="_blank" style="font-size:0.85em; font-weight:700;">[変更内容を確認 &rarr;]</a></div>
+                <div class="log-result">
+                    <strong>変更理由:</strong> テキストのみのセクションから感情訴求ビジュアルへ刷新。解約率89.5%（1回で辞める人が多い）への対策として「続ける価値」を視覚化。<br>
+                    <strong>4枚の内容:</strong> ①悩み（おばあちゃん背景）→②シリカ減少グラフ（根拠提示）→③解決策（ボトル×グラス×植物）→④3ヶ月タイムライン（定期継続訴求）<br>
+                    <strong>結果:</strong> 未反映のため効果測定待ち。反映後1〜2週間でCVR・スクロール率を確認予定。
+                </div>
+            </div>
+
+            <div class="log-entry">
+                <div class="log-date">2026-04-14</div>
+                <div class="log-action">Meta LP 訴求別出し分け（広告セットA/B）</div>
+                <div class="log-result">
+                    <strong>変更理由:</strong> 価格訴求（¥49/日）とその他訴求の効果を分離して計測するため。<br>
+                    広告セットA（価格¥500/日）→ 価格強調版LP・広告セットB（その他¥1,500/日）→ 通常版LP に切り分け。<br>
+                    <strong>結果:</strong> 効果測定継続中。セットA/Bのどちらでより購入が発生しているかはGA4またはMetaピクセルのデータで確認予定。
+                </div>
+            </div>
+
+            <div class="log-entry">
+                <div class="log-date">2026-04-16</div>
+                <div class="log-action">Yahoo用LP（/yahoo）の差別化整備</div>
+                <div class="log-result">
+                    <strong>変更理由:</strong> Yahoo検索ユーザーは「シリカ水」を能動的に検索するため、購買意図が高い。Meta（SNS）とは別LPで最適化する。<br>
+                    <strong>現状:</strong> FV構成はMeta版と同一。今後は「シリカ水 効果」などの検索クエリに沿ったFV調整を検討中。
+                </div>
+            </div>
+
+            <div class="log-entry" style="border-left-color: #ccc;">
+                <div class="log-date">現在の構成</div>
+                <div class="log-action">Meta用: ig1.php &nbsp;/&nbsp; Yahoo用: yahoo.php</div>
+                <div class="log-result">
+                    Meta用LP: <a href="https://michiru.olivia-store.com/" target="_blank">michiru.olivia-store.com</a>（Instagram / Facebook広告の誘導先）<br>
+                    Yahoo用LP: <a href="https://michiru.olivia-store.com/yahoo" target="_blank">michiru.olivia-store.com/yahoo</a>（Yahoo検索広告の誘導先）
+                </div>
+            </div>
         </div>
     </div>
 
