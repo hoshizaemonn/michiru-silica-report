@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ミチルシリカ 改善レポート | 2026年4月21日</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #0d47a1; --primary-light: #1976d2;
+            --success: #2e7d32; --success-light: #4caf50;
+            --warning: #ef6c00; --danger: #c62828;
+            --text: #263238; --text-light: #546e7a;
+            --bg: #f5f7fa; --card-bg: #ffffff;
+            --border: #e0e4e8; --radius: 12px;
+            --shadow: 0 2px 12px rgba(0,0,0,0.06);
+            --shadow-lg: 0 8px 30px rgba(0,0,0,0.1);
+        }
+        body { font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif; line-height: 1.7; color: var(--text); background: var(--bg); padding: 30px 20px; }
+        .container { max-width: 1000px; margin: 0 auto; }
+        .header { background: linear-gradient(135deg, #0d47a1 0%, #1565c0 50%, #1976d2 100%); color: white; padding: 40px; border-radius: var(--radius); margin-bottom: 30px; box-shadow: var(--shadow-lg); }
+        .header h1 { font-size: 1.6em; font-weight: 800; margin-bottom: 4px; }
+        .header .subtitle { font-size: 0.95em; opacity: 0.85; }
+        .header .meta { margin-top: 12px; font-size: 0.8em; opacity: 0.65; }
+        .section { background: var(--card-bg); border-radius: var(--radius); margin-bottom: 24px; box-shadow: var(--shadow); overflow: hidden; }
+        .section-header { padding: 18px 24px; font-size: 1.1em; font-weight: 700; color: white; }
+        .section-body { padding: 24px; }
+        .kpi-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 20px; }
+        .kpi { text-align: center; padding: 20px 16px; border-radius: 10px; border: 1px solid var(--border); }
+        .kpi .label { font-size: 0.75em; color: var(--text-light); margin-bottom: 6px; letter-spacing: 1px; }
+        .kpi .value { font-size: 2em; font-weight: 900; }
+        .kpi .sub { font-size: 0.75em; color: var(--text-light); margin-top: 4px; }
+        .data-table { width: 100%; border-collapse: collapse; font-size: 0.88em; }
+        .data-table thead { background: #263238; color: white; }
+        .data-table th { padding: 10px 12px; text-align: left; font-weight: 600; font-size: 0.82em; }
+        .data-table td { padding: 10px 12px; border-bottom: 1px solid var(--border); }
+        .data-table .num { text-align: right; font-variant-numeric: tabular-nums; }
+        .data-table .total-row { background: #f0f4ff; font-weight: 700; }
+        .note-box { padding: 14px 18px; border-radius: 8px; font-size: 0.88em; line-height: 1.7; margin: 12px 0; }
+        .note-box.success { background: #e8f5e9; border-left: 4px solid var(--success); }
+        .note-box.info { background: #e3f2fd; border-left: 4px solid var(--primary); }
+        .note-box.warning { background: #fff3e0; border-left: 4px solid var(--warning); }
+        .note-box.danger { background: #ffebee; border-left: 4px solid var(--danger); }
+        .badge { display: inline-block; padding: 2px 10px; border-radius: 20px; font-size: 0.75em; font-weight: 700; }
+        .badge-up { background: #e8f5e9; color: var(--success); }
+        .badge-down { background: #ffebee; color: var(--danger); }
+        .badge-flat { background: #fff3e0; color: var(--warning); }
+        .badge-info { background: #e3f2fd; color: var(--primary); }
+        .effect-card { border: 2px solid var(--border); border-radius: var(--radius); padding: 20px; margin: 14px 0; }
+        .effect-card.positive { border-color: var(--success); background: linear-gradient(135deg, #f9fff9, #fff); }
+        .effect-card.neutral { border-color: var(--border); }
+        .effect-card.negative { border-color: var(--danger); background: linear-gradient(135deg, #fffafa, #fff); }
+        .effect-card .effect-title { font-weight: 700; font-size: 1em; margin-bottom: 8px; }
+        .effect-card .effect-data { display: flex; gap: 24px; margin: 8px 0; flex-wrap: wrap; }
+        .effect-card .effect-item { text-align: center; }
+        .effect-card .effect-item .before { font-size: 0.8em; color: var(--text-light); }
+        .effect-card .effect-item .after { font-size: 1.3em; font-weight: 900; }
+        .effect-card .effect-item .arrow { color: #999; }
+        .effect-card .effect-note { font-size: 0.82em; color: var(--text-light); margin-top: 8px; }
+        .next-action { display: flex; gap: 12px; align-items: flex-start; padding: 14px 0; border-bottom: 1px solid var(--border); }
+        .next-action:last-child { border-bottom: none; }
+        .next-action .priority { min-width: 28px; height: 28px; border-radius: 50%; color: white; font-weight: 900; font-size: 0.8em; display: flex; align-items: center; justify-content: center; }
+        .next-action .content { flex: 1; }
+        .next-action .content .title { font-weight: 700; font-size: 0.95em; }
+        .next-action .content .desc { font-size: 0.82em; color: var(--text-light); margin-top: 4px; }
+        .log-entry { border-left: 3px solid var(--primary); padding: 12px 16px; margin: 10px 0; background: #fafbfc; border-radius: 0 8px 8px 0; }
+        .log-entry .log-date { font-size: 0.75em; color: var(--text-light); font-weight: 700; }
+        .log-entry .log-action { font-weight: 700; font-size: 0.9em; margin: 4px 0; }
+        .log-entry .log-result { font-size: 0.82em; color: var(--text-light); }
+        @media (max-width: 768px) { .kpi-row { grid-template-columns: 1fr 1fr; } .effect-card .effect-data { gap: 12px; } }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <h1>ミチルシリカ 改善レポート</h1>
+        <div class="subtitle">やったこと &rarr; 結果 &rarr; 次にやること</div>
+        <div class="meta">2026年4月21日（月）定例会議 | 対象: 4/1〜4/21 | 日予算 Meta &yen;3,300 + Yahoo &yen;700 = &yen;4,000</div>
+    </div>
+
+    <!-- ===== 1. 売上・費用対効果 ===== -->
+    <div class="section">
+        <div class="section-header" style="background: linear-gradient(135deg, #1b5e20, #2e7d32);">売上・費用対効果</div>
+        <div class="section-body">
+            <div class="kpi-row">
+                <div class="kpi">
+                    <div class="label">広告経由 購入</div>
+                    <div class="value" style="color: var(--success);">11件</div>
+                    <div class="sub">カラーミー8 + 代引き3<br>目標50件（達成率22%）</div>
+                </div>
+                <div class="kpi">
+                    <div class="label">広告費</div>
+                    <div class="value" style="color: var(--primary);">&yen;139,693</div>
+                    <div class="sub">Meta &yen;125,192 + Yahoo &yen;14,501</div>
+                </div>
+                <div class="kpi">
+                    <div class="label">CPA</div>
+                    <div class="value" style="color: var(--danger);">&yen;12,699</div>
+                    <div class="sub">目標 &yen;4,000</div>
+                </div>
+                <div class="kpi">
+                    <div class="label">Amazon購入</div>
+                    <div class="value" style="color: var(--success);">41件</div>
+                    <div class="sub">日平均1.95件 / 月60件ペース</div>
+                </div>
+            </div>
+
+            <div class="kpi-row">
+                <div class="kpi">
+                    <div class="label">売上（広告経由・推定）</div>
+                    <div class="value" style="color: var(--success);">&yen;21,780</div>
+                    <div class="sub">11件 &times; &yen;1,980（初回）</div>
+                </div>
+                <div class="kpi">
+                    <div class="label">LTV売上（定期継続想定）</div>
+                    <div class="value" style="color: var(--primary);">&yen;152,460</div>
+                    <div class="sub">11件 &times; 平均3.5回 &times; &yen;3,960</div>
+                </div>
+                <div class="kpi">
+                    <div class="label">LTV ROAS</div>
+                    <div class="value" style="color: var(--warning);">1.09</div>
+                    <div class="sub">&yen;152,460 &divide; &yen;139,693<br>目標: 3.0以上</div>
+                </div>
+                <div class="kpi">
+                    <div class="label">解約率</div>
+                    <div class="value" style="color: var(--danger);">36.7%</div>
+                    <div class="sub">79人中29人（1回解約89.5%）</div>
+                </div>
+            </div>
+
+            <div class="note-box warning">
+                <strong>現状: 広告費を回収できていない。</strong>LTV ROAS 1.09 = 広告費とほぼトントン。CPA &yen;12,699に対し初回売上は&yen;1,980。定期3.5回継続してもLTV &yen;13,860でようやく回収。解約率36.7%を下げるか、CPAを下げるか、両方やらないと利益が出ない。
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== 2. やったこと → 結果 ===== -->
+    <div class="section">
+        <div class="section-header" style="background: linear-gradient(135deg, #4a148c, #7b1fa2);">やったこと &rarr; 結果</div>
+        <div class="section-body">
+
+            <h3 style="margin-bottom: 16px; font-size: 1em;">4/20に実施した広告構造変更</h3>
+
+            <div class="effect-card positive">
+                <div class="effect-title">1. テストキャンペーンをCV最適化に統合</div>
+                <div class="effect-data">
+                    <div class="effect-item">
+                        <div class="before">変更前CPC</div>
+                        <div class="after">&yen;57</div>
+                    </div>
+                    <div class="effect-item">
+                        <div class="arrow">&rarr;</div>
+                    </div>
+                    <div class="effect-item">
+                        <div class="before">変更後CPC（2日平均）</div>
+                        <div class="after" style="color: var(--success);">&yen;33</div>
+                    </div>
+                    <div class="effect-item">
+                        <div class="before">改善率</div>
+                        <div class="after" style="color: var(--success);">-42%</div>
+                    </div>
+                </div>
+                <div class="effect-note">テスト予算&yen;800/日がCV最適化に集約。CPC&yen;500超の高騰が解消。4/21にはテストの残配信も完全になくなった。</div>
+            </div>
+
+            <div class="effect-card neutral">
+                <div class="effect-title">2. 広告セットB予算 &yen;1,500 &rarr; &yen;2,300</div>
+                <div class="effect-data">
+                    <div class="effect-item">
+                        <div class="before">変更前の日消化</div>
+                        <div class="after">&yen;3,400</div>
+                    </div>
+                    <div class="effect-item">
+                        <div class="arrow">&rarr;</div>
+                    </div>
+                    <div class="effect-item">
+                        <div class="before">変更後（2日平均）</div>
+                        <div class="after">&yen;3,435</div>
+                    </div>
+                </div>
+                <div class="effect-note">消化額はほぼ変わらず。予算を上げてもMetaが必要以上に使わない（=無駄に使っていない）のは良い兆候。</div>
+            </div>
+
+            <div class="effect-card neutral">
+                <div class="effect-title">3. ターゲット 45-65歳 &rarr; 30-65歳に拡大</div>
+                <div class="effect-note">変更後2日ではまだ効果測定困難。30代への配信が増えているかは1週間後にMeta管理画面の「内訳→年齢」で確認予定。</div>
+            </div>
+
+            <div class="effect-card neutral">
+                <div class="effect-title">4. K2動画「日常4-腸活」をCV最適化に投入 <a href="https://drive.google.com/file/d/14bsfNxCVWfu47JFesitO5LQlEC5-u6l5/view" target="_blank" style="font-size:0.8em">[動画を見る]</a></div>
+                <div class="effect-data">
+                    <div class="effect-item">
+                        <div class="before">4/20</div>
+                        <div class="after">&yen;83 / 1click</div>
+                    </div>
+                    <div class="effect-item">
+                        <div class="before">4/21</div>
+                        <div class="after">&yen;424 / 1click</div>
+                    </div>
+                </div>
+                <div class="effect-note">まだ学習中。Metaが配信先を探っている段階。3〜5日で安定する見込み。</div>
+            </div>
+
+            <h3 style="margin: 28px 0 16px; font-size: 1em;">4/1〜4/19に実施した施策</h3>
+
+            <table class="data-table">
+                <thead>
+                    <tr><th>施策</th><th>実施日</th><th>結果</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>CV最適化 広告セット分割（A:価格&yen;500/B:その他&yen;1,500）</td>
+                        <td>4/14</td>
+                        <td>価格訴求の効率を分離して検証可能に</td>
+                    </tr>
+                    <tr>
+                        <td>認知キャンペーン ピクニック動画投入</td>
+                        <td>4/7</td>
+                        <td>CTR 11.9% / CPC &yen;8。リタゲ用オーディエンス蓄積中</td>
+                    </tr>
+                    <tr>
+                        <td>Yahoo広告 KW見直し（インテントマッチ&rarr;フレーズ一致）</td>
+                        <td>4/16</td>
+                        <td>学習完了。CPC &yen;39で安定</td>
+                    </tr>
+                    <tr>
+                        <td>LP sec03-04 画像リニューアル制作</td>
+                        <td>4/19</td>
+                        <td>4枚完成。<a href="https://hoshizaemonn.github.io/michiru-silica-report/lp-renewal-preview.html" target="_blank">画像を確認</a>。WordPress反映待ち</td>
+                    </tr>
+                    <tr>
+                        <td>解約対策 提案書3本作成</td>
+                        <td>4/16</td>
+                        <td><a href="https://hoshizaemonn.github.io/michiru-silica-report/kaiyaku-taisaku-sogo.html" target="_blank">総合提案書</a> / <a href="https://hoshizaemonn.github.io/michiru-silica-report/kakaku-kaitei-proposal.html" target="_blank">価格改定</a> / <a href="https://hoshizaemonn.github.io/michiru-silica-report/施策効果レポート_2026-04-16.html" target="_blank">施策効果</a></td>
+                    </tr>
+                    <tr>
+                        <td>Instagram 1週間分制作（EKATO.風）</td>
+                        <td>4/19</td>
+                        <td>リール2本+カルーセル2本完成</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 style="margin: 28px 0 16px; font-size: 1em;">過去の失敗から学んだこと</h3>
+            <table class="data-table">
+                <thead>
+                    <tr><th>施策</th><th>消化</th><th>結果</th><th>学び</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>YDA（Yahoo!ニュース面広告）</td>
+                        <td class="num">&yen;368,479</td>
+                        <td style="color:var(--danger);font-weight:700">0件購入</td>
+                        <td>「水を探していない人」に見せても買わない</td>
+                    </tr>
+                    <tr>
+                        <td>定期便訴求</td>
+                        <td class="num">&yen;6,821</td>
+                        <td style="color:var(--danger);font-weight:700">0件購入（59click）</td>
+                        <td>初回購入前に「定期便」はハードルが高すぎる</td>
+                    </tr>
+                    <tr>
+                        <td>テストキャンペーン（予算&yen;800/日）</td>
+                        <td class="num">&yen;12,315</td>
+                        <td>1件（CPC&yen;500超）</td>
+                        <td>予算が少なすぎると入札で負けてCPC高騰する</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- ===== 3. 次にやること ===== -->
+    <div class="section">
+        <div class="section-header" style="background: linear-gradient(135deg, #b71c1c, #e53935);">次にやること</div>
+        <div class="section-body">
+
+            <div class="next-action">
+                <div class="priority" style="background: var(--danger);">1</div>
+                <div class="content">
+                    <div class="title">LP改善画像をWordPressに反映</div>
+                    <div class="desc">4枚の画像+PHPが完成済みなのに未反映。<a href="https://hoshizaemonn.github.io/michiru-silica-report/lp-renewal-preview.html" target="_blank">変更箇所を確認</a> / <a href="https://michiru.olivia-store.com/" target="_blank">現在のLP</a></div>
+                </div>
+            </div>
+
+            <div class="next-action">
+                <div class="priority" style="background: var(--danger);">2</div>
+                <div class="content">
+                    <div class="title">同梱物3点セットの印刷・同梱開始</div>
+                    <div class="desc">解約率36.7%・1回解約89.5%への対策。HTML完成済み。印刷手配の判断待ち。<a href="https://hoshizaemonn.github.io/michiru-silica-report/kaiyaku-taisaku-sogo.html" target="_blank">解約対策提案書</a></div>
+                </div>
+            </div>
+
+            <div class="next-action">
+                <div class="priority" style="background: var(--warning);">3</div>
+                <div class="content">
+                    <div class="title">定期便訴求の停止（&yen;6,821/月の無駄削減）</div>
+                    <div class="desc">59クリック/0購入。K2動画の学習が安定したタイミングで実施</div>
+                </div>
+            </div>
+
+            <div class="next-action">
+                <div class="priority" style="background: var(--primary);">4</div>
+                <div class="content">
+                    <div class="title">リターゲティング開始（5月頭）</div>
+                    <div class="desc">認知動画50%以上視聴者のカスタムオーディエンス &rarr; CV最適化に新広告セットとして追加。&yen;500/日から</div>
+                </div>
+            </div>
+
+            <div class="next-action">
+                <div class="priority" style="background: var(--primary);">5</div>
+                <div class="content">
+                    <div class="title">Google検索広告の開始（会議で相談）</div>
+                    <div class="desc">Yahoo検索がCPC&yen;39で安定。同じパターンをGoogleに横展開。Meta予算&yen;1,000/日をGoogleに振替。追加費用&yen;0</div>
+                </div>
+            </div>
+
+            <div class="next-action">
+                <div class="priority" style="background: var(--text-light);">6</div>
+                <div class="content">
+                    <div class="title">お試しセット導入（検討中）</div>
+                    <div class="desc">定期便の前に「お試し6本&yen;980」を入口にする。LP転換率が2〜3倍になる見込み。別途詳細提案予定</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== 4. 施策効果ログ ===== -->
+    <div class="section">
+        <div class="section-header" style="background: linear-gradient(135deg, #263238, #37474f);">施策効果ログ（毎月蓄積）</div>
+        <div class="section-body">
+            <div class="note-box info" style="margin-bottom: 16px;">
+                施策を実施するたびにここに記録。何が効いて何が効かなかったかを蓄積していく。
+            </div>
+
+            <div class="log-entry" style="border-left-color: var(--success);">
+                <div class="log-date">2026-04-20</div>
+                <div class="log-action">テストキャンペーン廃止 &rarr; CV最適化に統合</div>
+                <div class="log-result">CPC &yen;57 &rarr; &yen;33（-42%改善）。テストの残配信は4/21に完全解消。購入データが1箇所に集約され学習効率向上。</div>
+            </div>
+
+            <div class="log-entry" style="border-left-color: var(--success);">
+                <div class="log-date">2026-04-20</div>
+                <div class="log-action">広告セットB予算 &yen;1,500 &rarr; &yen;2,300</div>
+                <div class="log-result">消化額はほぼ変わらず（&yen;3,435/日）。Metaが無駄に使っていない = 健全。</div>
+            </div>
+
+            <div class="log-entry">
+                <div class="log-date">2026-04-20</div>
+                <div class="log-action">ターゲット年齢 45-65歳 &rarr; 30-65歳に拡大</div>
+                <div class="log-result">効果測定は1週間後。Meta管理画面「内訳&rarr;年齢」で確認予定。</div>
+            </div>
+
+            <div class="log-entry">
+                <div class="log-date">2026-04-20</div>
+                <div class="log-action">K2動画「日常4-腸活」投入</div>
+                <div class="log-result">2日間で&yen;507消化/2click。まだ学習中。3〜5日で安定見込み。</div>
+            </div>
+
+            <div class="log-entry" style="border-left-color: var(--success);">
+                <div class="log-date">2026-04-16</div>
+                <div class="log-action">Yahoo広告 KW見直し（インテントマッチ &rarr; フレーズ一致+除外KW）</div>
+                <div class="log-result">学習完了。CPC &yen;35〜44 &rarr; &yen;36〜39で安定。CTR 2.76〜5.01%。</div>
+            </div>
+
+            <div class="log-entry" style="border-left-color: var(--success);">
+                <div class="log-date">2026-04-07</div>
+                <div class="log-action">認知キャンペーン ピクニック動画投入</div>
+                <div class="log-result">CTR 11.9% / CPC &yen;8。認知キャンペーンで最高効率。リタゲ用オーディエンス蓄積に貢献。</div>
+            </div>
+
+            <div class="log-entry" style="border-left-color: var(--danger);">
+                <div class="log-date">2024-03 〜 2026-04</div>
+                <div class="log-action">YDA（Yahoo!ニュース面広告）運用</div>
+                <div class="log-result">&yen;368,479消化 / 19,603click / 購入0件。「水を探していない人」に見せても買わない。廃止。</div>
+            </div>
+        </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 30px; padding: 20px; font-size: 0.8em; color: var(--text-light);">
+        ミチルシリカ 改善レポート | 2026年4月21日 作成<br>
+        LP: <a href="https://michiru.olivia-store.com/" target="_blank">Meta用</a> / <a href="https://michiru.olivia-store.com/yahoo" target="_blank">Yahoo用</a>
+    </div>
+
+</div>
+</body>
+</html>
