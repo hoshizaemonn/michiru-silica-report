@@ -365,6 +365,145 @@
         </div>
     </div>
 
+    <!-- ===== Amazon広告最適化（4/24実施） ===== -->
+    <div class="section">
+        <div class="section-header" style="background: linear-gradient(135deg, #e65100, #f57c00);">Amazon広告最適化（4/24実施）</div>
+        <div class="section-body">
+
+            <div class="note-box warning" style="margin-bottom: 20px;">
+                <strong>背景：4/23・4/24とAmazon購入ゼロ。</strong>CSVデータを分析した結果、無駄ターゲットへの予算流出 + KW専用キャンペーンの予算枯渇が原因と判断。即日対応を実施。
+            </div>
+
+            <h3 style="margin-bottom: 14px; font-size: 1em;">実施アクション①：自動キャンペーン 除外ターゲティング追加</h3>
+            <div class="note-box info" style="margin-bottom: 12px; font-size: 0.85em;">
+                自動キャンペーンは個別停止ができないため、除外ターゲティング（フレーズ一致）で無効化。
+            </div>
+            <table class="data-table" style="margin-bottom: 20px;">
+                <thead>
+                    <tr><th>除外追加ターゲット</th><th>種別</th><th>4/20-4/24 消化額</th><th>購入</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>アルカリイオン水</td><td>KW（フレーズ）</td>
+                        <td class="num" style="color:var(--danger);">¥1,357</td>
+                        <td class="num" style="color:var(--danger);">0件</td>
+                    </tr>
+                    <tr>
+                        <td>天然シリカ水</td><td>KW（フレーズ）</td>
+                        <td class="num" style="color:var(--danger);">¥773</td>
+                        <td class="num" style="color:var(--danger);">0件</td>
+                    </tr>
+                    <tr>
+                        <td>シリカ水 500ml</td><td>KW（フレーズ）</td>
+                        <td class="num" style="color:var(--danger);">¥718</td>
+                        <td class="num" style="color:var(--danger);">0件</td>
+                    </tr>
+                    <tr>
+                        <td>B072Z8FFXR / B0BB5VQ1L8 / B0DF776K89<br>B09FDYR1DQ / B08HX5V1R9 / B0G64KGDR5</td>
+                        <td>ASIN 6件</td>
+                        <td class="num" style="color:var(--danger);">¥2,080</td>
+                        <td class="num" style="color:var(--danger);">0件</td>
+                    </tr>
+                    <tr class="total-row">
+                        <td>合計</td><td></td>
+                        <td class="num">¥4,928</td>
+                        <td class="num">0件</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 style="margin-bottom: 14px; font-size: 1em;">実施アクション②：KW専用キャンペーン（¥800/日）の不採算KW停止</h3>
+            <div class="note-box danger" style="margin-bottom: 12px; font-size: 0.85em;">
+                KW専用キャンペーンは常に「予算超過（CAMPAIGN_OUT_OF_BUDGET）」状態。無駄KWが予算を食い尽くし、勝ちKWが配信できていなかった。
+            </div>
+            <table class="data-table" style="margin-bottom: 20px;">
+                <thead>
+                    <tr><th>停止KW</th><th>マッチ</th><th>消化額</th><th>IMP</th><th>購入</th><th>停止理由</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>水 500ml 24本</td><td>完全一致</td>
+                        <td class="num">¥765</td><td class="num">23,028</td>
+                        <td class="num" style="color:var(--danger);">0件</td>
+                        <td>CTR 0.03%。IMP多いのに全くクリックされない</td>
+                    </tr>
+                    <tr>
+                        <td>シリカ水 500ml</td><td>完全一致</td>
+                        <td class="num">¥945</td><td class="num">1,550</td>
+                        <td class="num" style="color:var(--danger);">0件</td>
+                        <td>¥945消化で0件</td>
+                    </tr>
+                    <tr>
+                        <td>水 シリカ</td><td>フレーズ一致</td>
+                        <td class="num">¥3,509</td><td class="num">3,240</td>
+                        <td class="num">1件</td>
+                        <td>ROAS 0.76（赤字）</td>
+                    </tr>
+                    <tr class="total-row">
+                        <td>合計削減</td><td></td>
+                        <td class="num">¥5,219</td><td></td><td></td><td></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 style="margin-bottom: 14px; font-size: 1em;">実施アクション③：勝ちKW強化・予算増額</h3>
+            <table class="data-table" style="margin-bottom: 16px;">
+                <thead>
+                    <tr><th>対応</th><th>内容</th><th>理由</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>水 シリカ（完全一致）入札アップ</td>
+                        <td>¥120 &rarr; <strong>¥160</strong></td>
+                        <td>ROAS 9.21の最優秀KW。露出を増やす</td>
+                    </tr>
+                    <tr>
+                        <td>KW専用 日予算増額</td>
+                        <td>¥800 &rarr; <strong>¥1,200</strong></td>
+                        <td>不採算KW停止後、勝ちKWに予算を集中させるタイミング</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 style="margin-bottom: 14px; font-size: 1em;">自動キャンペーン 勝ちターゲット（4/20-4/24）</h3>
+            <table class="data-table">
+                <thead>
+                    <tr><th>ターゲット</th><th class="num">費用</th><th class="num">購入</th><th class="num">ROAS</th><th>判断</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>B092D5HM5S</td>
+                        <td class="num">¥141</td><td class="num">1件</td>
+                        <td class="num" style="color:var(--success);font-weight:700;">28.9</td>
+                        <td><span class="badge badge-up">最優秀・維持</span></td>
+                    </tr>
+                    <tr>
+                        <td>ナチュラルウォーター2リットル</td>
+                        <td class="num">¥203</td><td class="num">1件</td>
+                        <td class="num" style="color:var(--success);font-weight:700;">13.1</td>
+                        <td><span class="badge badge-up">優秀・維持</span></td>
+                    </tr>
+                    <tr>
+                        <td>B07N4L5LZC</td>
+                        <td class="num">¥348</td><td class="num">1件</td>
+                        <td class="num" style="color:var(--success);font-weight:700;">11.7</td>
+                        <td><span class="badge badge-up">優秀・維持</span></td>
+                    </tr>
+                    <tr>
+                        <td>水 500ml 24本</td>
+                        <td class="num">¥423</td><td class="num">1件</td>
+                        <td class="num" style="color:var(--success);">9.6</td>
+                        <td><span class="badge badge-up">良好・維持</span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="note-box success" style="margin-top: 16px;">
+                <strong>自動キャンペーンの代替商品入札¥94は維持。</strong>4月で37件購入の主力。推奨入札（¥47-59）を超えているが結果が出ているため変更しない。
+            </div>
+        </div>
+    </div>
+
     <!-- ===== 3. 会議決定事項・To-Do ===== -->
     <div class="section">
         <div class="section-header" style="background: linear-gradient(135deg, #b71c1c, #e53935);">会議決定事項 &amp; To-Do（4/21）</div>
