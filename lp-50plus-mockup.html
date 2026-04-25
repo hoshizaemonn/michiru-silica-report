@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ミチルシリカ LP — 50代以上向け（のむシリカ参考）</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: "Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo,sans-serif; color:#222; background:#fff; font-size:16px; }
+.label-tag { display:inline-block; background:#c00; color:#fff; font-size:11px; font-weight:700; padding:3px 10px; border-radius:3px; margin-bottom:10px; letter-spacing:1px; }
+.label-tag.blue { background:#0d47a1; }
+.label-tag.green { background:#1b5e20; }
+
+/* ── FV ── */
+.fv { background:linear-gradient(160deg,#e8f5e9 0%,#c8e6c9 50%,#a5d6a7 100%); padding:40px 20px 30px; text-align:center; }
+.fv .catch-sub { font-size:13px; color:#2e7d32; font-weight:700; letter-spacing:2px; margin-bottom:8px; }
+.fv h1 { font-size:26px; font-weight:900; line-height:1.45; color:#1b5e20; margin-bottom:16px; }
+.fv h1 em { color:#c62828; font-style:normal; }
+.fv .catch-body { font-size:14px; color:#555; line-height:1.8; margin-bottom:20px; }
+.fv .product-img { background:#fff; border-radius:50%; width:160px; height:160px; margin:0 auto 20px; display:flex; align-items:center; justify-content:center; font-size:13px; color:#888; border:3px solid #a5d6a7; }
+.fv .results-bar { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-bottom:24px; }
+.fv .result-item { background:#fff; border-radius:8px; padding:12px 18px; text-align:center; box-shadow:0 2px 8px rgba(0,0,0,.1); min-width:100px; }
+.fv .result-item .num { font-size:22px; font-weight:900; color:#1b5e20; }
+.fv .result-item .unit { font-size:11px; color:#777; }
+.btn-cta { display:block; background:linear-gradient(135deg,#c62828,#e53935); color:#fff; font-size:18px; font-weight:900; padding:18px; border-radius:50px; text-align:center; text-decoration:none; box-shadow:0 4px 15px rgba(198,40,40,.4); margin:0 auto; max-width:340px; letter-spacing:1px; }
+.btn-cta .sub { font-size:12px; font-weight:400; opacity:.9; display:block; margin-top:4px; }
+.tel-order { text-align:center; margin-top:12px; font-size:13px; color:#555; }
+.tel-order a { color:#1b5e20; font-weight:700; font-size:18px; text-decoration:none; }
+
+/* ── セクション共通 ── */
+.section { padding:36px 20px; }
+.section.gray { background:#f5f5f5; }
+.section.green-light { background:#e8f5e9; }
+.section h2 { font-size:20px; font-weight:900; text-align:center; line-height:1.5; margin-bottom:8px; }
+.section .h2-sub { text-align:center; font-size:13px; color:#777; margin-bottom:24px; }
+.divider { width:40px; height:3px; background:#2e7d32; margin:10px auto 20px; border-radius:2px; }
+
+/* ── 悩みセクション ── */
+.nayami-list { list-style:none; }
+.nayami-list li { background:#fff; border-left:4px solid #c62828; padding:14px 16px; margin-bottom:10px; border-radius:0 8px 8px 0; font-size:15px; font-weight:700; display:flex; align-items:center; gap:10px; box-shadow:0 2px 6px rgba(0,0,0,.06); }
+.nayami-list li::before { content:"✓"; color:#c62828; font-size:18px; flex-shrink:0; }
+
+/* ── シリカ説明 ── */
+.silica-chart { background:#fff; border-radius:12px; padding:20px; box-shadow:0 2px 10px rgba(0,0,0,.08); margin-bottom:20px; }
+.silica-chart .chart-title { font-size:15px; font-weight:700; text-align:center; margin-bottom:16px; color:#1b5e20; }
+.age-bars { display:flex; gap:8px; align-items:flex-end; justify-content:center; height:120px; margin-bottom:12px; }
+.bar-item { display:flex; flex-direction:column; align-items:center; gap:4px; }
+.bar { border-radius:4px 4px 0 0; width:44px; }
+.bar.age20 { height:100px; background:#a5d6a7; }
+.bar.age30 { height:80px; background:#81c784; }
+.bar.age40 { height:60px; background:#ffb74d; }
+.bar.age50 { height:40px; background:#ef9a9a; }
+.bar.age60 { height:28px; background:#ef5350; }
+.bar-label { font-size:11px; color:#777; }
+.bar-pct { font-size:12px; font-weight:700; }
+.silica-note { text-align:center; font-size:13px; color:#555; line-height:1.8; }
+.silica-note em { color:#c62828; font-weight:700; font-style:normal; }
+
+/* ── 成分ハイライト ── */
+.mineral-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:20px; }
+.mineral-card { background:#fff; border-radius:10px; padding:16px; text-align:center; box-shadow:0 2px 8px rgba(0,0,0,.07); }
+.mineral-card .m-name { font-size:12px; color:#777; margin-bottom:4px; }
+.mineral-card .m-val { font-size:24px; font-weight:900; color:#1b5e20; }
+.mineral-card .m-unit { font-size:12px; color:#777; }
+.mineral-card .m-desc { font-size:11px; color:#888; margin-top:4px; line-height:1.5; }
+.cert-badge { background:#fff; border:2px solid #1b5e20; border-radius:10px; padding:14px 20px; text-align:center; font-size:13px; font-weight:700; color:#1b5e20; margin-bottom:12px; }
+
+/* ── 安心ポイント ── */
+.anshin-list { list-style:none; }
+.anshin-list li { display:flex; gap:12px; align-items:flex-start; padding:14px 0; border-bottom:1px solid #e0e0e0; font-size:14px; }
+.anshin-list li:last-child { border-bottom:none; }
+.anshin-list .icon { font-size:24px; flex-shrink:0; }
+.anshin-list .text strong { display:block; font-size:15px; margin-bottom:2px; }
+
+/* ── 口コミ ── */
+.review-card { background:#fff; border-radius:12px; padding:20px; box-shadow:0 2px 10px rgba(0,0,0,.08); margin-bottom:16px; }
+.review-header { display:flex; gap:10px; align-items:center; margin-bottom:10px; }
+.review-avatar { width:44px; height:44px; border-radius:50%; background:#c8e6c9; display:flex; align-items:center; justify-content:center; font-size:20px; flex-shrink:0; }
+.review-name { font-size:13px; font-weight:700; }
+.review-age { font-size:11px; color:#888; }
+.stars { color:#f9a825; font-size:14px; margin-bottom:8px; }
+.review-text { font-size:14px; line-height:1.8; color:#444; }
+.review-text em { color:#1b5e20; font-weight:700; font-style:normal; }
+
+/* ── 価格・CTA ── */
+.price-box { background:#fff; border:2px solid #1b5e20; border-radius:16px; padding:24px 20px; text-align:center; margin-bottom:20px; }
+.price-regular { font-size:13px; color:#888; text-decoration:line-through; }
+.price-main { font-size:36px; font-weight:900; color:#c62828; line-height:1.2; }
+.price-main .per { font-size:14px; font-weight:400; color:#888; }
+.price-badge { display:inline-block; background:#c62828; color:#fff; font-size:12px; font-weight:700; padding:4px 12px; border-radius:20px; margin:8px 0; }
+.price-notes { font-size:12px; color:#777; line-height:1.8; margin-top:12px; }
+.guarantee-box { background:#e8f5e9; border-radius:10px; padding:16px; text-align:center; font-size:13px; line-height:1.8; margin-bottom:20px; }
+.guarantee-box strong { color:#1b5e20; font-size:15px; display:block; margin-bottom:4px; }
+
+/* ── FAQ ── */
+.faq-item { border-bottom:1px solid #e0e0e0; padding:16px 0; }
+.faq-q { font-size:14px; font-weight:700; color:#1b5e20; margin-bottom:8px; display:flex; gap:8px; }
+.faq-q::before { content:"Q"; background:#1b5e20; color:#fff; font-size:12px; padding:2px 8px; border-radius:4px; flex-shrink:0; line-height:1.8; }
+.faq-a { font-size:14px; color:#555; line-height:1.8; padding-left:30px; }
+
+/* ── クリエイティブ参考 ── */
+.creative-section { background:#263238; color:#fff; padding:36px 20px; }
+.creative-section h2 { font-size:18px; font-weight:700; text-align:center; margin-bottom:24px; color:#a5d6a7; }
+.ad-card { background:#37474f; border-radius:10px; padding:18px; margin-bottom:14px; }
+.ad-card .ad-label { font-size:11px; color:#90a4ae; margin-bottom:8px; letter-spacing:1px; }
+.ad-card .ad-headline { font-size:15px; font-weight:700; color:#fff; margin-bottom:6px; line-height:1.5; }
+.ad-card .ad-body { font-size:13px; color:#b0bec5; line-height:1.7; }
+.ad-card .ad-cta { display:inline-block; background:#2e7d32; color:#fff; font-size:12px; padding:6px 14px; border-radius:20px; margin-top:10px; font-weight:700; }
+
+/* ── ラベル ── */
+.concept-label { text-align:center; background:#1b5e20; color:#fff; padding:10px; font-size:13px; font-weight:700; letter-spacing:2px; }
+</style>
+</head>
+<body>
+
+<div class="concept-label">🎯 50代以上向けLP — のむシリカ参考モデル | ミチルシリカ</div>
+
+<!-- ===== FV ===== -->
+<div class="fv">
+  <div class="catch-sub">累計販売本数 40万本突破</div>
+  <h1>年齢とともに減るシリカを<br>毎日の水で補う。<br><em>10年後の体は、今日の水で決まる。</em></h1>
+  <p class="catch-body">50代・60代の方が選ぶ理由がある。<br>天然シリカ水ミチルシリカ — 大分県豊の国名水15選</p>
+
+  <div class="product-img">📷 商品画像<br>（清涼感・自然）</div>
+
+  <div class="results-bar">
+    <div class="result-item"><div class="num">40万<span style="font-size:14px">本</span></div><div class="unit">累計販売突破</div></div>
+    <div class="result-item"><div class="num">97<span style="font-size:14px">mg</span></div><div class="unit">シリカ含有量/L</div></div>
+    <div class="result-item"><div class="num">4.6</div><div class="unit">Amazonレビュー</div></div>
+  </div>
+
+  <a href="#order" class="btn-cta">
+    今すぐ試してみる（初回半額）
+    <span class="sub">縛りなし・いつでも解約OK</span>
+  </a>
+  <div class="tel-order">お電話でのご注文 <a href="tel:0120000000">0120-XXX-XXX</a>（9:00〜18:00）</div>
+</div>
+
+<!-- ===== 悩み ===== -->
+<div class="section">
+  <div class="label-tag">こんなお悩みありませんか？</div>
+  <h2>50代以降に増える<br>体のサインに、気づいていますか</h2>
+  <div class="divider"></div>
+  <ul class="nayami-list">
+    <li>朝起きても疲れが抜けない、だるさが続く</li>
+    <li>膝や腰の違和感が気になってきた</li>
+    <li>肌のハリ・ツヤが落ちてきた気がする</li>
+    <li>水分をとっているのになぜか体が乾いた感じ</li>
+    <li>健康診断の数値が少し気になり始めた</li>
+  </ul>
+  <p style="text-align:center;font-size:14px;color:#555;margin-top:16px;line-height:1.8;">それ、<strong style="color:#c62828;">「シリカ不足」</strong>が原因かもしれません。</p>
+</div>
+
+<!-- ===== シリカ減少グラフ ===== -->
+<div class="section gray">
+  <div class="label-tag blue">科学的根拠</div>
+  <h2>体内シリカは<br>年齢とともに確実に減る</h2>
+  <div class="divider"></div>
+  <div class="silica-chart">
+    <div class="chart-title">年代別 体内シリカ保有量の変化</div>
+    <div class="age-bars">
+      <div class="bar-item"><div class="bar-pct" style="color:#2e7d32;">100%</div><div class="bar age20"></div><div class="bar-label">20代</div></div>
+      <div class="bar-item"><div class="bar-pct" style="color:#388e3c;">85%</div><div class="bar age30"></div><div class="bar-label">30代</div></div>
+      <div class="bar-item"><div class="bar-pct" style="color:#f57c00;">65%</div><div class="bar age40"></div><div class="bar-label">40代</div></div>
+      <div class="bar-item"><div class="bar-pct" style="color:#e53935;">48%</div><div class="bar age50"></div><div class="bar-label">50代</div></div>
+      <div class="bar-item"><div class="bar-pct" style="color:#c62828;">35%</div><div class="bar age60"></div><div class="bar-label">60代</div></div>
+    </div>
+    <p class="silica-note">50代では20代の<em>約半分以下</em>に。<br>体内で作ることができないシリカは、食事・水から補うしかありません。</p>
+  </div>
+  <p style="font-size:14px;color:#555;line-height:1.8;text-align:center;">シリカは骨・関節・肌・血管を構成するコラーゲンの生成を助ける重要なミネラル。<br>日本人の食事では慢性的に不足しやすい栄養素です。</p>
+</div>
+
+<!-- ===== 成分 ===== -->
+<div class="section green-light">
+  <div class="label-tag">ミチルシリカの成分力</div>
+  <h2>国内最高水準のシリカを<br>毎日自然に補給</h2>
+  <div class="divider"></div>
+  <div class="mineral-grid">
+    <div class="mineral-card">
+      <div class="m-name">シリカ</div>
+      <div class="m-val">97<span class="m-unit">mg/L</span></div>
+      <div class="m-desc">骨・関節・肌の形成を助ける必須ミネラル</div>
+    </div>
+    <div class="mineral-card">
+      <div class="m-name">カルシウム</div>
+      <div class="m-val">22<span class="m-unit">mg/L</span></div>
+      <div class="m-desc">骨・歯の健康維持に不可欠</div>
+    </div>
+    <div class="mineral-card">
+      <div class="m-name">マグネシウム</div>
+      <div class="m-val">6<span class="m-unit">mg/L</span></div>
+      <div class="m-desc">筋肉・神経の正常な働きをサポート</div>
+    </div>
+    <div class="mineral-card">
+      <div class="m-name">硬度</div>
+      <div class="m-val">83<span class="m-unit">mg/L</span></div>
+      <div class="m-desc">軟水ベースで飲みやすい中硬水</div>
+    </div>
+  </div>
+  <div class="cert-badge">🏆 豊の国名水15選 採水地 — 大分県清水瀑園</div>
+  <div class="cert-badge">📚 秋田県立大学名誉教授 北川良親氏 推薦</div>
+</div>
+
+<!-- ===== 安心ポイント ===== -->
+<div class="section">
+  <div class="label-tag blue">選ばれる理由</div>
+  <h2>ミチルシリカが<br>50代以上に選ばれる5つの理由</h2>
+  <div class="divider"></div>
+  <ul class="anshin-list">
+    <li>
+      <div class="icon">🌊</div>
+      <div class="text"><strong>シリカ97mg/L — 国内最高水準</strong>毎日2L飲めば194mgのシリカを自然に摂取。サプリより吸収効率が高い天然成分。</div>
+    </li>
+    <li>
+      <div class="icon">🔒</div>
+      <div class="text"><strong>期間縛りなし・いつでも解約OK</strong>「続けてみたいけど、縛られたくない」その不安を解消。最短1回でも解約可能。</div>
+    </li>
+    <li>
+      <div class="icon">💴</div>
+      <div class="text"><strong>1本あたり約49円 — コスパ最強</strong>のむシリカ（約¥150/本）の1/3以下。同水準のシリカを半額以下で。</div>
+    </li>
+    <li>
+      <div class="icon">📦</div>
+      <div class="text"><strong>毎月自動お届けで飲み忘れ防止</strong>重い水をネット注文する手間なし。指定日に自宅へ自動配送。</div>
+    </li>
+    <li>
+      <div class="icon">📞</div>
+      <div class="text"><strong>電話注文・電話サポート対応</strong>ネットが不安な方もお電話でご注文・ご相談OK。専任スタッフが対応。</div>
+    </li>
+  </ul>
+</div>
+
+<!-- ===== 口コミ（50代以上） ===== -->
+<div class="section gray">
+  <div class="label-tag green">50代・60代のお声</div>
+  <h2>続けた方が感じた変化</h2>
+  <div class="divider"></div>
+
+  <div class="review-card">
+    <div class="review-header">
+      <div class="review-avatar">👩</div>
+      <div><div class="review-name">K.M.様</div><div class="review-age">58歳・主婦</div></div>
+    </div>
+    <div class="stars">★★★★★</div>
+    <p class="review-text">膝の違和感が気になっていたので、シリカ水に切り替えました。3ヶ月続けていますが、<em>朝の動き出しが楽になった</em>気がします。味も柔らかく毎日飲み続けられます。</p>
+  </div>
+
+  <div class="review-card">
+    <div class="review-header">
+      <div class="review-avatar">👩</div>
+      <div><div class="review-name">T.Y.様</div><div class="review-age">62歳・パート</div></div>
+    </div>
+    <div class="stars">★★★★★</div>
+    <p class="review-text">他のシリカ水と比べてずっと安いのに、シリカ含有量は同じかそれ以上。<em>縛りなしで試せる</em>のが決め手でした。今は家族全員で飲んでいます。</p>
+  </div>
+
+  <div class="review-card">
+    <div class="review-header">
+      <div class="review-avatar">👩</div>
+      <div><div class="review-name">S.H.様</div><div class="review-age">55歳・会社員</div></div>
+    </div>
+    <div class="stars">★★★★☆</div>
+    <p class="review-text">健康診断後に何か始めようと思い購入。水を変えるだけなので<em>無理なく続けられる</em>のがいい。お肌の調子も上がってきた感じがします。</p>
+  </div>
+</div>
+
+<!-- ===== 価格・注文 ===== -->
+<div class="section" id="order">
+  <div class="label-tag">特別価格でお試し</div>
+  <h2>今なら初回半額<br>まずは1ヶ月お試しください</h2>
+  <div class="divider"></div>
+  <div class="price-box">
+    <p class="price-regular">通常価格 ¥4,200（税込）</p>
+    <div class="price-main">¥2,100<span class="per"> /月</span></div>
+    <div class="price-badge">初回限定 50%OFF</div>
+    <p style="font-size:13px;color:#555;margin-top:8px;">525ml × 24本 / 月1回お届け</p>
+    <p class="price-notes">
+      ✅ 期間縛りなし — 2回目以降もいつでも解約可<br>
+      ✅ 送料無料<br>
+      ✅ クレジットカード / 代引き対応
+    </p>
+  </div>
+
+  <div class="guarantee-box">
+    <strong>🛡 安心のサポート体制</strong>
+    お届けした商品に不備がある場合は、到着後8日以内にご連絡ください。<br>すぐに交換対応いたします。
+  </div>
+
+  <a href="#" class="btn-cta">
+    初回半額で試してみる →
+    <span class="sub">縛りなし / いつでも解約OK</span>
+  </a>
+  <div class="tel-order" style="margin-top:16px;">
+    お電話でのご注文・ご相談<br>
+    <a href="tel:0120000000">0120-XXX-XXX</a>（平日9:00〜18:00）
+  </div>
+</div>
+
+<!-- ===== FAQ ===== -->
+<div class="section gray">
+  <h2>よくあるご質問</h2>
+  <div class="divider"></div>
+  <div class="faq-item">
+    <div class="faq-q">いつでも解約できますか？</div>
+    <div class="faq-a">はい。回数縛りは一切ありません。次回お届け日の10日前までにお電話でご連絡いただければ、いつでも解約・休止が可能です。</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">どのくらい続ければ効果を感じますか？</div>
+    <div class="faq-a">個人差がありますが、1〜3ヶ月を目安に継続いただくことをおすすめしています。水分補給は毎日の積み重ねが大切です。</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">1日どのくらい飲めばいいですか？</div>
+    <div class="faq-a">1日1.5〜2Lが目安です。朝・食事中・就寝前など、こまめに飲むことをおすすめしています。</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">薬を飲んでいますが大丈夫ですか？</div>
+    <div class="faq-a">天然ミネラルウォーターですので、基本的に問題ありませんが、気になる方はかかりつけ医にご相談ください。</div>
+  </div>
+</div>
+
+<!-- ===== 広告クリエイティブ案 ===== -->
+<div class="creative-section">
+  <h2>📱 広告クリエイティブ案（50代以上向け）</h2>
+
+  <div class="ad-card">
+    <div class="ad-label">パターンA — 悩み訴求（現行・強化版）</div>
+    <div class="ad-headline">「膝が痛い」「疲れが抜けない」<br>それ、シリカ不足かもしれません。</div>
+    <div class="ad-body">50代以降、体内シリカは20代の半分以下に。毎日飲む水をミチルシリカに変えるだけ。1本49円、縛りなし。まず1ヶ月お試しください。</div>
+    <span class="ad-cta">初回半額で試す →</span>
+  </div>
+
+  <div class="ad-card">
+    <div class="ad-label">パターンB — 競合比較訴求（新規）</div>
+    <div class="ad-headline">のむシリカと同じシリカ量で、<br>値段は半額以下。</div>
+    <div class="ad-body">シリカ97mg/Lは同水準。でも価格は約1/3。「高くて続けられない」を解決したのがミチルシリカです。今なら初回半額でお試しいただけます。</div>
+    <span class="ad-cta">比べてみる →</span>
+  </div>
+
+  <div class="ad-card">
+    <div class="ad-label">パターンC — 継続・安心訴求（新規）</div>
+    <div class="ad-headline">10年後の体は、<br>今日の水で決まる。</div>
+    <div class="ad-body">シリカは毎日少しずつ補い続けることが大切。縛りなし、電話注文OK、1本49円のミチルシリカなら無理なく続けられます。</div>
+    <span class="ad-cta">縛りなしで試す →</span>
+  </div>
+</div>
+
+<div style="text-align:center;padding:20px;font-size:12px;color:#999;">
+  🎯 50代以上向けLPモックアップ — のむシリカ参考モデル | 2026年4月25日作成
+</div>
+
+</body>
+</html>

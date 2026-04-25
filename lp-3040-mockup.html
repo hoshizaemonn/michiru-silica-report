@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ミチルシリカ LP — 30-40代向け（温泉水99参考）</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: "Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo,sans-serif; color:#333; background:#fff; font-size:16px; }
+
+/* ── FV ── */
+.fv { background:linear-gradient(160deg,#fce4ec 0%,#f8bbd0 40%,#ffe0b2 100%); padding:44px 20px 36px; text-align:center; }
+.fv .catch-sub { font-size:12px; color:#ad1457; font-weight:700; letter-spacing:3px; margin-bottom:10px; }
+.fv h1 { font-size:25px; font-weight:900; line-height:1.5; color:#880e4f; margin-bottom:14px; }
+.fv h1 em { color:#e64a19; font-style:normal; }
+.fv .catch-body { font-size:14px; color:#666; line-height:1.9; margin-bottom:20px; }
+.product-img { background:rgba(255,255,255,.7); border-radius:50%; width:150px; height:150px; margin:0 auto 20px; display:flex; align-items:center; justify-content:center; font-size:12px; color:#999; border:2px solid #f48fb1; }
+
+/* SNS風バッジ */
+.sns-badges { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-bottom:22px; }
+.sns-badge { background:rgba(255,255,255,.85); border-radius:20px; padding:8px 16px; font-size:12px; font-weight:700; color:#ad1457; display:flex; align-items:center; gap:5px; }
+
+.btn-cta-pink { display:block; background:linear-gradient(135deg,#ad1457,#e91e8c); color:#fff; font-size:17px; font-weight:900; padding:18px; border-radius:50px; text-align:center; text-decoration:none; box-shadow:0 4px 20px rgba(173,20,87,.4); margin:0 auto; max-width:340px; letter-spacing:0.5px; }
+.btn-cta-pink .sub { font-size:12px; font-weight:400; opacity:.9; display:block; margin-top:4px; }
+.free-badge { display:inline-block; background:#ff6f00; color:#fff; font-size:11px; font-weight:700; padding:3px 10px; border-radius:3px; margin-top:10px; }
+
+/* ── UGC風セクション ── */
+.ugc-section { background:#fafafa; padding:32px 20px; }
+.ugc-section h2 { font-size:17px; font-weight:900; text-align:center; color:#333; margin-bottom:6px; }
+.ugc-section .h2-sub { text-align:center; font-size:12px; color:#999; margin-bottom:20px; }
+.ugc-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+.ugc-card { background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,.08); }
+.ugc-img { background:linear-gradient(135deg,#fce4ec,#f8bbd0); height:130px; display:flex; align-items:center; justify-content:center; font-size:13px; color:#ad1457; text-align:center; padding:10px; font-weight:700; line-height:1.5; }
+.ugc-caption { padding:10px; }
+.ugc-caption .ugc-name { font-size:11px; color:#888; margin-bottom:3px; }
+.ugc-caption .ugc-text { font-size:12px; color:#444; line-height:1.6; }
+.ugc-caption .ugc-like { font-size:11px; color:#e91e63; margin-top:5px; }
+
+/* ── 悩みセクション ── */
+.section { padding:36px 20px; }
+.section.soft-pink { background:#fff0f5; }
+.section.soft-orange { background:#fff8f0; }
+.section h2 { font-size:20px; font-weight:900; line-height:1.5; text-align:center; margin-bottom:6px; }
+.divider-pink { width:40px; height:3px; background:#e91e63; margin:10px auto 20px; border-radius:2px; }
+.nayami-cards { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:16px; }
+.nayami-card { background:#fff; border-radius:10px; padding:14px 12px; text-align:center; box-shadow:0 2px 8px rgba(0,0,0,.07); }
+.nayami-card .emoji { font-size:28px; margin-bottom:6px; }
+.nayami-card .text { font-size:12px; color:#555; line-height:1.6; font-weight:700; }
+
+/* ── 解決セクション ── */
+.solution-box { background:#fff; border-radius:16px; padding:22px; box-shadow:0 4px 16px rgba(233,30,99,.1); margin-bottom:20px; border:2px solid #f8bbd0; }
+.solution-box .sol-label { font-size:11px; color:#ad1457; font-weight:700; letter-spacing:2px; margin-bottom:8px; }
+.solution-box h3 { font-size:18px; font-weight:900; color:#880e4f; line-height:1.5; margin-bottom:12px; }
+.solution-box p { font-size:14px; color:#555; line-height:1.8; }
+.solution-box p em { color:#ad1457; font-weight:700; font-style:normal; }
+
+/* ── 変化タイムライン ── */
+.timeline { list-style:none; position:relative; }
+.timeline::before { content:''; position:absolute; left:22px; top:0; bottom:0; width:2px; background:#f8bbd0; }
+.timeline li { display:flex; gap:16px; align-items:flex-start; padding:0 0 24px 0; position:relative; }
+.timeline .dot { width:44px; height:44px; border-radius:50%; background:linear-gradient(135deg,#ad1457,#e91e8c); color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; flex-shrink:0; z-index:1; line-height:1.3; text-align:center; }
+.timeline .content strong { display:block; font-size:15px; color:#880e4f; margin-bottom:4px; }
+.timeline .content p { font-size:13px; color:#666; line-height:1.7; }
+
+/* ── 成分（シンプル） ── */
+.silica-simple { background:#fff; border-radius:14px; padding:20px; margin-bottom:16px; text-align:center; box-shadow:0 2px 10px rgba(0,0,0,.07); }
+.silica-simple .big-num { font-size:48px; font-weight:900; color:#e91e63; line-height:1; }
+.silica-simple .unit { font-size:16px; color:#888; }
+.silica-simple .label { font-size:13px; color:#555; margin-top:6px; }
+.silica-simple .note { font-size:11px; color:#999; margin-top:4px; }
+
+/* ── SNS口コミ（ライフスタイル層） ── */
+.review-lifestyle { background:#fff; border-radius:14px; padding:18px; box-shadow:0 2px 10px rgba(0,0,0,.07); margin-bottom:14px; }
+.review-lifestyle .rl-header { display:flex; gap:10px; align-items:center; margin-bottom:10px; }
+.review-lifestyle .rl-avatar { width:42px; height:42px; border-radius:50%; background:linear-gradient(135deg,#fce4ec,#f48fb1); display:flex; align-items:center; justify-content:center; font-size:18px; flex-shrink:0; }
+.review-lifestyle .rl-name { font-size:13px; font-weight:700; }
+.review-lifestyle .rl-handle { font-size:11px; color:#ad1457; }
+.review-lifestyle .rl-text { font-size:14px; line-height:1.8; color:#444; }
+.review-lifestyle .rl-text em { color:#ad1457; font-weight:700; font-style:normal; }
+.review-lifestyle .rl-tags { margin-top:8px; }
+.review-lifestyle .rl-tags span { font-size:11px; color:#ad1457; margin-right:6px; }
+
+/* ── 価格（お試し感） ── */
+.trial-box { background:linear-gradient(135deg,#fce4ec,#fff0f5); border-radius:20px; padding:28px 20px; text-align:center; margin-bottom:20px; border:2px solid #f48fb1; }
+.trial-box .trial-label { font-size:12px; color:#ad1457; font-weight:700; letter-spacing:2px; margin-bottom:8px; }
+.trial-box .trial-price { font-size:40px; font-weight:900; color:#ad1457; line-height:1.1; }
+.trial-box .trial-regular { font-size:14px; color:#999; text-decoration:line-through; margin-bottom:4px; }
+.trial-box .trial-save { display:inline-block; background:#ad1457; color:#fff; font-size:12px; font-weight:700; padding:4px 14px; border-radius:20px; margin:8px 0; }
+.trial-box .trial-note { font-size:12px; color:#777; line-height:1.9; margin-top:10px; }
+.no-lock { background:#fff; border-radius:10px; padding:14px; text-align:center; font-size:13px; color:#ad1457; font-weight:700; margin-bottom:16px; border:1px dashed #f48fb1; }
+
+/* ── ライフスタイル提案 ── */
+.lifestyle-tips { list-style:none; }
+.lifestyle-tips li { display:flex; gap:12px; align-items:flex-start; padding:14px 0; border-bottom:1px solid #fce4ec; font-size:14px; }
+.lifestyle-tips li:last-child { border-bottom:none; }
+.lifestyle-tips .icon { font-size:22px; flex-shrink:0; width:32px; text-align:center; }
+.lifestyle-tips .text strong { display:block; font-size:14px; margin-bottom:2px; color:#880e4f; }
+.lifestyle-tips .text span { font-size:13px; color:#777; line-height:1.6; }
+
+/* ── クリエイティブ案 ── */
+.creative-section { background:#1a1a2e; color:#fff; padding:36px 20px; }
+.creative-section h2 { font-size:18px; font-weight:700; text-align:center; margin-bottom:24px; color:#f8bbd0; }
+.ad-card { background:#2d2d44; border-radius:10px; padding:18px; margin-bottom:14px; }
+.ad-card .ad-label { font-size:11px; color:#ce93d8; margin-bottom:8px; letter-spacing:1px; }
+.ad-card .ad-headline { font-size:15px; font-weight:700; color:#fff; margin-bottom:6px; line-height:1.5; }
+.ad-card .ad-body { font-size:13px; color:#b0bec5; line-height:1.7; }
+.ad-card .ad-cta { display:inline-block; background:#ad1457; color:#fff; font-size:12px; padding:6px 14px; border-radius:20px; margin-top:10px; font-weight:700; }
+.concept-label { text-align:center; background:#880e4f; color:#fff; padding:10px; font-size:13px; font-weight:700; letter-spacing:2px; }
+
+/* ── 比較メモ ── */
+.diff-note { background:#fff9c4; border-radius:10px; padding:16px 18px; margin:20px 0; font-size:13px; line-height:1.8; border-left:4px solid #f9a825; }
+.diff-note strong { display:block; font-size:14px; font-weight:700; color:#e65100; margin-bottom:4px; }
+</style>
+</head>
+<body>
+
+<div class="concept-label">🌸 30-40代向けLP — 温泉水99参考モデル | ミチルシリカ</div>
+
+<!-- ===== FV ===== -->
+<div class="fv">
+  <div class="catch-sub">Instagramで話題 / 30代・40代に選ばれています</div>
+  <h1>肌の内側から変わる実感を、<br>毎朝の水から。<br><em>飲むスキンケア、始めませんか。</em></h1>
+  <p class="catch-body">スキンケアを頑張っているのに、<br>なかなか変わらないと感じていませんか？<br>大分県産・天然シリカ水ミチルシリカ</p>
+
+  <div class="product-img">📷 ライフスタイル<br>商品画像<br>（30-40代女性・朝）</div>
+
+  <div class="sns-badges">
+    <div class="sns-badge">📸 Instagramで話題</div>
+    <div class="sns-badge">💬 口コミ多数</div>
+    <div class="sns-badge">✨ 飲む美容</div>
+    <div class="sns-badge">🌿 天然成分</div>
+  </div>
+
+  <a href="#order" class="btn-cta-pink">
+    まず1ヶ月、試してみる →
+    <span class="sub">初回半額 / 縛りなし / いつでも解約OK</span>
+  </a>
+  <div><span class="free-badge">📦 送料無料</span></div>
+</div>
+
+<!-- ===== UGC風（SNS口コミイメージ） ===== -->
+<div class="ugc-section">
+  <h2>「飲み続けてよかった」<br>リアルな声が止まらない</h2>
+  <p class="h2-sub">※個人の感想です</p>
+  <div class="ugc-grid">
+    <div class="ugc-card">
+      <div class="ugc-img">💧 朝イチで<br>飲む水を変えた</div>
+      <div class="ugc-caption">
+        <div class="ugc-name">@mii_lifestyle</div>
+        <div class="ugc-text">肌のツヤが変わってきた気が！毎日続けやすい</div>
+        <div class="ugc-like">♥ 342</div>
+      </div>
+    </div>
+    <div class="ugc-card">
+      <div class="ugc-img">✨ 水を変えて<br>1ヶ月の変化</div>
+      <div class="ugc-caption">
+        <div class="ugc-name">@yuko38_mama</div>
+        <div class="ugc-text">飲みやすくてクセがない。続けられてる</div>
+        <div class="ugc-like">♥ 218</div>
+      </div>
+    </div>
+    <div class="ugc-card">
+      <div class="ugc-img">🌸 ミチルシリカ<br>定期便始めました</div>
+      <div class="ugc-caption">
+        <div class="ugc-name">@haru_healthy</div>
+        <div class="ugc-text">毎朝これを飲むのが習慣になった♡</div>
+        <div class="ugc-like">♥ 189</div>
+      </div>
+    </div>
+    <div class="ugc-card">
+      <div class="ugc-img">☀️ 朝の<br>美容習慣に</div>
+      <div class="ugc-caption">
+        <div class="ugc-name">@sachi_wellness</div>
+        <div class="ugc-text">シリカ水に変えてから体の調子がいい</div>
+        <div class="ugc-like">♥ 274</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 悩みセクション ===== -->
+<div class="section soft-pink">
+  <h2>頑張っているのに<br>なかなか変わらない…</h2>
+  <div class="divider-pink"></div>
+  <div class="nayami-cards">
+    <div class="nayami-card">
+      <div class="emoji">😔</div>
+      <div class="text">スキンケアを変えても肌のくすみが気になる</div>
+    </div>
+    <div class="nayami-card">
+      <div class="emoji">😴</div>
+      <div class="text">朝起きても疲れが取れていない感じ</div>
+    </div>
+    <div class="nayami-card">
+      <div class="emoji">🤔</div>
+      <div class="text">ダイエットしているのに体が変わらない</div>
+    </div>
+    <div class="nayami-card">
+      <div class="emoji">💦</div>
+      <div class="text">水をよく飲むのに乾燥する・むくむ</div>
+    </div>
+  </div>
+  <div class="diff-note">
+    <strong>実は「外側」だけでは限界があります</strong>
+    肌・体の変化は、内側から作られます。スキンケアやサプリに加えて、毎日飲む水を変えることで、体の土台を整えることができます。
+  </div>
+</div>
+
+<!-- ===== 解決策 ===== -->
+<div class="section">
+  <h2>水を変えると、<br>体が変わる理由</h2>
+  <div class="divider-pink"></div>
+  <div class="solution-box">
+    <div class="sol-label">BEAUTY SCIENCE</div>
+    <h3>シリカはコラーゲンの<br>生成を助ける美容ミネラル</h3>
+    <p>コラーゲンを「食べる・塗る」前に、コラーゲンを<em>体内で作る力を高める</em>ことが大切。天然シリカはコラーゲン生成に必要な酵素を活性化します。<br><br>ミチルシリカのシリカ含有量は<em>97mg/L</em>。毎日2L飲めば、食事だけでは摂りにくいシリカを自然に補給できます。</p>
+  </div>
+
+  <div class="silica-simple">
+    <div class="big-num">97<span class="unit">mg</span></div>
+    <div class="label">シリカ含有量 / 1L あたり</div>
+    <div class="note">一般的なミネラルウォーターの5〜10倍</div>
+  </div>
+</div>
+
+<!-- ===== 変化のタイムライン ===== -->
+<div class="section soft-orange">
+  <h2>飲み始めてからの変化</h2>
+  <div class="divider-pink"></div>
+  <ul class="timeline">
+    <li>
+      <div class="dot">1週<br>目</div>
+      <div class="content">
+        <strong>飲みやすさに気づく</strong>
+        <p>口当たりがやわらかく、クセがない。「水ってこんなに飲みやすいんだ」という感覚。毎日飲みたくなる。</p>
+      </div>
+    </li>
+    <li>
+      <div class="dot">1ヶ<br>月</div>
+      <div class="content">
+        <strong>体の調子が整ってくる</strong>
+        <p>肌の調子や体の軽さを感じ始める方が多い時期。「なんとなくいい感じ」が続く。</p>
+      </div>
+    </li>
+    <li>
+      <div class="dot">3ヶ<br>月</div>
+      <div class="content">
+        <strong>習慣として定着</strong>
+        <p>「ないと物足りない」毎日の水がミチルシリカになる。体の変化が実感できてくる時期。</p>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<!-- ===== 口コミ（30-40代） ===== -->
+<div class="section">
+  <h2>30代・40代のリアルな声</h2>
+  <div class="divider-pink"></div>
+
+  <div class="review-lifestyle">
+    <div class="rl-header">
+      <div class="rl-avatar">🌸</div>
+      <div><div class="rl-name">A.K.様</div><div class="rl-handle">35歳・会社員ママ</div></div>
+    </div>
+    <p class="rl-text">子育てで忙しく、自分のケアが後回しになりがちでした。水を変えるだけなら続けられると思って始めたら、<em>肌の調子が明らかに変わった</em>気がします。朝のむくみも気になりにくくなった。</p>
+    <div class="rl-tags"><span>#飲む美容</span><span>#ズボラ美容</span><span>#ママ美容</span></div>
+  </div>
+
+  <div class="review-lifestyle">
+    <div class="rl-header">
+      <div class="rl-avatar">✨</div>
+      <div><div class="rl-name">M.T.様</div><div class="rl-handle">38歳・フリーランス</div></div>
+    </div>
+    <p class="rl-text">スキンケアに月1万かけていたのに、<em>ミチルシリカに変えてから基礎化粧品を減らせた</em>。コスパ最高。体の内側から変わる感覚が新しかった。</p>
+    <div class="rl-tags"><span>#インナービューティー</span><span>#コスパ美容</span></div>
+  </div>
+
+  <div class="review-lifestyle">
+    <div class="rl-header">
+      <div class="rl-avatar">💧</div>
+      <div><div class="rl-name">Y.N.様</div><div class="rl-handle">42歳・看護師</div></div>
+    </div>
+    <p class="rl-text">仕事柄、体のことを気にしています。<em>飲みやすくて毎日続けられる</em>のが一番。疲れにくくなった気がするし、同僚に肌がきれいになったと言われた！</p>
+    <div class="rl-tags"><span>#毎日の習慣</span><span>#働く女性</span></div>
+  </div>
+</div>
+
+<!-- ===== ライフスタイル提案 ===== -->
+<div class="section soft-pink">
+  <h2>こんな飲み方が<br>おすすめです</h2>
+  <div class="divider-pink"></div>
+  <ul class="lifestyle-tips">
+    <li>
+      <div class="icon">🌅</div>
+      <div class="text"><strong>起き抜けに200ml</strong><span>睡眠中に失った水分を補給。代謝スイッチON。</span></div>
+    </li>
+    <li>
+      <div class="icon">☕</div>
+      <div class="text"><strong>コーヒー・お茶を淹れるのに使う</strong><span>シリカ水で淹れると味がまろやかになる。インナービューティーをおいしく。</span></div>
+    </li>
+    <li>
+      <div class="icon">🏃</div>
+      <div class="text"><strong>運動前後に</strong><span>汗で失うミネラルを天然成分で補給。疲労感の軽減に。</span></div>
+    </li>
+    <li>
+      <div class="icon">🌙</div>
+      <div class="text"><strong>就寝前に一杯</strong><span>眠っている間の美容時間をサポート。肌の修復に水分が必要。</span></div>
+    </li>
+  </ul>
+</div>
+
+<!-- ===== 価格・注文（お試し感） ===== -->
+<div class="section" id="order">
+  <h2>まず1ヶ月、試してみてください</h2>
+  <div class="divider-pink"></div>
+
+  <div class="trial-box">
+    <div class="trial-label">✨ 初回かぎり特別価格</div>
+    <div class="trial-regular">通常 ¥4,200（税込）</div>
+    <div class="trial-price">¥2,100</div>
+    <div class="trial-save">初回 50%OFF</div>
+    <p style="font-size:13px;color:#777;margin-top:6px;">525ml × 24本 / 月1回お届け</p>
+    <div class="trial-note">
+      ✅ 縛りなし — 1回でも解約OK<br>
+      ✅ 解約はLINEまたはフォームで簡単に<br>
+      ✅ 送料無料<br>
+      ✅ クレジットカード決済
+    </div>
+  </div>
+
+  <div class="no-lock">
+    🔓 回数縛りなし — 合わなければすぐ解約できます
+  </div>
+
+  <a href="#" class="btn-cta-pink">
+    初回半額で試してみる →
+    <span class="sub">まずは1ヶ月、体の変化を感じてみて</span>
+  </a>
+</div>
+
+<!-- ===== FAQ（30-40代の不安に応える） ===== -->
+<div class="section" style="background:#fafafa;">
+  <h2 style="font-size:18px;">よくある質問</h2>
+  <div class="divider-pink"></div>
+
+  <div style="border-bottom:1px solid #fce4ec;padding:14px 0;">
+    <p style="font-size:14px;font-weight:700;color:#ad1457;margin-bottom:6px;">Q. 解約はどうやってするの？</p>
+    <p style="font-size:13px;color:#666;line-height:1.8;">LINEまたはお問い合わせフォームから簡単にできます。次回お届け日の10日前までにご連絡ください。電話不要で手続きできます。</p>
+  </div>
+  <div style="border-bottom:1px solid #fce4ec;padding:14px 0;">
+    <p style="font-size:14px;font-weight:700;color:#ad1457;margin-bottom:6px;">Q. 本当に1回で解約できる？</p>
+    <p style="font-size:13px;color:#666;line-height:1.8;">はい、回数縛りは一切ありません。初回お届け後、次回をキャンセルすれば解約完了です。ただ続ける方の方が多いです。</p>
+  </div>
+  <div style="border-bottom:1px solid #fce4ec;padding:14px 0;">
+    <p style="font-size:14px;font-weight:700;color:#ad1457;margin-bottom:6px;">Q. 妊娠中・授乳中でも飲める？</p>
+    <p style="font-size:13px;color:#666;line-height:1.8;">天然ミネラルウォーターですので基本的に問題ありませんが、気になる方はかかりつけ医にご相談ください。</p>
+  </div>
+  <div style="padding:14px 0;">
+    <p style="font-size:14px;font-weight:700;color:#ad1457;margin-bottom:6px;">Q. 効果が感じられなかったら？</p>
+    <p style="font-size:13px;color:#666;line-height:1.8;">体質や生活習慣によって個人差があります。まずは1〜3ヶ月継続してみてください。体の内側から変わるため、少し時間がかかることがあります。</p>
+  </div>
+</div>
+
+<!-- ===== 広告クリエイティブ案 ===== -->
+<div class="creative-section">
+  <h2>📱 広告クリエイティブ案（30-40代向け）</h2>
+
+  <div class="ad-card">
+    <div class="ad-label">パターンA — 美容訴求（メイン）</div>
+    <div class="ad-headline">スキンケア、もう十分やっている。<br>次は「飲む」美容に変えてみて。</div>
+    <div class="ad-body">天然シリカ水ミチルシリカ。コラーゲン生成を助けるシリカが97mg/L。毎朝の水を変えるだけ。初回半額・縛りなしで試せます。</div>
+    <span class="ad-cta">まず試してみる →</span>
+  </div>
+
+  <div class="ad-card">
+    <div class="ad-label">パターンB — ライフスタイル訴求（リール向け）</div>
+    <div class="ad-headline">朝イチで飲む水を変えたら<br>体が変わった話。</div>
+    <div class="ad-body">【動画構成案】朝のルーティン風 → ミチルシリカを飲むシーン → 1ヶ月後の変化語り → CTA。BGMはおしゃれなchill系。</div>
+    <span class="ad-cta">詳しく見る →</span>
+  </div>
+
+  <div class="ad-card">
+    <div class="ad-label">パターンC — 比較訴求（コスパ重視層）</div>
+    <div class="ad-headline">スキンケアに月1万かけるより、<br>飲む水を変えてみて。</div>
+    <div class="ad-body">1本49円のミチルシリカ。毎日飲み続けられる価格で、体の内側からケア。初回半額・解約自由。30-40代女性に選ばれています。</div>
+    <span class="ad-cta">1ヶ月試してみる →</span>
+  </div>
+
+  <div class="ad-card">
+    <div class="ad-label">パターンD — UGC・口コミ型（信頼構築）</div>
+    <div class="ad-headline">「水を変えたら肌が変わった」<br>35歳の体験談。</div>
+    <div class="ad-body">【画像案】SNS風スクリーンショット形式で口コミを見せる。「#飲む美容 #ミチルシリカ」のハッシュタグ付き。リアリティのある素材感。</div>
+    <span class="ad-cta">口コミを見る →</span>
+  </div>
+</div>
+
+<!-- ===== 50代以上との違いメモ ===== -->
+<div style="background:#f5f5f5;padding:24px 20px;">
+  <p style="font-size:12px;font-weight:700;color:#333;margin-bottom:12px;letter-spacing:1px;">📋 50代以上LPとの訴求軸の違い（制作メモ）</p>
+  <table style="width:100%;font-size:12px;border-collapse:collapse;">
+    <tr style="background:#e0e0e0;">
+      <th style="padding:8px;text-align:left;">要素</th>
+      <th style="padding:8px;text-align:left;">50代以上LP</th>
+      <th style="padding:8px;text-align:left;">30-40代LP（本ページ）</th>
+    </tr>
+    <tr style="background:#fff;"><td style="padding:8px;">ヘッドライン</td><td style="padding:8px;">健康・年齢・体内成分</td><td style="padding:8px;">美容・ライフスタイル・変化</td></tr>
+    <tr style="background:#f9f9f9;"><td style="padding:8px;">カラー</td><td style="padding:8px;">グリーン系（信頼・健康）</td><td style="padding:8px;">ピンク系（美容・女性）</td></tr>
+    <tr style="background:#fff;"><td style="padding:8px;">口コミ</td><td style="padding:8px;">55-65歳・実績重視</td><td style="padding:8px;">35-42歳・SNS風・共感重視</td></tr>
+    <tr style="background:#f9f9f9;"><td style="padding:8px;">解約訴求</td><td style="padding:8px;">電話OK・安心感</td><td style="padding:8px;">LINE/フォームOK・手軽さ</td></tr>
+    <tr style="background:#fff;"><td style="padding:8px;">成分説明</td><td style="padding:8px;">詳細グラフ・科学的根拠</td><td style="padding:8px;">シンプルな数字・体感重視</td></tr>
+    <tr style="background:#f9f9f9;"><td style="padding:8px;">CTAトーン</td><td style="padding:8px;">「今すぐ試す」安心型</td><td style="padding:8px;">「まず1ヶ月」軽いノリ型</td></tr>
+  </table>
+</div>
+
+<div style="text-align:center;padding:20px;font-size:12px;color:#999;">
+  🌸 30-40代向けLPモックアップ — 温泉水99参考モデル | 2026年4月25日作成
+</div>
+
+</body>
+</html>
