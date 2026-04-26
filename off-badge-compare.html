@@ -142,6 +142,29 @@
   .off-a b{font-size:28px; text-shadow:0 2px 6px rgba(0,0,0,.4); position:relative; z-index:1;}
   .off-a span{font-size:11px; margin-top:1px; letter-spacing:.12em; text-shadow:0 1px 4px rgba(0,0,0,.3); position:relative; z-index:1;}
 
+  /* ===== 案D：矢印ペンタゴン型（添付参考） ===== */
+  .off-d-wrap{
+    position:absolute; right:8px; top:50%;
+    transform:translateY(-50%);
+    display:flex; flex-direction:column; align-items:center; gap:2px;
+  }
+  .off-d{
+    background:#fff;
+    border:3px solid #c8001a;
+    color:#c8001a;
+    font-weight:900;
+    font-size:13px;
+    line-height:1.15;
+    letter-spacing:.04em;
+    padding:6px 20px 6px 14px;
+    clip-path:polygon(0 0, calc(100% - 14px) 0, 100% 50%, calc(100% - 14px) 100%, 0 100%);
+    text-align:center;
+    white-space:nowrap;
+    position:relative;
+  }
+  .off-d .d-num{font-size:26px; display:block; line-height:1;}
+  .off-d .d-label{font-size:11px; letter-spacing:.1em;}
+
   /* ===== 案B：リボン型バナー ===== */
   .ribbon-wrap{position:relative;}
   .off-ribbon{
@@ -293,6 +316,32 @@
             <span class="price-shokai" style="display:inline">初回</span>
             <span class="price-now"><span class="yen">¥</span>1,980</span>
             <span class="price-tax">(税込)</span>
+          </div>
+        </div>
+      </div>
+      <div class="price-note">※2回目以降も10%OFF ¥3,564(税込)でお届けします</div>
+    </div>
+  </div>
+
+  <!-- 案D -->
+  <div class="card-wrap">
+    <div class="card-label">案D <span>矢印ペンタゴン型・赤枠・添付参考スタイル</span></div>
+    <div class="price-card">
+      <div class="price-head">初めての方限定・特別キャンペーン！</div>
+      <div class="price-body">
+        <div>
+          <div class="price-old">通常 <s>¥3,960</s>(税込)</div>
+          <div>
+            <span class="price-arrow">→</span>
+            <span class="price-shokai" style="display:inline">初回</span>
+            <span class="price-now"><span class="yen">¥</span>1,980</span>
+            <span class="price-tax">(税込)</span>
+          </div>
+        </div>
+        <div class="off-d-wrap">
+          <div class="off-d">
+            <span class="d-num">50%</span>
+            <span class="d-label">OFF</span>
           </div>
         </div>
       </div>
