@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>50% OFF バッジ 3案比較</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box; margin:0; padding:0}
+  body{
+    font-family:"Noto Sans JP",sans-serif;
+    background:#e8f0f8;
+    padding:24px 16px 48px;
+  }
+  h1{text-align:center; font-size:16px; color:#1a3658; margin-bottom:6px; font-weight:700;}
+  .subtitle{text-align:center; font-size:12px; color:#6b7e92; margin-bottom:28px;}
+
+  .compare-grid{
+    display:flex; flex-direction:column; gap:32px;
+    max-width:420px; margin:0 auto;
+  }
+  .card-wrap{background:#fff; border-radius:20px; padding:18px; box-shadow:0 4px 20px rgba(0,0,0,.1);}
+  .card-label{
+    font-size:13px; font-weight:700; color:#1259a8;
+    margin-bottom:12px; padding-bottom:8px;
+    border-bottom:2px solid #e3f0fb;
+  }
+  .card-label span{font-weight:400; color:#6b7e92; font-size:11px; margin-left:6px;}
+
+  /* ===== 共通 price-card ===== */
+  :root{
+    --blue-900:#0a3a78; --blue-800:#1259a8; --blue-700:#1c79c8;
+    --blue-500:#43a8e0; --blue-100:#e3f2fb;
+  }
+  .price-card{
+    border-radius:14px;
+    box-shadow:0 6px 18px rgba(28,121,200,.15);
+    overflow:hidden;
+    background:#fff;
+  }
+  .price-head{
+    background:linear-gradient(90deg,var(--blue-800),var(--blue-500));
+    color:#fff; text-align:center;
+    font-size:12px; padding:6px 10px;
+    font-weight:500; letter-spacing:.04em;
+    position:relative;
+  }
+  .price-body{
+    padding:14px 14px 12px 24px;
+    display:flex; align-items:center; gap:10px;
+    position:relative;
+  }
+  .price-old{font-size:11px; color:#7c8da0;}
+  .price-old s{color:#a4a4a4;}
+  .price-arrow{font-size:13px; color:var(--blue-800); font-weight:700; margin-right:2px;}
+  .price-now{font-size:40px; font-weight:900; color:var(--blue-800); line-height:1;}
+  .yen{font-size:22px;}
+  .price-tax{font-size:10px; color:#6b7e92; margin-left:3px;}
+  .price-shokai{font-size:11px; color:var(--blue-800); font-weight:700;}
+  .price-note{font-size:10px; color:#6b7e92; padding:0 14px 10px; text-align:center;}
+
+  /* ===== 案A：赤オレンジ丸 + パルス ===== */
+  .off-a{
+    position:absolute; right:12px; top:50%;
+    transform:translateY(-50%);
+    width:82px; height:82px; border-radius:50%;
+    background:linear-gradient(135deg,#ff7140,#e8302a);
+    color:#fff;
+    display:flex; align-items:center; justify-content:center;
+    flex-direction:column;
+    font-weight:900; line-height:1;
+    box-shadow:0 6px 16px rgba(232,48,42,.4);
+    animation:pulse-a 1.8s infinite;
+    cursor:pointer;
+  }
+  .off-a b{font-size:26px;}
+  .off-a span{font-size:11px; margin-top:2px; letter-spacing:.05em;}
+  @keyframes pulse-a{
+    0%  {box-shadow:0 0 0 0 rgba(232,48,42,.55);}
+    70% {box-shadow:0 0 0 14px rgba(232,48,42,0);}
+    100%{box-shadow:0 0 0 0 rgba(232,48,42,0);}
+  }
+
+  /* ===== 案B：リボン型バナー ===== */
+  .ribbon-wrap{position:relative;}
+  .off-ribbon{
+    position:absolute;
+    right:-6px; top:-6px;
+    background:linear-gradient(135deg,#e8302a,#c0001a);
+    color:#fff; font-weight:900;
+    padding:6px 14px 6px 10px;
+    clip-path:polygon(0 0, 100% 0, 100% 100%, 0 100%, 8px 50%);
+    border-radius:0 6px 6px 0;
+    display:flex; flex-direction:column; align-items:center;
+    line-height:1; box-shadow:2px 2px 8px rgba(0,0,0,.2);
+    z-index:2;
+  }
+  .off-ribbon b{font-size:22px;}
+  .off-ribbon span{font-size:10px; letter-spacing:.1em;}
+  /* リボンの折り返し影 */
+  .off-ribbon::after{
+    content:"";
+    position:absolute; bottom:-6px; right:0;
+    border-top:6px solid #7a000e;
+    border-right:6px solid transparent;
+  }
+
+  /* ===== 案C：price-head内に帯テキスト ===== */
+  .price-head-c{
+    background:linear-gradient(90deg,var(--blue-800),var(--blue-500));
+    color:#fff; text-align:left;
+    font-size:12px; padding:0;
+    font-weight:500; letter-spacing:.04em;
+    display:flex; align-items:stretch;
+    overflow:hidden;
+  }
+  .price-head-c .head-text{
+    flex:1; padding:6px 10px;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .price-head-c .off-band{
+    background:linear-gradient(180deg,#ff6535,#e8302a);
+    padding:0 14px;
+    display:flex; flex-direction:column;
+    align-items:center; justify-content:center;
+    font-weight:900; line-height:1.1;
+    border-left:1px solid rgba(255,255,255,.25);
+    min-width:64px;
+  }
+  .price-head-c .off-band b{font-size:22px;}
+  .price-head-c .off-band span{font-size:10px; letter-spacing:.1em;}
+
+  /* 現状（比較用） */
+  .off-current{
+    position:absolute; right:10px; top:50%;
+    transform:translateY(-50%);
+    width:62px; height:62px; border-radius:50%;
+    background:radial-gradient(circle at 30% 30%,#4ea7e0,#1259a8 70%);
+    color:#fff;
+    display:flex; align-items:center; justify-content:center;
+    flex-direction:column;
+    font-weight:900; line-height:1;
+    box-shadow:0 6px 14px rgba(18,89,168,.35);
+  }
+  .off-current b{font-size:20px;}
+  .off-current span{font-size:10px; margin-top:2px;}
+</style>
+</head>
+<body>
+
+<h1>50% OFF バッジ 3案比較</h1>
+<p class="subtitle">現状 + 3案を並べて確認</p>
+
+<div class="compare-grid">
+
+  <!-- 現状 -->
+  <div class="card-wrap">
+    <div class="card-label">現状 <span>青丸・小さめ</span></div>
+    <div class="price-card">
+      <div class="price-head">初めての方限定・特別キャンペーン！</div>
+      <div class="price-body">
+        <div>
+          <div class="price-old">通常 <s>¥3,960</s>(税込)</div>
+          <div>
+            <span class="price-arrow">→</span>
+            <span class="price-shokai" style="display:inline">初回</span>
+            <span class="price-now"><span class="yen">¥</span>1,980</span>
+            <span class="price-tax">(税込)</span>
+          </div>
+        </div>
+        <div class="off-current"><b>50%</b><span>OFF</span></div>
+      </div>
+      <div class="price-note">※2回目以降も10%OFF ¥3,564(税込)でお届けします</div>
+    </div>
+  </div>
+
+  <!-- 案A -->
+  <div class="card-wrap">
+    <div class="card-label">案A <span>赤オレンジ丸・大きく・パルスアニメ</span></div>
+    <div class="price-card">
+      <div class="price-head">初めての方限定・特別キャンペーン！</div>
+      <div class="price-body">
+        <div>
+          <div class="price-old">通常 <s>¥3,960</s>(税込)</div>
+          <div>
+            <span class="price-arrow">→</span>
+            <span class="price-shokai" style="display:inline">初回</span>
+            <span class="price-now"><span class="yen">¥</span>1,980</span>
+            <span class="price-tax">(税込)</span>
+          </div>
+        </div>
+        <div class="off-a"><b>50%</b><span>OFF</span></div>
+      </div>
+      <div class="price-note">※2回目以降も10%OFF ¥3,564(税込)でお届けします</div>
+    </div>
+  </div>
+
+  <!-- 案B -->
+  <div class="card-wrap">
+    <div class="card-label">案B <span>赤リボン型・右上から飛び出し</span></div>
+    <div class="price-card">
+      <div class="price-head">初めての方限定・特別キャンペーン！</div>
+      <div class="price-body ribbon-wrap">
+        <div>
+          <div class="price-old">通常 <s>¥3,960</s>(税込)</div>
+          <div>
+            <span class="price-arrow">→</span>
+            <span class="price-shokai" style="display:inline">初回</span>
+            <span class="price-now"><span class="yen">¥</span>1,980</span>
+            <span class="price-tax">(税込)</span>
+          </div>
+        </div>
+        <div class="off-ribbon"><b>50%</b><span>OFF</span></div>
+      </div>
+      <div class="price-note">※2回目以降も10%OFF ¥3,564(税込)でお届けします</div>
+    </div>
+  </div>
+
+  <!-- 案C -->
+  <div class="card-wrap">
+    <div class="card-label">案C <span>ヘッダー帯に赤バンド統合</span></div>
+    <div class="price-card">
+      <div class="price-head-c">
+        <div class="head-text">初めての方限定・特別キャンペーン！</div>
+        <div class="off-band"><b>50%</b><span>OFF</span></div>
+      </div>
+      <div class="price-body">
+        <div>
+          <div class="price-old">通常 <s>¥3,960</s>(税込)</div>
+          <div>
+            <span class="price-arrow">→</span>
+            <span class="price-shokai" style="display:inline">初回</span>
+            <span class="price-now"><span class="yen">¥</span>1,980</span>
+            <span class="price-tax">(税込)</span>
+          </div>
+        </div>
+      </div>
+      <div class="price-note">※2回目以降も10%OFF ¥3,564(税込)でお届けします</div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
