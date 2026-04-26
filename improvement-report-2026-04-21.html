@@ -651,10 +651,146 @@
                 <div class="log-result">CTR 11.9% / CPC &yen;8。認知キャンペーンで最高効率。リタゲ用オーディエンス蓄積に貢献。</div>
             </div>
 
+            <div class="log-entry" style="border-left-color: var(--success);">
+                <div class="log-date">2026-04-27</div>
+                <div class="log-action">Yahoo LP / Instagram LP — iframeを廃止し直リンクに変更（cv_40計測修正）</div>
+                <div class="log-result">カラーミーリピートのフォームをiframeで埋め込んでいたため、クロスオリジン制限でGA4 cv_40が発火しなかった問題を修正。CTAリンクをcolorme-repeat.jpへの直リンクに変更し、カラーミーのサンクスページにcv_40発火コードを設置。これ以降はGA4でcv_40が正常計測される。</div>
+            </div>
+
+            <div class="log-entry" style="border-left-color: var(--success);">
+                <div class="log-date">2026-04-26</div>
+                <div class="log-action">クリック急減（4/25）→ 自然回復（4/26） — ドクドク追加によるカニバリゼーション</div>
+                <div class="log-result">4/25にドクドク動画を同一広告セットに追加したことで、Metaがドクドクに予算を優先し、ピクニックが0インプレッションに（クリック40まで急減）。4/26にドクドクが学習完了し111クリック@CPC¥33まで回復。<strong>学習：同一セット内に新広告を追加すると既存広告が一時的に押し出される。確認は翌日必須。</strong></div>
+            </div>
+
             <div class="log-entry" style="border-left-color: var(--danger);">
                 <div class="log-date">2024-03 〜 2026-04</div>
                 <div class="log-action">YDA（Yahoo!ニュース面広告）運用</div>
                 <div class="log-result">&yen;368,479消化 / 19,603click / 購入0件。「水を探していない人」に見せても買わない。廃止。</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== GA4 cv_40 計測問題 原因特定・修正 ===== -->
+    <div class="section">
+        <div class="section-header" style="background: linear-gradient(135deg, #006064, #00838f);">🔧 GA4 cv_40 計測問題 — 原因特定・修正完了（4/27）</div>
+        <div class="section-body">
+            <div class="note-box danger" style="margin-bottom:20px;">
+                <strong>症状：</strong> 3/27以降、GA4のcv_40イベントが0件。Metaの購入帰属とGA4の乖離が激しく、広告効果の正確な把握ができていなかった。
+            </div>
+
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:20px;">
+                <div class="effect-card negative">
+                    <div class="effect-title">❌ 根本原因</div>
+                    <p style="font-size:0.88em; line-height:1.7; margin-top:8px;">
+                        Yahoo LP・Instagram LP内にカラーミーリピートの注文フォームを<strong>iframe（別ドメイン）で埋め込んで</strong>いた。<br><br>
+                        ブラウザのクロスオリジン制限により、iframe内（colorme-repeat.jp）で発火したGA4イベントは、親ページ（olivia-store.com）のGA4セッションに届かない。<br><br>
+                        → カラーミーのサンクスページに cv_40 コードを置いても「別ドメイン」のGA4として計測され、LP経由の購入として紐付かない。
+                    </p>
+                </div>
+                <div class="effect-card positive">
+                    <div class="effect-title">✅ 修正内容（4/27実施）</div>
+                    <p style="font-size:0.88em; line-height:1.7; margin-top:8px;">
+                        <strong>① Yahoo LP（page-water-yahoo.php）</strong><br>
+                        iframeを削除。CTAボタン・固定フッターをcolorme-repeat.jpへの直リンクに変更。<br><br>
+                        <strong>② カラーミーリピート「コンバージョンタグ（上）」</strong><br>
+                        サンクスページに cv_40・Yahoo広告CV・Meta Pixel Purchase の各タグを正しい順序で設置。<br><br>
+                        <strong>③ CF7代引きフォーム</strong><br>
+                        送信ボタンのCSS修正（Flatsome CSS無効化の影響で非表示になっていた）。
+                    </p>
+                </div>
+            </div>
+
+            <div class="note-box info">
+                <strong>今後の計測方針：</strong><br>
+                ユーザーはLPからcolorme-repeat.jpへ直リンクで遷移 → 購入完了ページ（サンクス）でcv_40が発火 → GA4のセッションに計上される。<br>
+                GA4リアルタイムで「cv_40」イベントを確認することで正常動作を検証済み。<br><br>
+                <strong>注意：</strong> 3/27〜4/27のcv_40データは欠損のため、この期間の購入件数はカラーミーリピートの管理画面・代引き申込フォームの受信メールで補完する。
+            </div>
+
+            <table class="data-table" style="margin-top:16px;">
+                <thead>
+                    <tr><th>対象LP</th><th>変更前</th><th>変更後</th><th>cv_40計測</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Instagram LP1（ig1.php）</td>
+                        <td>直リンク（3/27以前に修正済み）</td>
+                        <td>直リンク ✅</td>
+                        <td><span class="badge badge-up">計測中</span></td>
+                    </tr>
+                    <tr>
+                        <td>Yahoo LP（yahoo.php）</td>
+                        <td>iframeでフォーム埋め込み</td>
+                        <td>直リンク ✅（4/27修正）</td>
+                        <td><span class="badge badge-up">計測開始</span></td>
+                    </tr>
+                    <tr>
+                        <td>Instagram LP2（ig2.php）</td>
+                        <td>直リンク（元々OK）</td>
+                        <td>直リンク ✅</td>
+                        <td><span class="badge badge-up">計測中</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- ===== 4/25・4/26 日次サマリー ===== -->
+    <div class="section">
+        <div class="section-header" style="background: linear-gradient(135deg, #1565c0, #1976d2);">📅 4/25・4/26 日次サマリー</div>
+        <div class="section-body">
+            <table class="data-table">
+                <thead>
+                    <tr><th>日付</th><th>媒体</th><th>消化</th><th>クリック</th><th>CPC</th><th>メモ</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>4/25</td><td>Meta</td>
+                        <td class="num">&yen;2,753</td>
+                        <td class="num">40</td>
+                        <td class="num" style="color:var(--warning);">&yen;69</td>
+                        <td>ドクドク追加直後でカニバリゼーション発生。ピクニックが押し出された。</td>
+                    </tr>
+                    <tr>
+                        <td>4/25</td><td>Yahoo</td>
+                        <td class="num">&yen;556</td>
+                        <td class="num">14</td>
+                        <td class="num">&yen;40</td>
+                        <td>安定稼働</td>
+                    </tr>
+                    <tr class="total-row">
+                        <td colspan="2">4/25 合計</td>
+                        <td class="num">&yen;3,309</td>
+                        <td class="num">54</td>
+                        <td class="num">&yen;61</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>4/26</td><td>Meta</td>
+                        <td class="num">&yen;3,687</td>
+                        <td class="num">111</td>
+                        <td class="num" style="color:var(--success); font-weight:700;">&yen;33</td>
+                        <td>ドクドク81クリック@CPC¥7（認知キャン）で大幅回復。CV最適化も正常。</td>
+                    </tr>
+                    <tr>
+                        <td>4/26</td><td>Yahoo</td>
+                        <td class="num">&yen;911</td>
+                        <td class="num">21</td>
+                        <td class="num">&yen;43</td>
+                        <td>安定稼働</td>
+                    </tr>
+                    <tr class="total-row">
+                        <td colspan="2">4/26 合計</td>
+                        <td class="num">&yen;4,598</td>
+                        <td class="num">132</td>
+                        <td class="num">&yen;35</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="note-box success" style="margin-top:16px;">
+                <strong>4/26 回復ポイント：</strong> 認知キャンペーン「日常3_ドクドク」が81クリック@CPC¥6.74を達成。前日の40クリック→111クリックに自然回復。カニバリゼーションは1日で解消。
             </div>
         </div>
     </div>
@@ -913,7 +1049,7 @@
     </div>
 
     <div style="text-align: center; margin-top: 30px; padding: 20px; font-size: 0.8em; color: var(--text-light);">
-        ミチルシリカ 改善レポート | 2026年4月21日 作成 / 2026年4月24日 更新（年齢別分析・競合分析・5月戦略追記）<br>
+        ミチルシリカ 改善レポート | 2026年4月21日 作成 / 2026年4月27日 更新（4/25-26日次・GA4 cv_40修正・Yahoo LP直リンク化）<br>
         LP: <a href="https://michiru.olivia-store.com/" target="_blank">Meta用</a> / <a href="https://michiru.olivia-store.com/yahoo" target="_blank">Yahoo用</a>
     </div>
 
