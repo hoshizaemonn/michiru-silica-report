@@ -652,6 +652,36 @@
             </div>
 
             <div class="log-entry" style="border-left-color: var(--success);">
+                <div class="log-date">2026-05-01</div>
+                <div class="log-action">ボトルQR用 お客様向け特設ページ モック制作完了</div>
+                <div class="log-result">ボトルQRが古い販売LPに飛んでいた問題を解決。Kinfolk雑誌風のおしゃれなコンテンツページ（ブランドストーリー＋4レシピ＋お客様の声＋定期便案内＋SNS導線）を作成。次回印刷ロットからQRリンク差し替え予定。GitHub Pagesで鈴木さん確認待ち。</div>
+            </div>
+
+            <div class="log-entry" style="border-left-color: var(--success);">
+                <div class="log-date">2026-05-01</div>
+                <div class="log-action">日次データ同期スクリプト 月またぎバグ修正＋GA4複数日CSV対応</div>
+                <div class="log-result">5/1にダッシュボードの4月データが消失。原因は「今月のみ表示」ロジックで月またぎ時に前月データを失っていた。「直近35日表示」に変更。さらにGA4の複数日CSV（4/25-28等）が1日扱いされていた問題も修正。4/29 GA4データもAPI再取得して復元。</div>
+            </div>
+
+            <div class="log-entry" style="border-left-color: var(--success);">
+                <div class="log-date">2026-04-30</div>
+                <div class="log-action">新クリエ「飲む美容_99円」制作・配信開始（Meta CV最適化）</div>
+                <div class="log-result">新LP「飲む美容で内側から輝く私へ」に合わせた99円訴求バナー制作。GPT-Image-2でビジュアル生成、UTMパラメータ付きURL（utm_source=meta&utm_content=nomu_biyou_99）でMeta経由の購入を計測可能に。初日Instagram消化¥1,301/CPC¥260（学習中）/動画完視聴率54%。</div>
+            </div>
+
+            <div class="log-entry" style="border-left-color: var(--success);">
+                <div class="log-date">2026-04-30</div>
+                <div class="log-action">Instagram第3弾（5/4-5/10）7投稿制作完了 — nano-banana活用</div>
+                <div class="log-result">1・2弾分析（保存数ほぼゼロ）を踏まえ、保存系投稿2本（炊飯・コーヒー）と人物（手元）入りカット3本を新設。実物のミチルボトル画像を参照させたnano-banana生成で、ブランド一貫性を確保。GitHub Pagesで鈴木さん確認用ページ公開: <a href="https://hoshizaemonn.github.io/michiru-silica-report/instagram/v3/" target="_blank">確認用</a></div>
+            </div>
+
+            <div class="log-entry" style="border-left-color: var(--success);">
+                <div class="log-date">2026-04-27</div>
+                <div class="log-action">カラーミーリピート トラッキングタグ整理（Yahoo二重計上・Meta Pixel二重初期化を解消）</div>
+                <div class="log-result">Yahooコンバージョンが実数2件に対し4件カウントされていた原因＝サイトジェネラルタグの重複。Meta Pixelも同様に2回初期化されていた。コンバージョンタグ欄とグローバルタグ欄に正しく分離して整理。GA4プロパティID（G-3SFRPMM1NB）も統一確認。</div>
+            </div>
+
+            <div class="log-entry" style="border-left-color: var(--success);">
                 <div class="log-date">2026-04-27</div>
                 <div class="log-action">Yahoo LP / Instagram LP — iframeを廃止し直リンクに変更（cv_40計測修正）</div>
                 <div class="log-result">カラーミーリピートのフォームをiframeで埋め込んでいたため、クロスオリジン制限でGA4 cv_40が発火しなかった問題を修正。CTAリンクをcolorme-repeat.jpへの直リンクに変更し、カラーミーのサンクスページにcv_40発火コードを設置。これ以降はGA4でcv_40が正常計測される。</div>
@@ -667,6 +697,78 @@
                 <div class="log-date">2024-03 〜 2026-04</div>
                 <div class="log-action">YDA（Yahoo!ニュース面広告）運用</div>
                 <div class="log-result">&yen;368,479消化 / 19,603click / 購入0件。「水を探していない人」に見せても買わない。廃止。</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== 解約対策プラン（温泉水99分析より） ===== -->
+    <div class="section">
+        <div class="section-header" style="background: linear-gradient(135deg, #6d4c41, #8d6e63);">🛡 解約対策プラン — 競合「温泉水99」分析を踏まえた優先アクション</div>
+        <div class="section-body">
+            <div class="note-box info" style="margin-bottom:20px;">
+                <strong>背景：</strong> 競合「温泉水99」の定期便を分析した結果、ボトル以外に<strong>同梱物6種類（納品書・Q&A・BIB説明書・著名人愛用チラシ・レシピブック・ブランドガイドブック）</strong>を入れて解約防止＆LTV向上を実現していた。ミチルは現状ほぼ同梱物ゼロ。「箱を開けた瞬間からの解約防止」をミチルでも実装する。
+            </div>
+
+            <h3 style="color:var(--primary); margin-bottom:16px;">即実行（コスト低）</h3>
+
+            <div class="log-entry" style="border-left-color: var(--success);">
+                <div class="log-date">優先度 ★★★</div>
+                <div class="log-action">①同梱カード A5両面 — 「ありがとう ＋ シリカの活用法5選 ＋ ご飯が美味しくなる！」</div>
+                <div class="log-result">レシピ部分はInstagram第3弾の保存系投稿（炊飯・コーヒー・お茶・スキンケア）を流用予定。<strong>確認事項：投稿で使用したレシピを同梱物に転用する際、参考元（インスタの料理本等）の許可が必要か要確認。</strong></div>
+            </div>
+
+            <div class="log-entry" style="border-left-color: var(--success);">
+                <div class="log-date">優先度 ★★★</div>
+                <div class="log-action">②サンクスメール強化 — 購入14日後・30日後に活用法Tip送信（ステップメール）</div>
+                <div class="log-result">
+                    <strong>現状：</strong>「ご注文ありがとうございます」確認メールのみ。<br>
+                    <strong>強化案：</strong><br>
+                    ・購入14日後 → 「そろそろ慣れてきた頃ですね。ミチルシリカのおすすめ活用法5選」<br>
+                    ・購入30日後（次の便が来る前） → 「もうすぐ次の便が届きます。料理に使うと消費が早くなりますよ」<br>
+                    <strong>目的：</strong>(1)解約する前に「そういえばちゃんと飲もう」と思い出させる、(2)次便が来る前に「やっぱりいらないかも」と思わせない。<br>
+                    <strong>確認事項：</strong>カラーミーリピートのステップメール機能の有無を確認。なければMailchimp等の外部メール配信ツールと購入者リストを連携。
+                </div>
+            </div>
+
+            <div class="log-entry" style="border-left-color: var(--success);">
+                <div class="log-date">優先度 ★★★</div>
+                <div class="log-action">③スキップ訴求 — 「解約前にスキップをご利用ください」をカラーミーリピート設定に明示</div>
+                <div class="log-result">解約導線の手前に「お休み（スキップ）」のオプションを目立たせる。解約フォームの直前に「次回をスキップする」ボタンを配置できるかカラーミーリピートで確認。</div>
+            </div>
+
+            <h3 style="color:var(--primary); margin:32px 0 16px;">中期（1〜2ヶ月）</h3>
+
+            <div class="log-entry">
+                <div class="log-date">優先度 ★★</div>
+                <div class="log-action">④レシピコンテンツ — Instagram×Webでシリカ×料理動画投稿（認知動画として流用可能）</div>
+                <div class="log-result">第3弾で実装済みの「炊飯」「コーヒー」レシピを動画化。Instagram投稿だけでなく、Meta広告の認知用クリエイティブとしても流用。WEBサイトにもレシピページとして集約することでSEO効果も期待。</div>
+            </div>
+
+            <div class="log-entry">
+                <div class="log-date">優先度 ★★</div>
+                <div class="log-action">⑤ユーザーボイス収集 — Googleフォーム or 同梱QRカードで継続理由を聞く</div>
+                <div class="log-result">継続して買ってくださっているお客様に「なぜ続けているか」をヒアリング。<strong>インセンティブ案：アンケート回答者に簡易プレゼント（次回500円OFF or レシピカード3枚セット等）を付けて回答率UP。</strong>集まった声はLP・Instagram・同梱物に活用。</div>
+            </div>
+
+            <div class="log-entry">
+                <div class="log-date">優先度 ★★</div>
+                <div class="log-action">⑥定期購入Q&A紙 — A5片面、休止・変更・PFAS等をまとめる</div>
+                <div class="log-result">「ちょっと困った時の安心」を紙で持っていてもらう。温泉水99がやっていた「電話番号付きQ&A紙」と同じパターン。休止方法・変更方法・PFASなどよくある不安を先回りで解消。</div>
+            </div>
+
+            <h3 style="color:var(--primary); margin:32px 0 16px;">長期（3ヶ月〜）</h3>
+
+            <div class="log-entry">
+                <div class="log-date">優先度 ★</div>
+                <div class="log-action">⑦ブランドカタログ — 産地・シリカ成分・受賞歴まとめのA4×4P冊子</div>
+                <div class="log-result">温泉水99の30P雑誌品質ガイドブックの簡易版。「産地写真＋シリカ成分の科学的根拠＋著名人」だけでも「本物だ」という確信を高め、解約率低下に貢献。コストかかるので3ヶ月後の優先度。</div>
+            </div>
+
+            <h3 style="color:var(--primary); margin:32px 0 16px;">補足：ボトルQRリンク先変更（5/1モック制作完了）</h3>
+            <div class="log-entry" style="border-left-color: var(--success);">
+                <div class="log-date">2026-05-01 完了</div>
+                <div class="log-action">ボトルQR → お客様向け特設ページ（おしゃれコンテンツ型）</div>
+                <div class="log-result">解約対策の核心アクション。既購入者がQRをスキャンしたときに販売LPではなく「ブランドストーリー＋レシピ＋お客様の声＋定期便案内＋SNS導線」のコンテンツページに誘導。Kinfolk雑誌風の上質デザインでブランド愛着を醸成。次回印刷ロットからQR差し替え予定。</div>
             </div>
         </div>
     </div>
@@ -1049,7 +1151,7 @@
     </div>
 
     <div style="text-align: center; margin-top: 30px; padding: 20px; font-size: 0.8em; color: var(--text-light);">
-        ミチルシリカ 改善レポート | 2026年4月21日 作成 / 2026年4月27日 更新（4/25-26日次・GA4 cv_40修正・Yahoo LP直リンク化）<br>
+        ミチルシリカ 改善レポート | 2026年4月21日 作成 / 2026年5月1日 更新（解約対策プラン・ボトルQRページ・Instagram第3弾・新クリエ追加）<br>
         LP: <a href="https://michiru.olivia-store.com/" target="_blank">Meta用</a> / <a href="https://michiru.olivia-store.com/yahoo" target="_blank">Yahoo用</a>
     </div>
 
