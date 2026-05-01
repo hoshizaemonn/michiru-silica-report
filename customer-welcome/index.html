@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Welcome | ミチルシリカ — 大分・玖珠の天然シリカ水</title>
+<meta name="description" content="ミチルシリカをお手に取ってくださりありがとうございます。もっと美味しく続けるためのレシピ・活用法をご紹介します。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Noto+Sans+JP:wght@300;400;500;700&family=Shippori+Mincho:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --c-base: #faf8f4;
+    --c-cream: #f5f1e9;
+    --c-text: #2c3e50;
+    --c-text-light: #6b7a8c;
+    --c-blue: #6ba4c9;
+    --c-blue-deep: #1a3a5c;
+    --c-accent: #c9a96e;
+    --font-jp: "Shippori Mincho", "Noto Serif JP", serif;
+    --font-jp-sans: "Noto Sans JP", sans-serif;
+    --font-en: "Cormorant Garamond", serif;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font-jp-sans);
+    background: var(--c-base);
+    color: var(--c-text);
+    line-height: 1.9;
+    font-weight: 300;
+    letter-spacing: 0.04em;
+    -webkit-font-smoothing: antialiased;
+  }
+  img { max-width: 100%; display: block; }
+
+  /* ==================== HERO ==================== */
+  .hero {
+    position: relative;
+    height: 100vh;
+    min-height: 640px;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: url('images/01_hero.png') center/cover;
+  }
+  .hero-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(250,248,244,0.85) 0%, rgba(250,248,244,0.3) 50%, rgba(250,248,244,0) 100%);
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1280px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .hero-en {
+    font-family: var(--font-en);
+    font-size: 16px;
+    font-style: italic;
+    color: var(--c-blue-deep);
+    letter-spacing: 0.2em;
+    margin-bottom: 28px;
+    opacity: 0.7;
+  }
+  .hero-en::before {
+    content: "— ";
+  }
+  .hero h1 {
+    font-family: var(--font-jp);
+    font-size: clamp(28px, 4.4vw, 56px);
+    font-weight: 500;
+    line-height: 1.55;
+    color: var(--c-blue-deep);
+    margin-bottom: 36px;
+    letter-spacing: 0.08em;
+  }
+  .hero p {
+    max-width: 460px;
+    font-size: 14px;
+    line-height: 2;
+    color: var(--c-text);
+  }
+  .scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--c-blue-deep);
+    font-family: var(--font-en);
+    font-size: 12px;
+    letter-spacing: 0.3em;
+    z-index: 2;
+    text-align: center;
+    opacity: 0.6;
+  }
+  .scroll-indicator::after {
+    content: "";
+    display: block;
+    width: 1px;
+    height: 40px;
+    background: var(--c-blue-deep);
+    margin: 12px auto 0;
+    animation: scrollDown 2s infinite ease-in-out;
+  }
+  @keyframes scrollDown {
+    0%, 100% { transform: scaleY(0); transform-origin: top; }
+    50% { transform: scaleY(1); transform-origin: top; }
+  }
+
+  /* ==================== SECTION COMMON ==================== */
+  section { padding: 120px 60px; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .label-en {
+    font-family: var(--font-en);
+    font-size: 13px;
+    font-style: italic;
+    color: var(--c-blue);
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    display: block;
+  }
+  .label-en::before { content: "— "; }
+  h2 {
+    font-family: var(--font-jp);
+    font-size: clamp(24px, 3vw, 38px);
+    font-weight: 500;
+    line-height: 1.5;
+    color: var(--c-blue-deep);
+    margin-bottom: 32px;
+    letter-spacing: 0.08em;
+  }
+  .lead {
+    font-size: 15px;
+    line-height: 2.1;
+    max-width: 640px;
+    color: var(--c-text);
+  }
+
+  /* ==================== STORY ==================== */
+  .story {
+    background: var(--c-cream);
+  }
+  .story-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .story-img {
+    aspect-ratio: 3 / 2;
+    background: url('images/02_kusu_nature.png') center/cover;
+    border-radius: 2px;
+  }
+  .story-text {
+    padding-right: 20px;
+  }
+  .story-quote {
+    font-family: var(--font-jp);
+    font-size: 18px;
+    font-style: italic;
+    color: var(--c-blue-deep);
+    margin: 32px 0;
+    padding-left: 20px;
+    border-left: 2px solid var(--c-blue);
+    line-height: 2;
+  }
+
+  /* ==================== RECIPES ==================== */
+  .recipes-intro {
+    text-align: center;
+    margin-bottom: 80px;
+  }
+  .recipes-intro .label-en::before { content: ""; }
+  .recipes-intro h2 { margin: 0 auto 24px; }
+  .recipes-intro .lead { margin: 0 auto; }
+
+  .recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 60px 40px;
+  }
+  .recipe {
+    display: flex;
+    flex-direction: column;
+  }
+  .recipe-img {
+    aspect-ratio: 1 / 1;
+    border-radius: 2px;
+    margin-bottom: 24px;
+  }
+  .recipe-num {
+    font-family: var(--font-en);
+    font-size: 13px;
+    color: var(--c-blue);
+    letter-spacing: 0.2em;
+    margin-bottom: 8px;
+  }
+  .recipe h3 {
+    font-family: var(--font-jp);
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--c-blue-deep);
+    margin-bottom: 16px;
+    letter-spacing: 0.05em;
+  }
+  .recipe p {
+    font-size: 14px;
+    line-height: 2;
+    color: var(--c-text);
+  }
+  .recipe-tip {
+    font-size: 12px;
+    color: var(--c-text-light);
+    margin-top: 14px;
+    padding: 10px 14px;
+    background: var(--c-cream);
+    border-left: 2px solid var(--c-accent);
+    line-height: 1.7;
+  }
+
+  /* ==================== VOICES ==================== */
+  .voices {
+    background: var(--c-cream);
+    text-align: center;
+  }
+  .voices-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-top: 60px;
+  }
+  .voice-card {
+    background: var(--c-base);
+    padding: 36px 28px;
+    border-radius: 2px;
+  }
+  .voice-rating {
+    color: var(--c-accent);
+    font-size: 14px;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+  }
+  .voice-text {
+    font-size: 14px;
+    line-height: 2;
+    color: var(--c-text);
+    margin-bottom: 24px;
+  }
+  .voice-name {
+    font-size: 13px;
+    color: var(--c-text-light);
+    letter-spacing: 0.1em;
+  }
+  .badges {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    margin-top: 60px;
+    flex-wrap: wrap;
+  }
+  .badge {
+    text-align: center;
+  }
+  .badge-num {
+    font-family: var(--font-en);
+    font-size: 36px;
+    font-weight: 500;
+    color: var(--c-blue-deep);
+    display: block;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .badge-label {
+    font-size: 12px;
+    color: var(--c-text-light);
+    letter-spacing: 0.15em;
+  }
+
+  /* ==================== SUBSCRIPTION ==================== */
+  .subscription {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .sub-img {
+    aspect-ratio: 1 / 1;
+    background: url('images/07_subscription.png') center/cover;
+    border-radius: 2px;
+  }
+  .sub-list {
+    list-style: none;
+    margin: 32px 0;
+  }
+  .sub-list li {
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(107, 164, 201, 0.2);
+    font-size: 14px;
+    color: var(--c-text);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .sub-list li::before {
+    content: "◇";
+    color: var(--c-blue);
+  }
+  .cta-btn {
+    display: inline-block;
+    background: var(--c-blue-deep);
+    color: var(--c-base);
+    padding: 18px 56px;
+    text-decoration: none;
+    font-size: 14px;
+    letter-spacing: 0.2em;
+    margin-top: 16px;
+    transition: opacity 0.3s;
+    border-radius: 2px;
+  }
+  .cta-btn:hover { opacity: 0.85; }
+
+  /* ==================== CONNECT ==================== */
+  .connect {
+    background: var(--c-blue-deep);
+    color: var(--c-base);
+    text-align: center;
+  }
+  .connect h2 {
+    color: var(--c-base);
+  }
+  .connect .lead {
+    color: rgba(250,248,244,0.85);
+    margin: 0 auto 48px;
+  }
+  .connect .label-en {
+    color: var(--c-accent);
+  }
+  .social-links {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    margin-top: 40px;
+    flex-wrap: wrap;
+  }
+  .social-link {
+    background: rgba(250,248,244,0.08);
+    border: 1px solid rgba(250,248,244,0.2);
+    padding: 24px 40px;
+    border-radius: 2px;
+    color: var(--c-base);
+    text-decoration: none;
+    transition: all 0.3s;
+    min-width: 220px;
+  }
+  .social-link:hover {
+    background: rgba(250,248,244,0.15);
+    transform: translateY(-2px);
+  }
+  .social-icon {
+    font-family: var(--font-en);
+    font-size: 18px;
+    letter-spacing: 0.2em;
+    margin-bottom: 8px;
+    display: block;
+    color: var(--c-accent);
+  }
+  .social-name {
+    font-size: 13px;
+    letter-spacing: 0.1em;
+  }
+
+  /* ==================== FOOTER ==================== */
+  footer {
+    background: #1a2a3c;
+    color: rgba(250,248,244,0.5);
+    padding: 40px;
+    text-align: center;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+  }
+
+  /* ==================== RESPONSIVE ==================== */
+  @media (max-width: 768px) {
+    .hero-content { padding: 0 30px; }
+    section { padding: 80px 24px; }
+    .story-grid, .subscription { grid-template-columns: 1fr; gap: 40px; }
+    .recipe-grid { grid-template-columns: 1fr; gap: 40px; }
+    .voices-grid { grid-template-columns: 1fr; }
+    .badges { gap: 30px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <span class="hero-en">For You, A Letter From Michiru</span>
+    <h1>ミチルシリカを<br>お手に取ってくださり、<br>ありがとうございます。</h1>
+    <p>
+      ここは、ミチルを暮らしに迎えてくださった<br>
+      あなたのための、小さなページです。<br>
+      もっと美味しく、心地よく続けていただくための<br>
+      ヒントをお届けします。
+    </p>
+  </div>
+  <div class="scroll-indicator">SCROLL</div>
+</section>
+
+<!-- ============ STORY ============ -->
+<section class="story">
+  <div class="container">
+    <div class="story-grid">
+      <div class="story-img"></div>
+      <div class="story-text">
+        <span class="label-en">Our Story</span>
+        <h2>大分・玖珠の山が育てた、<br>ひと滴。</h2>
+        <p class="lead">
+          ミチルシリカは、九州・大分県玖珠町（くすまち）の地下深層から湧き出る、天然のシリカ水です。
+          長い年月をかけて山々が濾過した水は、硬度24mg/Lのまろやかな軟水。シリカ含有量は72mg/L。
+          余計なものを一切加えず、自然のままの恵みをそのままボトリングしました。
+        </p>
+        <p class="story-quote">
+          「自然から授かったものを、<br>自然のまま、あなたの暮らしへ。」
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RECIPES ============ -->
+<section>
+  <div class="container">
+    <div class="recipes-intro">
+      <span class="label-en">How to Enjoy</span>
+      <h2>もっと美味しく、<br>暮らしに溶け込ませる4つの方法。</h2>
+      <p class="lead">
+        ミチルは「飲む」だけのものではありません。<br>
+        硬度24mg/Lのまろやかな軟水だからこそ、料理にもケアにも、ぴったり寄り添います。
+      </p>
+    </div>
+
+    <div class="recipe-grid">
+      <div class="recipe">
+        <img src="images/03_recipe_rice.png" class="recipe-img" alt="お米を炊く">
+        <span class="recipe-num">RECIPE 01</span>
+        <h3>お米を、ミチルで炊く</h3>
+        <p>
+          いつものお米を研いで、ミチルシリカで30分浸水するだけ。軟水だから米粒の芯までやさしく染み込み、ふっくらと炊きあがります。冷めても美味しいので、お弁当にも。
+        </p>
+        <div class="recipe-tip">
+          <strong>POINT</strong>　お米2合：ミチルシリカ360ml
+        </div>
+      </div>
+
+      <div class="recipe">
+        <img src="images/04_recipe_coffee.png" class="recipe-img" alt="コーヒーを淹れる">
+        <span class="recipe-num">RECIPE 02</span>
+        <h3>コーヒーを、ミチルで淹れる</h3>
+        <p>
+          雑味のないクリアな味わいに。豆の香りがしっかり立ち、後味もすっきり。いつもの一杯がワンランク上の体験に。お休みの朝にぜひ。
+        </p>
+        <div class="recipe-tip">
+          <strong>POINT</strong>　沸かしすぎず、90℃前後がおすすめ
+        </div>
+      </div>
+
+      <div class="recipe">
+        <img src="images/05_recipe_tea.png" class="recipe-img" alt="お茶を淹れる">
+        <span class="recipe-num">RECIPE 03</span>
+        <h3>お茶を、ミチルで淹れる</h3>
+        <p>
+          軟水で淹れる煎茶は、甘みがふわりと立ち上がります。紅茶もハーブティーも、茶葉の繊細な香りを引き出してくれる。日本茶文化と相性のいい水です。
+        </p>
+        <div class="recipe-tip">
+          <strong>POINT</strong>　煎茶は70℃、紅茶は95℃で淹れる
+        </div>
+      </div>
+
+      <div class="recipe">
+        <img src="images/06_recipe_skincare.png" class="recipe-img" alt="スキンケアと">
+        <span class="recipe-num">RECIPE 04</span>
+        <h3>スキンケアの、いちばん最初に</h3>
+        <p>
+          化粧水を塗る前に、コップ一杯のミチルシリカを。外側のケアと内側からのうるおい、両方を意識する習慣で、毎日の整えはじめに。
+        </p>
+        <div class="recipe-tip">
+          <strong>POINT</strong>　起き抜けの空腹時にゆっくりと
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VOICES ============ -->
+<section class="voices">
+  <div class="container">
+    <span class="label-en">Voices &amp; Awards</span>
+    <h2>愛飲してくださっている、<br>みなさまの声。</h2>
+
+    <div class="voices-grid">
+      <div class="voice-card">
+        <div class="voice-rating">★★★★★</div>
+        <p class="voice-text">「お米変えた？」と家族に聞かれて気づいたんです、変わったのはお水だったんだって。それからずっと続けています。</p>
+        <p class="voice-name">— 30代・主婦</p>
+      </div>
+      <div class="voice-card">
+        <div class="voice-rating">★★★★★</div>
+        <p class="voice-text">クセがなくてやさしい味。コーヒーが本当に美味しくなりました。届くのを毎月楽しみにしています。</p>
+        <p class="voice-name">— 40代・会社員</p>
+      </div>
+      <div class="voice-card">
+        <div class="voice-rating">★★★★★</div>
+        <p class="voice-text">朝起きてすぐの一杯が習慣になりました。何気ない毎日に、自分を整える時間ができたのが嬉しいです。</p>
+        <p class="voice-name">— 30代・自営業</p>
+      </div>
+    </div>
+
+    <div class="badges">
+      <div class="badge">
+        <span class="badge-num">400,000+</span>
+        <span class="badge-label">CUMULATIVE BOTTLES SOLD</span>
+      </div>
+      <div class="badge">
+        <span class="badge-num">★ 4.6</span>
+        <span class="badge-label">AMAZON REVIEW</span>
+      </div>
+      <div class="badge">
+        <span class="badge-num">72mg/L</span>
+        <span class="badge-label">SILICA CONTENT</span>
+      </div>
+      <div class="badge">
+        <span class="badge-num">24mg/L</span>
+        <span class="badge-label">SOFT WATER</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SUBSCRIPTION ============ -->
+<section>
+  <div class="container">
+    <div class="subscription">
+      <div class="sub-img"></div>
+      <div>
+        <span class="label-en">Continue With Us</span>
+        <h2>これからも、<br>暮らしのそばに。</h2>
+        <p class="lead">
+          毎日の習慣だからこそ、無理なく続けられることを。
+          ミチルシリカの定期便なら、玄関までお届け。お休みも解約も、いつでも自由に。
+        </p>
+        <ul class="sub-list">
+          <li>1本あたり 99円（税込・送料無料）</li>
+          <li>玄関まで定期配送、重い水を運ばなくていい</li>
+          <li>お届け頻度は1〜3ヶ月で自由に変更</li>
+          <li>休止・解約はいつでも。回数縛りなし</li>
+        </ul>
+        <a href="https://michiru.olivia-store.com/?utm_source=bottle_qr&utm_medium=qr&utm_campaign=customer_welcome" class="cta-btn">定期便を見る</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONNECT ============ -->
+<section class="connect">
+  <div class="container">
+    <span class="label-en">Stay In Touch</span>
+    <h2>暮らしの記録を、<br>ともに。</h2>
+    <p class="lead">
+      ミチルとの日々や、レシピの最新情報、メンバー限定のお知らせ。<br>
+      ぜひSNSや公式LINEでつながってください。
+    </p>
+    <div class="social-links">
+      <a href="https://www.instagram.com/michirusilicawater/" class="social-link" target="_blank">
+        <span class="social-icon">INSTAGRAM</span>
+        <span class="social-name">@michirusilicawater</span>
+      </a>
+      <a href="#" class="social-link">
+        <span class="social-icon">LINE</span>
+        <span class="social-name">公式アカウントを友だち追加</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © MICHIRU SILICA — 大分県玖珠町の天然シリカ水
+</footer>
+
+</body>
+</html>
