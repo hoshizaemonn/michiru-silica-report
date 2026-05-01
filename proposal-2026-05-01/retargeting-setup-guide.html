@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ミチルシリカ リタゲ設定手順書 | Meta Ads Manager</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+    background: #f5f3ee;
+    color: #2a3445;
+    line-height: 1.9;
+    padding: 40px 20px;
+  }
+  .container { max-width: 880px; margin: 0 auto; }
+  h1 {
+    font-size: 28px;
+    color: #1a3a5c;
+    margin-bottom: 8px;
+    text-align: center;
+  }
+  .subtitle {
+    text-align: center;
+    color: #6b7a90;
+    margin-bottom: 40px;
+  }
+
+  .step {
+    background: #fff;
+    padding: 28px 32px;
+    border-radius: 8px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 8px rgba(26,58,92,0.06);
+    border-left: 4px solid #6ba4c9;
+  }
+  .step-num {
+    display: inline-block;
+    background: #1a3a5c;
+    color: #fff;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 32px;
+    font-weight: 600;
+    margin-right: 10px;
+  }
+  .step h2 {
+    color: #1a3a5c;
+    font-size: 20px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-path {
+    background: #1a3a5c;
+    color: #fff;
+    padding: 10px 16px;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 14px;
+    margin: 12px 0;
+    display: inline-block;
+  }
+
+  ol, ul { margin: 8px 0 8px 24px; }
+  ol li, ul li { margin: 6px 0; font-size: 14px; line-height: 1.9; }
+
+  .info-box {
+    background: #f4faf6;
+    border-left: 3px solid #51b873;
+    padding: 14px 18px;
+    border-radius: 4px;
+    margin: 12px 0;
+    font-size: 13px;
+    line-height: 1.9;
+  }
+  .warn-box {
+    background: #fdf8f0;
+    border-left: 3px solid #e0a04a;
+    padding: 14px 18px;
+    border-radius: 4px;
+    margin: 12px 0;
+    font-size: 13px;
+    line-height: 1.9;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 13px;
+    background: #fafbfc;
+  }
+  th, td {
+    padding: 10px 12px;
+    border: 1px solid #e8edf3;
+    text-align: left;
+  }
+  th { background: #f0f4f8; color: #1a3a5c; }
+  .copy-block {
+    background: #2a3445;
+    color: #a8d8ed;
+    padding: 14px 18px;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 13px;
+    margin: 8px 0;
+    line-height: 1.8;
+  }
+  .total-budget {
+    background: linear-gradient(135deg, #1a3a5c, #2c5070);
+    color: #fff;
+    padding: 24px;
+    border-radius: 8px;
+    text-align: center;
+    margin: 32px 0;
+  }
+  .total-budget h2 { color: #fff; }
+  .checklist {
+    background: #fff;
+    padding: 24px 30px;
+    border-radius: 8px;
+    margin-top: 32px;
+    border: 2px solid #6ba4c9;
+  }
+  .checklist label {
+    display: block;
+    padding: 6px 0;
+    font-size: 14px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>🎯 ミチルシリカ リタゲ設定手順書</h1>
+<p class="subtitle">Meta Ads Manager — 年齢別3セット同時配信</p>
+
+<!-- STEP 1 -->
+<div class="step">
+  <h2><span class="step-num">1</span>カスタムオーディエンス作成（5分）</h2>
+  <p>「過去30日のFB/IG動画3秒以上視聴者」のリストを作ります。</p>
+
+  <p style="margin-top:12px;"><strong>📍 場所：</strong></p>
+  <div class="nav-path">Meta Ads Manager → オーディエンス → カスタムオーディエンス作成</div>
+
+  <p style="margin-top:12px;"><strong>手順：</strong></p>
+  <ol>
+    <li>「ソース」を選択 → <strong>動画</strong>を選択</li>
+    <li>「動画を視聴したユーザー」を選択</li>
+    <li>条件：<strong>動画を3秒以上視聴したユーザー</strong>を選択</li>
+    <li>動画を選択：<strong>配信中の認知動画3本（ピクニック・日常2_新規・日常-B認知用）</strong>をすべてチェック</li>
+    <li>過去日数：<strong>30日</strong>に設定</li>
+    <li>オーディエンス名：「動画3秒視聴者_過去30日」と入力</li>
+    <li>「オーディエンスを作成」をクリック</li>
+  </ol>
+
+  <div class="info-box">
+    💡 約3,000人以上のリストが作成されるはずです。表示まで数分かかる場合があります。
+  </div>
+</div>
+
+<!-- STEP 2 -->
+<div class="step">
+  <h2><span class="step-num">2</span>既存Metaの予算を¥3,300→¥2,800に変更（2分）</h2>
+  <p>合計予算¥4,000/日を維持するため、リタゲに振り替える¥500を捻出します。</p>
+
+  <p style="margin-top:12px;"><strong>📍 場所：</strong></p>
+  <div class="nav-path">Meta Ads Manager → キャンペーン → ミチルシリカ_CV最適化_3月14日〜</div>
+
+  <p style="margin-top:12px;"><strong>手順：</strong></p>
+  <ol>
+    <li>既存の広告セット（CV最適化メイン）を開く</li>
+    <li>「予算」を <strong>¥3,300 → ¥2,800/日</strong>に変更</li>
+    <li>保存</li>
+  </ol>
+
+  <div class="warn-box">
+    ⚠️ 既存配信中の広告は止めません。予算だけ¥500減らします。
+  </div>
+</div>
+
+<!-- STEP 3 -->
+<div class="step">
+  <h2><span class="step-num">3</span>リタゲ広告セットA（20-39歳）を作成（10分）</h2>
+
+  <p><strong>📍 場所：</strong></p>
+  <div class="nav-path">既存キャンペーン「ミチルシリカ_CV最適化_3月14日〜」内に新規広告セット作成</div>
+
+  <p style="margin-top:12px;"><strong>広告セット設定：</strong></p>
+  <table>
+    <tr><th>項目</th><th>設定値</th></tr>
+    <tr><td>広告セット名</td><td><code>リタゲ_20-39女性_飲む美容99円</code></td></tr>
+    <tr><td>1日の予算</td><td><strong>¥200</strong></td></tr>
+    <tr><td>コンバージョン場所</td><td>ウェブサイト</td></tr>
+    <tr><td>パフォーマンスゴール</td><td>コンバージョン数の最大化</td></tr>
+    <tr><td>カスタムオーディエンス</td><td>動画3秒視聴者_過去30日（STEP1で作ったもの）</td></tr>
+    <tr><td>地域</td><td>日本</td></tr>
+    <tr><td><strong>年齢</strong></td><td><strong>20-39歳</strong></td></tr>
+    <tr><td><strong>性別</strong></td><td><strong>女性</strong></td></tr>
+    <tr><td>配置</td><td>自動配置（推奨）</td></tr>
+  </table>
+
+  <p style="margin-top:14px;"><strong>広告（クリエ）：</strong></p>
+  <ul>
+    <li>「既存の投稿を使用」 → <strong>飲む美容_99円</strong>を選択</li>
+    <li>遷移先URL（UTM付き）：</li>
+  </ul>
+  <div class="copy-block">
+    https://michiru.olivia-store.com/?utm_source=meta&amp;utm_medium=paid&amp;utm_campaign=retargeting&amp;utm_content=age20-39_nomu_biyou
+  </div>
+</div>
+
+<!-- STEP 4 -->
+<div class="step">
+  <h2><span class="step-num">4</span>リタゲ広告セットB（40-49歳）を作成（10分）</h2>
+
+  <p>セットAをコピーして以下を変更：</p>
+  <table>
+    <tr><th>項目</th><th>設定値</th></tr>
+    <tr><td>広告セット名</td><td><code>リタゲ_40-49女性_肌訴求2</code></td></tr>
+    <tr><td>1日の予算</td><td><strong>¥150</strong></td></tr>
+    <tr><td><strong>年齢</strong></td><td><strong>40-49歳</strong></td></tr>
+    <tr><td><strong>クリエ</strong></td><td><strong>肌訴求2</strong></td></tr>
+    <tr><td>UTM</td><td><code>utm_content=age40-49_hada</code></td></tr>
+  </table>
+
+  <p style="margin-top:14px;"><strong>遷移先URL：</strong></p>
+  <div class="copy-block">
+    https://michiru.olivia-store.com/?utm_source=meta&amp;utm_medium=paid&amp;utm_campaign=retargeting&amp;utm_content=age40-49_hada
+  </div>
+</div>
+
+<!-- STEP 5 -->
+<div class="step">
+  <h2><span class="step-num">5</span>リタゲ広告セットC（50-69歳）を作成（10分）</h2>
+
+  <p>セットAをコピーして以下を変更：</p>
+  <table>
+    <tr><th>項目</th><th>設定値</th></tr>
+    <tr><td>広告セット名</td><td><code>リタゲ_50-69女性_膝訴求2</code></td></tr>
+    <tr><td>1日の予算</td><td><strong>¥150</strong></td></tr>
+    <tr><td><strong>年齢</strong></td><td><strong>50-69歳</strong></td></tr>
+    <tr><td><strong>クリエ</strong></td><td><strong>膝訴求2</strong></td></tr>
+    <tr><td>UTM</td><td><code>utm_content=age50-69_hiza</code></td></tr>
+  </table>
+
+  <p style="margin-top:14px;"><strong>遷移先URL：</strong></p>
+  <div class="copy-block">
+    https://michiru.olivia-store.com/?utm_source=meta&amp;utm_medium=paid&amp;utm_campaign=retargeting&amp;utm_content=age50-69_hiza
+  </div>
+</div>
+
+<!-- 予算サマリー -->
+<div class="total-budget">
+  <h2>合計予算サマリー</h2>
+  <table style="background:transparent; color:#fff; margin-top:16px;">
+    <tr style="background:rgba(255,255,255,0.1);"><td style="border-color:rgba(255,255,255,0.2); padding:12px;">既存Meta（CV最適化）</td><td style="border-color:rgba(255,255,255,0.2); padding:12px; text-align:right;">¥2,800/日</td></tr>
+    <tr><td style="border-color:rgba(255,255,255,0.2); padding:12px;">リタゲA（20-39歳）</td><td style="border-color:rgba(255,255,255,0.2); padding:12px; text-align:right;">¥200/日</td></tr>
+    <tr><td style="border-color:rgba(255,255,255,0.2); padding:12px;">リタゲB（40-49歳）</td><td style="border-color:rgba(255,255,255,0.2); padding:12px; text-align:right;">¥150/日</td></tr>
+    <tr><td style="border-color:rgba(255,255,255,0.2); padding:12px;">リタゲC（50-69歳）</td><td style="border-color:rgba(255,255,255,0.2); padding:12px; text-align:right;">¥150/日</td></tr>
+    <tr><td style="border-color:rgba(255,255,255,0.2); padding:12px;">Yahoo</td><td style="border-color:rgba(255,255,255,0.2); padding:12px; text-align:right;">¥700/日</td></tr>
+    <tr style="background:rgba(168,216,237,0.2);"><th style="border-color:rgba(255,255,255,0.2); padding:14px; color:#fff;">合計</th><th style="border-color:rgba(255,255,255,0.2); padding:14px; text-align:right; color:#fff;">¥4,000/日 ✅</th></tr>
+  </table>
+</div>
+
+<!-- 配信開始後の確認 -->
+<div class="step">
+  <h2><span class="step-num">6</span>配信開始後の確認（毎日）</h2>
+
+  <p>配信開始から3日間は毎日確認：</p>
+  <ul>
+    <li>各セットが配信されているか（インプレッションが出ているか）</li>
+    <li>CPCが¥150以下か（高い場合はクリエとオーディエンスの相性悪い可能性）</li>
+    <li>購入が発生しているか</li>
+  </ul>
+
+  <p style="margin-top:14px;"><strong>7日後（5/11）の判断：</strong></p>
+  <table>
+    <tr><th>状況</th><th>対応</th></tr>
+    <tr><td>反応良いセットあり</td><td>そのセットの予算を増額</td></tr>
+    <tr><td>反応悪いセットあり</td><td>クリエ変更 or 予算他へ振替</td></tr>
+    <tr><td>配信少なすぎるセット</td><td>年齢範囲を広げる or 統合</td></tr>
+  </table>
+</div>
+
+<!-- チェックリスト -->
+<div class="checklist">
+  <h2 style="color:#1a3a5c; margin-bottom:16px;">✅ 設定完了チェックリスト</h2>
+  <label><input type="checkbox"> STEP1: カスタムオーディエンス「動画3秒視聴者_過去30日」を作成した</label>
+  <label><input type="checkbox"> STEP2: 既存Meta予算を¥3,300→¥2,800に変更した</label>
+  <label><input type="checkbox"> STEP3: リタゲA（20-39歳・飲む美容99円・¥200/日）を作成した</label>
+  <label><input type="checkbox"> STEP4: リタゲB（40-49歳・肌訴求2・¥150/日）を作成した</label>
+  <label><input type="checkbox"> STEP5: リタゲC（50-69歳・膝訴求2・¥150/日）を作成した</label>
+  <label><input type="checkbox"> 各広告のリンク先URLにUTMパラメータが付いている</label>
+  <label><input type="checkbox"> 合計¥4,000/日になっている</label>
+  <label><input type="checkbox"> 5/4 0時から配信開始される設定になっている</label>
+</div>
+
+<p style="text-align:center; margin-top:40px; color:#6b7a90; font-size:13px;">
+  作業時間目安：合計30-40分<br>
+  不明点は星崎まで！
+</p>
+
+</div>
+</body>
+</html>
