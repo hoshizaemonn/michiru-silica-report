@@ -167,7 +167,7 @@
   <table>
     <tr><th>#</th><th>施策</th><th>優先度</th><th>状況</th></tr>
     <tr><td>1</td><td>Meta リターゲティング配信開始</td><td><span class="priority high">最優先</span></td><td>✅ <strong>5/1配信開始済み</strong></td></tr>
-    <tr><td>2</td><td>新LP「飲む美容で輝く私へ」本番反映</td><td><span class="priority high">高</span></td><td>HTML完成・WordPress反映待ち</td></tr>
+    <tr><td>2</td><td>新LP「飲む美容で輝く私へ」本番反映</td><td><span class="priority high">高</span></td><td>✅ <strong>5/2公開完了</strong>（<a href="https://michiru.olivia-store.com/water-bibyou/" target="_blank">water-bibyou</a>）</td></tr>
     <tr><td>3</td><td>ボトルQR用 お客様向け特設ページ公開</td><td><span class="priority mid">中</span></td><td>モック練り直し中（温泉水99スタイル参考）</td></tr>
     <tr><td>4</td><td>解約対策プラン7項目 着手判断</td><td><span class="priority mid">中</span></td><td>進行中（②③着手・①保留）</td></tr>
     <tr><td>5</td><td>Instagram第3弾（5/4-10）配信</td><td><span class="priority low">通常</span></td><td>✅ 予約投稿完了</td></tr>
@@ -303,31 +303,42 @@
 
 <!-- ② 新LP -->
 <div class="section">
-  <h2>② 新LP「飲む美容で内側から輝く私へ」本番反映 <span class="priority high">高</span></h2>
+  <h2>② 新LP「飲む美容で内側から輝く私へ」本番反映 <span class="priority high" style="background:#00c853;color:#fff;">✅ 5/2公開完了</span></h2>
 
-  <h3>提案：若年層向け新LPを本番採用</h3>
-  <div class="data-box">
-    現状LP（michiru.olivia-store.com）は古く、Meta経由の<strong>直帰率69%</strong>と高め（Yahoo経由は50%で健全）。新LP「飲む美容で内側から輝く私へ」は若年層〜30-40代向けに刷新済み。
+  <h3>本番URL（公開済み）</h3>
+  <div class="data-box success">
+    🚀 <strong><a href="https://michiru.olivia-store.com/water-bibyou/" target="_blank">https://michiru.olivia-store.com/water-bibyou/</a></strong><br>
+    page-water-bibyou.php / WordPress（olivia-childテーマ）
   </div>
 
-  <h3>新LPの特徴</h3>
+  <h3>新LPの特徴（実装済み）</h3>
   <ul>
-    <li>FV: 「飲む美容で内側から輝く私へ」（コンセプト訴求）</li>
-    <li>大分県産・天然シリカ97mg/L明記</li>
-    <li>悩み訴求セクション（乾燥・くすみ・ハリ・むくみ）</li>
-    <li>軟水ベネフィット・初回半額キャンペーン</li>
-    <li>FAQセクション（解約自由・縛りなし）</li>
+    <li>FV: 「飲む美容で内側から輝く私へ」（コンセプト訴求・Noto Serif JP × アンティークゴールド）</li>
+    <li>大分県産・天然シリカ72mg/L・累計43万本突破バッジ</li>
+    <li>悩み訴求セクション（乾燥・くすみ・ハリ・むくみ）+ 悩む女性ビジュアル</li>
+    <li>軟水ベネフィット・初回半額（¥1,980）50%OFFキャンペーン訴求</li>
+    <li>レビュー3名（顔写真付き）・FAQ（5項目アコーディオン）</li>
+    <li>CTA5箇所（バウンスアニメ）+ スティッキー固定CTA</li>
+    <li>代引きCF7フォーム + 既存導線すべて保全</li>
   </ul>
 
-  <h3>反映スケジュール提案</h3>
+  <h3>パフォーマンス・計測</h3>
+  <ul>
+    <li><strong>画像合計736KB</strong>（旧6.7MBから89%軽量化・全WebP）</li>
+    <li>計測タグ7ベンダー全実装：GA4 cv_40 / Google広告conversion / Meta Pixel Purchase / Yahoo yss_conversion / Clarity / Ptengine / GTM</li>
+    <li>UTMパラメータ引き継ぎ・スクロール深度トラッキング</li>
+    <li>PC版両サイドにミチルブランド水彩背景（モバイルでは非表示で軽量化）</li>
+  </ul>
+
+  <h3>次のステップ（鈴木さん承認待ち）</h3>
   <div class="action-card">
-    <span class="when">5/2-5/3 本番反映 → 5/4 配信切替</span>
+    <span class="when">5/4以降の運用切替</span>
     <h4>段階的に切り替えて検証</h4>
     <ul>
-      <li>STEP 1: 新LPをWordPress本番に反映（star.olivia-store.com/water-yahoo相当）</li>
-      <li>STEP 2: 5/4からのリタゲ広告のリンク先を新LPに統一</li>
-      <li>STEP 3: 7日後に直帰率・cv_40率を旧LPと比較</li>
-      <li>STEP 4: 改善あれば全広告を新LPに統一</li>
+      <li>✅ <strong>STEP 1完了:</strong> 新LPをWordPress本番に反映</li>
+      <li>STEP 2: 5/4からのリタゲ広告のリンク先を新LPに切替</li>
+      <li>STEP 3: 7日後に直帰率・cv_40率を旧LP（michiru.olivia-store.com）と比較</li>
+      <li>STEP 4: 改善あれば全広告（Meta・Google・Yahoo）を新LPに統一</li>
     </ul>
   </div>
 </div>
