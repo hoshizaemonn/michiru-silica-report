@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>飲む美容LP 公開レポート | MichiruSilica</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Segoe UI','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif;background:#0F0F1A;color:#E8E8F0;min-height:100vh;padding:32px 20px;line-height:1.7}
+  .wrap{max-width:840px;margin:0 auto}
+  .badge{display:inline-block;background:rgba(108,62,255,.2);border:1px solid rgba(108,62,255,.4);color:#A07EFF;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 14px;border-radius:20px;margin-bottom:16px}
+  .pill-status{display:inline-block;background:rgba(0,212,170,.2);border:1px solid rgba(0,212,170,.5);color:#00D4AA;font-size:11px;font-weight:700;letter-spacing:1px;padding:4px 12px;border-radius:20px;margin-left:8px;text-transform:uppercase}
+  h1{font-size:30px;font-weight:900;background:linear-gradient(135deg,#fff 0%,#A07EFF 50%,#00D4AA 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:10px}
+  .sub{font-size:13px;color:#8888AA;margin-bottom:32px}
+  h2{font-size:18px;color:#fff;margin:32px 0 14px;padding-bottom:8px;border-bottom:1px solid rgba(108,62,255,.2)}
+  h2 .icon{margin-right:8px}
+  p{margin-bottom:14px;color:#C8C8D8}
+  .url-card{background:linear-gradient(135deg,rgba(108,62,255,.15),rgba(0,212,170,.1));border:1px solid rgba(108,62,255,.4);border-radius:14px;padding:22px;margin:20px 0;text-align:center}
+  .url-card .label{font-size:11px;letter-spacing:2px;color:#A07EFF;font-weight:700;margin-bottom:10px}
+  .url-card a{color:#fff;font-size:18px;font-weight:700;text-decoration:none;background:linear-gradient(135deg,#6C3EFF,#00D4AA);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0}
+  @media(max-width:640px){.grid2{grid-template-columns:1fr}}
+  .card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:18px}
+  .card .ttl{font-size:13px;color:#A07EFF;font-weight:700;margin-bottom:6px;letter-spacing:1px;text-transform:uppercase}
+  .card .val{font-size:20px;color:#fff;font-weight:700;margin-bottom:4px}
+  .card .desc{font-size:12px;color:#8888AA}
+  ul{margin:10px 0 14px 22px;color:#C8C8D8}
+  ul li{margin-bottom:6px}
+  .check::before{content:"✓ ";color:#00D4AA;font-weight:700}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:13px}
+  table th,table td{text-align:left;padding:10px 12px;border-bottom:1px solid rgba(255,255,255,.08)}
+  table th{color:#A07EFF;font-weight:700;font-size:11px;letter-spacing:1px;text-transform:uppercase}
+  table td{color:#C8C8D8}
+  table td.before{color:#FF7A8A}
+  table td.after{color:#00D4AA;font-weight:700}
+  .next-steps{background:rgba(108,62,255,.08);border-left:3px solid #A07EFF;border-radius:8px;padding:18px 22px;margin:18px 0}
+  .next-steps h3{color:#fff;font-size:15px;margin-bottom:10px}
+  .next-steps ol{margin-left:22px;color:#C8C8D8}
+  .next-steps ol li{margin-bottom:6px}
+  .back{display:inline-block;margin-top:32px;color:#8888AA;font-size:13px;text-decoration:none}
+  .back:hover{color:#A07EFF}
+  .meta-info{font-size:11px;color:#666680;margin-top:6px;font-family:monospace}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="badge">MICHIRU SILICA REPORTS</div>
+<h1>飲む美容LP 公開完了レポート<span class="pill-status">公開済</span></h1>
+<p class="sub">2026年5月2日｜新LP「page-water-bibyou」本番リリース完了</p>
+
+<div class="url-card">
+  <div class="label">PUBLISHED URL</div>
+  <a href="https://michiru.olivia-store.com/water-bibyou/" target="_blank">https://michiru.olivia-store.com/water-bibyou/</a>
+  <p class="meta-info">page-water-bibyou.php / WordPress (olivia-child theme)</p>
+</div>
+
+<h2><span class="icon">🎯</span>制作の経緯</h2>
+<p>Claude Designで作成された新LPデザインを、若年層（20-30代）向けの「飲む美容」訴求にリブランディング。
+WordPress固定ページとして実装、計測タグ・代引きフォーム・既存導線をすべて保全したうえで、
+ビジュアルとUXを刷新しました。</p>
+
+<h2><span class="icon">✨</span>主な実装内容</h2>
+<div class="grid2">
+  <div class="card">
+    <div class="ttl">VISUAL DESIGN</div>
+    <div class="val">完全リニューアル</div>
+    <div class="desc">Claude Design原本の14画像 + ChatGPT生成バッジ3点を採用。Noto Serif JP + アンティークゴールドの上質トンマナに刷新</div>
+  </div>
+  <div class="card">
+    <div class="ttl">PERFORMANCE</div>
+    <div class="val">736KB → 89%軽量化</div>
+    <div class="desc">全画像をWebPに一括変換（旧6.7MBから劇的圧縮）。LCP改善・直帰率低下を狙う</div>
+  </div>
+  <div class="card">
+    <div class="ttl">CTA INTERACTION</div>
+    <div class="val">5箇所統一</div>
+    <div class="desc">青グラデ+白文字+キラキラ装飾のピル型ボタン。1.6秒バウンスアニメ+スティッキー固定CTA</div>
+  </div>
+  <div class="card">
+    <div class="ttl">TRACKING</div>
+    <div class="val">7ベンダー全保全</div>
+    <div class="desc">GA4 / Google広告 / Yahoo / Meta Pixel / Clarity / Ptengine / GTM すべて遅延ロード実装</div>
+  </div>
+</div>
+
+<h2><span class="icon">🎨</span>主要セクション一覧</h2>
+<ul>
+  <li class="check">HERO：43万本突破バッジ + 飲む美容コピー（#15aade水色 + アンティークゴールド美容） + ブランド女性 + 3円形バッジ（72mg/L・99円・軟水）</li>
+  <li class="check">HERO直下 価格カード：通常¥3,960 → 初回¥1,980（50%OFF）+ CTA「初回半額で試してみる」 + 代引きリンク</li>
+  <li class="check">レビュー：3名（ゆかさん/さやかさん/まいさん）顔写真 + 星レーティング + ハート数</li>
+  <li class="check">悩み訴求：4項目チェックリスト + 悩む女性写真</li>
+  <li class="check">商品紹介：水しぶき付きボトル + シリカ72/大分県産/軟水の3アイコンカード</li>
+  <li class="check">大分県・玖珠の天然水ストーリー</li>
+  <li class="check">FAQ（5項目アコーディオン形式）</li>
+  <li class="check">最終CTA + 代引き定期便申込フォーム（CF7・送料表・注意事項）</li>
+  <li class="check">PC版両サイド背景：ミチルブランド水彩イメージ（モバイル時は非表示で軽量化）</li>
+</ul>
+
+<h2><span class="icon">📊</span>計測実装（CV発火）</h2>
+<table>
+  <thead><tr><th>媒体</th><th>イベント</th><th>発火タイミング</th></tr></thead>
+  <tbody>
+    <tr><td>GA4</td><td>cv_40</td><td>代引きCF7フォーム送信完了時</td></tr>
+    <tr><td>Google広告</td><td>conversion (AW-11205908519)</td><td>代引きCF7フォーム送信完了時</td></tr>
+    <tr><td>Meta広告</td><td>Purchase</td><td>代引きCF7フォーム送信完了時</td></tr>
+    <tr><td>Yahoo広告</td><td>yss_conversion (1001327031)</td><td>代引きCF7フォーム送信完了時</td></tr>
+    <tr><td>Clarity</td><td>uxlt6cj6pr</td><td>遅延ロード（スクロール/クリック発火）</td></tr>
+    <tr><td>Ptengine</td><td>35gs3yeq</td><td>遅延ロード</td></tr>
+    <tr><td>GTM</td><td>GTM-5S534F7</td><td>遅延ロード</td></tr>
+  </tbody>
+</table>
+
+<h2><span class="icon">🔄</span>主な改善ポイント（旧 → 新）</h2>
+<table>
+  <thead><tr><th>項目</th><th>旧LP</th><th>新LP</th></tr></thead>
+  <tbody>
+    <tr><td>ターゲット</td><td class="before">既存顧客（中高年）</td><td class="after">20-30代女性（飲む美容）</td></tr>
+    <tr><td>HEROコピー</td><td class="before">機能訴求中心</td><td class="after">「飲む美容で内側から輝く私へ」</td></tr>
+    <tr><td>CTA動線</td><td class="before">CTAボタン4箇所</td><td class="after">CTA5箇所 + スティッキー固定</td></tr>
+    <tr><td>合計画像サイズ</td><td class="before">6.7MB</td><td class="after">736KB（89%減）</td></tr>
+    <tr><td>フォント</td><td class="before">システムフォント</td><td class="after">Noto Serif JP / Cormorant</td></tr>
+    <tr><td>計測実装</td><td class="before">部分的</td><td class="after">7ベンダー全実装</td></tr>
+  </tbody>
+</table>
+
+<h2><span class="icon">🚀</span>次のステップ</h2>
+<div class="next-steps">
+  <h3>広告運用設定</h3>
+  <ol>
+    <li>Meta広告：リンク先URLを新LP（/water-bibyou/）に切り替え</li>
+    <li>Google広告：最終ページURLを新LPに更新</li>
+    <li>Yahoo広告：遷移先URLを新LPに更新</li>
+    <li>UTMパラメータ設計：`utm_source` / `utm_medium` / `utm_campaign` を媒体別に設定</li>
+  </ol>
+</div>
+<div class="next-steps">
+  <h3>計測検証（公開後24時間）</h3>
+  <ol>
+    <li>GA4 リアルタイムレポートで `cv_40` イベント発火確認</li>
+    <li>Meta イベントマネージャで Purchase イベント発火確認</li>
+    <li>Yahoo広告 コンバージョン計測確認</li>
+    <li>Clarity でセッションリプレイ取得確認</li>
+  </ol>
+</div>
+<div class="next-steps">
+  <h3>A/Bテスト計画</h3>
+  <ol>
+    <li>旧LPと新LPでCVRを並行比較（最低7日間）</li>
+    <li>クリエイティブ別CTR / LP別CVR / フォーム到達率の3指標を観測</li>
+    <li>2週間後に勝ちパターン採用判断</li>
+  </ol>
+</div>
+
+<h2><span class="icon">📁</span>関連ファイル</h2>
+<ul>
+  <li><code style="color:#A07EFF">受託事業/クライアント/MichiruSilica/LP制作/ソースコード/page-water-bibyou.php</code></li>
+  <li><code style="color:#A07EFF">受託事業/クライアント/MichiruSilica/LP制作/_deploy_bibyou/wp-content/themes/olivia-child/assets/img/</code>（21ファイル）</li>
+  <li>バックアップ：<code style="color:#A07EFF">page-water-bibyou_backup_20260502.php</code></li>
+</ul>
+
+<a href="index.html" class="back">← レポート一覧に戻る</a>
+
+</div>
+</body>
+</html>
