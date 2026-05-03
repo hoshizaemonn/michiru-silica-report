@@ -326,6 +326,21 @@
             </div>
 
             <div class="log-entry" style="border-left-color: #00c853;">
+                <div class="log-date">2026-05-03 ― Yahoo LP CV改善3点パッケージ実装</div>
+                <div class="log-action">/yahoo/ LP の HERO・比較表・お客様の声を刷新 &nbsp;<a href="https://michiru.olivia-store.com/yahoo/" target="_blank" style="font-size:0.85em; font-weight:700;">[Yahoo LPを開く &rarr;]</a></div>
+                <div class="log-result">
+                    <strong>変更理由:</strong> /yahoo/ LP は Yahoo 検索広告の主要遷移先（CPA¥987 最高効率）。50-60代女性ターゲットに合わせて HERO 画像・比較表デザイン・お客様の声を刷新し、CVR 向上を狙う。<br>
+                    <strong>変更内容（既存 mv6.webp / sec01-img03.webp は触らず新規ファイルとして並存）:</strong><br>
+                    ① <strong>HERO画像 mv7.webp</strong>：「年齢を重ねるほど、選びたい一本。」（50-60代女性向けキャッチ）。Image 2.0 で生成、AI感を抑えた商品写真調。<br>
+                    ② <strong>比較表 sec01-img03_v2.webp</strong>：のむシリカ「成分表 比較」スタイルで再構成（A/B/C社 vs ミチル黄色強調・★おすすめラベル）。<br>
+                    ③ <strong>愛飲者の声セクション</strong>：Amazon★4.6 レビューから4名抜粋（T子さん3年継続・M.さん家族で愛飲・S子さん健康習慣・H.さんリピーター）。比較表直後に新規セクションとして追加。<br>
+                    <strong>方法:</strong> 計測タグ・代引きフォーム・既存CTA動線は一切触らず、画像3点とPHP1ファイルのみ差し替え。広告ピクセル学習温存。<br>
+                    <strong>ロールバック:</strong> PHP内のファイル名を旧 mv6/sec01-img03 に書き戻すだけで即時復元可。<br>
+                    <strong>公開URL:</strong> <a href="https://michiru.olivia-store.com/yahoo/" target="_blank">michiru.olivia-store.com/yahoo</a>
+                </div>
+            </div>
+
+            <div class="log-entry" style="border-left-color: #00c853;">
                 <div class="log-date">2026-05-03 ― Meta広告 切替完了</div>
                 <div class="log-action">Meta広告5本のリンク先を新LPに切替 &nbsp;<a href="https://michiru.olivia-store.com/water-bibyou/" target="_blank" style="font-size:0.85em; font-weight:700;">[新LP &rarr;]</a></div>
                 <div class="log-result">
@@ -380,12 +395,12 @@
             </div>
 
             <div class="log-entry" style="border-left-color: #ccc;">
-                <div class="log-date">現在の構成（2026-05-02時点）</div>
-                <div class="log-action">Meta用: ig1.php &nbsp;/&nbsp; Yahoo用: yahoo.php &nbsp;/&nbsp; 飲む美容: water-bibyou</div>
+                <div class="log-date">現在の構成（2026-05-03時点）</div>
+                <div class="log-action">Meta用: ig1.php &nbsp;/&nbsp; Yahoo用: yahoo.php（CV改善版） &nbsp;/&nbsp; 飲む美容: water-bibyou</div>
                 <div class="log-result">
                     Meta用LP: <a href="https://michiru.olivia-store.com/" target="_blank">michiru.olivia-store.com</a>（Instagram / Facebook広告の誘導先）<br>
-                    Yahoo用LP: <a href="https://michiru.olivia-store.com/yahoo" target="_blank">michiru.olivia-store.com/yahoo</a>（Yahoo検索広告の誘導先）<br>
-                    <strong>飲む美容LP（新規）:</strong> <a href="https://michiru.olivia-store.com/water-bibyou/" target="_blank">michiru.olivia-store.com/water-bibyou</a>（20-30代女性ターゲット・A/Bテスト用）
+                    <strong>Yahoo用LP（5/3更新）:</strong> <a href="https://michiru.olivia-store.com/yahoo/" target="_blank">michiru.olivia-store.com/yahoo</a>（Yahoo検索広告の誘導先・50-60代向けに HERO/比較表/愛飲者の声 刷新済）<br>
+                    飲む美容LP: <a href="https://michiru.olivia-store.com/water-bibyou/" target="_blank">michiru.olivia-store.com/water-bibyou</a>（20-30代女性ターゲット・A/Bテスト用）
                 </div>
             </div>
         </div>
