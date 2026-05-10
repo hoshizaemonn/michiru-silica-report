@@ -138,23 +138,23 @@
     <!-- ===== Purchase Hero ===== -->
     <div class="purchase-hero">
         <div class="ph-label">購入件数（カラーミー＋代引き）</div>
-        <div class="ph-period">2026年4月22日 〜 5月9日（18日間） ※ローカルCSV確認分</div>
-        <div class="ph-number">6+</div>
-        <div class="ph-unit">件（スプシ確定値で要更新）</div>
+        <div class="ph-period">2026年4月22日 〜 5月9日（18日間）</div>
+        <div class="ph-number">5</div>
+        <div class="ph-unit">件</div>
         <div class="purchase-breakdown">
             <div class="pb-item">
                 <div class="pb-value">5</div>
                 <div class="pb-label">カラーミー定期便</div>
             </div>
             <div class="pb-item">
-                <div class="pb-value">1+</div>
-                <div class="pb-label">代引き（5/7-5/8復活含む）</div>
+                <div class="pb-value">0</div>
+                <div class="pb-label">代引き</div>
             </div>
         </div>
         <div style="margin-top: 16px; font-size: 0.9em; opacity: 0.85;">
-            4/24 ・ 4/27 ・ 4/29×2 ・ 5/3 ・ 5/7-5/8 購入復活（_TODO.md ML-02記載）
+            4/24 ・ 4/27 ・ 4/29×2 ・ 5/3
         </div>
-        <div style="margin-top: 12px; font-size: 0.85em; opacity: 0.7;">※会議当日にスプシ「Meta広告日次データ」「Yahoo広告日次データ」最終値で差し替え推奨</div>
+        <div style="margin-top: 12px; font-size: 0.85em; opacity: 0.7;">目標: 50件/月 ・ 達成率: 17%（18日間） ・ 日平均 0.28件</div>
     </div>
 
     <!-- ===== Summary KPI ===== -->
@@ -170,9 +170,9 @@
             <div class="sc-sub">Meta 1,619 + Yahoo 311<br>Meta CPC &yen;40 / Yahoo CPC &yen;39</div>
         </div>
         <div class="summary-card red-border">
-            <div class="sc-label">CPA（推定）</div>
-            <div class="sc-value red">&yen;9,600〜12,800</div>
-            <div class="sc-sub">広告費 / 購入6〜8件<br>目標 &yen;4,000 への乖離継続</div>
+            <div class="sc-label">CPA</div>
+            <div class="sc-value red">&yen;15,389</div>
+            <div class="sc-sub">&yen;76,943 / 5件<br>目標 &yen;4,000 への乖離拡大</div>
         </div>
         <div class="summary-card orange-border">
             <div class="sc-label">Meta CPC 直近トレンド</div>
@@ -269,21 +269,21 @@
                     <tr>
                         <td><strong>購入合計</strong></td>
                         <td class="num">10件</td>
-                        <td class="num">6+件</td>
-                        <td class="num"><span class="badge badge-flat">0.53 → 0.33+件/日</span></td>
+                        <td class="num">5件</td>
+                        <td class="num"><span class="badge badge-down">0.53 → 0.28件/日（-47%）</span></td>
                     </tr>
                     <tr>
                         <td><strong>CPA</strong></td>
                         <td class="num">&yen;13,137</td>
-                        <td class="num">&yen;9,600〜12,800</td>
-                        <td class="num"><span class="badge badge-up">改善傾向</span></td>
+                        <td class="num">&yen;15,389</td>
+                        <td class="num"><span class="badge badge-down">+17% 悪化</span></td>
                     </tr>
                 </tbody>
             </table>
 
-            <div class="note-box success" style="margin-top: 16px;">
+            <div class="note-box danger" style="margin-top: 16px;">
                 <strong>良い点:</strong> Meta CPC が &yen;57 → &yen;40 へ30%改善。Yahoo CPC も微減。広告費総額が下がり効率化。<br>
-                <strong>悪い点:</strong> 購入数の絶対値は前期間並みの低水準。5/7以降のCPC急騰で クリック量が今週後半急減。
+                <strong>悪い点:</strong> <strong>購入数 10件 → 5件で半減、CPA &yen;13,137 → &yen;15,389 で17%悪化。</strong>クリック単価は下がったが購入につながっていない。LP転換率の低下が真の課題。
             </div>
         </div>
     </div>
@@ -341,8 +341,8 @@
                     <tr><td>5/4</td><td class="num">&yen;2,516</td><td class="num">114</td><td class="num" style="color:var(--success);font-weight:700">&yen;22</td><td class="num">&yen;683</td><td class="num">17</td><td class="num">&yen;3,199</td><td>-</td></tr>
                     <tr><td>5/5</td><td class="num">&yen;4,522</td><td class="num">120</td><td class="num">&yen;38</td><td class="num">&yen;863</td><td class="num">20</td><td class="num">&yen;5,385</td><td>-</td></tr>
                     <tr><td>5/6</td><td colspan="6" class="num" style="color:var(--text-light)">構造変更日（CSV欠損）— 認知CP停止／65+女性セット新設／Pixel ID入力</td><td>-</td></tr>
-                    <tr class="alert-row"><td>5/7</td><td class="num">&yen;4,291</td><td class="num">22</td><td class="num" style="color:var(--danger);font-weight:900">&yen;195</td><td class="num">&yen;919</td><td class="num">23</td><td class="num">&yen;5,210</td><td style="color:var(--success);font-weight:700">復活（_TODO.md記載）</td></tr>
-                    <tr class="alert-row"><td>5/8</td><td class="num">&yen;4,258</td><td class="num">18</td><td class="num" style="color:var(--danger);font-weight:900">&yen;237</td><td class="num">&yen;571</td><td class="num">16</td><td class="num">&yen;4,829</td><td style="color:var(--success);font-weight:700">復活（同上）</td></tr>
+                    <tr class="alert-row"><td>5/7</td><td class="num">&yen;4,291</td><td class="num">22</td><td class="num" style="color:var(--danger);font-weight:900">&yen;195</td><td class="num">&yen;919</td><td class="num">23</td><td class="num">&yen;5,210</td><td>-</td></tr>
+                    <tr class="alert-row"><td>5/8</td><td class="num">&yen;4,258</td><td class="num">18</td><td class="num" style="color:var(--danger);font-weight:900">&yen;237</td><td class="num">&yen;571</td><td class="num">16</td><td class="num">&yen;4,829</td><td>-</td></tr>
                     <tr class="alert-row"><td>5/9</td><td class="num">&yen;2,037</td><td class="num">14</td><td class="num" style="color:var(--danger);font-weight:900">&yen;146</td><td class="num">-</td><td class="num">-</td><td class="num">&yen;2,037</td><td>-</td></tr>
                     <tr class="total-row">
                         <td>合計</td>
@@ -352,12 +352,12 @@
                         <td class="num">&yen;12,194</td>
                         <td class="num">311</td>
                         <td class="num">&yen;76,943</td>
-                        <td class="num">6+件</td>
+                        <td class="num">5件</td>
                     </tr>
                 </tbody>
             </table>
-            <div class="note-box info" style="margin-top: 12px;">
-                <strong>傾向:</strong> 4月後半は購入が4日に1件ペースで安定（4/24・4/27・4/29×2・5/3）。5/3-5/5の3日間でGA4セッションが大幅増（136・50・201）した後、5/6の構造変更を経て5/7-5/9のCPC急騰フェーズへ。
+            <div class="note-box danger" style="margin-top: 12px;">
+                <strong>傾向:</strong> 4月後半は4日に1件ペースで安定購入（4/24・4/27・4/29×2・5/3）。<strong>しかし5/3以降の6日間は購入ゼロ継続中。</strong>5/3-5/5にGA4セッションが大幅増（136・50・201）したが購入につながらず、5/6の構造変更を経て5/7-5/9のCPC急騰フェーズへ突入。「クリック量はあるのに購入が止まる」状態。
             </div>
         </div>
     </div>
@@ -566,16 +566,16 @@
                     <tr>
                         <td><strong>CPA</strong></td>
                         <td class="num" style="color:var(--danger)">&yen;13,137</td>
-                        <td class="num" style="color:var(--warning)">&yen;9,600〜12,800</td>
+                        <td class="num" style="color:var(--danger)">&yen;15,389</td>
                         <td class="num">&yen;4,000</td>
-                        <td><span class="badge badge-up">わずかに改善</span></td>
+                        <td><span class="badge badge-down">+17% 悪化</span></td>
                     </tr>
                     <tr>
                         <td><strong>月間CV</strong></td>
                         <td class="num">10件/19日</td>
-                        <td class="num">6+件/18日</td>
+                        <td class="num">5件/18日</td>
                         <td class="num">28件/月</td>
-                        <td><span class="badge badge-down">ペース不足</span></td>
+                        <td><span class="badge badge-down">ペース大幅不足</span></td>
                     </tr>
                 </tbody>
             </table>
