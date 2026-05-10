@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ミチルシリカ 月次レポート | 2026年5月10日</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #0d47a1; --primary-light: #1976d2;
+            --success: #2e7d32; --success-light: #4caf50;
+            --warning: #ef6c00; --danger: #c62828;
+            --text: #263238; --text-light: #546e7a;
+            --bg: #f5f7fa; --card-bg: #ffffff;
+            --border: #e0e4e8; --radius: 12px;
+            --shadow: 0 2px 12px rgba(0,0,0,0.06);
+            --shadow-lg: 0 8px 30px rgba(0,0,0,0.1);
+        }
+        body { font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif; line-height: 1.7; color: var(--text); background: var(--bg); padding: 30px 20px; }
+        .container { max-width: 1100px; margin: 0 auto; }
+
+        .report-header { background: linear-gradient(135deg, #0d47a1 0%, #1565c0 50%, #1976d2 100%); color: white; padding: 50px 40px; border-radius: var(--radius); margin-bottom: 30px; box-shadow: var(--shadow-lg); position: relative; overflow: hidden; }
+        .report-header::before { content: ''; position: absolute; top: -50%; right: -10%; width: 300px; height: 300px; background: rgba(255,255,255,0.05); border-radius: 50%; }
+        .report-header h1 { font-size: 2em; font-weight: 800; margin-bottom: 8px; }
+        .report-header .subtitle { font-size: 1.1em; opacity: 0.9; }
+        .report-header .meta { margin-top: 16px; font-size: 0.9em; opacity: 0.75; display: flex; gap: 20px; flex-wrap: wrap; }
+
+        .section { background: var(--card-bg); border-radius: var(--radius); margin-bottom: 24px; box-shadow: var(--shadow); overflow: hidden; }
+        .section-header { padding: 20px 28px; font-size: 1.2em; font-weight: 700; color: white; display: flex; align-items: center; gap: 10px; }
+        .section-header.blue { background: linear-gradient(135deg, var(--primary), var(--primary-light)); }
+        .section-header.green { background: linear-gradient(135deg, var(--success), var(--success-light)); }
+        .section-header.orange { background: linear-gradient(135deg, #e65100, var(--warning)); }
+        .section-header.purple { background: linear-gradient(135deg, #4a148c, #7b1fa2); }
+        .section-header.teal { background: linear-gradient(135deg, #00695c, #00897b); }
+        .section-header.dark { background: linear-gradient(135deg, #263238, #37474f); }
+        .section-header.pink { background: linear-gradient(135deg, #880e4f, #c2185b); }
+        .section-header.red { background: linear-gradient(135deg, #b71c1c, #e53935); }
+        .section-body { padding: 28px; }
+
+        .purchase-hero { background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 50%, #43a047 100%); color: white; padding: 40px; border-radius: var(--radius); margin-bottom: 24px; text-align: center; box-shadow: var(--shadow-lg); }
+        .ph-label { font-size: 1em; opacity: 0.85; letter-spacing: 2px; margin-bottom: 4px; }
+        .ph-period { font-size: 0.9em; opacity: 0.7; margin-bottom: 16px; }
+        .ph-number { font-size: 5em; font-weight: 900; line-height: 1; }
+        .ph-unit { font-size: 1.2em; opacity: 0.85; margin-top: 4px; }
+        .purchase-breakdown { display: flex; justify-content: center; gap: 40px; margin-top: 24px; flex-wrap: wrap; }
+        .pb-item { text-align: center; }
+        .pb-value { font-size: 2.8em; font-weight: 900; }
+        .pb-label { font-size: 0.85em; opacity: 0.8; }
+
+        .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 24px; }
+        .summary-card { background: var(--card-bg); border-radius: var(--radius); padding: 24px; text-align: center; box-shadow: var(--shadow); border-top: 4px solid var(--primary); }
+        .summary-card.green-border { border-top-color: var(--success); }
+        .summary-card.orange-border { border-top-color: var(--warning); }
+        .summary-card.red-border { border-top-color: var(--danger); }
+        .summary-card .sc-label { font-size: 0.85em; color: var(--text-light); margin-bottom: 8px; }
+        .summary-card .sc-value { font-size: 2.2em; font-weight: 900; }
+        .summary-card .sc-value.blue { color: var(--primary); }
+        .summary-card .sc-value.green { color: var(--success); }
+        .summary-card .sc-value.orange { color: var(--warning); }
+        .summary-card .sc-value.red { color: var(--danger); }
+        .summary-card .sc-sub { font-size: 0.8em; color: var(--text-light); margin-top: 6px; }
+
+        .data-table { width: 100%; border-collapse: collapse; font-size: 0.9em; }
+        .data-table thead { background: #263238; color: white; }
+        .data-table th { padding: 12px 14px; text-align: left; font-weight: 600; font-size: 0.85em; }
+        .data-table td { padding: 12px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+        .data-table tbody tr:hover { background: #f5f8ff; }
+        .data-table .num { text-align: right; font-variant-numeric: tabular-nums; }
+        .data-table .total-row { background: #f0f4ff; font-weight: 700; }
+        .data-table .highlight-row { background: #fff8e1; }
+        .data-table .alert-row { background: #ffebee; }
+
+        .note-box { padding: 16px 20px; border-radius: 8px; font-size: 0.9em; line-height: 1.7; margin: 12px 0; }
+        .note-box.success { background: #e8f5e9; border-left: 4px solid var(--success); }
+        .note-box.info { background: #e3f2fd; border-left: 4px solid var(--primary); }
+        .note-box.warning { background: #fff3e0; border-left: 4px solid var(--warning); }
+        .note-box.danger { background: #ffebee; border-left: 4px solid var(--danger); }
+
+        .badge { display: inline-block; padding: 3px 12px; border-radius: 20px; font-size: 0.8em; font-weight: 700; white-space: nowrap; }
+        .badge-up { background: #e8f5e9; color: var(--success); }
+        .badge-down { background: #ffebee; color: var(--danger); }
+        .badge-flat { background: #fff3e0; color: var(--warning); }
+        .badge-info { background: #e3f2fd; color: var(--primary); }
+
+        .action-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; }
+        .action-card { border: 2px solid var(--border); border-radius: var(--radius); padding: 22px; transition: transform 0.2s, box-shadow 0.2s; }
+        .action-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+        .action-card .ac-status { font-size: 0.75em; font-weight: 700; letter-spacing: 1px; margin-bottom: 8px; }
+        .action-card .ac-status.done { color: var(--success); }
+        .action-card .ac-status.progress { color: var(--primary); }
+        .action-card .ac-status.pending { color: var(--warning); }
+        .action-card .ac-status.alert { color: var(--danger); }
+        .action-card .ac-status.new { color: #7b1fa2; }
+        .action-card .ac-title { font-size: 1.05em; font-weight: 700; margin-bottom: 10px; }
+        .action-card .ac-desc { font-size: 0.85em; color: var(--text-light); line-height: 1.6; }
+        .action-card.done-card { border-color: var(--success); background: linear-gradient(135deg, #f9fff9, #fff); }
+        .action-card.progress-card { border-color: var(--primary); background: linear-gradient(135deg, #f8fbff, #fff); }
+        .action-card.pending-card { border-color: var(--warning); background: linear-gradient(135deg, #fffdf5, #fff); }
+        .action-card.alert-card { border-color: var(--danger); background: linear-gradient(135deg, #fff5f5, #fff); }
+        .action-card.new-card { border-color: #7b1fa2; background: linear-gradient(135deg, #faf5ff, #fff); }
+
+        @media (max-width: 900px) {
+            .summary-grid { grid-template-columns: 1fr 1fr; }
+            .container { padding: 16px; }
+            .action-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- ===== Header ===== -->
+    <div class="report-header">
+        <h1>ミチルシリカ 月次レポート</h1>
+        <div class="subtitle">前回会議（4/21）からの進捗報告 + 4月後半〜5月前半の実績</div>
+        <div class="meta">
+            <span>会議日: 2026年5月10日（土）</span>
+            <span>前回会議: 2026年4月21日</span>
+            <span>対象期間: 4/22 〜 5/9（18日間）</span>
+        </div>
+    </div>
+
+    <!-- ===== Executive Summary ===== -->
+    <div class="section">
+        <div class="section-header dark">エグゼクティブサマリー</div>
+        <div class="section-body">
+            <div class="note-box info">
+                <strong>3行サマリー:</strong>
+                <ol style="margin-top: 8px; padding-left: 20px;">
+                    <li><strong>5/7以降のMeta CPC急騰（¥22→¥195→¥237→¥146）が最重要課題。</strong>クリエ鮮度切れ（3/14投入から5週超）orピクセル学習崩壊の切り分け中。リンククリックは1日100超→14〜22に激減。</li>
+                    <li><strong>5/6に大規模な広告構造改革を実施。</strong>認知CP停止／65+女性専用CV最適化セット新設／GA4 Googleシグナル有効化／カラーミーにMeta Pixel ID入力で計測ブロッカー解消。</li>
+                    <li><strong>5/9に悩み訴求v2「朝の違和感」動画クリエ投入完了。</strong>3セット並走でA/Bテスト開始。LP3着地（utm_content=nayami_v2）で次週の効果検証フェーズへ。</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== Purchase Hero ===== -->
+    <div class="purchase-hero">
+        <div class="ph-label">購入件数（カラーミー＋代引き）</div>
+        <div class="ph-period">2026年4月22日 〜 5月9日（18日間） ※ローカルCSV確認分</div>
+        <div class="ph-number">6+</div>
+        <div class="ph-unit">件（スプシ確定値で要更新）</div>
+        <div class="purchase-breakdown">
+            <div class="pb-item">
+                <div class="pb-value">5</div>
+                <div class="pb-label">カラーミー定期便</div>
+            </div>
+            <div class="pb-item">
+                <div class="pb-value">1+</div>
+                <div class="pb-label">代引き（5/7-5/8復活含む）</div>
+            </div>
+        </div>
+        <div style="margin-top: 16px; font-size: 0.9em; opacity: 0.85;">
+            4/24 ・ 4/27 ・ 4/29×2 ・ 5/3 ・ 5/7-5/8 購入復活（_TODO.md ML-02記載）
+        </div>
+        <div style="margin-top: 12px; font-size: 0.85em; opacity: 0.7;">※会議当日にスプシ「Meta広告日次データ」「Yahoo広告日次データ」最終値で差し替え推奨</div>
+    </div>
+
+    <!-- ===== Summary KPI ===== -->
+    <div class="summary-grid">
+        <div class="summary-card">
+            <div class="sc-label">広告費合計（Meta+Yahoo）</div>
+            <div class="sc-value blue">&yen;76,943</div>
+            <div class="sc-sub">Meta &yen;64,749 + Yahoo &yen;12,194<br>日平均 &yen;4,275（5/6 CSV欠損）</div>
+        </div>
+        <div class="summary-card green-border">
+            <div class="sc-label">クリック合計</div>
+            <div class="sc-value green">1,930</div>
+            <div class="sc-sub">Meta 1,619 + Yahoo 311<br>Meta CPC &yen;40 / Yahoo CPC &yen;39</div>
+        </div>
+        <div class="summary-card red-border">
+            <div class="sc-label">CPA（推定）</div>
+            <div class="sc-value red">&yen;9,600〜12,800</div>
+            <div class="sc-sub">広告費 / 購入6〜8件<br>目標 &yen;4,000 への乖離継続</div>
+        </div>
+        <div class="summary-card orange-border">
+            <div class="sc-label">Meta CPC 直近トレンド</div>
+            <div class="sc-value orange" style="font-size:1.6em">&yen;22 → &yen;237</div>
+            <div class="sc-sub">5/4 → 5/8（10倍超）<br>クリック量 -44%</div>
+        </div>
+    </div>
+
+    <!-- ===== Critical Alert ===== -->
+    <div class="section">
+        <div class="section-header red">⚠️ 最重要アラート: 5/7以降のMeta CPC急騰</div>
+        <div class="section-body">
+
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>日付</th>
+                        <th class="num">Meta費</th>
+                        <th class="num">クリック</th>
+                        <th class="num">CPC</th>
+                        <th>状態</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>5/3</td><td class="num">&yen;4,024</td><td class="num">104</td><td class="num">&yen;39</td><td><span class="badge badge-up">通常</span></td></tr>
+                    <tr><td>5/4</td><td class="num">&yen;2,516</td><td class="num">114</td><td class="num" style="color:var(--success);font-weight:700">&yen;22</td><td><span class="badge badge-up">最良</span></td></tr>
+                    <tr><td>5/5</td><td class="num">&yen;4,522</td><td class="num">120</td><td class="num">&yen;38</td><td><span class="badge badge-up">通常</span></td></tr>
+                    <tr><td>5/6</td><td colspan="3" class="num" style="color:var(--text-light)">CSV欠損（管理者画面要確認）</td><td><span class="badge badge-flat">構造変更日</span></td></tr>
+                    <tr class="alert-row"><td>5/7</td><td class="num">&yen;4,291</td><td class="num">22</td><td class="num" style="color:var(--danger);font-weight:900">&yen;195</td><td><span class="badge badge-down">急騰</span></td></tr>
+                    <tr class="alert-row"><td>5/8</td><td class="num">&yen;4,258</td><td class="num">18</td><td class="num" style="color:var(--danger);font-weight:900">&yen;237</td><td><span class="badge badge-down">急騰継続</span></td></tr>
+                    <tr class="alert-row"><td>5/9</td><td class="num">&yen;2,037</td><td class="num">14</td><td class="num" style="color:var(--danger);font-weight:900">&yen;146</td><td><span class="badge badge-down">急騰継続</span></td></tr>
+                </tbody>
+            </table>
+
+            <div class="note-box danger" style="margin-top: 16px;">
+                <strong>仮説（OT-09 切り分け中）:</strong>
+                <ul style="margin-top: 8px; padding-left: 20px;">
+                    <li><strong>仮説①: クリエイティブ鮮度切れ。</strong>3/14投入から5週超で同じ素材を回しており、フリークエンシー上昇による広告疲れ。5/9投入の悩み訴求v2効果が今週判明予定。</li>
+                    <li><strong>仮説②: ピクセル学習崩壊。</strong>5/6にカラーミーへMeta Pixel ID入力で計測復旧。学習リセットによる一時的なCPC高騰の可能性。3〜7日で安定化見込み。</li>
+                    <li><strong>仮説③: 5/6の広告構造変更（認知CP停止＋65+女性セット新設）の学習期間。</strong>新規セット立ち上げによる学習フェーズで配信効率が一時低下。</li>
+                </ul>
+            </div>
+
+            <div class="note-box info">
+                <strong>救い: GA4セッションは逆に増加している。</strong>5/3=136, 5/5=201, 5/9=80 と4月平均（53/日）を上回る日が複数。Meta経由クリック減 → でもLP着地が増えている逆転現象。utm_contentファネル分析（OT-06）で広告別LP着地後CVRを見るのが次の優先タスク。
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== vs Previous Period ===== -->
+    <div class="section">
+        <div class="section-header dark">前回期間との比較（4/1〜4/19 vs 4/22〜5/9）</div>
+        <div class="section-body">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>指標</th>
+                        <th class="num">4/1〜4/19<br>（19日間）</th>
+                        <th class="num">4/22〜5/9<br>（18日間）</th>
+                        <th class="num">日平均比較</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Meta 広告費</strong></td>
+                        <td class="num">&yen;118,322</td>
+                        <td class="num">&yen;64,749</td>
+                        <td class="num"><span class="badge badge-down">&yen;6,227 → &yen;3,597（-42%）</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Meta CPC</strong></td>
+                        <td class="num">&yen;57</td>
+                        <td class="num">&yen;40</td>
+                        <td class="num"><span class="badge badge-up">-30% 改善</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Meta クリック/日</strong></td>
+                        <td class="num">108.3</td>
+                        <td class="num">90.0</td>
+                        <td class="num"><span class="badge badge-flat">-17%</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Yahoo 広告費</strong></td>
+                        <td class="num">&yen;13,055</td>
+                        <td class="num">&yen;12,194</td>
+                        <td class="num"><span class="badge badge-up">&yen;687 → &yen;677</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Yahoo CPC</strong></td>
+                        <td class="num">&yen;41</td>
+                        <td class="num">&yen;39</td>
+                        <td class="num"><span class="badge badge-up">-5% 改善</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>購入合計</strong></td>
+                        <td class="num">10件</td>
+                        <td class="num">6+件</td>
+                        <td class="num"><span class="badge badge-flat">0.53 → 0.33+件/日</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>CPA</strong></td>
+                        <td class="num">&yen;13,137</td>
+                        <td class="num">&yen;9,600〜12,800</td>
+                        <td class="num"><span class="badge badge-up">改善傾向</span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="note-box success" style="margin-top: 16px;">
+                <strong>良い点:</strong> Meta CPC が &yen;57 → &yen;40 へ30%改善。Yahoo CPC も微減。広告費総額が下がり効率化。<br>
+                <strong>悪い点:</strong> 購入数の絶対値は前期間並みの低水準。5/7以降のCPC急騰で クリック量が今週後半急減。
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== Weekly Trend ===== -->
+    <div class="section">
+        <div class="section-header purple">週次トレンド比較</div>
+        <div class="section-body">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>期間</th>
+                        <th class="num">Meta費</th>
+                        <th class="num">Mクリック</th>
+                        <th class="num">Yahoo費</th>
+                        <th class="num">Yクリック</th>
+                        <th class="num">GA4セッション</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>4/22〜4/28</td><td class="num">&yen;22,262</td><td class="num">620</td><td class="num">&yen;4,462</td><td class="num">116</td><td class="num">71</td></tr>
+                    <tr><td>4/29〜5/5</td><td class="num">&yen;25,031</td><td class="num">733</td><td class="num">&yen;4,813</td><td class="num">119</td><td class="num">533</td></tr>
+                    <tr class="alert-row"><td>5/6〜5/9</td><td class="num">&yen;10,586</td><td class="num">54</td><td class="num">&yen;1,490</td><td class="num">39</td><td class="num">80</td></tr>
+                    <tr class="total-row"><td>合計</td><td class="num">&yen;64,749</td><td class="num">1,619</td><td class="num">&yen;12,194</td><td class="num">311</td><td class="num">876（取得分）</td></tr>
+                </tbody>
+            </table>
+
+            <div class="note-box warning" style="margin-top: 12px;">
+                <strong>5/6〜5/9 のクリック激減（4日で54）が最大の異常値。</strong>同期間の広告費は通常通り消化されているにも関わらずクリック数が約1/10に。CPCが¥146〜¥237まで上昇しているため。
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== Daily Detail ===== -->
+    <div class="section">
+        <div class="section-header blue">日別パフォーマンス詳細（4/22〜5/9）</div>
+        <div class="section-body">
+            <table class="data-table">
+                <thead>
+                    <tr><th>日付</th><th class="num">Meta費</th><th class="num">Mクリック</th><th class="num">M CPC</th><th class="num">Yahoo費</th><th class="num">Yクリック</th><th class="num">広告費計</th><th>購入</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>4/22</td><td class="num">&yen;2,975</td><td class="num">118</td><td class="num">&yen;25</td><td class="num">&yen;493</td><td class="num">13</td><td class="num">&yen;3,468</td><td>-</td></tr>
+                    <tr><td>4/23</td><td class="num">&yen;3,479</td><td class="num">94</td><td class="num">&yen;37</td><td class="num">&yen;757</td><td class="num">19</td><td class="num">&yen;4,236</td><td>-</td></tr>
+                    <tr><td>4/24</td><td class="num">&yen;3,452</td><td class="num">56</td><td class="num">&yen;62</td><td class="num">&yen;688</td><td class="num">16</td><td class="num">&yen;4,140</td><td style="color:var(--success);font-weight:700">1（カラーミー）</td></tr>
+                    <tr><td>4/25</td><td class="num">&yen;2,753</td><td class="num">40</td><td class="num">&yen;69</td><td class="num">&yen;556</td><td class="num">14</td><td class="num">&yen;3,309</td><td>-</td></tr>
+                    <tr><td>4/26</td><td class="num">&yen;3,687</td><td class="num">111</td><td class="num">&yen;33</td><td class="num">&yen;911</td><td class="num">21</td><td class="num">&yen;4,598</td><td>-</td></tr>
+                    <tr><td>4/27</td><td class="num">&yen;2,984</td><td class="num">111</td><td class="num">&yen;27</td><td class="num">&yen;682</td><td class="num">22</td><td class="num">&yen;3,666</td><td style="color:var(--success);font-weight:700">1（カラーミー）</td></tr>
+                    <tr><td>4/28</td><td class="num">&yen;2,932</td><td class="num">90</td><td class="num">&yen;33</td><td class="num">&yen;375</td><td class="num">11</td><td class="num">&yen;3,307</td><td>-</td></tr>
+                    <tr><td>4/29</td><td class="num">&yen;3,221</td><td class="num">115</td><td class="num">&yen;28</td><td class="num">&yen;423</td><td class="num">12</td><td class="num">&yen;3,644</td><td style="color:var(--success);font-weight:700">2（カラーミー×2）</td></tr>
+                    <tr><td>4/30</td><td class="num">&yen;3,809</td><td class="num">83</td><td class="num">&yen;46</td><td class="num">&yen;933</td><td class="num">22</td><td class="num">&yen;4,742</td><td>-</td></tr>
+                    <tr><td>5/1</td><td class="num">&yen;3,194</td><td class="num">88</td><td class="num">&yen;36</td><td class="num">&yen;703</td><td class="num">18</td><td class="num">&yen;3,897</td><td>-</td></tr>
+                    <tr><td>5/2</td><td class="num">&yen;3,745</td><td class="num">104</td><td class="num">&yen;36</td><td class="num">&yen;308</td><td class="num">8</td><td class="num">&yen;4,053</td><td>-</td></tr>
+                    <tr><td>5/3</td><td class="num">&yen;4,024</td><td class="num">104</td><td class="num">&yen;39</td><td class="num">&yen;883</td><td class="num">21</td><td class="num">&yen;4,907</td><td style="color:var(--success);font-weight:700">1（カラーミー）</td></tr>
+                    <tr><td>5/4</td><td class="num">&yen;2,516</td><td class="num">114</td><td class="num" style="color:var(--success);font-weight:700">&yen;22</td><td class="num">&yen;683</td><td class="num">17</td><td class="num">&yen;3,199</td><td>-</td></tr>
+                    <tr><td>5/5</td><td class="num">&yen;4,522</td><td class="num">120</td><td class="num">&yen;38</td><td class="num">&yen;863</td><td class="num">20</td><td class="num">&yen;5,385</td><td>-</td></tr>
+                    <tr><td>5/6</td><td colspan="6" class="num" style="color:var(--text-light)">構造変更日（CSV欠損）— 認知CP停止／65+女性セット新設／Pixel ID入力</td><td>-</td></tr>
+                    <tr class="alert-row"><td>5/7</td><td class="num">&yen;4,291</td><td class="num">22</td><td class="num" style="color:var(--danger);font-weight:900">&yen;195</td><td class="num">&yen;919</td><td class="num">23</td><td class="num">&yen;5,210</td><td style="color:var(--success);font-weight:700">復活（_TODO.md記載）</td></tr>
+                    <tr class="alert-row"><td>5/8</td><td class="num">&yen;4,258</td><td class="num">18</td><td class="num" style="color:var(--danger);font-weight:900">&yen;237</td><td class="num">&yen;571</td><td class="num">16</td><td class="num">&yen;4,829</td><td style="color:var(--success);font-weight:700">復活（同上）</td></tr>
+                    <tr class="alert-row"><td>5/9</td><td class="num">&yen;2,037</td><td class="num">14</td><td class="num" style="color:var(--danger);font-weight:900">&yen;146</td><td class="num">-</td><td class="num">-</td><td class="num">&yen;2,037</td><td>-</td></tr>
+                    <tr class="total-row">
+                        <td>合計</td>
+                        <td class="num">&yen;64,749</td>
+                        <td class="num">1,619</td>
+                        <td class="num">&yen;40</td>
+                        <td class="num">&yen;12,194</td>
+                        <td class="num">311</td>
+                        <td class="num">&yen;76,943</td>
+                        <td class="num">6+件</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="note-box info" style="margin-top: 12px;">
+                <strong>傾向:</strong> 4月後半は購入が4日に1件ペースで安定（4/24・4/27・4/29×2・5/3）。5/3-5/5の3日間でGA4セッションが大幅増（136・50・201）した後、5/6の構造変更を経て5/7-5/9のCPC急騰フェーズへ。
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== Actions Done ===== -->
+    <div class="section">
+        <div class="section-header green">4/22〜5/9に実施した施策</div>
+        <div class="section-body">
+
+            <h3 style="margin-bottom: 16px; font-size: 1em; color: var(--primary);">5/6 大規模構造改革（ターゲ監査ベース）</h3>
+            <div class="action-grid">
+                <div class="action-card done-card">
+                    <div class="ac-status done">5/6 完了</div>
+                    <div class="ac-title">認知キャンペーン全広告セット停止（OT-01）</div>
+                    <div class="ac-desc">対象は <code>認知_30-65+女性</code> 1セット（予算&yen;500/日、消化&yen;444、LPV9件、購入0件）。リターゲティング用オーディエンス蓄積目的だったが、購入0件で投資効率悪く停止判断。</div>
+                </div>
+                <div class="action-card done-card">
+                    <div class="ac-status done">5/6 完了</div>
+                    <div class="ac-title">「65+女性専用」CV最適化セット新設（OT-02）</div>
+                    <div class="ac-desc"><code>CV最適化_65+女性_悩み訴求</code> ¥500/日 で同キャンペーン内に新設。最強層（65+女性）への単独配信を開始。クリエは価格訴求＋悩み訴求のみ充当。</div>
+                </div>
+                <div class="action-card done-card">
+                    <div class="ac-status done">5/6 完了</div>
+                    <div class="ac-title">カラーミーリピートにMeta Pixel ID入力（EC-01）</div>
+                    <div class="ac-desc">計測ブロッカー解消。Meta学習継続可能に。これにより5/6以降のピクセル学習リセット → CPC急騰仮説②の根拠となる。</div>
+                </div>
+                <div class="action-card done-card">
+                    <div class="ac-status done">5/6 完了</div>
+                    <div class="ac-title">GA4 Googleシグナル有効化（KN-01）</div>
+                    <div class="ac-desc">年齢ディメンション復活見込み 5/9-5/11。utm_content × CV のファネル分析（OT-06）の前提条件が整った。</div>
+                </div>
+                <div class="action-card done-card">
+                    <div class="ac-status done">5/6 完了</div>
+                    <div class="ac-title">LCP改善確認（KN-03）</div>
+                    <div class="ac-desc">サイト全体LCP 2月3.54s → 4月2.25s → 5月1.55s と改善済。Google基準2.5sを大幅クリア。LP速度はもはや課題ではない。</div>
+                </div>
+                <div class="action-card done-card">
+                    <div class="ac-status done">5/6 完了</div>
+                    <div class="ac-title">価格訴求-年配版 新クリエイティブ配信開始</div>
+                    <div class="ac-desc">utm_content=price-nenpai、TOP着地、cv_optimize_0314キャンペーン。既存価格訴求とA/Bテスト開始。</div>
+                </div>
+            </div>
+
+            <h3 style="margin: 28px 0 16px; font-size: 1em; color: var(--primary);">5/9 クリエイティブ刷新</h3>
+            <div class="action-grid">
+                <div class="action-card done-card">
+                    <div class="ac-status done">5/9 完了</div>
+                    <div class="ac-title">悩み訴求v2「朝の違和感」動画クリエ投入（CR-01）</div>
+                    <div class="ac-desc">9カット18秒・Veo 3 Fast＋VOICEVOX＋Cut1/7はKen Burns。「悩み訴求 - 2」として①CV最適化_65+女性_悩み訴求 ②リタゲ_50-69女性_悩み訴求 ③CTA最適化_30-65+女性 の3セットに投入。LP3着地（utm_content=nayami_v2）。既存悩み訴求v1と並走でA/B。<br>3/14から5週間以上同素材で疲弊していた状況の解消第一弾。</div>
+                </div>
+            </div>
+
+            <h3 style="margin: 28px 0 16px; font-size: 1em; color: var(--text-light);">5/2〜5/5 LP・広告改修（4/21会議直後分）</h3>
+            <div class="action-grid">
+                <div class="action-card done-card">
+                    <div class="ac-status done">5/2 完了</div>
+                    <div class="ac-title">飲む美容LP（新LP・若年層向け）本番公開</div>
+                    <div class="ac-desc">Claude Designベースで20-30代向け新LPを制作・WordPressに公開。Noto Serif JP × アンティークゴールド × Hero女性写真 × 3円形バッジ（72mg/L・99円・軟水）。画像21枚をWebP化し合計736KB（旧6.7MBから89%軽量化）。<br>→ <a href="https://michiru.olivia-store.com/water-bibyou/" target="_blank">公開URL（/water-bibyou/）</a></div>
+                </div>
+                <div class="action-card done-card">
+                    <div class="ac-status done">5/3 完了</div>
+                    <div class="ac-title">Meta広告 リンク先 新LP切替</div>
+                    <div class="ac-desc">6本中5本のリンク先を新LP（/water-bibyou/）に切替。リタゲ2本＝utm_campaign=retargeting_0501／最適化3本＝utm_campaign=optimize_0503。#4膝訴求2のみ旧LP維持でA/B対照群に。広告セット・キャンペーンは触らずURLのみ書き換えでピクセル学習温存。</div>
+                </div>
+                <div class="action-card done-card">
+                    <div class="ac-status done">5/3 完了</div>
+                    <div class="ac-title">Yahoo LP CV改善3点パッケージ</div>
+                    <div class="ac-desc">/yahoo/ LPを50-60代女性向けに刷新。①新HERO「年齢を重ねるほど、選びたい一本。」②比較表をのむシリカ風デザインに刷新③Amazon★4.6レビュー4名の「愛飲者の声」セクション新規追加。既存ファイル残置でロールバック可能。</div>
+                </div>
+                <div class="action-card done-card">
+                    <div class="ac-status done">5/3 完了</div>
+                    <div class="ac-title">Yahoo広告 美容KW専用 広告グループ新設</div>
+                    <div class="ac-desc">「美容 水」「肌 に いい 水」など美容系10KWを「美容訴求_water-bibyou」広告グループに分離。リンク先は新LP /water-bibyou/。除外KW12個（silisa plain・シリカコーヒー等）も同日追加で月¥700-1,400節約見込み。</div>
+                </div>
+                <div class="action-card done-card">
+                    <div class="ac-status done">5/5 完了</div>
+                    <div class="ac-title">Meta広告 全9広告のリンク先URL再設定</div>
+                    <div class="ac-desc">美容系7広告→/water-bibyou/、年配向け2広告（膝訴求2・悩み訴求）→/(TOP)。utm_content個別付与で広告別計測可能に。</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== Targeting Audit ===== -->
+    <div class="section">
+        <div class="section-header purple">5/6 ターゲティング監査の発見（重要）</div>
+        <div class="section-body">
+            <div class="note-box info">
+                4月Meta広告データを精査した結果、配信実態が想定と大きく乖離していたことが判明。今後の広告運用の方向性を決定づける発見。
+            </div>
+
+            <table class="data-table">
+                <thead>
+                    <tr><th>発見</th><th>事実</th><th>対応</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>① 男性に40%配信されていた</strong></td>
+                        <td>4月Meta広告で男性配信が全体の40%を占めていた。男性購入計測上0件。Advantage+OFFが必要。</td>
+                        <td>5/6にAdvantage+OFF設定。CR-04「ギフト訴求」素材で男性のクロスデバイスCV狙う方向に転換。</td>
+                    </tr>
+                    <tr class="highlight-row">
+                        <td><strong>② 65+女性が最強層</strong></td>
+                        <td>5月CTR・CPC効率で65+女性が単独最強。次点が35-44女性（CTR 8.25%・CPC ¥15）。</td>
+                        <td>OT-02で65+女性専用セット新設済。OT-03で35-44女性専用セット新設予定。</td>
+                    </tr>
+                    <tr class="alert-row">
+                        <td><strong>③ 認知用カルーセルがCV最適化に混載</strong></td>
+                        <td>認知用素材がCV最適化セットに混入し、興味タップ装置化していた。</td>
+                        <td>素材分離。CR-06「日常3シリーズ第4弾」はCV最適化セット単独投入で再発防止。</td>
+                    </tr>
+                    <tr class="highlight-row">
+                        <td><strong>④ 35-44女性は設定外で発見された層</strong></td>
+                        <td>意図せず配信されていた35-44女性が、5月で最高CTR 8.25% & 最低CPC ¥15を記録。</td>
+                        <td>OT-03で専用セット新設・予算&yen;500から開始予定。リタゲは20-49女性→30-49女性に変更済（20代除外）。</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- ===== Pending Actions ===== -->
+    <div class="section">
+        <div class="section-header red">今後のアクション・確認事項（_TODO.md より）</div>
+        <div class="section-body">
+            <div class="action-grid">
+                <div class="action-card alert-card">
+                    <div class="ac-status alert">P1 緊急</div>
+                    <div class="ac-title">OT-09: CPC ¥22→¥237急騰 原因特定</div>
+                    <div class="ac-desc">Meta管理画面でCV最適化メインセットのフリークエンシー・配置別CTR・年齢別CPCを確認し、急騰の発生箇所を特定。クリエ鮮度切れ vs ピクセル学習崩壊の切り分け。</div>
+                </div>
+                <div class="action-card progress-card">
+                    <div class="ac-status progress">P1 今週</div>
+                    <div class="ac-title">OT-03: 35-44女性専用セット新設</div>
+                    <div class="ac-desc">5月CTR8.25%・CPC¥15と最強の発見層。日予算¥500、日常-B拡張＋日常3第4弾を充当予定。</div>
+                </div>
+                <div class="action-card pending-card">
+                    <div class="ac-status pending">P0 ⏸ ブロック中</div>
+                    <div class="ac-title">OT-05: Metaアクセストークン再発行</div>
+                    <div class="ac-desc">3/10期限切れで2ヶ月放置。担当者に管理者権限なし、クライアント依頼必要。Marketing API復旧で自動データ取得復帰。</div>
+                </div>
+                <div class="action-card progress-card">
+                    <div class="ac-status progress">P1 今週</div>
+                    <div class="ac-title">OT-06: utm_content × CV ファネルレポート構築</div>
+                    <div class="ac-desc">広告別LP着地後CVR検証。Pixel復旧後3日データで再評価する前提。GA4 Googleシグナル有効化済で年齢ディメンション復活待ち（5/9-5/11）。</div>
+                </div>
+                <div class="action-card progress-card">
+                    <div class="ac-status progress">P1 制作中</div>
+                    <div class="ac-title">CR-02: 3ヶ月継続UGC動画クリエ制作</div>
+                    <div class="ac-desc">F2転換対策＋新規両用。解約率36.7%・1回解約89.5%への素材投入。</div>
+                </div>
+                <div class="action-card progress-card">
+                    <div class="ac-status progress">P1 制作中</div>
+                    <div class="ac-title">CR-03: 価格訴求v2 動画クリエ制作</div>
+                    <div class="ac-desc">既存勝ち筋の鮮度更新。3/14から5週間以上同素材で疲弊した状況の解消第二弾（CR-01の悩み訴求v2に続く）。</div>
+                </div>
+                <div class="action-card pending-card">
+                    <div class="ac-status pending">P1 ⏸ 保留</div>
+                    <div class="ac-title">ML-02: LP1 CTAボタン色変更＋「定期縛りなし」</div>
+                    <div class="ac-desc">5/9 保留判断。LP1は現在クリック発生・5/7-5/8で購入復活直後のため、LP変更でピクセル学習を阻害するリスク。購入が週2件以上で3週間安定後に再評価。</div>
+                </div>
+                <div class="action-card progress-card">
+                    <div class="ac-status progress">P1 今週</div>
+                    <div class="ac-title">ML-13: LP2の勝ち導線をLP3へ逆移植</div>
+                    <div class="ac-desc">LP2（/yahoo/）はCTR17-18%安定・5月50%到達22%と全LP中最良の購入導線。注文ボタン位置・代引きリンク配置をLP3に展開。</div>
+                </div>
+                <div class="action-card progress-card">
+                    <div class="ac-status progress">P1 今週</div>
+                    <div class="ac-title">ML-12: 5月デッドクリック23件の発生箇所特定</div>
+                    <div class="ac-desc">サイト全体5月682セッション中23件発生。LP3が533セッションで主要発生源と推定。Clarityレコーディングで特定し、当たり判定不足のCTA/画像を一覧化。</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== KPI Target ===== -->
+    <div class="section">
+        <div class="section-header dark">目標ベンチマーク（夏までにCPA &yen;4,000）</div>
+        <div class="section-body">
+            <table class="data-table">
+                <thead>
+                    <tr><th>指標</th><th class="num">前回（4/19時点）</th><th class="num">現在（5/9）</th><th class="num">目標（7月）</th><th>状況</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Meta CPC</strong></td>
+                        <td class="num">&yen;57</td>
+                        <td class="num">&yen;40（期間平均）</td>
+                        <td class="num">&yen;30</td>
+                        <td><span class="badge badge-up">改善</span> ※直近3日¥146-237 要対応</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Yahoo CPC</strong></td>
+                        <td class="num">&yen;41</td>
+                        <td class="num">&yen;39</td>
+                        <td class="num">&yen;35</td>
+                        <td><span class="badge badge-up">改善</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>LP転換率</strong></td>
+                        <td class="num" style="color:var(--danger)">0.75%</td>
+                        <td class="num">推定 0.4-0.6%</td>
+                        <td class="num">1.3%</td>
+                        <td><span class="badge badge-down">悪化傾向（要OT-06ファネル分析）</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>CPA</strong></td>
+                        <td class="num" style="color:var(--danger)">&yen;13,137</td>
+                        <td class="num" style="color:var(--warning)">&yen;9,600〜12,800</td>
+                        <td class="num">&yen;4,000</td>
+                        <td><span class="badge badge-up">わずかに改善</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>月間CV</strong></td>
+                        <td class="num">10件/19日</td>
+                        <td class="num">6+件/18日</td>
+                        <td class="num">28件/月</td>
+                        <td><span class="badge badge-down">ペース不足</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="note-box warning" style="margin-top: 12px;">
+                <strong>方向性は正しいが、5/7以降のCPC急騰が短期的な逆風。</strong>悩み訴求v2投入（5/9）と価格訴求v2制作（CR-03）でクリエ鮮度を回復。来週前半に効果検証 → 35-44女性セット新設（OT-03）でさらに拡大。
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== Discussion Points ===== -->
+    <div class="section">
+        <div class="section-header" style="background: linear-gradient(135deg, #1a237e, #283593);">本日の協議事項</div>
+        <div class="section-body">
+            <div class="action-grid">
+                <div class="action-card new-card">
+                    <div class="ac-status new">協議①</div>
+                    <div class="ac-title">Metaアクセストークン再発行（OT-05）</div>
+                    <div class="ac-desc">3/10期限切れで2ヶ月放置。クライアント側ビジネス管理者権限での再発行作業をいつ実施するか。手動CSV運用による日次データ欠損が発生中（5/6の例）。</div>
+                </div>
+                <div class="action-card new-card">
+                    <div class="ac-status new">協議②</div>
+                    <div class="ac-title">5/7以降のCPC急騰への対応方針</div>
+                    <div class="ac-desc">①一時的な学習リセット（3-7日待つ）／②全広告URL/構造を5/5以前に戻す／③新クリエ投入で押し切る、のいずれを取るか。GA4セッションは増加傾向のため③推奨だが、CPC回復が見込めない場合②も検討。</div>
+                </div>
+                <div class="action-card new-card">
+                    <div class="ac-status new">協議③</div>
+                    <div class="ac-title">価格訴求v2動画 / 同梱物3点セット の進捗確認</div>
+                    <div class="ac-desc">CR-03（価格訴求v2）制作着手判断。同梱物3点セット（HTML完成済）の印刷手配をいつ行うか。F2転換率50%→70%の目標は変わらず。</div>
+                </div>
+                <div class="action-card new-card">
+                    <div class="ac-status new">協議④</div>
+                    <div class="ac-title">Google検索広告・Malz Bagging Ads 提案の進捗</div>
+                    <div class="ac-desc">前回会議で提案した2施策（Google検索広告 月¥10-15K／Malz 月¥20K）の決裁状況。Yahoo検索広告のCPC改善実績を踏まえ、Google検索広告の優先度は高まっている。</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 30px; padding: 20px; font-size: 0.8em; color: var(--text-light);">
+        ミチルシリカ 月次レポート | 2026年5月10日 作成<br>
+        データソース: Meta広告マネージャー / Yahoo!広告 / カラーミーリピート / GA4 / _TODO.md / 施策ログ.csv<br>
+        ※購入件数は会議当日にスプシ「Meta広告日次データ」「Yahoo広告日次データ」最終値で差し替え推奨
+    </div>
+
+</div>
+</body>
+</html>
