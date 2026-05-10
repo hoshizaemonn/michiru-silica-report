@@ -439,7 +439,7 @@
                     <tr><td>4/24</td><td>1</td><td>カラーミー</td><td><span class="badge badge-info">Meta広告</span></td><td>Meta Pixel購入1件記録、GA4 form_start meta/paid 4件</td></tr>
                     <tr><td>4/27</td><td>2</td><td>代+カラ</td><td><span class="badge badge-flat">不明</span></td><td>Pixel記録なし、GA4データなし、Yahoo CTAクリック4件あり</td></tr>
                     <tr><td>4/28</td><td>1</td><td>代引き</td><td><span class="badge badge-flat">不明</span></td><td>GA4データ取得なし</td></tr>
-                    <tr><td>4/29</td><td>2</td><td>カラーミー×2</td><td><span class="badge badge-info">Meta広告</span> + <span class="badge badge-up">Instagram(オーガニック)</span></td><td>GA4 cv_40: (direct) 1件 + ig/social 1件、Pixel記録1件</td></tr>
+                    <tr><td>4/29</td><td>2</td><td>カラーミー×2</td><td><span class="badge badge-info">Meta広告</span> + <span class="badge badge-up">Instagram(オーガニック)</span></td><td>GA4 cv_40: (direct) 1件 + ig/social 1件、Pixel記録1件。<br>※IG投稿は当日なし。直近の4/19「定期便案内」（ビュー165・保存1）経由でプロフィール訪問→LP→購入の流れと推定</td></tr>
                     <tr><td>5/1</td><td>1</td><td>代引き</td><td><span class="badge badge-info">Meta or Yahoo</span></td><td>GA4 form_submit meta/paid 6件・yahoo/cpc 2件（特定不可）</td></tr>
                     <tr class="highlight-row"><td>5/3</td><td>1</td><td>カラーミー</td><td><span class="badge badge-info">Instagram広告（Meta IG面）</span></td><td><strong>GA4 cv_40: ig/paid 1件で確定</strong></td></tr>
                     <tr><td>5/7</td><td>1</td><td>代引き</td><td><span class="badge badge-info">Meta広告</span></td><td>Meta Pixel購入1件記録</td></tr>
@@ -465,8 +465,8 @@
                 <strong>所感:</strong> Meta広告経由の購入が確実に5件以上。<strong>5/3のIG面経由は重要な発見</strong>で、CV最適化の配置別データを見るとInstagram面での効率が良い可能性。Yahoo経由の確定購入はゼロ（GA4で form_submit はあるが cv_40確定なし）→ Yahoo広告は集客はするが購入転換が弱い。Yahoo LP最適化（ML-13）の優先度が上がる根拠に。
             </div>
 
-            <div class="note-box danger" style="margin-top: 12px;">
-                <strong>計測課題:</strong> 11件中3件（27%）が経由先不明。GA4の自動データ取得が日次で動いていない問題。Meta APIトークン期限切れ（OT-05）と合わせて、経由先計測の精度向上が次のアクション。
+            <div class="note-box success" style="margin-top: 12px;">
+                <strong>計測課題は5/6に解消済み。</strong>経由不明3件（4/27×2・4/28）はすべてPixel計測トラブル期間中（5/3 LP大規模リニューアル → 5/6 カラーミーにPixel ID入力で復旧）の出来事。<strong>5/7以降は全件Meta Pixelで追跡できており、再発防止のため施策ログにPixel計測の動作確認も組み込み済</strong>。今後は新規LP変更時にPixel発火テストを必須化する運用に。
             </div>
         </div>
     </div>
