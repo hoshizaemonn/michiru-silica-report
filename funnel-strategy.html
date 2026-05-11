@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ミチルシリカ 広告ファネル戦略 図解</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --primary: #0d47a1; --primary-light: #1976d2;
+  --awareness: #7b1fa2; --retarget: #00897b; --cv: #e65100;
+  --success: #2e7d32; --danger: #c62828;
+  --text: #263238; --text-light: #546e7a;
+  --bg: #f5f7fa; --card: #fff; --border: #e0e4e8;
+}
+body { font-family: "Helvetica Neue", Arial, "Hiragino Sans", Meiryo, sans-serif; line-height: 1.7; color: var(--text); background: var(--bg); padding: 30px 20px; }
+.container { max-width: 1000px; margin: 0 auto; }
+
+.hero { background: linear-gradient(135deg, #0d47a1, #1565c0); color: #fff; padding: 40px; border-radius: 14px; margin-bottom: 24px; }
+.hero h1 { font-size: 1.8em; font-weight: 800; margin-bottom: 8px; }
+.hero .sub { opacity: 0.85; }
+
+.section { background: var(--card); border-radius: 14px; padding: 28px; margin-bottom: 20px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.section h2 { font-size: 1.3em; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 2px solid var(--border); }
+
+.funnel { display: flex; flex-direction: column; gap: 0; align-items: stretch; margin: 20px 0; }
+.stage { padding: 24px 28px; border-radius: 14px; color: #fff; position: relative; }
+.stage.awareness { background: linear-gradient(135deg, #6a1b9a, #8e24aa); }
+.stage.retarget { background: linear-gradient(135deg, #00695c, #00897b); }
+.stage.purchase { background: linear-gradient(135deg, #2e7d32, #43a047); }
+.stage.cv { background: linear-gradient(135deg, #d84315, #ef6c00); }
+.stage h3 { font-size: 1.3em; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+.stage .desc { font-size: 0.95em; opacity: 0.95; margin-bottom: 12px; }
+.stage .goal { background: rgba(255,255,255,0.18); padding: 8px 14px; border-radius: 6px; font-size: 0.9em; margin-bottom: 12px; }
+.stage ul { margin-left: 24px; font-size: 0.92em; }
+.stage ul li { margin-bottom: 4px; }
+.arrow { text-align: center; font-size: 2em; color: var(--text-light); padding: 8px 0; }
+
+.budget-chart { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0; }
+.budget-card { background: #f9fafb; padding: 20px; border-radius: 12px; border-left: 4px solid var(--border); }
+.budget-card.now { border-left-color: var(--danger); }
+.budget-card.ideal { border-left-color: var(--success); }
+.budget-card h4 { font-size: 1em; margin-bottom: 12px; }
+.budget-bar { display: flex; height: 36px; border-radius: 6px; overflow: hidden; margin-bottom: 8px; }
+.budget-bar span { display: flex; align-items: center; justify-content: center; color: #fff; font-size: 0.8em; font-weight: 700; }
+.bar-cv { background: var(--cv); }
+.bar-retarget { background: var(--retarget); }
+.bar-awareness { background: var(--awareness); }
+.budget-legend { font-size: 0.85em; color: var(--text-light); }
+
+.example-box { background: #f0f7ff; border-left: 4px solid var(--primary); padding: 18px 22px; border-radius: 8px; margin: 16px 0; }
+.example-box .day { font-weight: 700; color: var(--primary); margin-top: 8px; }
+.example-box .day:first-child { margin-top: 0; }
+.example-box .action { font-size: 0.92em; margin-left: 16px; color: var(--text); }
+
+.compare-table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 0.92em; }
+.compare-table th, .compare-table td { padding: 12px 14px; text-align: left; border-bottom: 1px solid var(--border); }
+.compare-table thead { background: #263238; color: #fff; }
+.compare-table .check { color: var(--success); font-weight: 700; }
+.compare-table .cross { color: var(--danger); font-weight: 700; }
+
+.note { background: #fff8e1; border-left: 4px solid #ef6c00; padding: 14px 18px; border-radius: 6px; margin: 16px 0; font-size: 0.92em; }
+.note.danger { background: #ffebee; border-left-color: var(--danger); }
+.note.success { background: #e8f5e9; border-left-color: var(--success); }
+
+@media (max-width: 700px) {
+  .budget-chart { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="hero">
+  <h1>ミチルシリカ 広告ファネル戦略</h1>
+  <div class="sub">認知 → リタゲ → 購入 の流れと予算配分の最適解</div>
+  <div style="margin-top: 12px; font-size: 0.85em; opacity: 0.7;">2026年5月11日作成 ・ 1日1件購入を目指すための設計図</div>
+</div>
+
+<!-- ファネル本体 -->
+<div class="section">
+  <h2>🎯 3段階ファネル（認知 → リタゲ → 購入）</h2>
+
+  <div class="funnel">
+    <div class="stage awareness">
+      <h3>👀 認知（広く知ってもらう）</h3>
+      <div class="desc">動画広告で「広く・安く」配信。クリックさせず、動画を見せて記憶に残すフェーズ。</div>
+      <div class="goal">🎯 目的：動画視聴オーディエンスを貯める（直接購入を狙わない）</div>
+      <ul>
+        <li>素材：日常3シリーズ（ピクニック等）／CTR 8.2%・単価¥17の高効率</li>
+        <li>蓄積：動画3秒視聴者・50%視聴者・95%視聴者をカスタムオーディエンス化</li>
+        <li>予算目安：日¥500〜¥1,500</li>
+      </ul>
+    </div>
+
+    <div class="arrow">⬇ 動画視聴データが自動でオーディエンスに登録（1〜7日）</div>
+
+    <div class="stage retarget">
+      <h3>🔄 リタゲ（興味ある人に追いかけて広告）</h3>
+      <div class="desc">動画を見た人・LPに来た人を追いかけて、購入訴求の広告を出すフェーズ。</div>
+      <div class="goal">🎯 目的：「あの水だ、買おう」と思わせる</div>
+      <ul>
+        <li>オーディエンス：動画50%視聴者 ／ LP訪問者 ／ カート投入未購入</li>
+        <li>クリエ：価格訴求 ／ 悩み訴求v2 ／ 継続UGC</li>
+        <li>掛け算可能：年齢別 × 動画視聴者 で精度を上げられる</li>
+        <li>予算目安：日¥500〜¥1,000</li>
+      </ul>
+    </div>
+
+    <div class="arrow">⬇ 購入意欲が高まったタイミングで</div>
+
+    <div class="stage purchase">
+      <h3>🛒 購入</h3>
+      <div class="desc">LP着地 → カラーミー定期便 or 代引きフォーム</div>
+      <div class="goal">🎯 目標：1日1件・月30件</div>
+    </div>
+  </div>
+
+  <div style="margin-top: 32px;">
+    <div class="stage cv" style="border-radius: 14px;">
+      <h3>⚡ 別ルート：CV最適化（新規一発購入狙い）</h3>
+      <div class="desc">Metaのアルゴリズムが「買いそうな新規」を勝手に探して購入訴求広告を直接配信するフェーズ。</div>
+      <div class="goal">🎯 当たれば即購入・外れれば広告費が無駄</div>
+      <ul>
+        <li>現在のメイン：CV最適化_65+女性_悩み訴求／CV最適化_30-65+女性 等</li>
+        <li>予算目安：日¥2,500〜¥3,500</li>
+        <li>認知＋リタゲと組み合わせると効率が上がる（単独だと当たり外れ大）</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ミチルの現状 -->
+<div class="section">
+  <h2>📊 ミチルの現状 vs 理想</h2>
+
+  <div class="budget-chart">
+    <div class="budget-card now">
+      <h4>❌ 今の予算配分（日¥4,000）</h4>
+      <div class="budget-bar">
+        <span class="bar-cv" style="width: 99%;">CV最適化 ¥3,300</span>
+        <span class="bar-retarget" style="width: 1%;"></span>
+      </div>
+      <div class="budget-legend">
+        認知 <strong>¥0</strong>・リタゲ <strong>¥40程度</strong>・CV最適化 ¥3,300
+      </div>
+      <div class="note danger" style="margin-top: 12px;">
+        <strong>蛇口が閉まっている状態</strong><br>
+        ・認知CP停止でオーディエンス補充ゼロ<br>
+        ・リタゲセットはあるがターゲットする人が空っぽ<br>
+        ・CV最適化のみで戦っている → CPC急騰の元凶
+      </div>
+    </div>
+
+    <div class="budget-card ideal">
+      <h4>✅ 理想の予算配分（日¥4,000）</h4>
+      <div class="budget-bar">
+        <span class="bar-awareness" style="width: 12%;">認知¥500</span>
+        <span class="bar-retarget" style="width: 12%;">リタゲ¥500</span>
+        <span class="bar-cv" style="width: 76%;">CV最適化 ¥3,000</span>
+      </div>
+      <div class="budget-legend">
+        認知 ¥500（12%）・リタゲ ¥500（12%）・CV最適化 ¥3,000（76%）
+      </div>
+      <div class="note success" style="margin-top: 12px;">
+        <strong>ファネルが回る状態</strong><br>
+        ・認知で動画視聴者を蓄積（蛇口ON）<br>
+        ・リタゲで興味層を購入に押し上げる<br>
+        ・CV最適化が新規ボリュームを担保
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 具体例 -->
+<div class="section">
+  <h2>🎬 ユーザー1人の動き（具体例）</h2>
+
+  <div class="example-box">
+    <div class="day">📅 1日目</div>
+    <div class="action">ユーザーAがInstagramでピクニック動画を見る（認知CP）</div>
+    <div class="action">→ 動画60%視聴 → カスタムオーディエンス「動画50%視聴者」に登録</div>
+    <div class="action">→ クリックは0回。広告費は¥17で安く済む</div>
+
+    <div class="day">📅 3日目</div>
+    <div class="action">ユーザーAがInstagramで価格訴求を見る（リタゲ）</div>
+    <div class="action">→ 「あ、この水見たな」と覚えていて気になる</div>
+    <div class="action">→ クリック → LPへ訪問するが今日は買わずに離脱</div>
+    <div class="action">→ カスタムオーディエンス「LP訪問者」に追加登録</div>
+
+    <div class="day">📅 5日目</div>
+    <div class="action">ユーザーAがInstagramで悩み訴求v2を見る（リタゲ）</div>
+    <div class="action">→ 「ちょうど寝起き調子悪いし、試そう」</div>
+    <div class="action">→ クリック → LP → 購入！🎉</div>
+  </div>
+
+  <div class="note">
+    <strong>💡 ポイント：</strong> 3回の接触で1人の購入。1回目の認知が無いと、いきなりCV最適化広告を見せても「知らない水を急に買え」と言われている状態で転換率が低い。
+  </div>
+</div>
+
+<!-- 現状の課題 -->
+<div class="section">
+  <h2>🚨 現状の課題（リタゲがほぼ動いていない）</h2>
+
+  <table class="compare-table">
+    <thead>
+      <tr><th>リタゲセット</th><th>5月消化額</th><th>クリック</th><th>購入</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>リタゲ_30-49女性_飲む美容99</td><td>¥208</td><td>4件</td><td>0件</td></tr>
+      <tr><td>リタゲ_50-69女性_悩み訴求</td><td>¥156</td><td>2件</td><td>0件</td></tr>
+      <tr style="background:#fff8e1;"><td><strong>合計（9日間）</strong></td><td><strong>¥364</strong></td><td><strong>6件</strong></td><td><strong>0件</strong></td></tr>
+    </tbody>
+  </table>
+
+  <div class="note danger" style="margin-top: 16px;">
+    <strong>原因：認知CPが止まってオーディエンスプールが枯渇している</strong><br>
+    リタゲ広告セットは作ってあるが、ターゲットする「動画視聴者」が空っぽの状態。
+  </div>
+</div>
+
+<!-- アクション -->
+<div class="section">
+  <h2>🚀 1日1件目標達成のアクション</h2>
+
+  <table class="compare-table">
+    <thead>
+      <tr><th>Step</th><th>アクション</th><th>期待効果</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Step 1</strong><br>（今週中）</td>
+        <td>認知CP復活（日常3シリーズ、日¥500）</td>
+        <td>3-7日でオーディエンス100-300人/日蓄積</td>
+      </tr>
+      <tr>
+        <td><strong>Step 2</strong><br>（来週）</td>
+        <td>リタゲセットに「動画視聴者」CAを設定<br>リタゲ予算 ¥40→¥500/日に増額</td>
+        <td>月3-5件のリタゲ経由購入</td>
+      </tr>
+      <tr>
+        <td><strong>Step 3</strong><br>（再来週）</td>
+        <td>リタゲ専用クリエ投入<br>（継続UGC・口コミ集）</td>
+        <td>月5-10件のリタゲ経由購入</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="note success" style="margin-top: 16px;">
+    <strong>👉 月30件達成のシナリオ</strong><br>
+    CV最適化 17件 ＋ リタゲ 5-10件 ＋ 同梱物のF2改善効果 = <strong>月25-30件 ≒ 1日1件達成</strong>
+  </div>
+</div>
+
+<div style="text-align: center; margin-top: 30px; padding: 20px; font-size: 0.8em; color: var(--text-light);">
+  ミチルシリカ 広告ファネル戦略図解 | 2026年5月11日作成<br>
+  ※レポート本体とは別の補足資料
+</div>
+
+</div>
+</body>
+</html>
