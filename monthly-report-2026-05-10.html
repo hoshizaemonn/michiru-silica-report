@@ -823,41 +823,52 @@
                 </ol>
             </div>
 
+            <div class="note-box info" style="margin-bottom: 12px;">
+                <strong>計算の前提（シンプルに）:</strong>
+                <ul style="margin-top: 8px; padding-left: 20px;">
+                    <li>通常価格 <strong>¥3,960</strong>／月（2回目以降）</li>
+                    <li>原価 <strong>¥1,000</strong>／セット（仮定）</li>
+                    <li>通常時の粗利 = ¥3,960 - ¥1,000 = <strong>¥2,960</strong>／月</li>
+                    <li>新規1人獲得コスト（CPA） = <strong>¥6,345</strong>（4月実績）</li>
+                </ul>
+                → 通常価格なら<strong>約2.2ヶ月の継続で広告費を回収</strong>できる構造。問題は初回50%OFFで粗利が¥980まで減り、F2転換せず1回で辞める人が89.5%いること。
+            </div>
+
+            <h4 style="margin: 16px 0 8px; font-size: 0.95em;">2つの軸でシナリオ比較</h4>
             <table class="data-table">
                 <thead>
-                    <tr><th>シナリオ</th><th class="num">初回価格</th><th class="num">初回粗利<br>（-原価¥1,000）</th><th class="num">初回CPA回収率<br>（¥6,345基準）</th><th class="num">CPA完全回収に必要な<br>継続月数（粗利¥2,960/月）</th></tr>
+                    <tr><th>シナリオ</th><th class="num">初回粗利</th><th class="num">2回目以降<br>粗利</th><th class="num">CPA¥6,345を<br>回収できる月数</th><th>利益が出るか</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td><strong>現状</strong></td><td class="num">¥1,980</td><td class="num">¥980</td><td class="num" style="color:var(--danger)">15%</td><td class="num">2ヶ月以上</td></tr>
-                    <tr><td>初回40%OFF</td><td class="num">¥2,376</td><td class="num">¥1,376</td><td class="num" style="color:var(--warning)">22%</td><td class="num">2ヶ月</td></tr>
-                    <tr class="highlight-row"><td><strong>H案（30%OFF）</strong></td><td class="num">¥2,772</td><td class="num">¥1,772</td><td class="num" style="color:var(--warning)">28%</td><td class="num">2ヶ月</td></tr>
-                    <tr><td>初回20%OFF</td><td class="num">¥3,168</td><td class="num">¥2,168</td><td class="num">34%</td><td class="num">2ヶ月（ギリギリ）</td></tr>
-                    <tr><td>定価販売</td><td class="num">¥3,960</td><td class="num">¥2,960</td><td class="num" style="color:var(--success)">47%</td><td class="num">2ヶ月で完全回収</td></tr>
+                    <tr><td><strong>現状</strong>（初回50%OFF / 継続¥3,960）</td><td class="num">¥980</td><td class="num">¥2,960</td><td class="num">2.2ヶ月目で回収</td><td><span class="badge badge-down">解約率89.5%で実態は赤字</span></td></tr>
+                    <tr class="highlight-row"><td><strong>H案</strong>（初回30%OFF / 継続20%OFF）</td><td class="num">¥1,772</td><td class="num">¥2,168</td><td class="num">2.1ヶ月目で回収</td><td><span class="badge badge-up">ギャップ縮小で継続率↑</span></td></tr>
+                    <tr><td>初回20%OFF / 継続定価</td><td class="num">¥2,168</td><td class="num">¥2,960</td><td class="num">2.0ヶ月目で回収</td><td><span class="badge badge-flat">初回値上げで新規減リスク</span></td></tr>
+                    <tr><td>定価販売（割引なし）</td><td class="num">¥2,960</td><td class="num">¥2,960</td><td class="num">2.0ヶ月目で回収</td><td><span class="badge badge-down">新規がほぼ来ない</span></td></tr>
                 </tbody>
             </table>
 
-            <h4 style="margin: 20px 0 8px; font-size: 0.95em;">F2転換率（2回目購入率）が利益を決める</h4>
+            <div class="note-box danger" style="margin-top: 12px;">
+                <strong>重要な事実:</strong> どのシナリオも<strong>初回購入だけでは広告費を回収できない</strong>（最大でも¥2,960で47%回収）。<br>
+                つまり <strong>「2回目以降に継続させる」ことが収益の絶対条件</strong>。価格をいじるより、F2転換率（10.5% → 30〜50%）を上げる方が利益への影響が圧倒的に大きい。
+            </div>
+
+            <h4 style="margin: 16px 0 8px; font-size: 0.95em;">F2転換率改善の利益インパクト（最重要）</h4>
             <table class="data-table">
                 <thead>
-                    <tr><th>シナリオ</th><th class="num">F2転換率</th><th class="num">平均継続月数<br>（仮定）</th><th class="num">1人あたり<br>平均売上</th><th class="num">CPA差し引き利益</th></tr>
+                    <tr><th>シナリオ</th><th class="num">F2転換率</th><th class="num">1人あたり売上</th><th class="num">CPA¥6,345差引</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td>現状（H案なし）</td><td class="num" style="color:var(--danger)">10.5%</td><td class="num">1.5ヶ月</td><td class="num">¥3,564</td><td class="num" style="color:var(--danger)">-¥2,781（赤字）</td></tr>
-                    <tr class="highlight-row"><td><strong>同梱物実施でF2改善（推奨）</strong></td><td class="num" style="color:var(--success)">30〜50%</td><td class="num">2〜3ヶ月</td><td class="num">¥5,940〜¥9,900</td><td class="num" style="color:var(--success)">-¥405〜+¥3,555</td></tr>
-                    <tr><td>H案＋同梱物（最大効果）</td><td class="num" style="color:var(--success)">50%</td><td class="num">3ヶ月</td><td class="num">¥9,504</td><td class="num" style="color:var(--success)">+¥3,159</td></tr>
+                    <tr><td>現状</td><td class="num" style="color:var(--danger)">10.5%</td><td class="num">¥3,564</td><td class="num" style="color:var(--danger);font-weight:700">-¥2,781（赤字）</td></tr>
+                    <tr class="highlight-row"><td><strong>同梱物実施でF2 30〜50%（推奨）</strong></td><td class="num" style="color:var(--success)">30〜50%</td><td class="num">¥5,940〜¥9,900</td><td class="num" style="color:var(--success);font-weight:700">-¥405〜+¥3,555</td></tr>
+                    <tr><td>H案＋同梱物</td><td class="num" style="color:var(--success)">50%</td><td class="num">¥9,504</td><td class="num" style="color:var(--success);font-weight:700">+¥3,159</td></tr>
                 </tbody>
             </table>
 
             <div class="note-box success" style="margin-top: 12px;">
-                <strong>結論:</strong> 価格を変えるよりも<strong>F2転換率を上げる方が利益インパクトが大きい</strong>。
-                <ul style="margin-top: 8px; padding-left: 20px;">
-                    <li>初回価格を上げてもCPA¥6,345の回収は初回だけでは不可能（最大でも47%）</li>
-                    <li>つまり<strong>「継続させる」ことが収益の本質</strong>。同梱物・お試しセットでF2を10%→30〜50%に引き上げることが最優先</li>
-                    <li>H案単独では利益効果は限定的（粗利¥792/初回）。F2改善と組み合わせて初めて意味を持つ</li>
-                </ul>
+                <strong>結論:</strong> F2転換率を10.5%→30%に上げるだけで、1人あたり利益が<strong>-¥2,781（赤字）→ ±¥0近辺</strong>に改善する。H案による初回粗利改善（+¥792）よりも、同梱物による継続率改善の方が利益インパクトが大きい。
             </div>
 
-            <div style="font-size:0.85em; color:var(--text-light); margin-top:8px;">※原価¥1,000・継続単価¥3,960で試算。実際の原価が異なる場合は再計算が必要</div>
+            <div style="font-size:0.85em; color:var(--text-light); margin-top:8px;">※原価¥1,000で試算。実際の原価が異なる場合は再計算が必要</div>
 
             <div class="note-box warning" style="margin-top: 12px;">
                 <strong>推奨ステップ:</strong>
