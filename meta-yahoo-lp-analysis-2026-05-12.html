@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>ミチルシリカ Meta・Yahoo・LP 半年分析 (2026-05-12)</title>
+<style>
+  :root{--blue:#1c89c5;--ink:#222;--gray:#666;--bg:#f7f7f5;--red:#c0392b;--orange:#d97706;--green:#2e7d32;--soft:#eaf5fb}
+  *{box-sizing:border-box}
+  body{font-family:-apple-system,"Hiragino Sans",sans-serif;margin:0;padding:40px 20px;color:var(--ink);background:var(--bg);line-height:1.75;font-size:14px}
+  .container{max-width:1100px;margin:0 auto;background:white;padding:40px;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,0.05)}
+  h1{font-size:24px;border-bottom:3px solid var(--blue);padding-bottom:12px;margin-top:0}
+  h2{font-size:19px;background:var(--soft);padding:10px 16px;border-left:5px solid var(--blue);margin-top:36px}
+  h3{font-size:16px;color:var(--blue);margin-top:24px;border-bottom:1px dashed #ccc;padding-bottom:6px}
+  h4{font-size:14px;color:#444;margin-top:18px;margin-bottom:8px}
+  .meta{color:var(--gray);font-size:12px;margin-bottom:24px}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:13px}
+  th{background:#e8f1f7;color:#0d4a70;text-align:left;padding:10px 12px;border:1px solid #d0e0e8;font-weight:600}
+  td{padding:9px 12px;border:1px solid #e0e0e0;vertical-align:top}
+  td.num{text-align:right;font-variant-numeric:tabular-nums}
+  .summary-box{background:#fff8e6;border-left:5px solid var(--orange);padding:18px 22px;margin:18px 0;border-radius:6px}
+  .key-finding{background:#fde7e7;border-left:5px solid var(--red);padding:18px 22px;margin:18px 0;border-radius:6px}
+  .ok-box{background:#e8f5e9;border-left:5px solid var(--green);padding:18px 22px;margin:18px 0;border-radius:6px}
+  .pill{display:inline-block;padding:2px 10px;border-radius:14px;font-size:11px;font-weight:600;margin-right:6px}
+  .pill.p0{background:#fde7e7;color:var(--red)}
+  .pill.p1{background:#fff4e0;color:var(--orange)}
+  .pill.p2{background:#e8f5e9;color:var(--green)}
+  .pill.ok{background:#e8f5e9;color:var(--green)}
+  .pill.ng{background:#fde7e7;color:var(--red)}
+  .pill.warn{background:#fff4e0;color:var(--orange)}
+  ul{padding-left:20px}
+  li{margin-bottom:4px}
+  .stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:16px 0}
+  .stat{background:white;border:1px solid #e0e0e0;border-radius:8px;padding:14px;text-align:center}
+  .stat .label{font-size:11px;color:var(--gray)}
+  .stat .num{font-size:22px;font-weight:700;color:var(--blue);margin:6px 0}
+  .stat .delta{font-size:11px}
+  .stat .delta.down{color:var(--red)}
+  .stat .delta.up{color:var(--green)}
+  .funnel{margin:20px 0;font-family:monospace;background:#fafafa;padding:18px;border-radius:8px;font-size:13px;line-height:1.8}
+  .funnel .step{padding:6px 0}
+  .funnel .arrow{color:#999;padding-left:30px}
+  .footer{margin-top:60px;text-align:center;color:var(--gray);font-size:11px;border-top:1px solid #e0e0e0;padding-top:20px}
+  .lp-card{border:2px solid #e0e0e0;border-radius:8px;padding:16px;margin:10px 0}
+  .lp-card.win{border-color:var(--green);background:#f5fdf5}
+  .lp-card.lose{border-color:var(--red);background:#fef9f9}
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>ミチルシリカ Meta・Yahoo・LP 半年分析<br>— ボトルネック特定と再起動戦略</h1>
+<p class="meta">作成日: 2026年5月12日 ／ 対象: Meta広告・Yahoo広告・LP（michiru.shop）／ 期間: 2025年12月〜2026年5月11日 ／ 作成: Claude（星﨑）<br>
+※Amazonは別チャネルとして除外。EC流入（カラーミーリピート）に直接関わるMeta・Yahoo・LPに絞った深掘り分析</p>
+
+<!-- =================== Summary =================== -->
+<div class="summary-box">
+<h3 style="margin-top:0;border:none;color:var(--orange)">3行サマリー</h3>
+<ul>
+<li><b>カラーミーEC側の急減が深刻</b>: 2026年1月 31件 → 5月 月8件ペース（-74%）。Meta・Yahoo・LPの全方位で問題発生中。</li>
+<li><b>ボトルネックは「LP→申込フォーム→完了」の最後の関門</b>: 5/10-5/11 フォーム到達8人、申込完了0人。LP転換率0%。</li>
+<li><b>復活の鍵は「2026/1月の勝ちパターン再現」</b>: 価格訴求クリエ＋低予算安定運用＋Yahoo並走＋詳細版LP活用の4セット。</li>
+</ul>
+</div>
+
+<!-- =================== Section 1 =================== -->
+<h2>1. カラーミーEC新規購入の推移</h2>
+
+<h3>1-1. 月次推移（Meta + Yahoo 経由）</h3>
+<table>
+<tr><th>月</th><th class="num">新規購入</th><th class="num">解約</th><th class="num">純増</th><th>主な施策</th></tr>
+<tr style="background:#e8f5e9"><td><b>2026/1</b></td><td class="num"><b>31件</b></td><td class="num">20件</td><td class="num">+11</td><td><b>★ピーク</b>・低予算1,500円/日・価格訴求準備</td></tr>
+<tr><td>2026/2</td><td class="num">27件</td><td class="num">24件</td><td class="num">+3</td><td>価格訴求CTR 2.83%確定</td></tr>
+<tr><td>2026/3(10日)</td><td class="num">23件</td><td class="num">24件</td><td class="num">-1</td><td>3/7リセット・1セット運用</td></tr>
+<tr><td>2026/4</td><td class="num">14件</td><td class="num">—</td><td class="num">—</td><td>CV最適化セット分割・Yahoo KW精緻化</td></tr>
+<tr style="background:#fde7e7"><td>2026/5(11日)</td><td class="num"><b>3件</b></td><td class="num">—</td><td class="num">—</td><td>LP変更事故・クリエ疲弊・ピクニック停止漏れ</td></tr>
+</table>
+
+<div class="key-finding">
+<b>3月→5月で新規78%減</b>。月29件→月8件ペースに急落。原因は「Meta・Yahoo・LPの3要素全てで問題発生」。
+</div>
+
+<!-- =================== Section 2: Meta =================== -->
+<h2>2. Meta広告の深掘り分析</h2>
+
+<h3>2-1. ベンチマーク数値の現在地</h3>
+<table>
+<tr><th>指標</th><th>ミチル実績</th><th>業界平均</th><th>評価</th><th>4/19目標</th></tr>
+<tr><td>CTR</td><td>2.53%（過去6ヶ月平均）／ 2.4%（5月直近）</td><td>0.9-1.5%</td><td><span class="pill ok">優秀</span></td><td>5.0%</td></tr>
+<tr><td>CPC（リンククリック）</td><td>¥151 ／ 5月直近¥72-¥237で乱高下</td><td>¥50-150</td><td><span class="pill warn">やや高</span></td><td>—</td></tr>
+<tr><td>CVR（LP→購入）</td><td>0.13-0.4%</td><td>1.0-3.0%</td><td><span class="pill ng">業界の1/10〜1/3</span></td><td>1.3%</td></tr>
+<tr><td>動画50%再生率</td><td>22-26%</td><td>30-50%</td><td><span class="pill warn">やや低</span></td><td>—</td></tr>
+<tr><td>月CV</td><td>3件（5月11日経過）</td><td>—</td><td><span class="pill ng">月換算8件</span></td><td>28件</td></tr>
+<tr><td>CPA</td><td>¥17,047（5月）</td><td>—</td><td><span class="pill ng">目標の4倍</span></td><td>¥4,000</td></tr>
+</table>
+
+<div class="key-finding">
+<b>Metaの最大の課題はCVR（LP→購入）の低さ</b>。広告は集めているがLPで脱落する構造。<br>
+CTRが優秀（業界平均の2倍）でクリックは取れているが、購入完了まで届かない。<b>これがMeta側の真の課題</b>。
+</div>
+
+<h3>2-2. 効いたMeta施策（再現すべき）</h3>
+<table>
+<tr><th>時期</th><th>施策</th><th>結果</th><th>学び</th></tr>
+<tr><td>2026/1</td><td>日予算1,500円/日で安定運用</td><td>月18件購入・学習維持</td><td>低予算でも学習フェーズ守れば成果出る</td></tr>
+<tr><td>2026/2</td><td>価格訴求クリエ投入</td><td>CTR 2.83%（悩み訴求の2.3倍）</td><td>初回価格＋星評価の組合せが最強</td></tr>
+<tr><td>2026/3/7</td><td>1セット運用へリセット</td><td>CPC半減・購入2件回復</td><td>シンプル構造で学習効率最大化</td></tr>
+<tr><td>2026/3/13</td><td>広告本数を5→8本に増やす</td><td>新規8件</td><td>クリエ多様性が学習を進める</td></tr>
+<tr><td>2026/4/14</td><td>CV最適化セット分割（A:価格¥500/B:他¥1,500）</td><td>学習維持</td><td>勝ちクリエを独立予算で守る</td></tr>
+<tr><td>2026/4/29</td><td>IG「青空に掲げる」投稿</td><td>フィード経由初CV発火</td><td>世界観ヒーロー画像の拡散性</td></tr>
+</table>
+
+<h3>2-3. 失敗したMeta施策（避けるべき）</h3>
+<table>
+<tr><th>時期</th><th>施策</th><th>損失</th><th>原因</th></tr>
+<tr><td>2026/3初</td><td>日予算4倍急増（1,500→6,000円）</td><td>学習リセット5回・購入0・¥27,353消化</td><td>±20%以内ルール違反</td></tr>
+<tr><td>2026/3初</td><td>5広告セット並走</td><td>各セット日¥1,000以下で学習不能</td><td>予算分散</td></tr>
+<tr><td>—</td><td>購入0件で「購入」最適化設定</td><td>学習に月50件CV必要なところ未達</td><td>月20件未満は「LPビュー」最適化が正解</td></tr>
+<tr><td>2026/3/27</td><td>テスト広告を一気に停止（8→3本）</td><td>5日CV0・CPC¥77→¥138</td><td>クリエ多様性破壊</td></tr>
+<tr><td>2026/3/14〜</td><td>同素材5週連続運用</td><td>5月CPC¥22→¥133（6倍）</td><td>クリエ疲弊・低意図クリック増加</td></tr>
+<tr><td>2026/5/3</td><td>LP大規模変更</td><td>Pixel3日壊れ事故</td><td>計測ロス・購入経路不明化</td></tr>
+<tr><td>2026/5/6</td><td>ピクニック完全停止漏れ</td><td>5/11も¥124消化継続</td><td>低意図クリック装置の残存</td></tr>
+<tr><td>2026/5/9</td><td>「悩み訴求-2」大量投入</td><td>5/11予算46%偏重・cv_40ゼロ</td><td>1クリエ偏重で学習歪み</td></tr>
+</table>
+
+<h3>2-4. クリエイティブの勝ち負け一覧</h3>
+<table>
+<tr><th>クリエ名</th><th>CTR</th><th>役割</th><th>評価</th></tr>
+<tr><td>価格訴求-年配</td><td>2.83%（2月実績）</td><td>主力CV機</td><td><span class="pill ok">勝ち</span></td></tr>
+<tr><td>日常4_腸内</td><td>1.5%</td><td>CV機・5月消化最多</td><td><span class="pill ok">勝ち</span></td></tr>
+<tr><td>飲む美容_99円</td><td>1.4-2.0%</td><td>サブ訴求</td><td><span class="pill ok">勝ち</span></td></tr>
+<tr><td>悩み訴求-2（CR-01）</td><td>0.6-2.2%</td><td>5/9投入新素材</td><td><span class="pill warn">評価中・CV未発火</span></td></tr>
+<tr><td>定期便</td><td>1.2-2.5%</td><td>クロージング</td><td><span class="pill warn">サブ</span></td></tr>
+<tr><td>日常3_ピクニック</td><td>10.9%（高すぎ）</td><td>認知用</td><td><span class="pill ng">低意図クリック装置</span></td></tr>
+<tr><td>のむシリカ風バージョン</td><td>0%</td><td>—</td><td><span class="pill ng">不調・停止候補</span></td></tr>
+<tr><td>肌訴求2</td><td>16.7%（小サンプル）</td><td>テスト</td><td><span class="pill warn">小規模で評価不能</span></td></tr>
+</table>
+
+<div class="summary-box">
+<b>Meta側の勝ちパターン</b>: 「価格訴求＋日常系（CV機）」を主軸に、「飲む美容99円・定期便」を補助に置く。<br>
+ピクニックなどの高CTRだが低意図のクリエは認知用に隔離して、CV最適化キャンペーンに混入させない。
+</div>
+
+<!-- =================== Section 3: Yahoo =================== -->
+<h2>3. Yahoo広告の深掘り分析</h2>
+
+<h3>3-1. Yahoo現状とベンチマーク</h3>
+<div class="stat-grid">
+<div class="stat"><div class="label">CPC</div><div class="num">¥40-50</div><div class="delta up">Meta比1/3</div></div>
+<div class="stat"><div class="label">CTR</div><div class="num">2.0-3.0%</div><div class="delta">健全</div></div>
+<div class="stat"><div class="label">CVR</div><div class="num">1.15%</div><div class="delta">2月実績</div></div>
+<div class="stat"><div class="label">日予算</div><div class="num">¥700</div><div class="delta">5月実消化¥600-900</div></div>
+</div>
+
+<h3>3-2. Yahoo の特性</h3>
+<table>
+<tr><th>項目</th><th>内容</th></tr>
+<tr><td>位置づけ</td><td>Meta補助的だが <b>CPA最高効率チャネル</b>（メモリ実績¥2,700）</td></tr>
+<tr><td>ユーザー特性</td><td>顕在層・指名検索・情報読み込み型</td></tr>
+<tr><td>LP分岐</td><td><b>詳細版LP（page-water-yahoo.php / LP2）が有効</b>。GA4で81人中60人がLP滞在（74%）</td></tr>
+<tr><td>IG連動効果</td><td>Instagram広告強化→1-2週後にYahoo指名KW増加（認知効果）</td></tr>
+<tr><td>季節変動</td><td>CTR・CVRは小・検索ボリュームのみ変動</td></tr>
+</table>
+
+<h3>3-3. Yahooの失敗事例と教訓</h3>
+<table>
+<tr><th>時期</th><th>事故</th><th>原因</th><th>教訓</th></tr>
+<tr><td>2026/3/27</td><td>Yahoo停止判断</td><td>管理画面CV=0で「効果なし」と誤判断</td><td><b>実はGA4 cv_40で3件あった</b>。CPA¥2,700の最高効率を切ってしまった</td></tr>
+<tr><td>2026/3/1-9</td><td>9日間0CV</td><td>計測タグ不備</td><td>2月6件売上のうちYahoo計測1件のみ（計測率17%）</td></tr>
+<tr><td>5月継続中</td><td>実売とCV計測のズレ</td><td>クロスドメイン計測不整合</td><td>意思決定で実購入数を必ず参照する</td></tr>
+</table>
+
+<div class="key-finding">
+<b>Yahooの最大の課題は「計測タグ不備」</b>。実は売れているのに管理画面に出ないため、誤判断（停止）を招くリスク常時あり。<br>
+<b>守るべきルール: Yahoo広告は絶対に止めない</b>。判断は必ず GA4 cv_40 で裏取り。
+</div>
+
+<!-- =================== Section 4: LP =================== -->
+<h2>4. LP（ランディングページ）の深掘り分析</h2>
+
+<h3>4-1. LP構成と着地先</h3>
+<table>
+<tr><th>LP名</th><th>URL</th><th>役割</th><th>現状評価</th></tr>
+<tr><td>LP3（TOP）</td><td>https://michiru.shop/</td><td>Meta主要LP（mv8.webp FV）</td><td><span class="pill warn">直帰率高（5月直近）</span></td></tr>
+<tr><td>LP1（美容）</td><td>https://michiru.shop/water-bibyou/</td><td>美容訴求LP</td><td><span class="pill ok">直帰率5-9%・エンゲ93%（5月修正後）</span></td></tr>
+<tr><td>LP2（Yahoo）</td><td>https://michiru.shop/yahoo/</td><td>Yahoo検索用</td><td><span class="pill ok">5月50%到達22%（全LP中最良）</span></td></tr>
+</table>
+
+<h3>4-2. LP の現状評価（5月直近）</h3>
+
+<div class="lp-card win">
+<h4 style="margin-top:0">🏆 LP1（/water-bibyou/）— 現状ベスト</h4>
+<ul>
+<li>直帰率 5-9%、エンゲージ率 93%（5月修正後の劇的改善）</li>
+<li>CTAクリック→申込フォーム遷移の動線が機能している</li>
+<li><b>ただしCTA計測タグが壊れている</b>（begin_checkoutイベントで誤集計）</li>
+<li>5/9-5/11 で4人の begin_checkout 発火＝CTA押下を計測</li>
+</ul>
+</div>
+
+<div class="lp-card win">
+<h4 style="margin-top:0">🏆 LP2（/yahoo/）— Yahoo検索用</h4>
+<ul>
+<li>5月の50%スクロール到達率22%（全LP中最良）</li>
+<li>CTR 17-18%安定（3-5月）</li>
+<li>注文ボタン位置・代引きリンク配置に改善余地（YL-03/04）</li>
+</ul>
+</div>
+
+<div class="lp-card lose">
+<h4 style="margin-top:0">⚠️ LP3（TOP /）— 課題多数</h4>
+<ul>
+<li>5/5にFV変更したが、その後CTR 3月44.1% → 4月13.3% → 5月7.2% と急減</li>
+<li>5%地点離脱85.2%（FVだけ見て即離脱）</li>
+<li>LP1とLP2で勝ちパターンが見えているのに、TOPに反映されていない</li>
+<li>Meta広告着地先のメインがここなので、影響大</li>
+</ul>
+</div>
+
+<h3>4-3. LP改修の履歴と効果</h3>
+<table>
+<tr><th>時期</th><th>変更内容</th><th>結果</th></tr>
+<tr><td>2026/3/10判明</td><td>GA4未設置・動画セクション消失・LCP 4.3秒</td><td>3月中に修正計画</td></tr>
+<tr><td>2026/3-4月</td><td>WebP変換94ファイル・LCP改善（6.2→4.1→1.55秒）</td><td><span class="pill ok">速度改善完了</span></td></tr>
+<tr><td>2026/3/11</td><td>GA4/GTM/Pixel設置</td><td><span class="pill ok">計測基盤確立</span></td></tr>
+<tr><td>2026/4</td><td>sec03-04リニューアル画像4枚作成</td><td>WordPressアップロード待ち（未反映）</td></tr>
+<tr><td>2026/5/2-5</td><td>Meta広告97%がTOP着地で離脱率70%が発覚</td><td>URL分散方針へ転換</td></tr>
+<tr><td>2026/5/3</td><td>LP大規模変更</td><td><span class="pill ng">Pixel 3日壊れ事故</span></td></tr>
+<tr><td>2026/5/6</td><td>water-bibyou着地に変更</td><td><span class="pill ok">直帰率5-9%・エンゲ93%</span></td></tr>
+</table>
+
+<h3>4-4. LP未実施の改善項目（TODO台帳より）</h3>
+<table>
+<tr><th>ID</th><th>内容</th><th>優先度</th><th>備考</th></tr>
+<tr><td>ML-01</td><td>FVマッチング（価格訴求広告→価格FV、悩み広告→悩みFV）</td><td><span class="pill p1">P1</span></td><td>0-5%セクション</td></tr>
+<tr><td>ML-02</td><td>CTAボタン色を赤/オレンジに変更＋「定期縛りなし」追加</td><td><span class="pill p2">P2保留</span></td><td>購入週2件×3週安定後に再評価</td></tr>
+<tr><td>ML-05</td><td>競合比較表を画像→HTMLテーブル化（LCP改善）</td><td><span class="pill p1">P1</span></td><td>30-50%離脱対策</td></tr>
+<tr><td>ML-09</td><td>注文フォーム入力項目最小化＋「2分で完了」表記</td><td><span class="pill p0">P0昇格</span></td><td>フォーム到達8人全脱落の対策</td></tr>
+<tr><td>ML-12</td><td>Clarityデッドクリック23件の発生箇所特定</td><td><span class="pill p1">P1</span></td><td>INP 272ms・LP3が主要発生源</td></tr>
+<tr><td>ML-13</td><td>LP2のフォーマット（注文ボタン位置・代引きリンク）をLP3に逆移植</td><td><span class="pill p1">P1</span></td><td>勝ちパターンの横展開</td></tr>
+<tr><td>ML-15</td><td>LP1のCTA計測タグ修正（begin_checkout→cta_click）</td><td><span class="pill p0">P0新規</span></td><td>計測の信頼性回復</td></tr>
+<tr><td>ML-16</td><td>申込フォーム到達後1.5時間離脱の原因調査</td><td><span class="pill p0">P0新規</span></td><td>5/9のカラーミー側UX問題</td></tr>
+<tr><td>YL-02</td><td>「他社との違い」をLP2上部に移動</td><td><span class="pill p1">P1</span></td><td>—</td></tr>
+<tr><td>YL-03</td><td>65%地点に「初回限定50%OFF」リマインドCTA</td><td><span class="pill p1">P1</span></td><td>—</td></tr>
+<tr><td>YL-04</td><td>LP2の注文フォーム項目削減＋「代引き対応」強調</td><td><span class="pill p1">P1</span></td><td>—</td></tr>
+</table>
+
+<!-- =================== Section 5 =================== -->
+<h2>5. ファネル現状と真のボトルネック</h2>
+
+<h3>5-1. 5/10-5/11 ファネル（Meta+Yahoo+IG合算）</h3>
+<div class="funnel">
+<div class="step"><b>広告クリック</b>（Meta+Yahoo+IG）　約160</div>
+<div class="arrow">↓ 91%遷移 ✅ 健全</div>
+<div class="step"><b>LP着地</b>（michiru.shop）　約145</div>
+<div class="arrow">↓ 6%遷移 ⚠️ 改善余地</div>
+<div class="step"><b>CTAクリック</b>　9</div>
+<div class="arrow">↓ 89%遷移 ✅ 健全</div>
+<div class="step"><b>申込フォーム到達</b>（colorme-repeat.jp）　8</div>
+<div class="arrow">↓ <b>0%遷移 🚨 致命的</b></div>
+<div class="step" style="color:var(--red)"><b>申込完了 0件</b></div>
+</div>
+
+<div class="key-finding">
+<b>真のボトルネック = 申込フォーム内</b>。8人到達して全員1分以内に離脱（平均47秒・12秒・0.3秒）。<br>
+入力すら始めずに帰っている＝<b>価格表示・定期便条件・フォーム設計のどこかで即離脱</b>。
+</div>
+
+<h3>5-2. フォーム離脱の原因仮説</h3>
+<table>
+<tr><th>仮説</th><th>確認方法</th><th>対策</th></tr>
+<tr><td><b>1. 24本セット総額にビックリ</b></td><td>フォームをスマホで開き第一印象確認</td><td>「1本49円・初回お試し」をFV固定</td></tr>
+<tr><td>2. クーポンMCL50適用が不明</td><td>「✅ MCL50適用済」表示の有無確認</td><td>適用済バッジを表示</td></tr>
+<tr><td>3. 定期便への警戒（65+女性）</td><td>「定期縛りなし」表示の見え方確認</td><td>FV部分に大きく明記</td></tr>
+<tr><td>4. 入力項目多すぎ</td><td>カラーミーリピート管理画面のセッションログ</td><td>項目削減・ゲスト購入有効化</td></tr>
+<tr><td>5. モバイルレイアウト崩れ</td><td>iPhone/Androidで実機チェック</td><td>レスポンシブ最適化</td></tr>
+</table>
+
+<!-- =================== Section 6 =================== -->
+<h2>6. 4/19既定目標との整合</h2>
+
+<div class="stat-grid">
+<div class="stat"><div class="label">CTR</div><div class="num">5.0%</div><div class="delta down">現状 2.4%</div></div>
+<div class="stat"><div class="label">LP転換率</div><div class="num">1.3%</div><div class="delta down">現状 0%</div></div>
+<div class="stat"><div class="label">月CV</div><div class="num">28件</div><div class="delta down">現状 月8件ペース</div></div>
+<div class="stat"><div class="label">CPA</div><div class="num">¥4,000</div><div class="delta down">現状 ¥17,047</div></div>
+</div>
+
+<div class="key-finding">
+<b>4/19既定の目標から全項目で大幅乖離</b>。3週間で軌道修正しないと7月達成は届かない。<br>
+特に<b>LP転換率0%→1.3%</b>が技術的に最優先（ML-09＋ML-15で短期改善可能）。
+</div>
+
+<!-- =================== Section 7 =================== -->
+<h2>7. 今やるべきこと（Meta・Yahoo・LP軸）</h2>
+
+<h3>7-1. <span class="pill p0">P0</span> 今週中（5月中）</h3>
+<table>
+<tr><th>#</th><th>領域</th><th>アクション</th><th>狙い・期待効果</th></tr>
+<tr><td>1</td><td>Meta</td><td>ピクニック完全停止確認（5/11¥124残存）</td><td>低意図クリック装置の除外</td></tr>
+<tr><td>2</td><td>Meta</td><td>悩み訴求-2 の予算上限設定（46%偏重解消）</td><td>クリエ学習の歪み修正</td></tr>
+<tr><td>3</td><td>Meta</td><td>CR-02・CR-03 動画制作着手（本気層向け新素材）</td><td>5週疲弊のクリエ鮮度回復</td></tr>
+<tr><td>4</td><td>LP</td><td>ML-09 フォーム最小化＋FV情報固定（1本49円・縛りなし・送料無料）</td><td>申込完了率 0%→3-4%（本命）</td></tr>
+<tr><td>5</td><td>LP</td><td>ML-15 LP1のCTA計測タグ修正（begin_checkout→cta_click）</td><td>計測データの信頼性回復</td></tr>
+<tr><td>6</td><td>LP</td><td>ML-16 カラーミー側フォーム到達後の離脱原因調査</td><td>5/9の1.5時間滞在の真因特定</td></tr>
+<tr><td>7</td><td>Yahoo</td><td>計測タグ復旧（実売とCV計測のズレ解消）</td><td>意思決定の精度向上</td></tr>
+</table>
+
+<h3>7-2. <span class="pill p1">P1</span> 今月中（5月末まで）</h3>
+<table>
+<tr><th>#</th><th>領域</th><th>アクション</th><th>狙い</th></tr>
+<tr><td>8</td><td>Meta</td><td>OT-03 35-44女性専用セット新設</td><td>CTR8.25%・CPC¥15の最強層を集中露出</td></tr>
+<tr><td>9</td><td>Meta</td><td>OT-06 utm_content×CV ファネルレポート構築</td><td>クリエ別ROI把握</td></tr>
+<tr><td>10</td><td>Meta</td><td>OT-09 CPC急騰¥22→¥133の発生箇所特定</td><td>クリエ疲弊 vs 入札歪みの切り分け</td></tr>
+<tr><td>11</td><td>LP</td><td>ML-13 LP2勝ちパターンをLP3に逆移植</td><td>注文ボタン位置・代引きリンク配置</td></tr>
+<tr><td>12</td><td>LP</td><td>ML-12 Clarityデッドクリック23件の発生箇所特定</td><td>当たり判定不足のCTA/画像を一覧化</td></tr>
+<tr><td>13</td><td>LP</td><td>ML-01 FVマッチング（価格訴求広告→価格FV）</td><td>0-5%離脱85.2%対策</td></tr>
+<tr><td>14</td><td>LP</td><td>Yahoo LP（LP2）の改善（YL-02/03/04）</td><td>勝ちLPをさらに磨く</td></tr>
+</table>
+
+<h3>7-3. <span class="pill p2">P2</span> 7月までに（CPA¥4,000達成）</h3>
+<table>
+<tr><th>#</th><th>領域</th><th>アクション</th><th>狙い</th></tr>
+<tr><td>15</td><td>LP</td><td>セクション並べ替え（FV→動画→口コミ→CTA）</td><td>離脱率最小化</td></tr>
+<tr><td>16</td><td>LP</td><td>動画セクション復元（フォーム到達率2.75倍実績）</td><td>CV経路強化</td></tr>
+<tr><td>17</td><td>LP</td><td>ML-05 競合比較表HTML化</td><td>LCP改善・読みやすさ</td></tr>
+<tr><td>18</td><td>LP</td><td>代引きフォーム項目削減</td><td>通過率10-20%改善見込み</td></tr>
+<tr><td>19</td><td>Meta</td><td>CR-04・CR-05・CR-06 動画クリエ追加制作</td><td>素材ローテーション基盤</td></tr>
+<tr><td>20</td><td>Meta+LP</td><td>OT-07 月次配信実態監査ルーティン化</td><td>年齢別配信比・異常検知</td></tr>
+</table>
+
+<!-- =================== Section 8 =================== -->
+<h2>8. 戦略の本質 — 何を優先するか</h2>
+
+<div class="summary-box">
+<h3 style="margin-top:0;border:none;color:var(--orange)">3つの基礎を整える順番</h3>
+<ol>
+<li><b>計測の信頼性回復</b>（ML-15/Yahoo計測タグ） — データが信用できない状態では何も判断できない</li>
+<li><b>フォームUX修正</b>（ML-09/ML-16） — 8人到達して0完了は致命的。これを解決すれば月CV3〜5件追加</li>
+<li><b>クリエイティブ鮮度回復</b>（CR-02/CR-03） — 5週疲弊のリセット・低意図クリック除外</li>
+</ol>
+この3つで <b>5月8件ペース → 月20件</b> まで戻せる射程に入る。
+</div>
+
+<div class="ok-box">
+<b>その後、月28件（4/19目標）達成への道筋</b>:
+<ul>
+<li>LP転換率 0% → 1.3% への引き上げ（ML-01/05/13）</li>
+<li>35-44女性専用セット（OT-03）で最強層の集中露出</li>
+<li>Yahoo広告は絶対止めずに、計測復旧後の本来CPAを再評価</li>
+</ul>
+</div>
+
+<div class="key-finding">
+<b>1月のピーク71件のうち、Meta+Yahoo経由は31件だった。</b><br>
+このレベルにすぐ戻すには「クリエ4種＋低予算安定＋計測信頼性＋フォーム改善」の4点セットを整えるだけ。<br>
+すべて過去にできていた施策。複雑な新規開発は不要。
+</div>
+
+<div class="footer">
+データソース: GA4 Analytics、カラーミーリピート購入トラッキング、Meta広告管理画面、Yahoo広告管理画面、Instagram運用記録ナレッジ集、解約対策提案書、価格改定提案書、施策効果レポート（2026-04-16）<br>
+作成: 星﨑（Claude） ／ 報告先: 鈴木氏 ／ 次回更新: 2026-05-19（1週間後の進捗判定）
+</div>
+
+</div>
+</body>
+</html>
