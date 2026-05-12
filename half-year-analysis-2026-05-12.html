@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>ミチルシリカ 半年データ総合分析 — 現状把握と再起動戦略 (2026-05-12)</title>
+<style>
+  :root{--blue:#1c89c5;--ink:#222;--gray:#666;--bg:#f7f7f5;--red:#c0392b;--orange:#d97706;--green:#2e7d32;--soft:#eaf5fb}
+  *{box-sizing:border-box}
+  body{font-family:-apple-system,"Hiragino Sans",sans-serif;margin:0;padding:40px 20px;color:var(--ink);background:var(--bg);line-height:1.75;font-size:14px}
+  .container{max-width:1080px;margin:0 auto;background:white;padding:40px;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,0.05)}
+  h1{font-size:24px;border-bottom:3px solid var(--blue);padding-bottom:12px;margin-top:0}
+  h2{font-size:19px;background:var(--soft);padding:10px 16px;border-left:5px solid var(--blue);margin-top:36px}
+  h3{font-size:16px;color:var(--blue);margin-top:24px;border-bottom:1px dashed #ccc;padding-bottom:6px}
+  .meta{color:var(--gray);font-size:12px;margin-bottom:24px}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:13px}
+  th{background:#e8f1f7;color:#0d4a70;text-align:left;padding:10px 12px;border:1px solid #d0e0e8;font-weight:600}
+  td{padding:9px 12px;border:1px solid #e0e0e0;vertical-align:top}
+  td.num{text-align:right;font-variant-numeric:tabular-nums}
+  .summary-box{background:#fff8e6;border-left:5px solid var(--orange);padding:18px 22px;margin:18px 0;border-radius:6px}
+  .key-finding{background:#fde7e7;border-left:5px solid var(--red);padding:18px 22px;margin:18px 0;border-radius:6px}
+  .ok-box{background:#e8f5e9;border-left:5px solid var(--green);padding:18px 22px;margin:18px 0;border-radius:6px}
+  .pill{display:inline-block;padding:2px 10px;border-radius:14px;font-size:11px;font-weight:600;margin-right:6px}
+  .pill.p0{background:#fde7e7;color:var(--red)}
+  .pill.p1{background:#fff4e0;color:var(--orange)}
+  .pill.p2{background:#e8f5e9;color:var(--green)}
+  .pill.ok{background:#e8f5e9;color:var(--green)}
+  .pill.ng{background:#fde7e7;color:var(--red)}
+  ul{padding-left:20px}
+  li{margin-bottom:4px}
+  .bar{display:inline-block;height:10px;background:var(--blue);border-radius:2px;vertical-align:middle;margin-right:6px}
+  .stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:16px 0}
+  .stat{background:white;border:1px solid #e0e0e0;border-radius:8px;padding:14px;text-align:center}
+  .stat .label{font-size:11px;color:var(--gray)}
+  .stat .num{font-size:22px;font-weight:700;color:var(--blue);margin:6px 0}
+  .stat .delta{font-size:11px}
+  .stat .delta.down{color:var(--red)}
+  .stat .delta.up{color:var(--green)}
+  .footer{margin-top:60px;text-align:center;color:var(--gray);font-size:11px;border-top:1px solid #e0e0e0;padding-top:20px}
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>ミチルシリカ 半年データ総合分析<br>— 現状把握と再起動戦略</h1>
+<p class="meta">作成日: 2026年5月12日 ／ 分析対象期間: 2024年11月〜2026年5月11日 ／ 作成: Claude（星﨑）</p>
+
+<div class="summary-box">
+<h3 style="margin-top:0;border:none;color:var(--orange)">エグゼクティブサマリー（3行）</h3>
+<ul>
+<li><b>2026年1月が全期間ピーク</b>: Amazon 40件＋カラーミーEC 31件＝合計71件／月。</li>
+<li><b>5月の3日連続ゼロは複合要因</b>: クリエ疲弊・ピクニック停止漏れ・LP変更Pixel事故・フォームUX問題。</li>
+<li><b>今やるべきこと</b>: 1月の勝ちパターン（Amazon自動CP集中・低予算安定運用・価格訴求軸）を再現し、4/19既定の「夏までにCPA¥4,000」目標へ軌道復元する。</li>
+</ul>
+</div>
+
+<!-- =================== Section 1 =================== -->
+<h2>1. 全期間トレンド（2024年11月〜2026年5月）</h2>
+
+<h3>1-1. 月次購入数の推移（2チャネル合計）</h3>
+<table>
+<tr><th>月</th><th class="num">Amazon</th><th class="num">カラーミーEC</th><th class="num">合計</th><th>備考</th></tr>
+<tr><td>2024/11-12</td><td class="num">116（2ヶ月）</td><td class="num">—</td><td class="num">—</td><td>単一キャンペーン・ROAS 1.82</td></tr>
+<tr><td>2025/1</td><td class="num">51</td><td class="num">—</td><td class="num">—</td><td>ROAS 1.22</td></tr>
+<tr><td>2025/10</td><td class="num">64</td><td class="num">—</td><td class="num">—</td><td><b>★Amazonピーク</b>・ROAS 2.47</td></tr>
+<tr><td>2025/11</td><td class="num">62</td><td class="num">—</td><td class="num">—</td><td>ROAS 2.28</td></tr>
+<tr><td>2025/12</td><td class="num">17</td><td class="num">—</td><td class="num">—</td><td>急減・手動CP失敗（ROAS 0.48）</td></tr>
+<tr style="background:#e8f5e9"><td><b>2026/1</b></td><td class="num"><b>40</b></td><td class="num"><b>31</b></td><td class="num"><b>71</b></td><td><b>★全期間ピーク</b>・リセット戦略成功</td></tr>
+<tr><td>2026/2</td><td class="num">—</td><td class="num">27</td><td class="num">—</td><td>—</td></tr>
+<tr><td>2026/3(10日)</td><td class="num">—</td><td class="num">23</td><td class="num">—</td><td>月換算69件ペース</td></tr>
+<tr><td>2026/4</td><td class="num">34</td><td class="num">14</td><td class="num">48</td><td>カラーミー側半減</td></tr>
+<tr style="background:#fde7e7"><td>2026/5(11日)</td><td class="num">30</td><td class="num">3</td><td class="num">33</td><td>カラーミー側さらに半減</td></tr>
+</table>
+
+<h3>1-2. ビジュアル推移</h3>
+<table>
+<tr><th>月</th><th>合計購入数</th></tr>
+<tr><td>2026/1</td><td><span class="bar" style="width:355px"></span> 71件（ピーク）</td></tr>
+<tr><td>2026/4</td><td><span class="bar" style="width:240px"></span> 48件</td></tr>
+<tr><td>2026/5(11日)</td><td><span class="bar" style="width:165px"></span> 33件（月換算90件相当）</td></tr>
+</table>
+
+<!-- =================== Section 2 =================== -->
+<h2>2. チャネル別の現状と勝ちパターン</h2>
+
+<h3>2-1. Amazon広告 — 自動CP集中＋厳選ASINが勝ち筋</h3>
+
+<table>
+<tr><th>項目</th><th>勝ちパターン</th><th>失敗パターン</th></tr>
+<tr><td>キャンペーン構造</td><td>自動CP通年ROAS 2.0以上維持</td><td>手動「アップとダウン」入札（ROAS 0.48）</td></tr>
+<tr><td>入札戦略</td><td>「ダウンのみ」で安定</td><td>「アップとダウン」でCPC高騰</td></tr>
+<tr><td>対象ASIN</td><td>B072Z8FFXR・B0FQZNC4XY・B0FMXXNZZ3 の3つに集中</td><td>放置でCV出ないASINに予算分散</td></tr>
+<tr><td>KW運用</td><td>週1のKW検証・除外設定</td><td>「ラベルレス」「水素水」競合品混入</td></tr>
+<tr><td>運用頻度</td><td>週1回のチェック</td><td>月1回放置</td></tr>
+</table>
+
+<div class="ok-box">
+<b>Amazon側は既に5/11時点で復活軌道に</b>。AM-01（浪費KW除外）+ AM-02（勝ちKW最大化）の効果で月90件ペース。<br>
+過去ピーク（2025/10）の月60件超を完全再現できる構造になっている。
+</div>
+
+<h3>2-2. Yahoo広告 — IG認知 × Yahoo刈り取りモデル</h3>
+<ul>
+<li>CPC ¥40-50（Amazon比50%安い、Meta比1/3）— <b>最高効率チャネル</b></li>
+<li>CTR 2.0-3.0%、CVR 1.15%（2月実績）</li>
+<li><b>詳細版LP（page-water-yahoo.php）が有効</b>。短縮LPは不要。GA4で81人中60人がLP滞在（74%）</li>
+<li>3/27の停止判断が誤判断だった事故あり。「管理画面CV=0でも GA4 cv_40 で3件」のズレが原因</li>
+<li>計測タグ不備（実売とCV計測のズレ）が継続中の課題</li>
+</ul>
+
+<h3>2-3. Meta（Instagram + Facebook）— 主役のはずだが計測難航</h3>
+
+<table>
+<tr><th>指標</th><th>ミチル実績</th><th>業界平均</th><th>評価</th></tr>
+<tr><td>CTR</td><td>2.53%（直近）</td><td>0.9-1.5%</td><td><span class="pill ok">優秀</span></td></tr>
+<tr><td>CPC</td><td>¥151</td><td>¥50-150</td><td><span class="pill p1">やや高</span></td></tr>
+<tr><td>CVR（LP→購入）</td><td>0.13-0.4%</td><td>1.0-3.0%</td><td><span class="pill ng">要改善</span></td></tr>
+<tr><td>動画50%再生率</td><td>22-26%</td><td>30-50%</td><td><span class="pill p1">やや低</span></td></tr>
+</table>
+
+<div class="key-finding">
+<b>Meta広告の最大の課題は「CVRの低さ」</b>（業界の1/10〜1/3）。広告は集めているがLP・フォームで脱落する構造。これが「3日連続ゼロ」の真因に直結。
+</div>
+
+<!-- =================== Section 3 =================== -->
+<h2>3. ファネル分析と真のボトルネック</h2>
+
+<h3>3-1. 現状（5/10-5/11実数）</h3>
+<table>
+<tr><th>ステップ</th><th class="num">人数</th><th>遷移率</th><th>評価</th></tr>
+<tr><td>広告クリック（Meta+Yahoo+IG）</td><td class="num">約160</td><td>—</td><td><span class="pill ok">健全</span></td></tr>
+<tr><td>LP着地（michiru.shop）</td><td class="num">約145</td><td>91%</td><td><span class="pill ok">健全</span></td></tr>
+<tr><td>CTAクリック</td><td class="num">9</td><td>6%</td><td><span class="pill p1">改善余地</span></td></tr>
+<tr><td>申込フォーム到達（colorme-repeat.jp）</td><td class="num">8</td><td>89%</td><td><span class="pill ok">健全</span></td></tr>
+<tr style="background:#fde7e7"><td><b>申込完了</b></td><td class="num"><b>0</b></td><td><b>0%</b></td><td><span class="pill ng">致命的</span></td></tr>
+</table>
+
+<div class="key-finding">
+<b>真のボトルネック = 申込フォーム内</b>。8人到達して全員1分以内に離脱。<br>
+平均滞在47秒・12秒・0.3秒。<b>入力すら始めていない</b>＝価格表示・定期便条件・項目数のどれかで即離脱。
+</div>
+
+<h3>3-2. 5/9の異常データ — 1.5時間滞在の真意</h3>
+<ul>
+<li>カラーミー申込フォームURLに2人到達 / 平均滞在 <b>11,509秒（≒3時間）</b></li>
+<li>1人あたり1.5時間 ＝ <b>本気で悩んでいた</b>（決済方法・送料・解約条件のどこかで止まった可能性）</li>
+<li>Clarityでは見えない（別ドメイン）→ カラーミーリピート管理画面で行動ログ要確認</li>
+</ul>
+
+<!-- =================== Section 4 =================== -->
+<h2>4. 効いた施策・効かなかった施策（半年）</h2>
+
+<h3>4-1. 効いた施策（再現すべき）</h3>
+<table>
+<tr><th>時期</th><th>施策</th><th>効果</th></tr>
+<tr><td>2025/10-11</td><td>Amazon自動CP重視運用</td><td>月60件超・ROAS 2.47</td></tr>
+<tr><td>2026/1</td><td>Amazon広告リセット戦略</td><td>12月17件→1月40件（+135%）</td></tr>
+<tr><td>2026/1</td><td>低予算1,500円/日でMeta安定運用</td><td>月18件購入・学習維持</td></tr>
+<tr><td>2026/2</td><td>価格訴求クリエ投入</td><td>CTR 2.83%（悩み訴求の2.3倍）</td></tr>
+<tr><td>2026/3/7</td><td>1セット運用へリセット</td><td>CPC半減・購入2件回復</td></tr>
+<tr><td>2026/3/13</td><td>広告本数を5→8本に増やす</td><td>新規8件</td></tr>
+<tr><td>2026/4/14</td><td>CV最適化セット分割</td><td>学習維持</td></tr>
+<tr><td>2026/4/16</td><td>Yahoo KW精緻化</td><td>CPA改善</td></tr>
+<tr><td>2026/4/29</td><td>IG「青空に掲げる」投稿</td><td>フィード経由初CV発火</td></tr>
+<tr><td>2026/5/11</td><td>Amazon最適化（浪費除外・勝ちKW最大化）</td><td>10日で30件</td></tr>
+<tr><td>2026/5/6</td><td>ピクニック停止（不完全だが）</td><td>CTA率4.5→5.2%・cv_40 0→2</td></tr>
+</table>
+
+<h3>4-2. 効かなかった施策（避けるべき）</h3>
+<table>
+<tr><th>時期</th><th>施策</th><th>損失</th></tr>
+<tr><td>2025/12</td><td>Amazon手動CP「アップとダウン」入札</td><td>ROAS 0.48・大赤字</td></tr>
+<tr><td>2026/3 月初</td><td>日予算4倍急増（1,500→6,000）</td><td>学習リセット5回・購入0・¥27,353消化</td></tr>
+<tr><td>2026/3 月初</td><td>5広告セット並走（予算分散）</td><td>各セット日¥1,000以下で学習不能</td></tr>
+<tr><td>2026/3/27</td><td>Yahoo停止＋テスト広告一気停止</td><td>5日CV0・CPC¥77→¥138</td></tr>
+<tr><td>2026/3/14〜</td><td>同素材5週連続運用</td><td>5月CPC¥22→¥133（6倍）</td></tr>
+<tr><td>2026/5/3</td><td>LP大規模変更</td><td>Pixel 3日壊れ事故</td></tr>
+<tr><td>2026/5/6</td><td>ピクニック完全停止漏れ</td><td>5/11も¥124消化継続</td></tr>
+<tr><td>2026/5/9</td><td>悩み訴求-2大量投入</td><td>5/11予算46%偏重・cv_40ゼロ</td></tr>
+</table>
+
+<!-- =================== Section 5 =================== -->
+<h2>5. 解約・LTV分析</h2>
+
+<h3>5-1. 解約構造</h3>
+<table>
+<tr><th>指標</th><th class="num">数値</th><th>備考</th></tr>
+<tr><td>半年累計解約率</td><td class="num">50%</td><td>59人中30人解約</td></tr>
+<tr><td>1回購入で辞める率</td><td class="num">89.5%</td><td>F1で脱落</td></tr>
+<tr><td>F2転換率</td><td class="num">50%</td><td>目標70-80%</td></tr>
+<tr><td>F2以降リピート率</td><td class="num">91%</td><td>一度続けば優良顧客</td></tr>
+<tr><td>解約理由1位</td><td colspan="2">「他社に乗り換え」28.1%</td></tr>
+</table>
+
+<h3>5-2. 解約対策の4施策（提案書既出・お客様確認待ち）</h3>
+<table>
+<tr><th>施策</th><th>内容</th><th>期待効果</th></tr>
+<tr><td>価格改定</td><td>初回50%→30%OFF（¥1,980→¥2,772）／2回目以降20%OFF</td><td>F1→F2ギャップ80%縮小</td></tr>
+<tr><td>ポイント制度</td><td>5%還元・3回ボーナス・6回グッズ・解約時消滅</td><td>のむシリカとの差別化</td></tr>
+<tr><td>同梱物（3点セット）</td><td>価格案内・品質・飲み方ガイドA4×3枚</td><td>解約理由64%対策</td></tr>
+<tr><td>お休み制度</td><td>解約せずに一時停止可能</td><td>Oisix実績で解約率-20%</td></tr>
+</table>
+
+<div class="ok-box">
+継続率を <b>50%→80%</b> に改善できれば、同じ新規数で売上は1.6倍。広告費を増やさず売上拡大できる構造になる。
+</div>
+
+<!-- =================== Section 6 =================== -->
+<h2>6. 今やるべきこと — 優先順位</h2>
+
+<h3>6-1. P0：今週中に着手</h3>
+<table>
+<tr><th>#</th><th>アクション</th><th>狙い</th><th>根拠</th></tr>
+<tr><td>1</td><td>ピクニック完全停止＋悩み訴求-2予算上限設定</td><td>低意図クリック除外</td><td>5/11も¥124残存・予算46%偏重</td></tr>
+<tr><td>2</td><td>ML-09 フォーム最小化＋FV情報固定（1本49円・縛りなし・送料無料）</td><td>申込完了0%→3-4人改善</td><td>8人即離脱の対策・LP転換率最重要指標</td></tr>
+<tr><td>3</td><td>LP1のCTA計測タグ修正（begin_checkout→cta_click）</td><td>データ信頼性回復</td><td>誤集計の解消</td></tr>
+<tr><td>4</td><td>CR-02・CR-03 動画制作着手（本気層向け）</td><td>クリエ鮮度回復</td><td>5週連続同素材で疲弊</td></tr>
+<tr><td>5</td><td>解約対策提案書の実装着手（価格改定G案・お休み制度）</td><td>F2転換率50→70%</td><td>提案書はお客様確認待ち状態</td></tr>
+</table>
+
+<h3>6-2. P1：今月中</h3>
+<table>
+<tr><th>#</th><th>アクション</th><th>狙い</th></tr>
+<tr><td>6</td><td>OT-03 35-44女性専用セット新設</td><td>CTR8.25%・CPC¥15の最強層への露出</td></tr>
+<tr><td>7</td><td>Instagram「青空シリーズ」投稿継続（4/29CV発火源の再現）</td><td>広告依存からの脱却</td></tr>
+<tr><td>8</td><td>Amazon広告維持（5月90件ペースの守り）</td><td>主力チャネルの安定</td></tr>
+<tr><td>9</td><td>Yahoo計測タグ復旧（実売とのズレ解消）</td><td>意思決定精度向上</td></tr>
+<tr><td>10</td><td>OT-06 utm_content×CVファネルレポート構築</td><td>クリエ別ROI把握</td></tr>
+</table>
+
+<h3>6-3. P2：7月までに（CPA¥4,000達成への道筋）</h3>
+<table>
+<tr><th>#</th><th>アクション</th><th>狙い</th></tr>
+<tr><td>11</td><td>LP改修（ML-01 FVマッチング・ML-05 競合比較表HTML化）</td><td>LP転換率 0%→1.3%</td></tr>
+<tr><td>12</td><td>セクション並べ替え（FV→動画→口コミ→CTA）</td><td>離脱率最小化</td></tr>
+<tr><td>13</td><td>動画セクション復元（フォーム到達率2.75倍実績）</td><td>CV経路強化</td></tr>
+<tr><td>14</td><td>F2転換UGC動画CR-02（3ヶ月継続UGC）</td><td>解約防止素材</td></tr>
+<tr><td>15</td><td>価格改定 G→H案の判断</td><td>LTV改善</td></tr>
+</table>
+
+<!-- =================== Section 7 =================== -->
+<h2>7. 4/19既定目標との整合（7月達成プラン）</h2>
+
+<div class="stat-grid">
+<div class="stat"><div class="label">CTR</div><div class="num">3.5% → 5.0%</div><div class="delta down">現状 2.4%</div></div>
+<div class="stat"><div class="label">LP転換率</div><div class="num">0.6% → 1.3%</div><div class="delta down">現状 0%</div></div>
+<div class="stat"><div class="label">月CV</div><div class="num">9 → 28件</div><div class="delta down">現状 8件ペース</div></div>
+<div class="stat"><div class="label">CPA</div><div class="num">¥6,961 → ¥4,000</div><div class="delta down">現状 ¥17,047</div></div>
+</div>
+
+<div class="key-finding">
+<b>4/19既定の目標から全項目で大幅に乖離</b>。3週間で軌道復元しないと7月目標は届かない。<br>
+最優先は <b>LP転換率の回復</b>（0%→1.3%）— これは ML-09（フォーム最小化）＋ LP1 CTA計測タグ修正で技術的に解決可能。
+</div>
+
+<!-- =================== Section 8 =================== -->
+<h2>8. 戦略の本質</h2>
+
+<div class="summary-box">
+<h3 style="margin-top:0;border:none;color:var(--orange)">3つの再認識</h3>
+<ol>
+<li><b>「2026年1月の71件」が再現可能な水準</b> — Amazon自動CP集中・Meta低予算安定・Yahoo並走・価格訴求クリエの4セットが揃っていた</li>
+<li><b>「2025年10-11月の月60件」をAmazonだけで実現していた事実</b> — Amazonは既に復活軌道、5月90件ペースは過去ピーク再現</li>
+<li><b>カラーミーEC側の落ち込み（3月→5月で78%減）が直近の課題</b> — クリエ疲弊・LP事故・フォームUX問題の3重苦が原因</li>
+</ol>
+</div>
+
+<div class="ok-box">
+<b>新規獲得より、まず3つの基礎を整えることが先決</b>:
+<ol>
+<li>クリエイティブの鮮度回復（CR-02・CR-03の制作）</li>
+<li>フォームUXの修正（8人脱落→申込完了へ）</li>
+<li>解約対策の実装（F2転換率50→70%）</li>
+</ol>
+この3つができれば、4/19目標「月CV28件」は射程圏内。
+</div>
+
+<div class="footer">
+データソース: GA4 Analytics、カラーミーリピート購入トラッキング、Meta広告管理画面、Yahoo広告管理画面、Amazon広告管理画面、Instagram運用記録ナレッジ集、解約対策提案書、価格改定提案書、施策効果レポート（2026-04-16）<br>
+作成: 星﨑（Claude） ／ 報告先: 鈴木氏 ／ 次回更新: 2026-05-19（1週間後の進捗判定）
+</div>
+
+</div>
+</body>
+</html>
