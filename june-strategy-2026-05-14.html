@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>ミチルシリカ 6月戦略レポート — Meta・Yahoo広告の基礎と週1運用設計 (2026-05-14)</title>
+<style>
+  :root{--blue:#1c89c5;--ink:#222;--gray:#666;--bg:#f7f7f5;--red:#c0392b;--orange:#d97706;--green:#2e7d32;--soft:#eaf5fb;--purple:#7e22ce}
+  *{box-sizing:border-box}
+  body{font-family:-apple-system,"Hiragino Sans",sans-serif;margin:0;padding:40px 20px;color:var(--ink);background:var(--bg);line-height:1.8;font-size:14px}
+  .container{max-width:1120px;margin:0 auto;background:white;padding:40px;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,0.05)}
+  h1{font-size:26px;border-bottom:3px solid var(--blue);padding-bottom:12px;margin-top:0}
+  h1 .sub{display:block;font-size:14px;color:var(--gray);font-weight:400;margin-top:6px}
+  h2{font-size:20px;background:var(--soft);padding:12px 18px;border-left:6px solid var(--blue);margin-top:48px}
+  h3{font-size:16px;color:var(--blue);margin-top:28px;border-bottom:1px dashed #ccc;padding-bottom:6px}
+  h4{font-size:14px;color:#444;margin-top:18px;margin-bottom:8px;font-weight:700}
+  .meta{color:var(--gray);font-size:12px;margin-bottom:24px}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:13px}
+  th{background:#e8f1f7;color:#0d4a70;text-align:left;padding:10px 12px;border:1px solid #d0e0e8;font-weight:600}
+  td{padding:9px 12px;border:1px solid #e0e0e0;vertical-align:top}
+  td.num{text-align:right;font-variant-numeric:tabular-nums}
+  .summary-box{background:#fff8e6;border-left:5px solid var(--orange);padding:18px 24px;margin:18px 0;border-radius:6px}
+  .key-finding{background:#fde7e7;border-left:5px solid var(--red);padding:18px 24px;margin:18px 0;border-radius:6px}
+  .ok-box{background:#e8f5e9;border-left:5px solid var(--green);padding:18px 24px;margin:18px 0;border-radius:6px}
+  .info-box{background:#f0f4ff;border-left:5px solid var(--purple);padding:18px 24px;margin:18px 0;border-radius:6px}
+  .pill{display:inline-block;padding:2px 10px;border-radius:14px;font-size:11px;font-weight:600;margin-right:6px}
+  .pill.p0{background:#fde7e7;color:var(--red)}
+  .pill.p1{background:#fff4e0;color:var(--orange)}
+  .pill.p2{background:#e8f5e9;color:var(--green)}
+  .pill.ok{background:#e8f5e9;color:var(--green)}
+  .pill.ng{background:#fde7e7;color:var(--red)}
+  ul{padding-left:22px}
+  li{margin-bottom:6px}
+  ol{padding-left:22px}
+  ol li{margin-bottom:8px}
+  .footer{margin-top:60px;text-align:center;color:var(--gray);font-size:11px;border-top:1px solid #e0e0e0;padding-top:20px}
+  .toc{background:#fafafa;padding:18px 24px;border-radius:8px;margin:20px 0}
+  .toc a{color:var(--blue);text-decoration:none}
+  .toc a:hover{text-decoration:underline}
+  .funnel{font-family:monospace;background:#fafafa;padding:18px;border-radius:8px;font-size:13px}
+  .stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:16px 0}
+  .stat{background:white;border:1px solid #e0e0e0;border-radius:8px;padding:14px;text-align:center}
+  .stat .label{font-size:11px;color:var(--gray)}
+  .stat .num{font-size:20px;font-weight:700;color:var(--blue);margin:6px 0}
+  .checklist{background:#fff;border:2px solid var(--blue);border-radius:8px;padding:18px 24px;margin:16px 0}
+  .checklist li{list-style:none;position:relative;padding-left:24px}
+  .checklist li::before{content:"☐";position:absolute;left:0;color:var(--blue);font-weight:bold}
+  blockquote{margin:16px 0;padding:8px 18px;border-left:3px solid #ccc;color:var(--gray);font-style:italic}
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>ミチルシリカ 6月戦略レポート
+<span class="sub">Meta・Yahoo広告の基礎 ／ 過去半年振り返り ／ 月20件目標達成プラン ／ 週1運用テンプレ</span></h1>
+<p class="meta">作成日: 2026年5月14日 ／ 対象: 6月運用 ／ 作成: Claude（星﨑） ／ 報告先: 鈴木氏</p>
+
+<div class="summary-box">
+<h3 style="margin-top:0;border:none;color:var(--orange)">📋 このレポートで分かること</h3>
+<ol>
+<li><b>Meta広告とYahoo広告がそもそも何で、どう動いているか</b>（基礎から）</li>
+<li><b>2025年10月〜2026年4月までの自社実績で、何が効いて何が効かなかったか</b>（数値ベース）</li>
+<li><b>業界の主流戦略・競合状況・類似EC事例</b>（D2C定期便向け）</li>
+<li><b>6月「月20件」達成プラン</b>（数値根拠付き）</li>
+<li><b>Amazon並みに「週1の調整で回る運用」テンプレ</b></li>
+</ol>
+</div>
+
+<div class="toc">
+<b>目次</b>
+<ul style="margin:8px 0">
+<li><a href="#sec1">1. Meta広告とは何か（完全解説）</a></li>
+<li><a href="#sec2">2. Yahoo広告とは何か（完全解説）</a></li>
+<li><a href="#sec3">3. 過去半年の自社実績振り返り（10月〜4月）</a></li>
+<li><a href="#sec4">4. 効いた施策・失敗した施策</a></li>
+<li><a href="#sec5">5. 業界ベンチマーク・競合分析</a></li>
+<li><a href="#sec6">6. 6月「月20件」達成プラン</a></li>
+<li><a href="#sec7">7. 週1運用テンプレート</a></li>
+<li><a href="#sec8">8. 戦略の本質と次のアクション</a></li>
+</ul>
+</div>
+
+<!-- ================= Section 1: Meta基礎 ================= -->
+<h2 id="sec1">1. Meta広告とは何か（完全解説）</h2>
+
+<h3>1-1. 仕組み — オークション制で「お金より反応」が勝つ</h3>
+<p>Meta広告（Instagram + Facebook）は、表示枠1つひとつが<b>オークションで決まる</b>仕組みです。勝者を決める計算式：</p>
+
+<div class="info-box">
+<b>勝者 = 入札額 × 推定アクション率（CTR/CVR）× 広告品質</b>
+</div>
+
+<p>つまり、<b>同じ予算でも反応が良い広告ほど安く配信される</b>。クリエイティブの質がそのまま広告効率に直結します。「運用の8割はクリエイティブで決まる」と言われる理由です。</p>
+
+<h3>1-2. 最適化オプション（キャンペーン目的）</h3>
+<table>
+<tr><th>キャンペーン目的</th><th>説明</th><th>ミチルでの推奨</th></tr>
+<tr><td>認知（リーチ）</td><td>表示回数を最大化</td><td>原則使わない</td></tr>
+<tr><td>トラフィック（LPビュー最適化）</td><td>LP訪問者を増やす</td><td>月CV少ない時のみ</td></tr>
+<tr><td><b>売上（CV最適化）</b></td><td>購入数を最大化</td><td><span class="pill ok">本命</span></td></tr>
+<tr><td>エンゲージメント</td><td>いいね/コメント</td><td>使わない</td></tr>
+</table>
+
+<div class="key-finding">
+<b>注意</b>: 「LPビュー最適化」モードは"とにかくLPに送る"動きなので、<b>買わない人を大量に集めて数字だけ良く見える罠</b>があります。ミチルでも実証済み（ピクニック動画で発生）。<b>原則は「売上=CV最適化」</b>を選ぶ。
+</div>
+
+<h3>1-3. 学習フェーズ — 月CV50件未満は学習が回らない</h3>
+<p>Metaの機械学習が安定するには <b>広告セット単位で週50CV</b> が公式基準。月換算で200件超。</p>
+
+<div class="key-finding">
+<b>ミチルの現実</b>: 月20-50件規模では<b>完全な学習完了は事実上到達不能</b>。打ち手は二択：<br>
+① CVを「購入」ではなく <b>「カート追加」「チェックアウト開始」などの中間イベント</b>に変えて学習データを稼ぐ<br>
+② <b>広告セットを3-5本に絞って</b>露出回数を担保
+</div>
+
+<h3>1-4. クリエイティブの寿命 — 2〜4週間</h3>
+<p>フリークエンシー（同一ユーザーへの表示回数）が <b>3.0を超えるとCTRが急落</b>し、CPAが1.3-1.5倍に悪化します。</p>
+<p><b>ミチルでも実証済み</b>: 3/14投入の素材を5週連続運用 → CPC ¥22→¥133（6倍）に悪化。</p>
+
+<div class="ok-box">
+<b>鉄則</b>: 毎週1-2本の新規クリエイティブを投入。<b>勝ち素材は止めない、負け素材だけ差し替える</b>。
+</div>
+
+<h3>1-5. オーディエンス設定 — Advantage+はOFFが正解</h3>
+<p>2024年以降MetaはAI任せの「Advantage+オーディエンス」を強く推しますが、これは<b>大規模アカウント向けの機能</b>。月CVが少ないと「広く配信して薄まる」結果になります。</p>
+
+<div class="key-finding">
+ミチル4月実績では<b>男性に40.1%配信</b>されていました（男性購入0件・¥27,909浪費）。設定「女性のみ」が拡張で漏れていた事故。<b>Advantage+ OFF・年齢35+女性に限定</b>が正解。
+</div>
+
+<h3>1-6. 2026年の業界主流戦略（D2C定期便EC向け）</h3>
+<ol>
+<li><b>短尺UGC動画</b>（15-30秒）が主軸。インフルエンサー風・before/after・本人語り型</li>
+<li><b>2段階ファネル</b>（認知動画 → リターゲでCV）が再評価</li>
+<li><b>Conversions API（CAPI）必須化</b>。iOS14.5以降、Pixelだけでは計測が30-40%欠損する</li>
+<li><b>広告セット数は3-5本に集約</b>、クリエイティブは広告セット内で5-10本ローテーション</li>
+</ol>
+
+<!-- ================= Section 2: Yahoo基礎 ================= -->
+<h2 id="sec2">2. Yahoo広告とは何か（完全解説）</h2>
+
+<h3>2-1. 種類は2つ — 検索広告とディスプレイ広告</h3>
+<table>
+<tr><th>種類</th><th>表示場所</th><th>ターゲット層</th><th>ミチルでの優先度</th></tr>
+<tr><td><b>Yahoo検索広告（YSA）</b></td><td>Yahoo!検索結果の上部</td><td>顕在層（"シリカ水"で検索した人）</td><td><span class="pill ok">最優先</span></td></tr>
+<tr><td>Yahooディスプレイ広告（YDA）</td><td>Yahoo!ニュース等のメディア</td><td>潜在層</td><td><span class="pill p1">リタゲのみ</span></td></tr>
+</table>
+
+<h3>2-2. キーワードマッチ — フレーズ一致が基本</h3>
+<ul>
+<li><b>完全一致</b>: 「シリカ水」のみ反応</li>
+<li><b>フレーズ一致</b>: 「シリカ水 おすすめ」「天然 シリカ水」等の<b>語順保持</b>で反応 ← <b>ミチル推奨</b></li>
+<li><b>部分一致</b>: 類似語まで広く反応（予算を意図しないKWに食われるリスク大）</li>
+</ul>
+
+<div class="ok-box">
+<b>除外KW</b>（無料・口コミだけ知りたい層・競合名等）の整備が成否を分けます。月次でメンテナンス必須。
+</div>
+
+<h3>2-3. ミチルでの最大の罠 — CV計測の二重発火</h3>
+<div class="key-finding">
+Yahoo広告は <b>CVタグ二重発火問題</b>が起きやすい（ミチル過去事故あり）。<br>
+広告管理画面のCV数 ≠ カラーミー実購入数。<b>「実購入」は必ずカラーミー注文管理画面が唯一の正</b>。Yahoo CV数は ÷2 で見るルールを徹底。
+</div>
+
+<h3>2-4. Yahoo広告の役割 — Metaと組み合わせて使う</h3>
+<div class="info-box">
+<b>役割分担の鉄則</b>:<br>
+Metaで認知を作る → 興味を持った人が"ミチル"や"シリカ水"で検索する → Yahooで刈り取る<br>
+この流れが王道。<b>Yahoo広告は単独でも成立するが、Meta併用で2倍効く</b>。
+</div>
+
+<!-- ================= Section 3: 自社振り返り ================= -->
+<h2 id="sec3">3. 過去半年の自社実績振り返り（10月〜4月）</h2>
+
+<h3>3-1. 月別購入数の推移</h3>
+<table>
+<tr><th>月</th><th class="num">カラーミー総出荷</th><th class="num">うち新規</th><th class="num">Meta費用</th><th>備考</th></tr>
+<tr><td>2025/10</td><td colspan="3" class="num">— データ無し —</td><td>解約データのみ（10-4月で79人中29人解約=36.7%）</td></tr>
+<tr><td>2025/11</td><td colspan="3" class="num">— データ無し —</td><td>—</td></tr>
+<tr><td>2025/12</td><td class="num">38件</td><td class="num">6件</td><td class="num">約¥9,087</td><td>ミスコン認知＋価格訴求の2段ファネル</td></tr>
+<tr style="background:#e8f5e9"><td><b>2026/1</b></td><td class="num"><b>50件</b></td><td class="num"><b>11件</b></td><td class="num">—</td><td><b>★ピーク</b>・純増+11</td></tr>
+<tr><td>2026/2</td><td class="num">50件</td><td class="num">6件</td><td class="num">—</td><td>純増+3に鈍化</td></tr>
+<tr><td>2026/3</td><td class="num">50件</td><td class="num">4件（3/10時点）</td><td class="num">¥75,510</td><td>3/7リセット・3/27事故</td></tr>
+<tr><td>2026/4</td><td class="num">—</td><td class="num">9件</td><td class="num">¥106,269</td><td>CPA¥6,961・Meta CSV 20件計上</td></tr>
+</table>
+
+<div class="info-box">
+<b>事業全体の構造</b>:<br>
+・1月の月70件超（カラーミー50＋他チャネル）が <b>全期間ピーク</b><br>
+・F2以降のリピート率91%（業界トップクラス）<br>
+・しかし1回購入で離脱する率が89.5%（業界平均20-40%より悪い）<br>
+・解約理由1位「他社に乗り換え」28.1%
+</div>
+
+<h3>3-2. Amazon広告との比較（並行チャネル・参考）</h3>
+<p>Amazon側は別軌道で好調。2025/10-11月に月60件超（ピーク）、2026/1月に40件、4月34件、5月10日で30件（月90件ペース）。<b>Amazon側は週1運用の仕組みが既に確立しており、ミチルの全体売上を支えている</b>状態。Meta/Yahooも同じ運用レベルに引き上げるのが本レポートの目的。</p>
+
+<!-- ================= Section 4: 施策評価 ================= -->
+<h2 id="sec4">4. 効いた施策・失敗した施策</h2>
+
+<h3>4-1. 効いた施策 TOP5（再現可能）</h3>
+<table>
+<tr><th>#</th><th>施策</th><th>実績数値</th><th>再現可能性</th></tr>
+<tr><td>1</td><td><b>2段階ファネル（認知動画 → リタゲでCV）</b></td><td>12月のミスコン認知＋価格訴求で新規4件・CPM¥170-2,127</td><td><span class="pill ok">高</span></td></tr>
+<tr><td>2</td><td><b>65+女性ターゲティング独立配信</b></td><td>4月 CPC¥38・CTR7.15%・CPA¥5,520</td><td><span class="pill ok">高</span></td></tr>
+<tr><td>3</td><td>既存素材のターゲット適合差し替え</td><td>5/7 CPA¥506で1件購入（即効性）</td><td><span class="pill ok">高</span></td></tr>
+<tr><td>4</td><td>CV最適化キャンペーン分割（4/14）</td><td>価格訴求¥500/日＋他¥1,500/日に分離 → 4月20件の主因</td><td><span class="pill ok">高</span></td></tr>
+<tr><td>5</td><td>テストキャンペーンの独立予算枠</td><td>4/5「肌訴求2」CPA¥300、4/10「悩み訴求」CPA¥318</td><td><span class="pill ok">高</span></td></tr>
+</table>
+
+<h3>4-2. 失敗した施策 TOP5（避ける）</h3>
+<table>
+<tr><th>#</th><th>施策</th><th>損失</th></tr>
+<tr><td>1</td><td><b>3/27 広告4本同時停止＋Yahoo停止</b></td><td>5日間CVゼロ・CPC ¥77→¥138・最高効率Yahooを誤判断で停止</td></tr>
+<tr><td>2</td><td><b>Advantage+オーディエンスON</b></td><td>4月男性に40.1%配信（男性購入0・¥27,909浪費）</td></tr>
+<tr><td>3</td><td>5/3 LP大規模変更でPixel発火停止3日間</td><td>購入経由先が不明に</td></tr>
+<tr><td>4</td><td>認知用素材のCV最適化キャンペーン混載</td><td>低意図クリックで数字だけ良く見える</td></tr>
+<tr><td>5</td><td>Yahoo CVタグ2重発火</td><td>2倍計上で判断材料が歪む</td></tr>
+</table>
+
+<!-- ================= Section 5: 業界調査 ================= -->
+<h2 id="sec5">5. 業界ベンチマーク・競合分析</h2>
+
+<h3>5-1. 2026年のEC業界ベンチマーク</h3>
+<table>
+<tr><th>指標</th><th>EC業界平均</th><th>D2C定期便EC</th><th>ミチル現状</th><th>目標</th></tr>
+<tr><td>Meta CTR</td><td>1.0-1.5%</td><td>1.5-2.5%</td><td>2.4-2.5%</td><td>3.0%+</td></tr>
+<tr><td>Meta CVR（LP→購入）</td><td>1.5-2.5%</td><td>2.0-4.0%</td><td>0.13-0.4%（要改善）</td><td>1.3%+</td></tr>
+<tr><td>Meta CPC</td><td>¥80-150</td><td>¥60-120</td><td>¥133-168</td><td>¥100以下</td></tr>
+<tr><td>Meta CPA</td><td>¥4,000-8,000</td><td>¥3,500-6,000</td><td>¥17,047（5月）</td><td>¥4,000</td></tr>
+<tr><td>F2転換率</td><td>EC全体10-35%・定期便40%+</td><td>50%+</td><td><b>50%（業界上位）</b></td><td>60%+</td></tr>
+<tr><td>F2以降リピート率</td><td>食品30-50%</td><td>化粧品70-85%</td><td><b>91%（極めて優秀）</b></td><td>維持</td></tr>
+<tr><td>初回→2回目解約率</td><td>20-40%</td><td>30-40%</td><td><b>50%（業界平均より悪い）</b></td><td>30%以下</td></tr>
+</table>
+
+<div class="key-finding">
+<b>重要な発見</b>: ミチルは「F2以降の継続91%」は業界トップクラス。<b>つまり一度2回目を買ってもらえれば優良顧客になる商品力はある</b>。問題は「1回離脱が50%と業界平均より悪い」点。<b>フロントの期待値ズレと初回直後フォロー不足が最大ボトルネック</b>。
+</div>
+
+<h3>5-2. 直接競合の比較</h3>
+<table>
+<tr><th>ブランド</th><th>シリカ含有量</th><th>価格</th><th>初回オファー</th></tr>
+<tr><td><b>ミチルシリカ</b></td><td>—</td><td>1本99円・525ml×40本</td><td><b>初回50%OFF（1本49円）</b></td></tr>
+<tr><td>のむシリカ</td><td>97mg/L</td><td>1本150円・500ml×24本</td><td>定期20%OFF・縛りなし</td></tr>
+<tr><td>BIYOUDO</td><td>50mg/L</td><td>1本56.7円・500ml×42本</td><td>単発購入中心</td></tr>
+<tr><td>FIJI Water</td><td>93mg/L</td><td>プレミアム価格</td><td>なし</td></tr>
+</table>
+
+<div class="summary-box">
+<b>ミチルの「初回50%OFF」は強すぎる可能性</b>:<br>
+お試し目的の低意図顧客を集めて、1回離脱50%につながっている疑い。業界では「お試し単発」より「定期前提価格」のほうがF2転換率が高い（化粧品サンプル20% vs お試しセット35%）。<b>初回オファーの再設計</b>が検討余地。
+</div>
+
+<h3>5-3. 類似D2C 成功事例</h3>
+<table>
+<tr><th>ブランド</th><th>学べる施策</th><th>効果</th></tr>
+<tr><td>やずや</td><td>顧客ポートフォリオ理論（初回/よちよち/こつこつ/優良/離脱）</td><td>業界トップ級の継続率</td></tr>
+<tr><td>Oisix</td><td>「お休み制度」最大2ヶ月で解約引き留め</td><td>解約率20%削減</td></tr>
+<tr><td>よなよなエール</td><td>会報誌・レシピ同梱でブランド体験</td><td>コミュニティ加入化</td></tr>
+</table>
+
+<!-- ================= Section 6: 6月達成プラン ================= -->
+<h2 id="sec6">6. 6月「月20件」達成プラン</h2>
+
+<h3>6-1. 達成可能性の評価</h3>
+
+<div class="stat-grid">
+<div class="stat"><div class="label">4月実績</div><div class="num">9件</div></div>
+<div class="stat"><div class="label">1月（ピーク）</div><div class="num">11件</div></div>
+<div class="stat"><div class="label">6月目標</div><div class="num">20件</div></div>
+<div class="stat"><div class="label">達成確度</div><div class="num">70%</div></div>
+</div>
+
+<div class="info-box">
+<b>判定</b>: 月20件は<b>現実的に到達可能</b>。ただし4月実績9件の倍以上で、過去ピーク（1月11件）も超える必要がある。<b>3つの前提条件</b>を満たせば確度70%。
+</div>
+
+<h3>6-2. 必要な3つの前提条件</h3>
+
+<table>
+<tr><th>#</th><th>前提条件</th><th>狙い</th><th>期待効果</th></tr>
+<tr><td>1</td><td><b>65+女性独立セット + 35-44女性独立セット の2層運用</b></td><td>最強層への集中配信</td><td>月+5〜7件</td></tr>
+<tr><td>2</td><td><b>Advantage+ OFF・性別「女性のみ」固定</b></td><td>男性40%配信の浪費解消（¥27,909を女性に再投下）</td><td>月+4件</td></tr>
+<tr><td>3</td><td><b>クリエ鮮度維持</b>（CR-02・CR-03を新規制作・週1本以上追加）</td><td>クリエ疲弊解消・CPC¥168→¥100以下</td><td>月+3〜5件</td></tr>
+</table>
+
+<h3>6-3. 予算試算（月CV20件達成シナリオ）</h3>
+<table>
+<tr><th>チャネル</th><th>日予算</th><th>月予算</th><th>想定CPA</th><th>期待CV</th></tr>
+<tr><td>Meta CV最適化（メイン）</td><td>¥2,500</td><td>¥75,000</td><td>¥5,500</td><td>約13件</td></tr>
+<tr><td>Meta テスト（35-44女性専用）</td><td>¥800</td><td>¥24,000</td><td>¥4,000</td><td>約6件</td></tr>
+<tr><td>Yahoo検索</td><td>¥700</td><td>¥21,000</td><td>¥3,000</td><td>約7件</td></tr>
+<tr style="background:#e8f5e9"><td><b>合計</b></td><td>¥4,000/日</td><td><b>¥120,000/月</b></td><td><b>¥4,615</b></td><td><b>約26件</b></td></tr>
+</table>
+
+<div class="ok-box">
+予算 ¥120,000 / 月で <b>期待26件（目標20件には +30%の安全マージン）</b>。これでブレを吸収できる設計。
+</div>
+
+<h3>6-4. 並行で進めるLTV施策</h3>
+<p>新規20件取っても解約50%なら純増10件で終わる。<b>LTV側に同時投資</b>が必要。</p>
+
+<table>
+<tr><th>#</th><th>施策</th><th>期待効果</th></tr>
+<tr><td>1</td><td><b>同梱物刷新</b>（サンクスレター・効能ガイド・お客様の声冊子・2ヶ月目特典告知）</td><td>1回離脱を50→30-35%に</td></tr>
+<tr><td>2</td><td><b>「お休み制度」LP・マイページ実装＋訴求</b></td><td>解約率-5〜10%（Oisix方式）</td></tr>
+<tr><td>3</td><td><b>初回〜30日のLINE/メールステップ配信</b></td><td>F2転換率 50→60%+</td></tr>
+<tr><td>4</td><td><b>初回オファー再設計</b>（「49円1本」から「定期前提価格」へ）</td><td>低意図クリック抑制</td></tr>
+<tr><td>5</td><td>65+女性向け「電話/ハガキ」接点（やずや方式）</td><td>LTV+20-30%</td></tr>
+</table>
+
+<!-- ================= Section 7: 週1運用テンプレ ================= -->
+<h2 id="sec7">7. 週1運用テンプレート（Amazon並みの省エネ運用）</h2>
+
+<h3>7-1. 構造設計</h3>
+<div class="info-box">
+<b>Meta広告</b>: 広告セット <b>3本固定</b> でローテーション運用<br>
+　① 35-44女性カスタム（最強層）<br>
+　② 65+女性カスタム（MVP層）<br>
+　③ リターゲ（過去訪問者）<br>
+各広告セット内にクリエ5-7本ローテーション、毎週1本入替<br>
+<br>
+<b>Yahoo広告</b>: 検索広告のみ（YDA はサイトリタゲのみに絞る）<br>
+　指名KW + シリカ水関連10KW程度のフレーズ一致<br>
+　除外KW月次メンテ<br>
+<br>
+<b>最適化イベント</b>: 購入が週10件未満なら「チェックアウト開始」に切替して学習データ確保
+</div>
+
+<h3>7-2. 月曜AM 60分の週1運用チェックリスト</h3>
+
+<div class="checklist">
+<ul>
+<li>① 先週7日のCPA・購入数・フリークエンシーを確認</li>
+<li>② フリークエンシー3.0超のクリエを特定 → 今週差し替え対象に</li>
+<li>③ CPAが目標の1.5倍超の広告セットのみ予算-20%（一気停止禁止）</li>
+<li>④ 勝ち広告セットの予算+20%（一度に+50%以上は学習リセット）</li>
+<li>⑤ 新規クリエ1-2本を勝ち広告セットに追加（既存は止めない）</li>
+<li>⑥ LP・Pixel発火テスト（Events Managerで確認）</li>
+<li>⑦ Yahoo検索の検索クエリレポートで不要KWを除外追加</li>
+<li>⑧ カラーミー実購入数とMeta/Yahoo管理画面CVの突合</li>
+</ul>
+</div>
+
+<h3>7-3. やってはいけないこと（鉄則）</h3>
+<ol>
+<li>広告セットを6本以上に分散（学習データ枯渇）</li>
+<li>1日でCPA見て一喜一憂（最低3-7日のデータで判断）</li>
+<li>勝ちクリエを「飽きたから」と停止（売上直撃）</li>
+<li>LP変更後のPixel発火テスト未実施（5/3事故と同型）</li>
+<li>広告を一気に停止（再学習で2-3週間ロス）</li>
+<li>Yahoo広告を「管理画面CV=0」だけで停止（GA4で裏取り必須）</li>
+<li>Advantage+オーディエンスON放置（4月浪費事故再発）</li>
+</ol>
+
+<h3>7-4. 判断軸（4つの原則）</h3>
+<table>
+<tr><th>原則</th><th>内容</th></tr>
+<tr><td>1</td><td>カラーミー実購入数が唯一の正（広告管理画面は参考値）</td></tr>
+<tr><td>2</td><td>LP変更時は必ずPixel発火テスト</td></tr>
+<tr><td>3</td><td>停止判断は3-7日データ・勝ち素材は止めない・新素材は毎週投入</td></tr>
+<tr><td>4</td><td>判断に迷ったら「止める」より「足す」</td></tr>
+</table>
+
+<!-- ================= Section 8: 結論 ================= -->
+<h2 id="sec8">8. 戦略の本質と次のアクション</h2>
+
+<h3>8-1. 一番大事な気付き</h3>
+<div class="summary-box">
+<b>ミチルの構造</b>:<br>
+・F2以降91%リピート（業界トップ）＝<b>商品力は強い</b><br>
+・1回離脱50%＝<b>フロントとF1→F2の落差が大きい</b><br>
+・1月の月70件超を経験している＝<b>到達能力はある</b><br>
+<br>
+<b>つまり「新規を取る力」より「F2に進める力」を強化したほうが、同じ広告費で売上が伸びる</b>。
+</div>
+
+<h3>8-2. 6月戦略の優先順位</h3>
+
+<h4>🔴 P0：今週中（5/14〜5/19）</h4>
+<ol>
+<li><b>CR-02・CR-03 動画制作着手</b>（65+女性向け新クリエ・3ヶ月継続UGC型）</li>
+<li><b>ピクニック完全停止確認・悩み訴求-2 予算上限¥800/日設定</b></li>
+<li><b>Advantage+ オーディエンスがOFFか再確認・性別「女性のみ」固定</b></li>
+<li><b>LP1のCTA計測タグ修正</b>（begin_checkout→cta_click）</li>
+<li><b>カラーミー側でフォームヘッダー実装</b>（「初回49円・縛りなし・送料無料」明記）</li>
+</ol>
+
+<h4>🟡 P1：今月中（5/20〜5/31）</h4>
+<ol>
+<li><b>35-44女性専用セット新設</b>（CTR 8.25%・CPC ¥15 の最強層）</li>
+<li><b>CR-02・CR-03 完成・テスト投入</b>（既存と並走）</li>
+<li><b>同梱物の準備・印刷</b>（サンクスレター・効能ガイド・お客様の声）</li>
+<li><b>Yahoo CV計測タグの二重発火問題修正</b></li>
+<li><b>LP2勝ちパターンをLP3に移植</b>（ML-13）</li>
+</ol>
+
+<h4>🟢 P2：6月本番（6/1〜6/30）</h4>
+<ol>
+<li><b>週1運用テンプレ運用開始</b>（月曜AM 60分のチェックリスト）</li>
+<li><b>「お休み制度」LP・マイページ実装</b></li>
+<li><b>初回〜30日のLINEステップ配信構築</b></li>
+<li><b>動画セクション復旧</b>（LP3にフォーム到達率2.75倍要素）</li>
+<li><b>F2転換率モニタリング</b>（月次評価）</li>
+</ol>
+
+<h3>8-3. 最終提言</h3>
+<div class="ok-box">
+<b>6月の月20件達成は、新規獲得 + LTV改善の二輪戦略で実現可能</b>。<br>
+広告予算 ¥120,000/月 + 同梱物制作 ¥30,000 = 計¥150,000/月の投資で<br>
+期待CV26件・LTV+20%改善 → <b>純増12-15件</b>に到達できる射程に入る。<br>
+<br>
+そして<b>Amazon並みに週1の60分運用</b>で回せる仕組みを来週から始める。<br>
+カギは「広告セット3本固定・週1本クリエ入替・実購入数で判断」の3鉄則。
+</div>
+
+<div class="footer">
+データソース: カラーミーリピート購入トラッキング、Meta広告管理画面、Yahoo広告管理画面、GA4 Analytics、過去6ヶ月のMeta/Yahoo CSV、月次レポート、メモリ（michiru_*.md）、Web調査（のむシリカ・やずや・Oisix・業界ベンチマーク記事10件以上）<br>
+作成: 星﨑（Claude） ／ 報告先: 鈴木氏 ／ 次回更新: 2026-05-21（1週間後の進捗判定）
+</div>
+
+</div>
+</body>
+</html>
