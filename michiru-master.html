@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ミチルシリカ 月次レポート | 2026年5月10日</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #0d47a1; --primary-light: #1976d2;
+            --success: #2e7d32; --success-light: #4caf50;
+            --warning: #ef6c00; --danger: #c62828;
+            --text: #263238; --text-light: #546e7a;
+            --bg: #f5f7fa; --card-bg: #ffffff;
+            --border: #e0e4e8; --radius: 12px;
+            --shadow: 0 2px 12px rgba(0,0,0,0.06);
+            --shadow-lg: 0 8px 30px rgba(0,0,0,0.1);
+        }
+        body { font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif; line-height: 1.7; color: var(--text); background: var(--bg); padding: 30px 20px; }
+        .container { max-width: 1100px; margin: 0 auto; }
+
+        .report-header { background: linear-gradient(135deg, #0d47a1 0%, #1565c0 50%, #1976d2 100%); color: white; padding: 50px 40px; border-radius: var(--radius); margin-bottom: 30px; box-shadow: var(--shadow-lg); position: relative; overflow: hidden; }
+        .report-header::before { content: ''; position: absolute; top: -50%; right: -10%; width: 300px; height: 300px; background: rgba(255,255,255,0.05); border-radius: 50%; }
+        .report-header h1 { font-size: 2em; font-weight: 800; margin-bottom: 8px; }
+        .report-header .subtitle { font-size: 1.1em; opacity: 0.9; }
+        .report-header .meta { margin-top: 16px; font-size: 0.9em; opacity: 0.75; display: flex; gap: 20px; flex-wrap: wrap; }
+
+        .section { background: var(--card-bg); border-radius: var(--radius); margin-bottom: 24px; box-shadow: var(--shadow); overflow: hidden; }
+        .section-header { padding: 20px 28px; font-size: 1.2em; font-weight: 700; color: white; display: flex; align-items: center; gap: 10px; }
+        .section-header.blue { background: linear-gradient(135deg, var(--primary), var(--primary-light)); }
+        .section-header.green { background: linear-gradient(135deg, var(--success), var(--success-light)); }
+        .section-header.orange { background: linear-gradient(135deg, #e65100, var(--warning)); }
+        .section-header.purple { background: linear-gradient(135deg, #4a148c, #7b1fa2); }
+        .section-header.teal { background: linear-gradient(135deg, #00695c, #00897b); }
+        .section-header.dark { background: linear-gradient(135deg, #263238, #37474f); }
+        .section-header.pink { background: linear-gradient(135deg, #880e4f, #c2185b); }
+        .section-header.red { background: linear-gradient(135deg, #b71c1c, #e53935); }
+        .section-body { padding: 28px; }
+
+        .purchase-hero { background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 50%, #43a047 100%); color: white; padding: 40px; border-radius: var(--radius); margin-bottom: 24px; text-align: center; box-shadow: var(--shadow-lg); }
+        .ph-label { font-size: 1em; opacity: 0.85; letter-spacing: 2px; margin-bottom: 4px; }
+        .ph-period { font-size: 0.9em; opacity: 0.7; margin-bottom: 16px; }
+        .ph-number { font-size: 5em; font-weight: 900; line-height: 1; }
+        .ph-unit { font-size: 1.2em; opacity: 0.85; margin-top: 4px; }
+        .purchase-breakdown { display: flex; justify-content: center; gap: 40px; margin-top: 24px; flex-wrap: wrap; }
+        .pb-item { text-align: center; }
+        .pb-value { font-size: 2.8em; font-weight: 900; }
+        .pb-label { font-size: 0.85em; opacity: 0.8; }
+
+        .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 24px; }
+        .summary-card { background: var(--card-bg); border-radius: var(--radius); padding: 24px; text-align: center; box-shadow: var(--shadow); border-top: 4px solid var(--primary); }
+        .summary-card.green-border { border-top-color: var(--success); }
+        .summary-card.orange-border { border-top-color: var(--warning); }
+        .summary-card.red-border { border-top-color: var(--danger); }
+        .summary-card .sc-label { font-size: 0.85em; color: var(--text-light); margin-bottom: 8px; }
+        .summary-card .sc-value { font-size: 2.2em; font-weight: 900; }
+        .summary-card .sc-value.blue { color: var(--primary); }
+        .summary-card .sc-value.green { color: var(--success); }
+        .summary-card .sc-value.orange { color: var(--warning); }
+        .summary-card .sc-value.red { color: var(--danger); }
+        .summary-card .sc-sub { font-size: 0.8em; color: var(--text-light); margin-top: 6px; }
+
+        .data-table { width: 100%; border-collapse: collapse; font-size: 0.9em; }
+        .data-table thead { background: #263238; color: white; }
+        .data-table th { padding: 12px 14px; text-align: left; font-weight: 600; font-size: 0.85em; }
+        .data-table td { padding: 12px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+        .data-table tbody tr:hover { background: #f5f8ff; }
+        .data-table .num { text-align: right; font-variant-numeric: tabular-nums; }
+        .data-table .total-row { background: #f0f4ff; font-weight: 700; }
+        .data-table .highlight-row { background: #fff8e1; }
+        .data-table .alert-row { background: #ffebee; }
+
+        .note-box { padding: 16px 20px; border-radius: 8px; font-size: 0.9em; line-height: 1.7; margin: 12px 0; }
+        .note-box.success { background: #e8f5e9; border-left: 4px solid var(--success); }
+        .note-box.info { background: #e3f2fd; border-left: 4px solid var(--primary); }
+        .note-box.warning { background: #fff3e0; border-left: 4px solid var(--warning); }
+        .note-box.danger { background: #ffebee; border-left: 4px solid var(--danger); }
+
+        .badge { display: inline-block; padding: 3px 12px; border-radius: 20px; font-size: 0.8em; font-weight: 700; white-space: nowrap; }
+        .badge-up { background: #e8f5e9; color: var(--success); }
+        .badge-down { background: #ffebee; color: var(--danger); }
+        .badge-flat { background: #fff3e0; color: var(--warning); }
+        .badge-info { background: #e3f2fd; color: var(--primary); }
+
+        .action-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; }
+        .action-card { border: 2px solid var(--border); border-radius: var(--radius); padding: 22px; transition: transform 0.2s, box-shadow 0.2s; }
+        .action-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+        .action-card .ac-status { font-size: 0.75em; font-weight: 700; letter-spacing: 1px; margin-bottom: 8px; }
+        .action-card .ac-status.done { color: var(--success); }
+        .action-card .ac-status.progress { color: var(--primary); }
+        .action-card .ac-status.pending { color: var(--warning); }
+        .action-card .ac-status.alert { color: var(--danger); }
+        .action-card .ac-status.new { color: #7b1fa2; }
+        .action-card .ac-title { font-size: 1.05em; font-weight: 700; margin-bottom: 10px; }
+        .action-card .ac-desc { font-size: 0.85em; color: var(--text-light); line-height: 1.6; }
+        .action-card.done-card { border-color: var(--success); background: linear-gradient(135deg, #f9fff9, #fff); }
+        .action-card.progress-card { border-color: var(--primary); background: linear-gradient(135deg, #f8fbff, #fff); }
+        .action-card.pending-card { border-color: var(--warning); background: linear-gradient(135deg, #fffdf5, #fff); }
+        .action-card.alert-card { border-color: var(--danger); background: linear-gradient(135deg, #fff5f5, #fff); }
+        .action-card.new-card { border-color: #7b1fa2; background: linear-gradient(135deg, #faf5ff, #fff); }
+
+        @media (max-width: 900px) {
+            .summary-grid { grid-template-columns: 1fr 1fr; }
+            .container { padding: 16px; }
+            .action-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- ===== Header ===== -->
+    <div class="report-header">
+        <h1>🔒 ミチルシリカ 内部マスター</h1>
+        <div class="subtitle">継続更新型・全期間データ＋戦略議論 ・ 内部作業用（クライアント共有はしない）</div>
+        <div class="meta">
+            <span>最終更新: 2026年5月11日</span>
+            <span>次回会議: 2026年5月26日 9:30</span>
+            <span>クライアント向け最新版: <a href="monthly-report-2026-05-10.html" style="color:#fff;text-decoration:underline;">5/11会議版</a></span>
+        </div>
+    </div>
+
+    <!-- ===== 5/11会議 決定事項・次回アクション ===== -->
+    <div class="section">
+        <div class="section-header" style="background: linear-gradient(135deg, #b71c1c, #e53935);">📌 5/11会議の決定事項（最重要・要実行）</div>
+        <div class="section-body">
+            <div class="note-box info" style="margin-bottom: 16px;">
+                <strong>会議の核心:</strong> 価格大幅改定は後回しにし、まず<strong>「同梱物・LP導線・2回目特典」で解約率改善</strong>に着手。フロント「お試し」→定期便（永続10%オフ＋2回目1ケースプレゼント）の<strong>ダブルオファー設計</strong>を軸にLPを試作し、6月開始を目指す。8月までは現行LPで統計取得、9-10月に本格的な戦略変更を検討。
+            </div>
+
+            <h3 style="margin: 16px 0 12px; font-size: 1.05em; color: var(--primary);">① 戦略の大転換</h3>
+            <table class="data-table">
+                <thead>
+                    <tr><th>項目</th><th>変更前</th><th>変更後</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>メインターゲット</strong></td><td>65歳メイン（初回割引・代引き・解約前提）</td><td><strong>40-50代継続意欲高い層</strong>へシフト</td></tr>
+                    <tr><td><strong>解約率目標</strong></td><td>現状 50%</td><td><strong>20〜30%</strong>に抑制</td></tr>
+                    <tr><td><strong>価格戦略</strong></td><td>初回50%OFF→2回目¥3,960（2倍ショック）</td><td>価格据え置き＋<strong>2回目に24本×1ケースプレゼント</strong></td></tr>
+                    <tr><td><strong>LP構造</strong></td><td>1980円訴求の単発LP</td><td><strong>ダブルオファー型</strong>（お試し→定期便への二段階誘導）</td></tr>
+                    <tr><td><strong>既存定期顧客</strong></td><td>—</td><td>据え置き（新規のみ新スキーム適用）</td></tr>
+                    <tr><td><strong>本格戦略変更時期</strong></td><td>—</td><td><strong>9-10月</strong>（8月まで現行LP運用＋統計取得）</td></tr>
+                </tbody>
+            </table>
+
+            <h3 style="margin: 24px 0 12px; font-size: 1.05em; color: var(--primary);">② ダブルオファー設計（3案検討）</h3>
+            <table class="data-table">
+                <thead>
+                    <tr><th>案</th><th>内容</th><th>インパクト</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>案A</strong></td><td>初回から定期10%オフ・2ヶ月目に24本×1ケースプレゼント・以降も10%オフ継続</td><td>大（フロント価格変更）</td></tr>
+                    <tr class="highlight-row"><td><strong>案B（最有力）</strong></td><td>初回割引を一定維持＋2回目に24本プレゼント（現行に近い）</td><td>中（プレゼントコスト増のみ）</td></tr>
+                    <tr><td><strong>案C</strong></td><td>フロント「24本お試し（初回半額）」を新設→遷移時に「定期なら常時10%オフ＋2回目1ケース」を提示（温泉水方式）</td><td>大（大幅構造変更）</td></tr>
+                </tbody>
+            </table>
+            <div style="font-size:0.85em; color:var(--text-light); margin-top:8px;">※温泉水99の調査結果に基づく。実質3回分半額になるリスクや、お試し濫用リスク（住所判定で手動審査）も検討事項</div>
+
+            <h3 style="margin: 24px 0 12px; font-size: 1.05em; color: var(--primary);">③ 次回5/26までのアクション（次会議までに完了 or 進捗）</h3>
+            <div class="action-grid">
+                <div class="action-card progress-card">
+                    <div class="ac-status progress">P0 制作</div>
+                    <div class="ac-title">フロントお試し＋定期ダブルオファーLP仮画面作成</div>
+                    <div class="ac-desc">10日後（5/21頃）に内部レビュー → 微調整 → 6月開始目標。3案の中から案B軸で試作。</div>
+                </div>
+                <div class="action-card progress-card">
+                    <div class="ac-status progress">P0 試算</div>
+                    <div class="ac-title">2回目「1ケースプレゼント」原価・粗利試算 + KPI設計</div>
+                    <div class="ac-desc">指標：新規定期獲得数・F2継続率・解約率・お試しのみ率・CAC/LTV。検証期間も併せて設定。</div>
+                </div>
+                <div class="action-card progress-card">
+                    <div class="ac-status progress">P1 制作</div>
+                    <div class="ac-title">同梱パンフレット原稿・デザイン確定（5月中）</div>
+                    <div class="ac-desc">初回パンフに「まず3か月飲んで体感」を強調。料理・コーヒー・米炊き等の具体用途提案を掲載。</div>
+                </div>
+                <div class="action-card progress-card">
+                    <div class="ac-status progress">P1 設計</div>
+                    <div class="ac-title">2回目特典の条件確定</div>
+                    <div class="ac-desc">24本×1ケース vs 2ケース／40本購入者への適用方法／既存顧客対応方針</div>
+                </div>
+                <div class="action-card progress-card">
+                    <div class="ac-status progress">P1 設計</div>
+                    <div class="ac-title">お試し重複購入の運用ルール策定</div>
+                    <div class="ac-desc">住所判定でキャンセル／メール変更等の抜け道は一定許容／責任者設定</div>
+                </div>
+                <div class="action-card progress-card">
+                    <div class="ac-status progress">P1 設計</div>
+                    <div class="ac-title">価格表示ポリシー統一</div>
+                    <div class="ac-desc">都度価格基準＋定期10%オフを基準表示に揃え、既存顧客の実売価格は変更せず透明性担保</div>
+                </div>
+                <div class="action-card pending-card">
+                    <div class="ac-status pending">P2 技術確認</div>
+                    <div class="ac-title">公式LINE初期設定＋カラミー割引適用可否確認</div>
+                    <div class="ac-desc">登録特典の設計／カラミー側で500円クーポンの適用が可能か確認／2回目特典との重複は抑制方針</div>
+                </div>
+                <div class="action-card pending-card">
+                    <div class="ac-status pending">P2 現地</div>
+                    <div class="ac-title">丸正スーパーサイネージ現地確認（杉さん）</div>
+                    <div class="ac-desc">視認性（セルフレジ7割）・放映枠条件・店頭陳列/ブース設置の交渉可能性確認</div>
+                </div>
+                <div class="action-card pending-card">
+                    <div class="ac-status pending">P2 交渉</div>
+                    <div class="ac-title">インフルエンサー北崎氏 レベニューシェア条件案作成</div>
+                    <div class="ac-desc">商品提供＋レベニューシェア（料率・計測方法・媒体範囲）／自社内クローズド販売含む</div>
+                </div>
+                <div class="action-card pending-card">
+                    <div class="ac-status pending">P3 準備</div>
+                    <div class="ac-title">9-10月戦略変更に向けた仮LP/仮オファー案準備</div>
+                    <div class="ac-desc">案A/B/Cの3パターンを8月まで温存しつつ準備。クリティカルパス（制作・審査・入稿・在庫・物流）も策定</div>
+                </div>
+            </div>
+
+            <h3 style="margin: 24px 0 12px; font-size: 1.05em; color: var(--primary);">④ 5月の数値目標</h3>
+            <div class="summary-grid">
+                <div class="summary-card green-border">
+                    <div class="sc-label">カラーミー購入</div>
+                    <div class="sc-value green">20件</div>
+                    <div class="sc-sub">現状5件 → 残り15件</div>
+                </div>
+                <div class="summary-card">
+                    <div class="sc-label">Amazon</div>
+                    <div class="sc-value blue">継続好調</div>
+                    <div class="sc-sub">5/1-5/10で30件（月90件ペース）</div>
+                </div>
+                <div class="summary-card red-border">
+                    <div class="sc-label">解約率</div>
+                    <div class="sc-value red">50% → 20-30%</div>
+                    <div class="sc-sub">同梱物・特典で改善目標</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== Purchase Hero ===== -->
+    <div class="purchase-hero">
+        <div class="ph-label">購入件数（前回会議4/22〜5/9）</div>
+        <div class="ph-period">2026年4月22日 〜 5月9日（18日間） — スプシ確定値</div>
+        <div class="ph-number">11</div>
+        <div class="ph-unit">件</div>
+        <div class="purchase-breakdown">
+            <div class="pb-item">
+                <div class="pb-value">7</div>
+                <div class="pb-label">カラーミー定期便</div>
+            </div>
+            <div class="pb-item">
+                <div class="pb-value">4</div>
+                <div class="pb-label">代引き</div>
+            </div>
+        </div>
+        <div style="margin-top: 16px; font-size: 0.9em; opacity: 0.85;">
+            4/24 ・ 4/27×2 ・ 4/28 ・ 4/29×2 ・ 5/1 ・ 5/3 ・ 5/7 ・ 5/8×2
+        </div>
+        <div style="margin-top: 8px; font-size: 0.85em; opacity: 0.85;">
+            経由: Meta広告 5件 ・ IG オーガニック 1件 ・ 経由不明 3件 ・ Meta or Yahoo 1件 ・ Yahoo単独確定 0件
+        </div>
+        <div style="margin-top: 12px; font-size: 0.85em; opacity: 0.7;">5月は5/8に2件と購入復活 ・ 5/9以降のCPC急騰で再失速懸念</div>
+    </div>
+
+    <!-- ===== Monthly Totals ===== -->
+    <div class="summary-grid">
+        <div class="summary-card green-border">
+            <div class="sc-label">4月 月次合計</div>
+            <div class="sc-value green">16件</div>
+            <div class="sc-sub">広告費 &yen;101,532 ・ CPA &yen;6,345<br>目標50件・達成率32%</div>
+        </div>
+        <div class="summary-card orange-border">
+            <div class="sc-label">5月 月初〜5/9</div>
+            <div class="sc-value orange">5件</div>
+            <div class="sc-sub">広告費 &yen;39,752 ・ CPA &yen;7,950<br>目標50件・1日2.2件必要</div>
+        </div>
+        <div class="summary-card">
+            <div class="sc-label">3月→4月 購入推移</div>
+            <div class="sc-value blue">11→16件</div>
+            <div class="sc-sub">+45%増 ・ 着実な改善</div>
+        </div>
+        <div class="summary-card red-border">
+            <div class="sc-label">5月CPA（5/9まで）</div>
+            <div class="sc-value red">&yen;7,950</div>
+            <div class="sc-sub">4月 &yen;6,345 から +25%悪化<br>目標 &yen;4,000 まで遠い</div>
+        </div>
+    </div>
+
+    <!-- ===== Summary KPI ===== -->
+    <div class="summary-grid">
+        <div class="summary-card">
+            <div class="sc-label">広告費合計（4/22〜5/9）</div>
+            <div class="sc-value blue">&yen;74,862</div>
+            <div class="sc-sub">Meta &yen;62,822 + Yahoo &yen;12,040<br>日平均 &yen;4,159（予算&yen;4,000/日にほぼ一致）</div>
+        </div>
+        <div class="summary-card green-border">
+            <div class="sc-label">クリック合計</div>
+            <div class="sc-value green">1,801</div>
+            <div class="sc-sub">Meta 1,495 + Yahoo 306<br>Meta CPC &yen;42 / Yahoo CPC &yen;39</div>
+        </div>
+        <div class="summary-card orange-border">
+            <div class="sc-label">期間CPA</div>
+            <div class="sc-value orange">&yen;6,806</div>
+            <div class="sc-sub">&yen;74,862 / 11件<br>4月CPA &yen;6,345 から +7%（ほぼ横ばい）</div>
+        </div>
+        <div class="summary-card red-border">
+            <div class="sc-label">Meta CPC 直近トレンド</div>
+            <div class="sc-value red" style="font-size:1.6em">&yen;22 → &yen;236</div>
+            <div class="sc-sub">5/4 → 5/8（10倍超）<br>クリック量 -85%（114→18）</div>
+        </div>
+    </div>
+
+    <!-- ===== Critical Alert ===== -->
+    <div class="section">
+        <div class="section-header red">⚠️ Meta CPC急騰の解釈（再評価）</div>
+        <div class="section-body">
+            <div class="note-box info" style="margin-bottom: 16px;">
+                <strong>前提の修正:</strong> 当初「CPC急騰＝学習崩壊」と捉えていたが、<strong>5/6ターゲ監査の発見③（認知用素材の混載が興味タップ装置化）</strong>を考慮すると、4月のクリック100超は質の悪い低意図クリックを大量に拾っていた可能性が高い。5/6のピクニック動画停止＋認知CP停止で、その「数字だけ稼ぐ」配信が消えた結果としてのCPC急騰という側面がある。
+            </div>
+
+
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>日付</th>
+                        <th class="num">Meta費</th>
+                        <th class="num">クリック</th>
+                        <th class="num">CPC</th>
+                        <th>状態</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>4/22</td><td class="num">&yen;2,975</td><td class="num">118</td><td class="num">&yen;25</td><td><span class="badge badge-flat">認知混載期</span></td></tr>
+                    <tr><td>4/23</td><td class="num">&yen;3,479</td><td class="num">94</td><td class="num">&yen;37</td><td><span class="badge badge-flat">認知混載期</span></td></tr>
+                    <tr><td>4/24</td><td class="num">&yen;3,452</td><td class="num">56</td><td class="num">&yen;61</td><td><span class="badge badge-flat">認知混載期</span></td></tr>
+                    <tr><td>4/25</td><td class="num">&yen;2,753</td><td class="num">40</td><td class="num">&yen;68</td><td><span class="badge badge-flat">認知混載期</span></td></tr>
+                    <tr><td>4/26</td><td class="num">&yen;3,687</td><td class="num">111</td><td class="num">&yen;33</td><td><span class="badge badge-flat">認知混載期</span></td></tr>
+                    <tr><td>4/27</td><td class="num">&yen;2,984</td><td class="num">111</td><td class="num">&yen;26</td><td><span class="badge badge-flat">認知混載期</span></td></tr>
+                    <tr><td>4/28</td><td class="num">&yen;2,932</td><td class="num">90</td><td class="num">&yen;32</td><td><span class="badge badge-flat">認知混載期</span></td></tr>
+                    <tr><td>4/29</td><td class="num">&yen;3,221</td><td class="num">115</td><td class="num">&yen;28</td><td><span class="badge badge-flat">認知混載期</span></td></tr>
+                    <tr><td>4/30</td><td class="num">&yen;3,809</td><td class="num">83</td><td class="num">&yen;45</td><td><span class="badge badge-flat">認知混載期</span></td></tr>
+                    <tr><td>5/1</td><td class="num">&yen;3,194</td><td class="num">88</td><td class="num">&yen;36</td><td><span class="badge badge-flat">認知混載期</span></td></tr>
+                    <tr><td>5/2</td><td class="num">&yen;3,745</td><td class="num">104</td><td class="num">&yen;36</td><td><span class="badge badge-flat">認知混載期</span></td></tr>
+                    <tr><td>5/3</td><td class="num">&yen;4,024</td><td class="num">104</td><td class="num">&yen;38</td><td><span class="badge badge-up">通常</span></td></tr>
+                    <tr><td>5/4</td><td class="num">&yen;2,516</td><td class="num">114</td><td class="num" style="color:var(--success);font-weight:700">&yen;22</td><td><span class="badge badge-up">最良</span></td></tr>
+                    <tr><td>5/5</td><td class="num">&yen;4,522</td><td class="num">120</td><td class="num">&yen;37</td><td><span class="badge badge-up">通常</span></td></tr>
+                    <tr style="background:#fff3e0;"><td>5/6</td><td class="num">&yen;4,943</td><td class="num">93</td><td class="num">&yen;53</td><td><span class="badge badge-flat">構造変更日</span></td></tr>
+                    <tr class="alert-row"><td>5/7</td><td class="num">&yen;4,291</td><td class="num">22</td><td class="num" style="color:var(--danger);font-weight:900">&yen;195</td><td><span class="badge badge-down">急騰（質改善後）</span></td></tr>
+                    <tr class="alert-row"><td>5/8</td><td class="num">&yen;4,258</td><td class="num">18</td><td class="num" style="color:var(--danger);font-weight:900">&yen;236</td><td><span class="badge badge-down">急騰継続</span></td></tr>
+                    <tr class="alert-row"><td>5/9</td><td class="num">&yen;2,037</td><td class="num">14</td><td class="num" style="color:var(--danger);font-weight:900">&yen;145</td><td><span class="badge badge-down">急騰継続</span></td></tr>
+                    <tr class="total-row">
+                        <td>期間平均</td>
+                        <td class="num">&yen;3,490</td>
+                        <td class="num">83</td>
+                        <td class="num">&yen;42</td>
+                        <td>—</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="note-box warning" style="margin-top: 16px;">
+                <strong>3つの要因が同時発生（OT-09 切り分け中）:</strong>
+                <ul style="margin-top: 8px; padding-left: 20px;">
+                    <li><strong>① 認知用ピクニック動画の停止（5/6 OT-08）</strong> — 4月までCV最適化セットに混載されていた認知用動画を除去。これだけで「低意図クリック」が大幅減少。<strong>4月の100クリック/日のうち相当割合がここから来ていた可能性。</strong></li>
+                    <li><strong>② 認知CP全停止（5/6 OT-01）</strong> — 認知_30-65+女性セット停止。リターゲ用オーディエンス蓄積目的だったが購入0件で、無駄打ちトラフィック源として機能していた。</li>
+                    <li><strong>③ 広告セット縮小による「広告疲れ」</strong> — 5/6に認知CPとピクニック動画を停止したことで、配信できる広告セット数が減った。残った広告セットに同じ予算が集中するため、<strong>同じユーザーに同じ広告が何度も表示され（フリークエンシー上昇）、見飽きされてクリックされなくなる</strong>状態。クリエ自体は4/7・4/20・5/6・5/9と継続投入しているので素材不足ではなく、配信構造の問題。</li>
+                </ul>
+            </div>
+
+            <div class="note-box success">
+                <strong>クリック数より購入数で評価する局面。</strong>5/7-5/8で代引き1件＋カラーミー2件の計3件購入を獲得（全てMeta Pixel計測）。クリック14〜22件まで減ったが購入転換率はむしろ大幅改善。<strong>「数字だけ多かった4月」より「購入が出る5月」の方が広告として正しい状態。</strong>5/9の購入0は週末(金)＋カラーミー定期締め日でないだけで、構造的失速ではない可能性。
+            </div>
+
+            <div class="note-box danger">
+                <strong>ただし要監視:</strong> CPC ¥146-237が長期化するとクリック量不足で購入機会を逃す。来週前半にCPCが¥80以下まで回復するかを見極め、回復しない場合は ①悩み訴求v2のセット拡大 ②価格訴求v2（CR-03）早期投入 ③35-44女性専用セット新設（OT-03）で配信先を広げる。
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== Monthly Comparison ===== -->
+    <div class="section">
+        <div class="section-header dark">月次比較（3月 → 4月 → 5月）</div>
+        <div class="section-body">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>指標</th>
+                        <th class="num">3月</th>
+                        <th class="num">4月</th>
+                        <th class="num">5月（5/9まで・9日間）</th>
+                        <th>トレンド</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>購入合計</strong></td>
+                        <td class="num">11件</td>
+                        <td class="num" style="color:var(--success);font-weight:700">16件</td>
+                        <td class="num">5件</td>
+                        <td><span class="badge badge-up">3→4月 +45%</span> / <span class="badge badge-flat">5月ペース15件着地予測</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>広告費合計</strong></td>
+                        <td class="num">&yen;107,482</td>
+                        <td class="num">&yen;101,532</td>
+                        <td class="num">&yen;39,752</td>
+                        <td>3月は3/10-3/31の22日分 / 5月日平均 &yen;4,417</td>
+                    </tr>
+                    <tr>
+                        <td><strong>CPA</strong></td>
+                        <td class="num">&yen;9,771</td>
+                        <td class="num" style="color:var(--success);font-weight:700">&yen;6,345</td>
+                        <td class="num" style="color:var(--danger)">&yen;7,950</td>
+                        <td><span class="badge badge-up">3→4月 -35%改善</span> / <span class="badge badge-down">4→5月 +25%悪化</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Meta 広告費</strong></td>
+                        <td class="num">&yen;63,265</td>
+                        <td class="num">&yen;84,854</td>
+                        <td class="num">&yen;33,530</td>
+                        <td>5月日平均 &yen;3,725</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Meta CPC</strong></td>
+                        <td class="num">&yen;75</td>
+                        <td class="num" style="color:var(--success);font-weight:700">&yen;57</td>
+                        <td class="num">&yen;42</td>
+                        <td><span class="badge badge-up">継続改善</span> ※5月平均 / 5/7-5/9は¥145-236で急騰</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Yahoo 広告費</strong></td>
+                        <td class="num">&yen;44,217</td>
+                        <td class="num">&yen;16,678</td>
+                        <td class="num">&yen;6,222</td>
+                        <td>3月は¥2,200/日→4月¥556/日に大幅縮小</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Yahoo CPC</strong></td>
+                        <td class="num">&yen;41</td>
+                        <td class="num">&yen;41</td>
+                        <td class="num">&yen;39</td>
+                        <td><span class="badge badge-up">安定推移</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>目標達成率</strong></td>
+                        <td class="num">22%</td>
+                        <td class="num" style="color:var(--success);font-weight:700">32%</td>
+                        <td class="num">10%</td>
+                        <td><span class="badge badge-up">3→4月 改善</span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="note-box success" style="margin-top: 16px;">
+                <strong>3→4月で大幅改善。</strong>購入11件→16件（+45%）、CPA ¥9,771→¥6,345（-35%改善）、Meta CPC ¥75→¥57。4/14広告セット分割・4/20テスト統合・LP改修の効果が出始め、目標達成率が22%→32%に上昇。
+            </div>
+            <div class="note-box warning" style="margin-top: 12px;">
+                <strong>5月はCPA &yen;7,950 で4月から+25%悪化に見えるが、内訳を見ると話が変わる。</strong>5/3-5/6のクリック量は4月までと同様に<strong>認知用ピクニック動画の混載による低意図クリック</strong>を含んでいた（5/6に除去）。5/7-5/9のCPC急騰は、広告セット縮小（認知CP停止＋ピクニック動画除去）に伴う「広告疲れ」が主因。<strong>クリエ自体は継続投入できており素材不足ではない。</strong>配信先（広告セット）を増やす対応（OT-03 35-44女性専用セット新設など）が次のアクション。
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== Weekly Trend ===== -->
+    <div class="section">
+        <div class="section-header purple">週次トレンド比較</div>
+        <div class="section-body">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>期間</th>
+                        <th class="num">Meta費</th>
+                        <th class="num">Mクリック</th>
+                        <th class="num">Yahoo費</th>
+                        <th class="num">Yクリック</th>
+                        <th class="num">購入</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>4/22〜4/28（7日）</td><td class="num">&yen;22,262</td><td class="num">620</td><td class="num">&yen;4,462</td><td class="num">116</td><td class="num" style="color:var(--success);font-weight:700">4件</td></tr>
+                    <tr><td>4/29〜5/5（7日）</td><td class="num">&yen;25,031</td><td class="num">733</td><td class="num">&yen;4,796</td><td class="num">118</td><td class="num" style="color:var(--success);font-weight:700">4件</td></tr>
+                    <tr class="alert-row"><td>5/6〜5/9（4日）</td><td class="num">&yen;15,529</td><td class="num">147</td><td class="num">&yen;2,782</td><td class="num">72</td><td class="num" style="color:var(--success);font-weight:700">3件</td></tr>
+                    <tr class="total-row"><td>合計</td><td class="num">&yen;62,822</td><td class="num">1,495</td><td class="num">&yen;12,040</td><td class="num">306</td><td class="num">11件</td></tr>
+                </tbody>
+            </table>
+
+            <div class="note-box success" style="margin-top: 12px;">
+                <strong>購入ペースは安定（週4件×2→4日で3件）。</strong>5/6以降のMeta クリック激減は「低意図クリックの除去（認知用素材停止）」による正常な調整。<strong>クリックが減ったのに購入は維持できているのが本質的な改善ポイント</strong>。ただしCPC ¥145-236への上昇は、残った広告セットへの集中配信による「広告疲れ」が主因で、配信先を広げる対応（OT-03など）が必要。GA4セッション数は5/3-5/5に大幅増（136・50・201）で、流入の質は改善方向。
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== Daily Detail ===== -->
+    <div class="section">
+        <div class="section-header blue">日別パフォーマンス詳細（4/22〜5/9）</div>
+        <div class="section-body">
+            <table class="data-table">
+                <thead>
+                    <tr><th>日付</th><th class="num">Meta費</th><th class="num">Mクリック</th><th class="num">M CPC</th><th class="num">Yahoo費</th><th class="num">Yクリック</th><th class="num">広告費計</th><th>購入</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>4/22</td><td class="num">&yen;2,975</td><td class="num">118</td><td class="num">&yen;25</td><td class="num">&yen;493</td><td class="num">13</td><td class="num">&yen;3,468</td><td>-</td></tr>
+                    <tr><td>4/23</td><td class="num">&yen;3,479</td><td class="num">94</td><td class="num">&yen;37</td><td class="num">&yen;757</td><td class="num">19</td><td class="num">&yen;4,236</td><td>-</td></tr>
+                    <tr><td>4/24</td><td class="num">&yen;3,452</td><td class="num">56</td><td class="num">&yen;61</td><td class="num">&yen;688</td><td class="num">16</td><td class="num">&yen;4,140</td><td style="color:var(--success);font-weight:700">1（カラーミー）</td></tr>
+                    <tr><td>4/25</td><td class="num">&yen;2,753</td><td class="num">40</td><td class="num">&yen;68</td><td class="num">&yen;556</td><td class="num">14</td><td class="num">&yen;3,309</td><td>-</td></tr>
+                    <tr><td>4/26</td><td class="num">&yen;3,687</td><td class="num">111</td><td class="num">&yen;33</td><td class="num">&yen;911</td><td class="num">21</td><td class="num">&yen;4,598</td><td>-</td></tr>
+                    <tr><td>4/27</td><td class="num">&yen;2,984</td><td class="num">111</td><td class="num">&yen;26</td><td class="num">&yen;682</td><td class="num">22</td><td class="num">&yen;3,666</td><td style="color:var(--success);font-weight:700">2（代+カラ）</td></tr>
+                    <tr><td>4/28</td><td class="num">&yen;2,932</td><td class="num">90</td><td class="num">&yen;32</td><td class="num">&yen;375</td><td class="num">11</td><td class="num">&yen;3,307</td><td style="color:var(--success);font-weight:700">1（代引き）</td></tr>
+                    <tr><td>4/29</td><td class="num">&yen;3,221</td><td class="num">115</td><td class="num">&yen;28</td><td class="num">&yen;423</td><td class="num">12</td><td class="num">&yen;3,644</td><td style="color:var(--success);font-weight:700">2（カラーミー×2）</td></tr>
+                    <tr><td>4/30</td><td class="num">&yen;3,809</td><td class="num">83</td><td class="num">&yen;45</td><td class="num">&yen;933</td><td class="num">22</td><td class="num">&yen;4,742</td><td>-</td></tr>
+                    <tr><td>5/1</td><td class="num">&yen;3,194</td><td class="num">88</td><td class="num">&yen;36</td><td class="num">&yen;703</td><td class="num">18</td><td class="num">&yen;3,897</td><td style="color:var(--success);font-weight:700">1（代引き）</td></tr>
+                    <tr><td>5/2</td><td class="num">&yen;3,745</td><td class="num">104</td><td class="num">&yen;36</td><td class="num">&yen;308</td><td class="num">8</td><td class="num">&yen;4,053</td><td>-</td></tr>
+                    <tr><td>5/3</td><td class="num">&yen;4,024</td><td class="num">104</td><td class="num">&yen;38</td><td class="num">&yen;883</td><td class="num">21</td><td class="num">&yen;4,907</td><td style="color:var(--success);font-weight:700">1（カラーミー）</td></tr>
+                    <tr><td>5/4</td><td class="num">&yen;2,516</td><td class="num">114</td><td class="num" style="color:var(--success);font-weight:700">&yen;22</td><td class="num">&yen;683</td><td class="num">17</td><td class="num">&yen;3,199</td><td>-</td></tr>
+                    <tr><td>5/5</td><td class="num">&yen;4,522</td><td class="num">120</td><td class="num">&yen;37</td><td class="num">&yen;863</td><td class="num">20</td><td class="num">&yen;5,385</td><td>-</td></tr>
+                    <tr><td>5/6</td><td class="num">&yen;4,943</td><td class="num">93</td><td class="num">&yen;53</td><td class="num">&yen;692</td><td class="num">17</td><td class="num">&yen;5,635</td><td>-</td></tr>
+                    <tr class="alert-row"><td>5/7</td><td class="num">&yen;4,291</td><td class="num">22</td><td class="num" style="color:var(--danger);font-weight:900">&yen;195</td><td class="num">&yen;919</td><td class="num">23</td><td class="num">&yen;5,210</td><td style="color:var(--success);font-weight:700">1（代引き）</td></tr>
+                    <tr class="alert-row"><td>5/8</td><td class="num">&yen;4,258</td><td class="num">18</td><td class="num" style="color:var(--danger);font-weight:900">&yen;236</td><td class="num">&yen;571</td><td class="num">16</td><td class="num">&yen;4,829</td><td style="color:var(--success);font-weight:700">2（カラーミー×2）</td></tr>
+                    <tr class="alert-row"><td>5/9</td><td class="num">&yen;2,037</td><td class="num">14</td><td class="num" style="color:var(--danger);font-weight:900">&yen;145</td><td class="num">&yen;600</td><td class="num">16</td><td class="num">&yen;2,637</td><td>-</td></tr>
+                    <tr class="total-row">
+                        <td>合計</td>
+                        <td class="num">&yen;62,822</td>
+                        <td class="num">1,495</td>
+                        <td class="num">&yen;42</td>
+                        <td class="num">&yen;12,040</td>
+                        <td class="num">306</td>
+                        <td class="num">&yen;74,862</td>
+                        <td class="num">11件</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="note-box info" style="margin-top: 12px;">
+                <strong>傾向:</strong> 4月後半は2-3日に1件ペースで安定購入。5/4-5/6に購入が一時止まったが、5/7-5/8で代引き1件＋カラーミー2件と購入復活（CPC急騰の中でも既存学習で残存）。週次では4/22-4/28: 4件、4/29-5/5: 4件、5/6-5/9: 3件と件数は維持。問題は5/9のクリック14件まで激減した急騰トレンドが来週どう推移するか。
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== Purchase Attribution ===== -->
+    <div class="section">
+        <div class="section-header teal">購入経由先（GA4 + Pixel + Yahoo計測）</div>
+        <div class="section-body">
+            <div class="note-box info" style="margin-bottom: 16px;">
+                <strong>計測ソース:</strong> GA4イベント（cv_40 / form_submit / cta_click）+ Meta Pixel購入計測（管理画面） + Yahoo CTAクリック数。GA4データが取得できていない日もあるため、複数ソースで推定。
+            </div>
+
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>日付</th>
+                        <th>件数</th>
+                        <th>決済方法</th>
+                        <th>推定経由先</th>
+                        <th>計測根拠</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>4/24</td><td>1</td><td>カラーミー</td><td><span class="badge badge-info">Meta広告</span></td><td>Meta Pixel購入1件記録、GA4 form_start meta/paid 4件</td></tr>
+                    <tr><td>4/27</td><td>2</td><td>代+カラ</td><td><span class="badge badge-flat">不明</span></td><td>Pixel記録なし、GA4データなし、Yahoo CTAクリック4件あり</td></tr>
+                    <tr><td>4/28</td><td>1</td><td>代引き</td><td><span class="badge badge-flat">不明</span></td><td>GA4データ取得なし</td></tr>
+                    <tr><td>4/29</td><td>2</td><td>カラーミー×2</td><td><span class="badge badge-info">Meta広告</span> + <span class="badge badge-up">Instagram(オーガニック)</span></td><td>GA4 cv_40: (direct) 1件 + ig/social 1件、Pixel記録1件。<br>※IG投稿は当日なし。直近の4/19「定期便案内」（ビュー165・保存1）経由でプロフィール訪問→LP→購入の流れと推定</td></tr>
+                    <tr><td>5/1</td><td>1</td><td>代引き</td><td><span class="badge badge-info">Meta or Yahoo</span></td><td>GA4 form_submit meta/paid 6件・yahoo/cpc 2件（特定不可）</td></tr>
+                    <tr class="highlight-row"><td>5/3</td><td>1</td><td>カラーミー</td><td><span class="badge badge-info">Instagram広告（Meta IG面）</span></td><td><strong>GA4 cv_40: ig/paid 1件で確定</strong></td></tr>
+                    <tr><td>5/7</td><td>1</td><td>代引き</td><td><span class="badge badge-info">Meta広告</span></td><td>Meta Pixel購入1件記録</td></tr>
+                    <tr><td>5/8</td><td>2</td><td>カラーミー×2</td><td><span class="badge badge-info">Meta広告 ×2</span></td><td>Meta Pixel購入2件記録</td></tr>
+                </tbody>
+            </table>
+
+            <h3 style="margin-top: 24px; margin-bottom: 12px; font-size: 1em;">経由先サマリー（11件）</h3>
+            <table class="data-table">
+                <thead>
+                    <tr><th>経由</th><th class="num">件数</th><th>備考</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Meta広告（FB/IG含む）</strong></td><td class="num" style="color:var(--success);font-weight:700">5件</td><td>4/24・4/29・5/3（IG）・5/7・5/8×2</td></tr>
+                    <tr><td><strong>Instagram オーガニック</strong></td><td class="num">1件</td><td>4/29</td></tr>
+                    <tr><td><strong>Meta or Yahoo（特定不可）</strong></td><td class="num">1件</td><td>5/1</td></tr>
+                    <tr><td><strong>不明（GA4データ欠損）</strong></td><td class="num">3件</td><td>4/27×2・4/28（GA4イベント取得なし）</td></tr>
+                    <tr><td><strong>Yahoo広告 単独確定</strong></td><td class="num">0件</td><td>5/3にYahoo CTA1件あったが購入はIG経由で確定</td></tr>
+                </tbody>
+            </table>
+
+            <div class="note-box warning" style="margin-top: 16px;">
+                <strong>所感:</strong> Meta広告経由の購入が確実に5件以上。<strong>5/3のIG面経由は重要な発見</strong>で、CV最適化の配置別データを見るとInstagram面での効率が良い可能性。Yahoo経由の確定購入はゼロ（GA4で form_submit はあるが cv_40確定なし）→ Yahoo広告は集客はするが購入転換が弱い。Yahoo LP最適化（ML-13）の優先度が上がる根拠に。
+            </div>
+
+            <div class="note-box success" style="margin-top: 12px;">
+                <strong>計測課題は5/6に解消済み。</strong>経由不明3件（4/27×2・4/28）はすべてPixel計測トラブル期間中（5/3 LP大規模リニューアル → 5/6 カラーミーにPixel ID入力で復旧）の出来事。<strong>5/7以降は全件Meta Pixelで追跡できており、再発防止のため施策ログにPixel計測の動作確認も組み込み済</strong>。今後は新規LP変更時にPixel発火テストを必須化する運用に。
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== Actions Done ===== -->
+    <div class="section">
+        <div class="section-header green">4/22〜5/9に実施した施策</div>
+        <div class="section-body">
+
+            <h3 style="margin-bottom: 16px; font-size: 1em; color: var(--primary);">5/6 大規模構造改革（ターゲ監査ベース）</h3>
+            <div class="action-grid">
+                <div class="action-card done-card">
+                    <div class="ac-status done">5/6 完了</div>
+                    <div class="ac-title">認知キャンペーン全広告セット停止（OT-01）</div>
+                    <div class="ac-desc">対象は <code>認知_30-65+女性</code> 1セット（予算&yen;500/日、消化&yen;444、LPV9件、購入0件）。リターゲティング用オーディエンス蓄積目的だったが、購入0件で投資効率悪く停止判断。</div>
+                </div>
+                <div class="action-card done-card">
+                    <div class="ac-status done">5/6 完了</div>
+                    <div class="ac-title">「65+女性専用」CV最適化セット新設（OT-02）</div>
+                    <div class="ac-desc"><code>CV最適化_65+女性_悩み訴求</code> ¥500/日 で同キャンペーン内に新設。最強層（65+女性）への単独配信を開始。クリエは価格訴求＋悩み訴求のみ充当。</div>
+                </div>
+                <div class="action-card done-card">
+                    <div class="ac-status done">5/6 完了</div>
+                    <div class="ac-title">カラーミーリピートにMeta Pixel ID入力（EC-01）</div>
+                    <div class="ac-desc">計測ブロッカー解消。Meta学習継続可能に。これにより5/6以降のピクセル学習リセット → CPC急騰仮説②の根拠となる。</div>
+                </div>
+                <div class="action-card done-card">
+                    <div class="ac-status done">5/6 完了</div>
+                    <div class="ac-title">GA4 Googleシグナル有効化（KN-01）</div>
+                    <div class="ac-desc">年齢ディメンション復活見込み 5/9-5/11。utm_content × CV のファネル分析（OT-06）の前提条件が整った。</div>
+                </div>
+                <div class="action-card done-card">
+                    <div class="ac-status done">5/6 完了</div>
+                    <div class="ac-title">LCP改善確認（KN-03）</div>
+                    <div class="ac-desc">サイト全体LCP 2月3.54s → 4月2.25s → 5月1.55s と改善済。Google基準2.5sを大幅クリア。LP速度はもはや課題ではない。</div>
+                </div>
+                <div class="action-card done-card">
+                    <div class="ac-status done">5/6 完了</div>
+                    <div class="ac-title">価格訴求-年配版 新クリエイティブ配信開始</div>
+                    <div class="ac-desc">utm_content=price-nenpai、TOP着地、cv_optimize_0314キャンペーン。既存価格訴求とA/Bテスト開始。</div>
+                </div>
+            </div>
+
+            <h3 style="margin: 28px 0 16px; font-size: 1em; color: var(--primary);">クリエイティブ投入タイムライン（継続的に新規投入）</h3>
+            <table class="data-table">
+                <thead>
+                    <tr><th>日付</th><th>クリエ名</th><th>用途</th><th>備考</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>4/7</td><td>日常1 差替</td><td>CV最適化</td><td>購入ゼロ対策（施策ログ）</td></tr>
+                    <tr><td>4/20</td><td><strong>K2「日常4-腸活」</strong></td><td>CV最適化セットB</td><td>30代女性朝の日常Vlog風。ターゲット30-65歳拡大と連動</td></tr>
+                    <tr><td>5/6</td><td><strong>価格訴求-年配版</strong></td><td>CV最適化（cv_optimize_0314）</td><td>utm_content=price-nenpai、TOP着地、既存価格訴求とA/Bテスト</td></tr>
+                    <tr><td>5/9</td><td><strong>悩み訴求v2「朝の違和感」</strong></td><td>3セット並走</td><td>9カット18秒・Veo 3 Fast＋VOICEVOX、LP3着地（utm_content=nayami_v2）</td></tr>
+                </tbody>
+            </table>
+            <div class="note-box info" style="margin-top: 12px;">
+                <strong>クリエ鮮度は維持できている。</strong>3週間に1本ペース以上で新規投入を継続。今後はCR-02（3ヶ月継続UGC）・CR-03（価格訴求v2）・CR-04（ギフト訴求）・CR-05（日常-B拡張）・CR-06（日常3シリーズ第4弾）が制作待ち。
+            </div>
+
+            <h3 style="margin: 28px 0 16px; font-size: 1em; color: var(--primary);">5/9 クリエイティブ刷新</h3>
+            <div class="action-grid">
+                <div class="action-card done-card">
+                    <div class="ac-status done">5/9 完了</div>
+                    <div class="ac-title">悩み訴求v2「朝の違和感」動画クリエ投入（CR-01）</div>
+                    <div class="ac-desc">9カット18秒・Veo 3 Fast＋VOICEVOX＋Cut1/7はKen Burns。「悩み訴求 - 2」として①CV最適化_65+女性_悩み訴求 ②リタゲ_50-69女性_悩み訴求 ③CTA最適化_30-65+女性 の3セットに投入。LP3着地（utm_content=nayami_v2）。既存悩み訴求v1と並走でA/B。<br>3/14から5週間以上同素材で疲弊していた状況の解消第一弾。</div>
+                </div>
+            </div>
+
+            <h3 style="margin: 28px 0 16px; font-size: 1em; color: var(--primary);">その他の構造改善</h3>
+            <div class="action-grid">
+                <div class="action-card done-card">
+                    <div class="ac-status done">4/24 完了</div>
+                    <div class="ac-title">Amazon広告 大規模最適化</div>
+                    <div class="ac-desc">除外KW追加（¥4,928の無駄消化を止めた）・不採算KW3本停止・勝ちKW入札増額。結果5月のCPA ¥1,460・ROAS 2.12と4月前半比で大幅改善。</div>
+                </div>
+                <div class="action-card done-card">
+                    <div class="ac-status done">5/4 完了</div>
+                    <div class="ac-title">アラートv2システム稼働開始</div>
+                    <div class="ac-desc">業界基準診断＋施策ログ＋アクションTOP3を毎朝自動生成。日次レポート＋ターゲ監査＋クリエ鮮度監視を組み合わせた早期検知の仕組み。</div>
+                </div>
+                <div class="action-card done-card">
+                    <div class="ac-status done">5/6 完了</div>
+                    <div class="ac-title">リタゲ広告セット 20代除外</div>
+                    <div class="ac-desc">リタゲ_20-49女性 → リタゲ_30-49女性 に変更。5/6ターゲ監査で20代の購入転換が低いと判明したため除外。35-44女性の比率を上げる狙いも。</div>
+                </div>
+            </div>
+
+            <h3 style="margin: 28px 0 16px; font-size: 1em; color: var(--text-light);">5/2〜5/5 LP・広告改修（4/21会議直後分）</h3>
+            <div class="action-grid">
+                <div class="action-card done-card">
+                    <div class="ac-status done">5/2 完了</div>
+                    <div class="ac-title">飲む美容LP（新LP・若年層向け）本番公開</div>
+                    <div class="ac-desc">Claude Designベースで20-30代向け新LPを制作・WordPressに公開。Noto Serif JP × アンティークゴールド × Hero女性写真 × 3円形バッジ（72mg/L・99円・軟水）。画像21枚をWebP化し合計736KB（旧6.7MBから89%軽量化）。<br>→ <a href="https://michiru.olivia-store.com/water-bibyou/" target="_blank">公開URL（/water-bibyou/）</a></div>
+                </div>
+                <div class="action-card done-card">
+                    <div class="ac-status done">5/3 完了</div>
+                    <div class="ac-title">Meta広告 リンク先 新LP切替</div>
+                    <div class="ac-desc">6本中5本のリンク先を新LP（/water-bibyou/）に切替。リタゲ2本＝utm_campaign=retargeting_0501／最適化3本＝utm_campaign=optimize_0503。#4膝訴求2のみ旧LP維持でA/B対照群に。広告セット・キャンペーンは触らずURLのみ書き換えでピクセル学習温存。</div>
+                </div>
+                <div class="action-card done-card">
+                    <div class="ac-status done">5/3 完了</div>
+                    <div class="ac-title">Yahoo LP CV改善3点パッケージ</div>
+                    <div class="ac-desc">/yahoo/ LPを50-60代女性向けに刷新。①新HERO「年齢を重ねるほど、選びたい一本。」②比較表をのむシリカ風デザインに刷新③Amazon★4.6レビュー4名の「愛飲者の声」セクション新規追加。既存ファイル残置でロールバック可能。</div>
+                </div>
+                <div class="action-card done-card">
+                    <div class="ac-status done">5/3 完了</div>
+                    <div class="ac-title">Yahoo広告 美容KW専用 広告グループ新設</div>
+                    <div class="ac-desc">「美容 水」「肌 に いい 水」など美容系10KWを「美容訴求_water-bibyou」広告グループに分離。リンク先は新LP /water-bibyou/。除外KW12個（silisa plain・シリカコーヒー等）も同日追加で月¥700-1,400節約見込み。</div>
+                </div>
+                <div class="action-card done-card">
+                    <div class="ac-status done">5/5 完了</div>
+                    <div class="ac-title">Meta広告 全9広告のリンク先URL再設定</div>
+                    <div class="ac-desc">美容系7広告→/water-bibyou/、年配向け2広告（膝訴求2・悩み訴求）→/(TOP)。utm_content個別付与で広告別計測可能に。</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== Targeting Audit ===== -->
+    <div class="section">
+        <div class="section-header purple">5/6 ターゲティング監査の発見（重要）</div>
+        <div class="section-body">
+            <div class="note-box info">
+                4月Meta広告データを精査した結果、配信実態が想定と大きく乖離していたことが判明。今後の広告運用の方向性を決定づける発見。
+            </div>
+
+            <table class="data-table">
+                <thead>
+                    <tr><th>発見</th><th>事実</th><th>対応</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>① 男性に40%配信されていた</strong></td>
+                        <td>4月Meta広告で男性配信が全体の40%を占めていた。男性購入計測上0件。Advantage+OFFが必要。</td>
+                        <td>5/6にAdvantage+OFF設定。CR-04「ギフト訴求」素材で男性のクロスデバイスCV狙う方向に転換。</td>
+                    </tr>
+                    <tr class="highlight-row">
+                        <td><strong>② 65+女性が最強層</strong></td>
+                        <td>5月CTR・CPC効率で65+女性が単独最強。次点が35-44女性（CTR 8.25%・CPC ¥15）。</td>
+                        <td>OT-02で65+女性専用セット新設済。OT-03で35-44女性専用セット新設予定。</td>
+                    </tr>
+                    <tr class="alert-row">
+                        <td><strong>③ 認知用カルーセルがCV最適化に混載</strong></td>
+                        <td>認知用素材がCV最適化セットに混入し、興味タップ装置化していた。</td>
+                        <td>素材分離。CR-06「日常3シリーズ第4弾」はCV最適化セット単独投入で再発防止。</td>
+                    </tr>
+                    <tr class="highlight-row">
+                        <td><strong>④ 35-44女性は設定外で発見された層</strong></td>
+                        <td>意図せず配信されていた35-44女性が、5月で最高CTR 8.25% & 最低CPC ¥15を記録。</td>
+                        <td>OT-03で専用セット新設・予算&yen;500から開始予定。リタゲは20-49女性→30-49女性に変更済（20代除外）。</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- ===== Amazon ===== -->
+    <div class="section">
+        <div class="section-header" style="background: linear-gradient(135deg, #FF9900, #FFB84D);">Amazon広告（5月）</div>
+        <div class="section-body">
+            <div class="summary-grid" style="margin-bottom: 20px;">
+                <div class="summary-card green-border">
+                    <div class="sc-label">購入数（5/1〜5/10）</div>
+                    <div class="sc-value green">30件</div>
+                    <div class="sc-sub">日平均 3.0件 / 月間ペース 約93件</div>
+                </div>
+                <div class="summary-card">
+                    <div class="sc-label">売上</div>
+                    <div class="sc-value blue">&yen;92,647</div>
+                    <div class="sc-sub">広告費 &yen;43,801</div>
+                </div>
+                <div class="summary-card">
+                    <div class="sc-label">CPA</div>
+                    <div class="sc-value blue">&yen;1,460</div>
+                    <div class="sc-sub">4月前半 &yen;1,859 から-21%改善</div>
+                </div>
+                <div class="summary-card green-border">
+                    <div class="sc-label">ROAS</div>
+                    <div class="sc-value green">2.12</div>
+                    <div class="sc-sub">4月前半 1.73 から+23%改善</div>
+                </div>
+            </div>
+
+            <h3 style="margin-bottom: 12px; font-size: 1em;">月次比較</h3>
+            <table class="data-table">
+                <thead>
+                    <tr><th>期間</th><th class="num">広告費</th><th class="num">売上</th><th class="num">購入</th><th class="num">CPA</th><th class="num">ROAS</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>4/1〜4/11（11日）</td><td class="num">&yen;33,477</td><td class="num">&yen;57,855</td><td class="num">18件</td><td class="num">&yen;1,859</td><td class="num">1.73</td></tr>
+                    <tr class="highlight-row"><td>5/1〜5/10（10日）</td><td class="num">&yen;43,801</td><td class="num">&yen;92,647</td><td class="num" style="color:var(--success);font-weight:700">30件</td><td class="num" style="color:var(--success);font-weight:700">&yen;1,460</td><td class="num" style="color:var(--success);font-weight:700">2.12</td></tr>
+                </tbody>
+            </table>
+
+            <div class="note-box success" style="margin-top: 16px;">
+                <strong>Amazonは絶好調。</strong>4/24実施の最適化（除外KW追加・不採算KW停止・勝ちKW予算増額）の効果が完全に出ている。日平均3件・月間93件ペースで、カラーミー定期便（月15-16件ペース）を大きく上回るチャネルに。<strong>計測も自社サイトと違いAmazon内完結なので数値の信頼性が高い</strong>。
+            </div>
+
+            <h3 style="margin: 20px 0 12px; font-size: 1em;">4/24実施の最適化内容（参考）</h3>
+            <table class="data-table">
+                <thead>
+                    <tr><th>アクション</th><th>内容</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>① 自動キャンペーン 除外KW追加</strong></td><td>アルカリイオン水・天然シリカ水・シリカ水500ml + ASIN6件（計¥4,928の無駄消化を止めた）</td></tr>
+                    <tr><td><strong>② 不採算KW停止</strong></td><td>水500ml24本・シリカ水500ml・水シリカ（ROAS 0.76赤字）の3KW停止</td></tr>
+                    <tr><td><strong>③ 勝ちKW強化</strong></td><td>「水 シリカ」（完全一致・ROAS 9.21）入札 ¥120→¥160、KW専用日予算 ¥800→¥1,200</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- ===== KPI Target ===== -->
+    <div class="section">
+        <div class="section-header dark">目標ベンチマーク（夏までにCPA &yen;4,000）</div>
+        <div class="section-body">
+            <table class="data-table">
+                <thead>
+                    <tr><th>指標</th><th class="num">前回（4/19時点）</th><th class="num">現在（5/9）</th><th class="num">目標（7月）</th><th>状況</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Meta CPC</strong></td>
+                        <td class="num">&yen;57</td>
+                        <td class="num">&yen;40（期間平均）</td>
+                        <td class="num">&yen;30</td>
+                        <td><span class="badge badge-up">改善</span> ※直近3日¥146-237 要対応</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Yahoo CPC</strong></td>
+                        <td class="num">&yen;41</td>
+                        <td class="num">&yen;39</td>
+                        <td class="num">&yen;35</td>
+                        <td><span class="badge badge-up">改善</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>LP転換率</strong></td>
+                        <td class="num" style="color:var(--danger)">0.75%</td>
+                        <td class="num">推定 0.4-0.6%</td>
+                        <td class="num">1.3%</td>
+                        <td><span class="badge badge-down">悪化傾向（要OT-06ファネル分析）</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>CPA</strong></td>
+                        <td class="num" style="color:var(--warning)">&yen;6,345（4月）</td>
+                        <td class="num" style="color:var(--danger)">&yen;7,950（5月9日まで）</td>
+                        <td class="num">&yen;4,000</td>
+                        <td><span class="badge badge-down">4月→5月 +25%悪化</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>月間購入</strong></td>
+                        <td class="num">16件（4月）</td>
+                        <td class="num">5件/9日（5月）</td>
+                        <td class="num">50件/月</td>
+                        <td><span class="badge badge-down">5月着地予測 約15件</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="note-box warning" style="margin-top: 12px;">
+                <strong>方向性は正しいが、5/7以降のCPC急騰が短期的な逆風。</strong>悩み訴求v2投入（5/9）と価格訴求v2制作（CR-03）でクリエ鮮度を回復。来週前半に効果検証 → 35-44女性セット新設（OT-03）でさらに拡大。
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== Churn Prevention ===== -->
+    <div class="section">
+        <div class="section-header pink">解約対策の進捗（前回会議4/21の議題）</div>
+        <div class="section-body">
+            <div class="note-box info" style="margin-bottom: 16px;">
+                <strong>前回会議の確認事項:</strong> 解約率36.7%（10月〜4月）・1回解約率89.5%・解約理由1位「他社に乗り換え」（28.1%）。F2転換（2回目購入への壁）が最重要課題。<strong>競合「温泉水99」分析と価格改定提案を深掘りした結果を以下に整理。</strong>
+            </div>
+
+            <!-- 価格改定検討 -->
+            <h3 style="margin: 8px 0 12px; font-size: 1.05em; color: var(--primary);">① 価格改定 — 現状維持＋別施策で対応する方針</h3>
+
+            <div class="note-box success">
+                <strong>結論:</strong> 価格は<strong>現状維持</strong>。解約対策は「同梱物」「お試しセット」で進める。価格改定は別施策の効果測定後（2〜3ヶ月後）に再検討。
+            </div>
+
+            <h4 style="margin: 16px 0 8px; font-size: 0.95em;">現状の価格優位性（業界最安水準は既に確保済）</h4>
+            <table class="data-table">
+                <thead>
+                    <tr><th>商品</th><th class="num">シリカ含有量</th><th class="num">1本価格</th></tr>
+                </thead>
+                <tbody>
+                    <tr class="highlight-row"><td><strong>ミチルシリカ（現価格）</strong></td><td class="num">72mg/L</td><td class="num" style="color:var(--success);font-weight:900">¥99</td></tr>
+                    <tr><td>のむシリカ</td><td class="num">97mg/L</td><td class="num">¥103〜120</td></tr>
+                    <tr><td>シリカシリカ</td><td class="num">72mg/L</td><td class="num">¥108</td></tr>
+                    <tr><td>フィジーウォーター</td><td class="num">93mg/L</td><td class="num">¥214〜</td></tr>
+                </tbody>
+            </table>
+
+            <h4 style="margin: 20px 0 8px; font-size: 0.95em;">理由①：1本¥99で既に業界最安。価格優位は確保済</h4>
+            <table class="data-table">
+                <thead>
+                    <tr><th>商品</th><th class="num">1本価格</th></tr>
+                </thead>
+                <tbody>
+                    <tr class="highlight-row"><td><strong>ミチルシリカ（現価格）</strong></td><td class="num" style="color:var(--success);font-weight:900">¥99</td></tr>
+                    <tr><td>のむシリカ</td><td class="num">¥103〜120</td></tr>
+                    <tr><td>シリカシリカ</td><td class="num">¥108</td></tr>
+                    <tr><td>フィジーウォーター</td><td class="num">¥214〜</td></tr>
+                </tbody>
+            </table>
+
+            <h4 style="margin: 20px 0 8px; font-size: 0.95em;">理由②：価格を変えるより、「2回目も買ってもらう率」を上げる方が利益が大きい</h4>
+            <div style="font-size:0.9em; color:var(--text-light); margin-bottom:8px;">
+                💡 <strong>2回目購入率</strong>＝初回購入したお客様のうち、定期便を解約せずに2回目も買ってくれる人の割合。現状は89.5%が1回で解約するので、2回目購入率は<strong>10.5%</strong>しかない。
+            </div>
+            <table class="data-table">
+                <thead>
+                    <tr><th>2回目購入率</th><th class="num">1人あたり利益（広告費差引後）</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>現状 <strong>10.5%</strong>（10人中1人しか続かない）</td><td class="num" style="color:var(--danger);font-weight:700">-¥2,781（赤字）</td></tr>
+                    <tr class="highlight-row"><td><strong>同梱物で30〜50%に改善（10人中3〜5人）</strong></td><td class="num" style="color:var(--success);font-weight:700">-¥405〜+¥3,555</td></tr>
+                </tbody>
+            </table>
+            <div style="font-size:0.85em; color:var(--text-light); margin-top:6px;">※広告費¥6,345・原価¥1,000で試算。2回目購入率を10.5%→30%に上げるだけで赤字→トントン水準</div>
+
+            <h4 style="margin: 24px 0 8px; font-size: 0.95em;">将来 H案（初回30%OFF＋継続20%OFF）が良い理由</h4>
+            <table class="data-table">
+                <thead>
+                    <tr><th>案</th><th class="num">初回</th><th class="num">2回目以降</th><th class="num">ギャップ</th><th>評価</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>現状（初回50%OFF）</td><td class="num">¥1,980</td><td class="num">¥3,960</td><td class="num" style="color:var(--danger)">¥1,980（2倍）</td><td><span class="badge badge-down">ショック大・89.5%解約</span></td></tr>
+                    <tr><td>初回40%OFFのみ</td><td class="num">¥2,376</td><td class="num">¥3,960</td><td class="num" style="color:var(--warning)">¥1,584（1.67倍）</td><td><span class="badge badge-flat">まだショック残る</span></td></tr>
+                    <tr><td>初回30%OFFのみ</td><td class="num">¥2,772</td><td class="num">¥3,960</td><td class="num" style="color:var(--warning)">¥1,188（1.43倍）</td><td><span class="badge badge-flat">継続お得感なし</span></td></tr>
+                    <tr><td>初回20%OFFのみ</td><td class="num">¥3,168</td><td class="num">¥3,960</td><td class="num">¥792（1.25倍）</td><td><span class="badge badge-down">初回お得感薄く新規減</span></td></tr>
+                    <tr class="highlight-row"><td><strong>H案（初回30%＋継続20%OFF）</strong></td><td class="num">¥2,772</td><td class="num">¥3,168</td><td class="num" style="color:var(--success);font-weight:700">¥396（1.14倍）</td><td><span class="badge badge-up">ショック最小＋継続お得感</span></td></tr>
+                </tbody>
+            </table>
+            <div class="note-box success" style="margin-top: 12px; font-size: 0.9em;">
+                <strong>H案が他案より優れている3点:</strong>
+                <ol style="margin-top: 6px; padding-left: 20px;">
+                    <li><strong>ギャップ最小（1.14倍）</strong>：他案は1.25〜2倍のショックが残る</li>
+                    <li><strong>初回30%OFFで新規獲得力を維持</strong>：「明確にお得」と感じる心理閾値（一般に30%OFFが反応の境目とされる）</li>
+                    <li><strong>継続20%OFFで「ずっとお得感」を演出</strong>：定価より安く買い続けられる安心が解約防止に</li>
+                </ol>
+            </div>
+
+            <div class="note-box warning" style="margin-top: 20px;">
+                <strong>推奨ステップ:</strong>
+                <ol style="margin-top: 8px; padding-left: 20px;">
+                    <li>初回同梱チラシ（修正版）の同梱開始 → F2転換率を1〜2ヶ月測定</li>
+                    <li>並行してお試しセット¥980の導入を検討</li>
+                    <li>効果が見えた段階でH案を再検討（既存顧客対応含む）</li>
+                </ol>
+            </div>
+
+            <!-- 温泉水99分析 -->
+            <h3 style="margin: 28px 0 12px; font-size: 1.05em; color: var(--primary);">② 競合「温泉水99」分析 — 同梱物6種類戦略</h3>
+
+            <div class="note-box info">
+                <strong>背景:</strong> 競合「温泉水99」の定期便を分析した結果、ボトル以外に<strong>同梱物6種類（納品書・Q&A・BIB説明書・著名人愛用チラシ・レシピブック・ブランドガイドブック）</strong>を入れて解約防止＆LTV向上を実現していた。<strong>ミチルは現状ほぼ同梱物ゼロ</strong>。「箱を開けた瞬間からの解約防止」をミチルでも実装する方針。
+            </div>
+
+            <table class="data-table" style="margin-top: 12px;">
+                <thead>
+                    <tr><th>同梱物</th><th>内容</th><th>ステータス</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>① 初回同梱チラシ（修正版）</strong></td>
+                        <td>A5両面。感謝メッセージ＋4つの安心ポイント（シリカ72mg/L・軟水24mg/L・1本99円・大分玖珠の天然水）＋定期便の安心訴求（サイクル変更・スキップ・解約方法）<br><strong>→ <a href="https://hoshizaemonn.github.io/michiru-silica-report/同梱物/初回チラシ_修正版.pdf" target="_blank">PDFを開く</a></strong></td>
+                        <td><span class="badge badge-flat">完成済（同梱開始は未実施・印刷判断待ち）</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>② 同梱物A「価格継続のご案内」</strong></td>
+                        <td>定期便継続のメリット訴求。F2転換対策の中核</td>
+                        <td><span class="badge badge-info">優先度★★★ 制作待ち</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>③ 同梱物B「ミチルシリカだけの価値」</strong></td>
+                        <td>選ばれる理由をまとめたブランドカード</td>
+                        <td><span class="badge badge-info">優先度★★ 制作待ち</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>④ 同梱物C「おいしい飲み方ガイド」</strong></td>
+                        <td>最適な飲み方・タイミング・レシピ</td>
+                        <td><span class="badge badge-info">優先度★★ 制作待ち</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>⑤ レシピコンテンツ</strong></td>
+                        <td>炊飯・コーヒー等のシリカ×料理動画（Instagram投稿×Meta広告認知クリエ流用）</td>
+                        <td><span class="badge badge-info">優先度★★ 制作中</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>⑥ 定期購入Q&A紙</strong></td>
+                        <td>A5片面、休止・変更・PFAS等の不安先回り。温泉水99の「電話番号付きQ&A」と同パターン</td>
+                        <td><span class="badge badge-info">優先度★★</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>⑦ ブランドカタログ</strong></td>
+                        <td>産地・シリカ成分・受賞歴のA4×4P冊子（温泉水99の30P雑誌品質ガイドの簡易版）</td>
+                        <td><span class="badge badge-flat">優先度★ 長期（3ヶ月〜）</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>⑧ ボトルQRリンク先変更</strong></td>
+                        <td>QRから販売LPではなく「ブランドストーリー＋レシピ＋お客様の声＋定期便案内」のKinfolk雑誌風コンテンツページへ。5/1モックの仕上がりが良好で、ブランド体験として効果が期待できる</td>
+                        <td><span class="badge badge-info">優先度★★ 練り直し中</span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- お試しセット -->
+            <h3 style="margin: 28px 0 12px; font-size: 1.05em; color: var(--primary);">③ お試しセット導入（¥980入口戦略）</h3>
+
+            <div class="note-box info">
+                定期便の前に「<strong>お試し6本¥980</strong>」を入口にする。<strong>温泉水99・フィジーウォーターと同じ戦略</strong>。お試しで気に入った人が定期便に移行するため1回解約率が大幅に下がる見込み。<strong>業界データではLP転換率が2〜3倍になる事例あり</strong>。
+            </div>
+
+            <!-- まとめ -->
+            <h3 style="margin: 28px 0 12px; font-size: 1.05em; color: var(--primary);">④ クリエイティブ・LP連動</h3>
+            <table class="data-table">
+                <thead>
+                    <tr><th>施策</th><th>状態</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>3ヶ月継続UGC動画クリエ（CR-02）</strong></td><td>「実際に3ヶ月使っている人」のUGC風動画。F2転換対策＋新規両用。5/6ターゲ監査でP1昇格、今月中投入予定</td></tr>
+                </tbody>
+            </table>
+
+            <div class="note-box warning" style="margin-top: 20px;">
+                <strong>本日の確認事項（解約対策）:</strong>
+                <ol style="margin-top: 8px; padding-left: 20px;">
+                    <li><strong>初回同梱チラシ（修正版）の同梱開始判断</strong> — PDF完成済（<a href="https://hoshizaemonn.github.io/michiru-silica-report/同梱物/初回チラシ_修正版.pdf" target="_blank">こちら</a>）。印刷・実際の箱への同梱開始タイミング</li>
+                    <li><strong>同梱物A/B/Cの制作着手判断</strong> — 現状未着手。デザイン案制作から進めるか</li>
+                    <li><strong>お試しセット ¥980入口の導入可否</strong> — 温泉水99・フィジー型の王道戦略。カラーミー側の商品設定が必要</li>
+                    <li><strong>価格は現状維持の方針確認</strong> — 別施策の効果測定後（2〜3ヶ月後）にH案を再検討する流れで進めるか</li>
+                    <li><strong>同梱物⑥⑦（レシピ・Q&A紙）の制作優先度</strong> — 温泉水99レベルの解約防止パッケージ完成に必要</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== Active LPs ===== -->
+    <div class="section">
+        <div class="section-header blue">現在稼働中のLP（3つ）</div>
+        <div class="section-body">
+            <table class="data-table">
+                <thead>
+                    <tr><th>LP</th><th>URL</th><th>用途・流入元</th><th>備考</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>若者向け（飲む美容）</strong></td>
+                        <td><a href="https://michiru.olivia-store.com/water-bibyou/" target="_blank">michiru.olivia-store.com/water-bibyou/</a></td>
+                        <td>Meta広告着地（20-30代）</td>
+                        <td>5/2新規投入。Noto Serif JP × アンティークゴールド × Hero女性写真。Meta広告6本中5本がこちらに着地</td>
+                    </tr>
+                    <tr>
+                        <td><strong>既存（TOP）</strong></td>
+                        <td><a href="https://michiru.olivia-store.com/" target="_blank">michiru.olivia-store.com/</a></td>
+                        <td>Instagram流入の主着地・指名検索</td>
+                        <td>5/5にFVのみ変更。膝訴求2・悩み訴求の2広告のみここに着地（旧LP対照群）</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Yahoo検索専用</strong></td>
+                        <td><a href="https://michiru.olivia-store.com/yahoo/" target="_blank">michiru.olivia-store.com/yahoo/</a></td>
+                        <td>Yahoo検索広告着地（50-60代女性）</td>
+                        <td>5/3にCV改善3点パッケージ実装。新HERO「年齢を重ねるほど、選びたい一本」、比較表をのむシリカ風デザインに刷新、Amazon★4.6レビュー4名の声を追加</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 30px; padding: 20px; font-size: 0.8em; color: var(--text-light);">
+        ミチルシリカ 月次レポート | 2026年5月10日 作成<br>
+        データソース: ミチルシリカ広告ダッシュボード（スプシ確定値） / _TODO.md / 施策ログ.csv<br>
+        スプシ最終更新: 2026/05/10 09:02
+    </div>
+
+</div>
+</body>
+</html>
