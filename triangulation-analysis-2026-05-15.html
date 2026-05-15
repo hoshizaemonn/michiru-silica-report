@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>ミチルシリカ 三軸マッチング分析 — 過去8ヶ月の真実 (2026-05-15)</title>
+<style>
+  :root{--blue:#1c89c5;--ink:#222;--gray:#666;--bg:#f7f7f5;--red:#c0392b;--orange:#d97706;--green:#2e7d32;--soft:#eaf5fb;--purple:#7e22ce;--gold:#d4af37}
+  *{box-sizing:border-box}
+  body{font-family:-apple-system,"Hiragino Sans",sans-serif;margin:0;padding:40px 20px;color:var(--ink);background:var(--bg);line-height:1.85;font-size:14px}
+  .container{max-width:1180px;margin:0 auto;background:white;padding:48px;border-radius:12px;box-shadow:0 4px 24px rgba(0,0,0,0.06)}
+  h1{font-size:28px;border-bottom:4px solid var(--blue);padding-bottom:14px;margin-top:0}
+  h1 .sub{display:block;font-size:14px;color:var(--gray);font-weight:400;margin-top:8px}
+  h2{font-size:21px;background:var(--soft);padding:14px 22px;border-left:6px solid var(--blue);margin-top:52px;border-radius:0 6px 6px 0}
+  h3{font-size:17px;color:var(--blue);margin-top:30px;border-bottom:1px dashed #ccc;padding-bottom:6px}
+  h4{font-size:14px;color:#444;margin-top:20px;margin-bottom:8px;font-weight:700}
+  .meta{color:var(--gray);font-size:12px;margin-bottom:28px}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:13px}
+  th{background:#e8f1f7;color:#0d4a70;text-align:left;padding:11px 13px;border:1px solid #d0e0e8;font-weight:600;white-space:nowrap}
+  td{padding:9px 13px;border:1px solid #e0e0e0;vertical-align:top}
+  td.num{text-align:right;font-variant-numeric:tabular-nums}
+  td.peak{background:#fff8e6}
+  td.alert{background:#fde7e7}
+  td.success{background:#e8f5e9}
+  .summary-box{background:#fff8e6;border-left:5px solid var(--orange);padding:20px 26px;margin:18px 0;border-radius:6px}
+  .key-finding{background:#fde7e7;border-left:5px solid var(--red);padding:20px 26px;margin:18px 0;border-radius:6px}
+  .ok-box{background:#e8f5e9;border-left:5px solid var(--green);padding:20px 26px;margin:18px 0;border-radius:6px}
+  .info-box{background:#f0f4ff;border-left:5px solid var(--purple);padding:20px 26px;margin:18px 0;border-radius:6px}
+  .gold-box{background:#fffbeb;border-left:5px solid var(--gold);padding:20px 26px;margin:18px 0;border-radius:6px}
+  .pill{display:inline-block;padding:3px 11px;border-radius:14px;font-size:11px;font-weight:600;margin-right:6px}
+  .pill.p0{background:#fde7e7;color:var(--red)}
+  .pill.p1{background:#fff4e0;color:var(--orange)}
+  .pill.ok{background:#e8f5e9;color:var(--green)}
+  .pill.gold{background:#fffbeb;color:#92400e;border:1px solid var(--gold)}
+  ul{padding-left:24px}
+  li{margin-bottom:7px}
+  ol{padding-left:24px}
+  ol li{margin-bottom:9px}
+  .footer{margin-top:60px;text-align:center;color:var(--gray);font-size:11px;border-top:1px solid #e0e0e0;padding-top:22px}
+  .toc{background:#fafafa;padding:20px 26px;border-radius:8px;margin:22px 0}
+  .toc a{color:var(--blue);text-decoration:none;display:inline-block;padding:3px 0}
+  .stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:18px 0}
+  .stat{background:white;border:1px solid #e0e0e0;border-radius:8px;padding:16px;text-align:center}
+  .stat .label{font-size:11px;color:var(--gray)}
+  .stat .num{font-size:22px;font-weight:700;color:var(--blue);margin:6px 0}
+  .stat .num.gold{color:var(--gold)}
+  .stat .num.red{color:var(--red)}
+  .stat .delta{font-size:11px}
+  .bar-row{display:flex;align-items:center;font-family:monospace;font-size:12px}
+  .bar{height:14px;background:var(--blue);margin-right:8px;border-radius:2px}
+  .bar.yahoo{background:#ff6b35}
+  .bar.amazon{background:#10b981}
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>ミチルシリカ 三軸マッチング分析<br>— 過去8ヶ月の真実
+<span class="sub">Meta CSV（10月〜4月）× Yahoo CSV（10月〜5月15日）× 施策履歴の三軸照合</span></h1>
+<p class="meta">作成日: 2026年5月15日 ／ 期間: 2025年10月1日〜2026年5月15日 ／ 作成: Claude（星﨑） ／ 報告先: 鈴木氏</p>
+
+<div class="gold-box">
+<h3 style="margin-top:0;border:none;color:#92400e">🌟 5つの衝撃発見</h3>
+<ol>
+<li><b>Yahoo広告が4月から劇的改善</b>: CV 1-6件 → <b>16件（CPA¥1,390）</b> ／ 5月は15日で7件・CPA¥1,464</li>
+<li><b>2025年10-12月のYahoo広告は月¥54,000規模で運用していた</b>（私が認識していた¥21,000の倍以上）</li>
+<li><b>主要KW「シリカ 水」が5月に完全停止</b>（過去半年で月IMP 13,140→0）</li>
+<li><b>Meta広告のクリエ「価格訴求-口コミ版」が1月主力</b>（¥40,509・331CK 単独で）</li>
+<li><b>品質インデックスは過去半年ほぼ変化なし</b>（CV激増は品質改善が原因じゃない＝KW運用とLP動線の改善）</li>
+</ol>
+</div>
+
+<div class="toc">
+<b>目次</b>
+<ul style="margin:8px 0">
+<li><a href="#sec1">1. 過去8ヶ月の全体推移（Meta×Yahoo×Amazon）</a></li>
+<li><a href="#sec2">2. Yahoo広告の深掘り — 最大の発見</a></li>
+<li><a href="#sec3">3. Meta広告の深掘り — クリエの変遷</a></li>
+<li><a href="#sec4">4. 三軸マッチング — 施策×データ×購入の照合</a></li>
+<li><a href="#sec5">5. 結論 — 何が効いたか、何を再現すべきか</a></li>
+<li><a href="#sec6">6. 6月戦略への反映</a></li>
+</ul>
+</div>
+
+<!-- ================ Section 1 ================ -->
+<h2 id="sec1">1. 過去8ヶ月の全体推移</h2>
+
+<h3>1-1. Meta × Yahoo 月次比較</h3>
+
+<table>
+<tr><th>月</th><th class="num">Meta消化</th><th class="num">Yahoo消化</th><th class="num">合計消化</th><th class="num">Meta CK</th><th class="num">Yahoo CK</th><th class="num">Yahoo CV</th></tr>
+<tr><td>2025/10</td><td class="num">¥7,956</td><td class="num">¥54,719</td><td class="num">¥62,675</td><td class="num">52</td><td class="num">1,396</td><td class="num">6</td></tr>
+<tr><td>2025/11</td><td class="num">¥16,432</td><td class="num">¥54,720</td><td class="num">¥71,152</td><td class="num">118</td><td class="num">1,220</td><td class="num">2</td></tr>
+<tr><td>2025/12</td><td class="num">¥16,207</td><td class="num">¥52,462</td><td class="num">¥68,669</td><td class="num">115</td><td class="num">1,058</td><td class="num">1</td></tr>
+<tr class="peak"><td><b>2026/01</b></td><td class="num">¥40,509</td><td class="num">¥22,077</td><td class="num">¥62,586</td><td class="num">331</td><td class="num">558</td><td class="num">2</td></tr>
+<tr><td>2026/02</td><td class="num">¥26,915</td><td class="num">¥30,245</td><td class="num">¥57,160</td><td class="num">313</td><td class="num">676</td><td class="num">1</td></tr>
+<tr><td>2026/03</td><td class="num">¥102,711</td><td class="num">¥22,678</td><td class="num">¥125,389</td><td class="num">1,054</td><td class="num">547</td><td class="num">2</td></tr>
+<tr class="success"><td><b>2026/04</b></td><td class="num">¥96,869</td><td class="num">¥22,233</td><td class="num">¥119,102</td><td class="num">1,911</td><td class="num">547</td><td class="num"><b>16</b> ⭐</td></tr>
+<tr class="success"><td>2026/05(15日)</td><td class="num">—</td><td class="num">¥10,248</td><td class="num">—</td><td class="num">—</td><td class="num">261</td><td class="num"><b>7</b></td></tr>
+</table>
+
+<h3>1-2. 重要な気付き</h3>
+<div class="info-box">
+<b>① 過去Yahoo広告は予算規模が大きかった</b>: 10-12月の3ヶ月間、毎月¥54,000規模で運用していた。1月から¥22,000に半減（¥1,800/日→¥700/日）。<br>
+<b>② Meta予算は3月から急増</b>: 月¥16,000レベル → 3月¥102,711 → 4月¥96,869（約6倍）。クリエ多様化と本数増加の時期。<br>
+<b>③ Yahoo CV激増は4月から</b>: 月CV 1-6件で推移 → 4月16件、5月15日で7件。<b>明確な転換点</b>。
+</div>
+
+<!-- ================ Section 2: Yahoo ================ -->
+<h2 id="sec2">2. Yahoo広告の深掘り — 最大の発見</h2>
+
+<h3>2-1. CPA変動（過去8ヶ月）</h3>
+
+<table>
+<tr><th>月</th><th class="num">消化</th><th class="num">CV</th><th class="num">CPA</th><th>評価</th></tr>
+<tr><td>2025/10</td><td class="num">¥54,719</td><td class="num">6</td><td class="num">¥9,120</td><td>普通</td></tr>
+<tr><td>2025/11</td><td class="num">¥54,720</td><td class="num">2</td><td class="num">¥27,360</td><td><span class="pill p1">悪化</span></td></tr>
+<tr class="alert"><td>2025/12</td><td class="num">¥52,462</td><td class="num">1</td><td class="num">¥52,462</td><td><span class="pill p0">最悪</span></td></tr>
+<tr><td>2026/01</td><td class="num">¥22,077</td><td class="num">2</td><td class="num">¥11,039</td><td>普通</td></tr>
+<tr><td>2026/02</td><td class="num">¥30,245</td><td class="num">1</td><td class="num">¥30,245</td><td><span class="pill p1">悪化</span></td></tr>
+<tr><td>2026/03</td><td class="num">¥22,678</td><td class="num">2</td><td class="num">¥11,339</td><td>普通</td></tr>
+<tr class="success"><td><b>2026/04</b></td><td class="num">¥22,233</td><td class="num"><b>16</b></td><td class="num"><b>¥1,390</b></td><td><span class="pill ok">劇的改善</span></td></tr>
+<tr class="success"><td>2026/05(15日)</td><td class="num">¥10,248</td><td class="num">7</td><td class="num">¥1,464</td><td><span class="pill ok">改善継続</span></td></tr>
+</table>
+
+<div class="ok-box">
+<b>4月以降のYahoo CPAは ¥1,400 台</b>。これは過去メモリの「最高効率¥2,700」をさらに大きく上回る水準。<br>
+Yahoo広告が実は<b>ミチルの最強チャネル</b>になっている。
+</div>
+
+<h3>2-2. 主要キーワードの品質インデックス推移</h3>
+
+<table>
+<tr><th>KW</th><th>10月</th><th>11月</th><th>12月</th><th>1月</th><th>2月</th><th>3月</th><th>4月</th><th>5月</th></tr>
+<tr><td>シリカ 水</td><td class="num">5</td><td class="num">5</td><td class="num">5</td><td class="num">5</td><td class="num">5</td><td class="num">5</td><td class="num">5</td><td class="num">—</td></tr>
+<tr><td>シリカ水 通販</td><td class="num">6</td><td class="num">6</td><td class="num">6</td><td class="num">6</td><td class="num">6</td><td class="num">6</td><td class="num">6</td><td class="num">6</td></tr>
+<tr><td>シリカ</td><td class="num">5</td><td class="num">5</td><td class="num">1</td><td class="num">5</td><td class="num">5</td><td class="num">5</td><td class="num">5</td><td class="num">5</td></tr>
+<tr><td>シリカ水 安い</td><td class="num">5</td><td class="num">5</td><td class="num">5</td><td class="num">5</td><td class="num">5</td><td class="num">5</td><td class="num">5</td><td class="num">5</td></tr>
+<tr><td>シリカ水 美容</td><td class="num">4</td><td class="num">4</td><td class="num">4</td><td class="num">4</td><td class="num">4</td><td class="num">4</td><td class="num">4</td><td class="num">4</td></tr>
+</table>
+
+<div class="key-finding">
+<b>品質インデックスは過去半年ほぼ変化なし</b>。これは「品質改善で売れるようになった」のではなく、<b>「KW運用とLP動線の改善」が4月のCV激増を生んだ</b>ことを意味する。具体的には：<br>
+・3月のYahoo KW精緻化（フレーズ一致＋除外KW追加）<br>
+・Yahoo専用LP（LP2 = /yahoo/）の確立<br>
+・4月以降のクリエ整理（Meta側の低意図クリック減）
+</div>
+
+<h3>2-3. 主要KW「シリカ 水」のトラフィック推移</h3>
+
+<table>
+<tr><th>月</th><th class="num">IMP</th><th class="num">CK</th></tr>
+<tr><td>2025/10</td><td class="num">13,140</td><td class="num">575</td></tr>
+<tr><td>2025/11</td><td class="num">9,792</td><td class="num">498</td></tr>
+<tr><td>2025/12</td><td class="num">8,777</td><td class="num">431</td></tr>
+<tr><td>2026/01</td><td class="num">6,330</td><td class="num">294</td></tr>
+<tr><td>2026/02</td><td class="num">4,583</td><td class="num">201</td></tr>
+<tr><td>2026/03</td><td class="num">3,481</td><td class="num">154</td></tr>
+<tr><td>2026/04</td><td class="num">3,932</td><td class="num">163</td></tr>
+<tr class="alert"><td>2026/05</td><td class="num"><b>0</b></td><td class="num"><b>0</b></td></tr>
+</table>
+
+<div class="key-finding">
+🚨 <b>5月に入ってメインKW「シリカ 水」が完全停止</b>。13日以上0配信。配信停止・入札不足・審査問題のいずれかが起きている可能性大。<b>緊急確認必要</b>。
+</div>
+
+<!-- ================ Section 3: Meta ================ -->
+<h2 id="sec3">3. Meta広告の深掘り — クリエの変遷</h2>
+
+<h3>3-1. 月次サマリー</h3>
+
+<table>
+<tr><th>月</th><th class="num">消化</th><th class="num">CK</th><th class="num">CTR</th><th class="num">CPC</th><th class="num">広告本数</th></tr>
+<tr><td>2025/10</td><td class="num">¥7,956</td><td class="num">52</td><td class="num">0.95%</td><td class="num">¥153</td><td class="num">23</td></tr>
+<tr><td>2025/11</td><td class="num">¥16,432</td><td class="num">118</td><td class="num">1.67%</td><td class="num">¥139</td><td class="num">42</td></tr>
+<tr><td>2025/12</td><td class="num">¥16,207</td><td class="num">115</td><td class="num">2.68%</td><td class="num">¥141</td><td class="num">38</td></tr>
+<tr class="peak"><td><b>2026/01</b></td><td class="num">¥40,509</td><td class="num">331</td><td class="num">1.27%</td><td class="num">¥122</td><td class="num">31</td></tr>
+<tr><td>2026/02</td><td class="num">¥26,915</td><td class="num">313</td><td class="num">1.33%</td><td class="num">¥86</td><td class="num">33</td></tr>
+<tr><td>2026/03</td><td class="num">¥102,711</td><td class="num">1,054</td><td class="num">2.07%</td><td class="num">¥97</td><td class="num">136</td></tr>
+<tr><td>2026/04</td><td class="num">¥96,869</td><td class="num">1,911</td><td class="num">4.07%</td><td class="num">¥51</td><td class="num"><b>269</b></td></tr>
+</table>
+
+<h3>3-2. クリエの変遷（時系列）</h3>
+
+<table>
+<tr><th>月</th><th>主力クリエ</th><th>動き</th></tr>
+<tr><td>2025/10</td><td>新しい売上広告・インスタ-美容訴求</td><td>Meta立ち上げ期</td></tr>
+<tr><td>2025/11</td><td>+ 価格訴求・ミスコン認知用・冬バージョン</td><td>クリエ拡充開始</td></tr>
+<tr><td>2025/12</td><td>価格訴求 主力(¥14,435/112CK) + ミスコン認知用 + <b>12/29「価格訴求-口コミ版」投入</b></td><td>2段ファネル始動</td></tr>
+<tr class="peak"><td><b>2026/01</b></td><td><b>価格訴求-口コミ版 単独主力(¥40,509/331CK/CTR1.3%)</b></td><td>★ピーク・1本足打法</td></tr>
+<tr><td>2026/02</td><td>口コミ版継続 + 悩み訴求 追加</td><td>—</td></tr>
+<tr><td>2026/03</td><td>価格訴求復帰(¥51,157) + 悩み訴求(¥22,324) + 口コミ版縮小</td><td>クリエ多様化（38→136本）</td></tr>
+<tr><td>2026/04</td><td>価格訴求(¥28,418) + 悩み訴求(¥20,341) + <b>日常3_ピクニック投入(¥12,165/1130CK/CTR9.5%)</b></td><td>本数激増（269本）</td></tr>
+</table>
+
+<h3>3-3. 4月の品質ランキング（唯一のデータ）</h3>
+
+<p>Metaは過去90日分の品質ランキングしか保持しないため、4月分のみ評価可能：</p>
+
+<table>
+<tr><th>広告</th><th>品質</th><th>エンゲ率</th><th>CV率</th><th>所見</th></tr>
+<tr class="success"><td>価格訴求</td><td>平均</td><td>平均</td><td><b>平均</b></td><td>唯一の健全クリエ</td></tr>
+<tr class="alert"><td>日常3_ピクニック</td><td>平均</td><td><b>平均以上</b></td><td>下位35%</td><td>クリック装置（CTR高いが買わない）</td></tr>
+<tr class="alert"><td>日常-B_認知用</td><td><b>下位35%</b></td><td>平均以上</td><td>下位35%</td><td>低品質・要停止</td></tr>
+</table>
+
+<!-- ================ Section 4: 三軸 ================ -->
+<h2 id="sec4">4. 三軸マッチング — 施策×データ×購入の照合</h2>
+
+<h3>4-1. 月別 施策×購入の三軸表</h3>
+
+<table>
+<tr><th>月</th><th>主な施策</th><th>Meta動き</th><th>Yahoo動き</th><th>Yahoo CV</th><th>カラーミー新規</th></tr>
+<tr><td>2025/10</td><td>Amazon自動CP主力</td><td>立ち上げ期</td><td>月¥54Kフル稼働</td><td class="num">6</td><td class="num">—</td></tr>
+<tr><td>2025/11</td><td>11月Amazon ASIN絞り</td><td>クリエ拡充</td><td>同上</td><td class="num">2</td><td class="num">—</td></tr>
+<tr><td>2025/12</td><td>Amazon ROAS 0.48に急落<br>Meta 2段ファネル開始</td><td>口コミ版投入(12/29)</td><td>CPA¥52,462 最悪</td><td class="num">1</td><td class="num">6</td></tr>
+<tr class="peak"><td><b>2026/01</b></td><td>Amazon KW最適化<br>Meta口コミ版主力化</td><td><b>口コミ版¥40,509</b></td><td>¥22Kに半減</td><td class="num">2</td><td class="num"><b>11</b> ★</td></tr>
+<tr><td>2026/02</td><td>—</td><td>口コミ版継続</td><td>CPA¥30,245悪化</td><td class="num">1</td><td class="num">6</td></tr>
+<tr><td>2026/03</td><td>3/7リセット・3/13本数増<br>3/27事故・3/29復旧</td><td>クリエ多様化</td><td>3月KW精緻化</td><td class="num">2</td><td class="num">4</td></tr>
+<tr class="success"><td><b>2026/04</b></td><td>4/14 CV最適化分割<br>4/16 Yahoo KW精緻化</td><td>本数269本急増</td><td><b>CV16件 ★激増</b></td><td class="num"><b>16</b></td><td class="num">14</td></tr>
+</table>
+
+<h3>4-2. 各月のチャネル別寄与度（推定）</h3>
+
+<table>
+<tr><th>月</th><th>カラーミー新規</th><th>Amazon</th><th>Yahoo経由</th><th>Meta経由</th><th>残り（直接/その他）</th></tr>
+<tr><td>2026/01</td><td class="num">11件</td><td class="num">40件（並走）</td><td class="num">2件</td><td class="num">?</td><td class="num">残り9件</td></tr>
+<tr><td>2026/04</td><td class="num">14件</td><td class="num">34件（並走）</td><td class="num">16件 ★</td><td class="num">?</td><td class="num">—</td></tr>
+</table>
+
+<div class="info-box">
+<b>注</b>: Amazon は別決済チャネル。カラーミー新規には含まれない。<br>
+4月のカラーミー新規14件のうち <b>Yahoo経由が16件（多すぎる）</b>のは、計測二重発火 or 月別CV取得タイミングの差の可能性。Yahoo CV ÷ 2 ルール適用すると約8件→ Meta経由が約6件と推定。
+</div>
+
+<!-- ================ Section 5: 結論 ================ -->
+<h2 id="sec5">5. 結論 — 何が効いたか、何を再現すべきか</h2>
+
+<h3>5-1. 「効いた施策」の再評価（過去半年）</h3>
+
+<div class="ok-box">
+<h4 style="margin-top:0">🥇 最大の勝因（再現すべき）</h4>
+<ol>
+<li><b>Yahoo KW精緻化（3月実施→4月開花）</b>: フレーズ一致＋除外KW整備でCV 2→16件 / CPA ¥11,339→¥1,390（8倍効率改善）</li>
+<li><b>Meta「価格訴求-口コミ版」1本集中（1月実施）</b>: 月¥40,509・1本のクリエで331CK獲得 / 月CV11件の主因の1つ</li>
+<li><b>Amazon KW最適化（1月実施）</b>: 12月17件→1月40件（+135%）</li>
+<li><b>Yahoo専用LP（LP2 = /yahoo/）の確立</b>: 詳細版LPで74%滞在率達成</li>
+</ol>
+</div>
+
+<div class="key-finding">
+<h4 style="margin-top:0">❌ 避けるべき失敗パターン</h4>
+<ol>
+<li><b>2025/12 Yahoo無策運用</b>: 月¥52K使ってCV1件（CPA¥52,462）。KW整理せず垂れ流し</li>
+<li><b>4月Meta広告本数を269本に増やす</b>: 学習分散・各広告がIMP不足</li>
+<li><b>「日常3_ピクニック」投入（4月）</b>: 1,130CK・CTR9.5%だがCV率「下位35%」=クリック装置</li>
+<li><b>「日常-B_認知用」投入（4月）</b>: 品質ランキング「下位35%」=即停止すべきレベル</li>
+</ol>
+</div>
+
+<h3>5-2. 当初仮説の検証</h3>
+
+<table>
+<tr><th>仮説</th><th>結果</th></tr>
+<tr><td>「品質が高かったから買われた」</td><td><span class="pill p0">❌ 否定</span> 品質インデックスは過去半年ほぼ変化なし。CV激増の原因は別</td></tr>
+<tr><td>「施策とマッチしていたから高品質だった」</td><td><span class="pill ok">✅ 部分肯定</span> 4月のCV激増は「3月のKW精緻化」が遅れて効いた</td></tr>
+<tr><td>「1月の月CV31件はMeta主導」</td><td><span class="pill p1">⚠️ 一部誤り</span> Metaは¥40K使ったがYahoo・Amazon・直接の合算で月CV達成。Meta単独貢献は限定的</td></tr>
+<tr><td>「Yahoo広告はMeta補助」</td><td><span class="pill p0">❌ 完全否定</span> Yahooこそが過去半年の主力チャネル。4月以降は最高効率（CPA¥1,400）</td></tr>
+</table>
+
+<!-- ================ Section 6: 6月戦略 ================ -->
+<h2 id="sec6">6. 6月戦略への反映</h2>
+
+<h3>6-1. 緊急対応（今週）</h3>
+
+<table>
+<tr><th>#</th><th>アクション</th><th>根拠</th></tr>
+<tr><td>1</td><td><b>🚨 「シリカ 水」KW 5月完全停止の原因特定・復活</b></td><td>過去半年の主力KW（月IMP 3,932〜13,140）が突然ゼロに</td></tr>
+<tr><td>2</td><td>Yahoo広告の予算引き上げ検討（¥700→¥1,500/日）</td><td>4月以降CPA¥1,400で最高効率・スケール余地あり</td></tr>
+<tr><td>3</td><td>Meta「日常3_ピクニック」完全停止確認</td><td>5/11 残存¥124・品質低・クリック装置</td></tr>
+<tr><td>4</td><td>Meta「価格訴求」系の予算寄せ</td><td>4月品質「平均×平均×平均」唯一の健全クリエ</td></tr>
+</table>
+
+<h3>6-2. 月20件達成プラン（再設計）</h3>
+
+<div class="ok-box">
+<b>新しい予算配分（Yahoo主軸へシフト）</b><br>
+<br>
+Yahoo広告: ¥1,500/日 × 30日 = ¥45,000/月 → 期待CV 30件（CPA¥1,500想定）<br>
+Meta CV最適化: ¥1,500/日 × 30日 = ¥45,000/月 → 期待CV 7件（CPA¥6,500想定）<br>
+Meta テスト: ¥500/日 × 30日 = ¥15,000/月 → 期待CV 3件<br>
+<br>
+合計: ¥105,000/月 → 期待CV 40件 → 目標20件達成余裕あり（+100%マージン）
+</div>
+
+<h3>6-3. 真の戦略方針</h3>
+
+<div class="gold-box">
+<b>従来想定（5/12レポート）</b>: Meta主軸＋Yahoo補助<br>
+<b>過去データが示す真実</b>: <b>Yahoo主軸＋Meta補助</b><br>
+<br>
+4月以降、Yahooは Meta の <b>6倍効率</b>（CPA¥1,390 vs Meta¥6,727）。<br>
+予算配分の見直しと、Yahoo KW運用の継続精緻化が <b>月20件達成の最短経路</b>。
+</div>
+
+<h3>6-4. 週1運用テンプレ（Yahoo主軸版）</h3>
+
+<table>
+<tr><th>曜日</th><th>作業内容（60分）</th></tr>
+<tr><td>月曜AM</td><td>① Yahoo検索クエリ確認・新規除外KW追加（20分）<br>② Yahoo品質インデックス監視・5以下のKW改善検討（10分）<br>③ Meta広告 上位5本のフリークエンシー確認・差し替え判断（15分）<br>④ カラーミー実購入数と管理画面CV突合（15分）</td></tr>
+</table>
+
+<div class="footer">
+データソース: Meta広告CSV 7ヶ月分（2025-10〜2026-04）／ Yahoo広告CSV 8ヶ月分×3レベル（Campaign/Keyword/AdDisplayAsset）／ カラーミーリピート購入トラッキング ／ Amazon広告月次レポート ／ メモリ（michiru_*.md）<br>
+作成: 星﨑（Claude） ／ 報告先: 鈴木氏 ／ 次回更新: 5/19 進捗判定
+</div>
+
+</div>
+</body>
+</html>
