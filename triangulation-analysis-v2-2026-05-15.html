@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>ミチルシリカ 三軸マッチング分析 v2 — 真の発見と新戦略 (2026-05-15)</title>
+<style>
+  :root{--blue:#1c89c5;--ink:#222;--gray:#666;--bg:#f7f7f5;--red:#c0392b;--orange:#d97706;--green:#2e7d32;--soft:#eaf5fb;--purple:#7e22ce;--gold:#d4af37}
+  *{box-sizing:border-box}
+  body{font-family:-apple-system,"Hiragino Sans",sans-serif;margin:0;padding:40px 20px;color:var(--ink);background:var(--bg);line-height:1.85;font-size:14px}
+  .container{max-width:1180px;margin:0 auto;background:white;padding:48px;border-radius:12px;box-shadow:0 4px 24px rgba(0,0,0,0.06)}
+  h1{font-size:28px;border-bottom:4px solid var(--blue);padding-bottom:14px;margin-top:0}
+  h1 .sub{display:block;font-size:14px;color:var(--gray);font-weight:400;margin-top:8px}
+  h2{font-size:21px;background:var(--soft);padding:14px 22px;border-left:6px solid var(--blue);margin-top:52px;border-radius:0 6px 6px 0}
+  h3{font-size:17px;color:var(--blue);margin-top:30px;border-bottom:1px dashed #ccc;padding-bottom:6px}
+  h4{font-size:14px;color:#444;margin-top:20px;margin-bottom:8px;font-weight:700}
+  .meta{color:var(--gray);font-size:12px;margin-bottom:28px}
+  .v1-note{background:#fef9f9;border:1px solid #fcd34d;padding:14px 20px;border-radius:8px;margin:18px 0;font-size:13px}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:13px}
+  th{background:#e8f1f7;color:#0d4a70;text-align:left;padding:11px 13px;border:1px solid #d0e0e8;font-weight:600;white-space:nowrap}
+  td{padding:9px 13px;border:1px solid #e0e0e0;vertical-align:top}
+  td.num{text-align:right;font-variant-numeric:tabular-nums}
+  td.peak{background:#fffbeb}
+  td.alert{background:#fde7e7}
+  td.success{background:#e8f5e9}
+  .summary-box{background:#fff8e6;border-left:5px solid var(--orange);padding:20px 26px;margin:18px 0;border-radius:6px}
+  .key-finding{background:#fde7e7;border-left:5px solid var(--red);padding:20px 26px;margin:18px 0;border-radius:6px}
+  .ok-box{background:#e8f5e9;border-left:5px solid var(--green);padding:20px 26px;margin:18px 0;border-radius:6px}
+  .info-box{background:#f0f4ff;border-left:5px solid var(--purple);padding:20px 26px;margin:18px 0;border-radius:6px}
+  .gold-box{background:#fffbeb;border-left:5px solid var(--gold);padding:20px 26px;margin:18px 0;border-radius:6px}
+  .pill{display:inline-block;padding:3px 11px;border-radius:14px;font-size:11px;font-weight:600;margin-right:6px}
+  .pill.p0{background:#fde7e7;color:var(--red)}
+  .pill.p1{background:#fff4e0;color:var(--orange)}
+  .pill.ok{background:#e8f5e9;color:var(--green)}
+  .pill.ng{background:#fde7e7;color:var(--red)}
+  ul{padding-left:24px}
+  li{margin-bottom:7px}
+  ol{padding-left:24px}
+  ol li{margin-bottom:9px}
+  .footer{margin-top:60px;text-align:center;color:var(--gray);font-size:11px;border-top:1px solid #e0e0e0;padding-top:22px}
+  .toc{background:#fafafa;padding:20px 26px;border-radius:8px;margin:22px 0}
+  .toc a{color:var(--blue);text-decoration:none;display:inline-block;padding:3px 0}
+  .stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:18px 0}
+  .stat{background:white;border:1px solid #e0e0e0;border-radius:8px;padding:16px;text-align:center}
+  .stat .label{font-size:11px;color:var(--gray)}
+  .stat .num{font-size:22px;font-weight:700;color:var(--blue);margin:6px 0}
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>ミチルシリカ 三軸マッチング分析 v2<br>— 真の発見と新戦略
+<span class="sub">カラーミーCSV × 代引きスプシ × Meta×Yahoo×GA4 全データ統合版</span></h1>
+<p class="meta">作成日: 2026年5月15日 ／ 期間: 2025年10月1日〜2026年5月15日 ／ 作成: Claude（星﨑） ／ 報告先: 鈴木氏</p>
+
+<div class="v1-note">
+<b>📝 v1からの主な訂正</b><br>
+v1（同日作成）の「Yahoo主軸へシフト」結論は <b>Yahoo CV二重発火問題</b>による誤判断でした。本v2はGA4 cv_40・カラーミー実購入・代引きスプシの実数で再分析。<br>
+真の発見: <b>1月20件ピークの主因はLP上カラーミー埋め込み購入フォーム</b>でした。
+</div>
+
+<div class="gold-box">
+<h3 style="margin-top:0;border:none;color:#92400e">🌟 5つの真の発見（v2）</h3>
+<ol>
+<li><b>過去ピークは2026年1月20件</b>（カラーミー8件 + 代引き12件）— 月20件は <b>過去達成済みの水準</b></li>
+<li><b>1月の代引き12件は全て「フォーム経由」</b>（電話注文じゃない）— LP上のカラーミー埋め込みフォームが主因</li>
+<li><b>4月にLP埋め込み購入フォームを外した</b>（LP速度改善のため）— その後代引きが12→5→2件に減少</li>
+<li><b>Yahoo CV「16件」は計測誤作動</b>（GA4実数は2件）— 4月Yahoo CPAは¥1,390じゃなく¥11,116</li>
+<li><b>品質インデックスは過去半年ほぼ変化なし</b>（5-6で安定）— CV変動は品質じゃなく動線が要因</li>
+</ol>
+</div>
+
+<div class="toc">
+<b>目次</b>
+<ul style="margin:8px 0">
+<li><a href="#sec1">1. 過去8ヶ月の真の購入推移（カラーミー + 代引き）</a></li>
+<li><a href="#sec2">2. 重大発見: LP埋め込みフォームの影響</a></li>
+<li><a href="#sec3">3. 計測の信頼性問題（v1の誤り訂正）</a></li>
+<li><a href="#sec4">4. チャネル別実数（GA4 cv_40準拠）</a></li>
+<li><a href="#sec5">5. 真の戦略 — 月20件達成への新ルート</a></li>
+<li><a href="#sec6">6. 6月実行プラン</a></li>
+</ul>
+</div>
+
+<!-- ================ Section 1 ================ -->
+<h2 id="sec1">1. 過去8ヶ月の真の購入推移</h2>
+
+<h3>1-1. 月次新規購入（カラーミー + 代引き）</h3>
+
+<table>
+<tr><th>月</th><th class="num">カラーミー新規</th><th class="num">代引き</th><th class="num">合計新規</th><th>備考</th></tr>
+<tr><td>2025/10</td><td class="num">14</td><td class="num">0</td><td class="num">14</td><td>—</td></tr>
+<tr><td>2025/11</td><td class="num">5</td><td class="num">3</td><td class="num">8</td><td>—</td></tr>
+<tr><td>2025/12</td><td class="num">7</td><td class="num">3</td><td class="num">10</td><td>LP埋め込み開始？</td></tr>
+<tr class="peak"><td><b>2026/01</b></td><td class="num">8</td><td class="num">12 ⭐</td><td class="num"><b>20</b> ⭐</td><td><b>★過去最大</b>・LP埋め込み×フォーム代引き</td></tr>
+<tr><td>2026/02</td><td class="num">9</td><td class="num">5</td><td class="num">14</td><td>—</td></tr>
+<tr><td>2026/03</td><td class="num">8</td><td class="num">5</td><td class="num">13</td><td>3/27事故あり</td></tr>
+<tr class="success"><td>2026/04</td><td class="num">12</td><td class="num">5</td><td class="num">17</td><td><b>LP埋め込み外す</b>・速度改善</td></tr>
+<tr><td>2026/05 (15日)</td><td class="num">4</td><td class="num">2</td><td class="num">6</td><td>月換算12件ペース</td></tr>
+</table>
+
+<div class="info-box">
+<b>過去8ヶ月の合計</b>: 新規購入 101件（カラーミー67件 + 代引き35件 / うち代引きは35%）<br>
+<b>月平均</b>: 12.6件（5月分は半月で換算）<br>
+<b>月20件は1月で1度だけ達成</b>。<b>達成可能だが、再現には1月の特殊条件の解明が必要</b>。
+</div>
+
+<h3>1-2. 受付方法の月別推移（代引き分）</h3>
+
+<table>
+<tr><th>月</th><th class="num">TEL</th><th class="num">フォーム</th><th class="num">電話</th><th class="num">合計</th></tr>
+<tr><td>2025/11</td><td class="num">1</td><td class="num">2</td><td class="num">0</td><td class="num">3</td></tr>
+<tr><td>2025/12</td><td class="num">1</td><td class="num">2</td><td class="num">0</td><td class="num">3</td></tr>
+<tr class="peak"><td><b>2026/01</b></td><td class="num">0</td><td class="num"><b>12</b> ⭐</td><td class="num">0</td><td class="num">12</td></tr>
+<tr><td>2026/02</td><td class="num">0</td><td class="num">4</td><td class="num">1</td><td class="num">5</td></tr>
+<tr><td>2026/03</td><td class="num">0</td><td class="num">4</td><td class="num">1</td><td class="num">5</td></tr>
+<tr><td>2026/04</td><td class="num">0</td><td class="num">5</td><td class="num">0</td><td class="num">5</td></tr>
+<tr><td>2026/05</td><td class="num">0</td><td class="num">2</td><td class="num">0</td><td class="num">2</td></tr>
+</table>
+
+<div class="key-finding">
+<b>1月の代引き12件は全て「フォーム経由」</b>。電話注文ではない。<br>
+他の月（2-5件）の倍以上。LP上のカラーミー埋め込みフォームから代引きを選んだユーザーの集中発生。
+</div>
+
+<!-- ================ Section 2 ================ -->
+<h2 id="sec2">2. 重大発見: LP埋め込みフォームの影響</h2>
+
+<h3>2-1. LP構成の歴史的変遷</h3>
+
+<table>
+<tr><th>期間</th><th>LP上フォーム</th><th>LP速度(LCP)</th><th>代引き月平均</th><th>合計新規月平均</th></tr>
+<tr><td>2025/10-11</td><td>なし（推定）</td><td>遅い</td><td class="num">1.5件</td><td class="num">11件</td></tr>
+<tr class="peak"><td>2025/12-2026/03</td><td><b>あり（埋め込み）</b></td><td>6.2秒（遅い）</td><td class="num">6.25件</td><td class="num"><b>14.25件</b></td></tr>
+<tr class="success"><td>2026/04-05</td><td>なし（外部リダイレクト）</td><td>1.55秒（速い）</td><td class="num">3.5件</td><td class="num">11.5件</td></tr>
+</table>
+
+<div class="key-finding">
+<b>LP上フォーム埋め込み期（12-3月）に合計新規が月平均14件と最大</b>。LP速度を犠牲にしていたが、購入動線は最も強かった。<br>
+4月以降は速度改善と引き換えに購入動線が弱体化。
+</div>
+
+<h3>2-2. なぜLP埋め込みが効くか</h3>
+
+<table>
+<tr><th>動線</th><th>挙動</th><th>離脱リスク</th></tr>
+<tr class="success"><td>LP埋め込み</td><td>LP閲覧 → そのまま入力 → 完了</td><td>低（ドメイン切り替えなし）</td></tr>
+<tr class="alert"><td>外部リダイレクト</td><td>LP閲覧 → colorme-repeat.jpへ遷移 → 入力 → 完了</td><td>高（ドメイン切り替えで不信感）</td></tr>
+</table>
+
+<p>前回分析（5/12 Meta・Yahoo・LP分析）で発見した「<b>申込フォーム到達8人で完了0人</b>」の現象は、まさに外部リダイレクトの離脱率の表れ。LP埋め込み期間ならこの離脱は発生しなかった可能性。</p>
+
+<h3>2-3. LP埋め込み復活は難しい — 別の打ち手が必要</h3>
+
+<p>LP埋め込みを外した理由は「LP速度を上げるため」と確認済み。LCP 6.2秒 → 1.55秒の改善は重要な成果なので、復活は難しい。</p>
+
+<p>代わりに、<b>外部リダイレクトのままで離脱率を下げる施策</b>が必要：</p>
+
+<ol>
+<li>カラーミーリピート申込ページの<b>FV情報固定</b>（1本49円・縛りなし・送料無料）</li>
+<li>LP→外部遷移時の<b>安心メッセージ</b>追加（「次の画面はミチルシリカ公式の決済ページです」）</li>
+<li>フォーム<b>入力項目削減</b>＋「2分で完了」表記</li>
+<li>カラーミーリピート側で<b>クーポンMCL50適用済バッジ</b>表示</li>
+</ol>
+
+<!-- ================ Section 3 ================ -->
+<h2 id="sec3">3. 計測の信頼性問題（v1の誤り訂正）</h2>
+
+<h3>3-1. Yahoo広告 — 管理画面とGA4の乖離</h3>
+
+<table>
+<tr><th>月</th><th class="num">Yahoo管理画面CV</th><th class="num">GA4 cv_40(yahoo/cpc)</th><th>乖離</th></tr>
+<tr><td>2025/10</td><td class="num">6</td><td class="num">4</td><td>1.5倍計上</td></tr>
+<tr><td>2025/11</td><td class="num">2</td><td class="num">3</td><td>—</td></tr>
+<tr><td>2025/12</td><td class="num">1</td><td class="num">0</td><td>実購入なし</td></tr>
+<tr><td>2026/01</td><td class="num">2</td><td class="num">2 (cv_24/trial)</td><td>一致</td></tr>
+<tr><td>2026/02</td><td class="num">1</td><td class="num">1 (cv_24)</td><td>一致</td></tr>
+<tr><td>2026/03</td><td class="num">2</td><td class="num">3</td><td>—</td></tr>
+<tr class="alert"><td><b>2026/04</b></td><td class="num"><b>16</b></td><td class="num"><b>2</b></td><td><b>🚨 8倍計上</b></td></tr>
+<tr class="alert"><td>2026/05 (15日)</td><td class="num">7</td><td class="num">0</td><td><b>完全乖離</b></td></tr>
+</table>
+
+<div class="key-finding">
+v1で「Yahoo CPA¥1,390で最強！」と評価したが、<b>GA4実数では4月のYahoo CV2件・実CPA¥11,116</b>。Meta（¥6,727）より悪い。<br>
+Yahoo管理画面の数字は <b>÷2〜÷8 で見る</b>。実購入はカラーミー＋代引き＋GA4の3点突合が必須。
+</div>
+
+<h3>3-2. 計測タグの歴史</h3>
+
+<ul>
+<li>2026/5/6まで <b>cv_40 イベント未定義</b>（KN-01タスクで設置）</li>
+<li>過去は <b>cv_24（24本セット）・cv_trial</b> で計測（1-2月のCVはこれで一致）</li>
+<li>3月以降 cv_40 計測が稼働開始</li>
+<li>Yahoo CVタグは過去から二重発火問題あり（4月で8倍計上）</li>
+</ul>
+
+<h3>3-3. 計測の信頼性ランキング</h3>
+
+<div class="info-box">
+🥇 <b>カラーミー実購入CSV</b>: 唯一の正・申込日時ベース<br>
+🥈 <b>代引きスプシ</b>: フォーム経由の代引きを補完<br>
+🥉 <b>GA4 cv_40 / cv_24 / cv_trial</b>: チャネル別寄与の推測に使える<br>
+⚠️ <b>Yahoo管理画面CV</b>: 2-8倍計上の常態化（参考値）<br>
+❌ <b>Meta管理画面「結果」</b>: 数百件の謎値・使えない
+</div>
+
+<!-- ================ Section 4 ================ -->
+<h2 id="sec4">4. チャネル別実数（GA4 cv_40準拠）</h2>
+
+<h3>4-1. GA4 cv_40 月別×流入元</h3>
+
+<table>
+<tr><th>月</th><th class="num">meta/paid</th><th class="num">yahoo/cpc</th><th class="num">ig系</th><th class="num">direct</th><th class="num">その他</th><th class="num">合計</th></tr>
+<tr><td>2025/10</td><td class="num">0</td><td class="num">4</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">4</td></tr>
+<tr><td>2025/11</td><td class="num">0</td><td class="num">3</td><td class="num">1</td><td class="num">2</td><td class="num">1</td><td class="num">7</td></tr>
+<tr><td>2025/12</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">1</td><td class="num">1</td><td class="num">2</td></tr>
+<tr><td>2026/01</td><td class="num">cv_24で1</td><td class="num">cv_24で1</td><td class="num">—</td><td class="num">cv_24で3</td><td class="num">—</td><td class="num">5</td></tr>
+<tr><td>2026/02</td><td class="num">0</td><td class="num">1 (cv_24)</td><td class="num">0</td><td class="num">0</td><td class="num">1 (cv_trial)</td><td class="num">2</td></tr>
+<tr><td>2026/03</td><td class="num">1</td><td class="num">3</td><td class="num">2</td><td class="num">0</td><td class="num">4</td><td class="num">10</td></tr>
+<tr><td>2026/04</td><td class="num">0</td><td class="num">2</td><td class="num">1</td><td class="num">2</td><td class="num">1</td><td class="num">6</td></tr>
+<tr><td>2026/05 (15日)</td><td class="num">2</td><td class="num">0</td><td class="num">3</td><td class="num">0</td><td class="num">1</td><td class="num">6</td></tr>
+</table>
+
+<h3>4-2. カラーミー実購入 vs GA4 cv_40 の乖離</h3>
+
+<table>
+<tr><th>月</th><th class="num">カラーミー新規</th><th class="num">GA4 cv_40 合計</th><th>カバー率</th></tr>
+<tr><td>2025/10</td><td class="num">14</td><td class="num">4</td><td class="num">29%</td></tr>
+<tr><td>2025/11</td><td class="num">5</td><td class="num">7</td><td class="num">140%</td></tr>
+<tr><td>2025/12</td><td class="num">7</td><td class="num">2</td><td class="num">29%</td></tr>
+<tr><td>2026/01</td><td class="num">8</td><td class="num">5</td><td class="num">63%</td></tr>
+<tr><td>2026/02</td><td class="num">9</td><td class="num">2</td><td class="num">22%</td></tr>
+<tr><td>2026/03</td><td class="num">8</td><td class="num">10</td><td class="num">125%</td></tr>
+<tr><td>2026/04</td><td class="num">12</td><td class="num">6</td><td class="num">50%</td></tr>
+</table>
+
+<div class="info-box">
+GA4 cv_40 はカラーミー実購入の <b>22〜140% のばらつき</b>。完全には一致しない（タグ実装時期・イベント名変更等）。<br>
+<b>使い方</b>: GA4は「チャネル比率の推測」用、実数は「カラーミー＋代引き」で確定する。
+</div>
+
+<!-- ================ Section 5 ================ -->
+<h2 id="sec5">5. 真の戦略 — 月20件達成への新ルート</h2>
+
+<h3>5-1. 月20件達成シナリオ（過去ピークから逆算）</h3>
+
+<table>
+<tr><th>シナリオ</th><th>方法</th><th>必要施策</th><th>確度</th></tr>
+<tr><td><b>A. 1月パターン再現</b></td><td>LP埋め込みフォーム復活</td><td>LP速度との両立設計が必要・実装難</td><td>—</td></tr>
+<tr class="success"><td><b>B. 4月パターン強化</b>（推奨）</td><td>外部リダイレクトのままUX改善</td><td>ML-09・LP安心メッセージ・カラーミー側FV改善</td><td>70%</td></tr>
+<tr><td>C. クリエ多様化</td><td>CR-02/03 新クリエ投入</td><td>Meta側の補強・5月勢いを4月以上に</td><td>50%</td></tr>
+</table>
+
+<h3>5-2. 推奨：B案の詳細</h3>
+
+<p>4月実績17件をベースに、<b>+3件で月20件達成</b>するシナリオ。</p>
+
+<table>
+<tr><th>施策</th><th>期待追加CV</th><th>根拠</th></tr>
+<tr><td>ML-09 フォーム最小化・FV情報固定</td><td>+2件</td><td>5/10-11 フォーム到達8人完了0の改善</td></tr>
+<tr><td>LP→外部遷移時の安心メッセージ</td><td>+1件</td><td>シニア層のドメイン切り替え不安解消</td></tr>
+<tr><td>カラーミー側クーポン適用済バッジ</td><td>+1件</td><td>期待値ギャップ解消</td></tr>
+<tr><td>Meta 価格訴求-年配 への予算寄せ</td><td>+1件</td><td>5/13で発火・主力候補</td></tr>
+<tr><td>Yahoo計測タグ修正（信頼性回復）</td><td>判断精度向上</td><td>誤判断防止</td></tr>
+<tr style="background:#e8f5e9"><td><b>合計期待</b></td><td><b>+5件</b></td><td>4月17件 → <b>22件</b>（目標20件超過）</td></tr>
+</table>
+
+<!-- ================ Section 6 ================ -->
+<h2 id="sec6">6. 6月実行プラン</h2>
+
+<h3>6-1. P0：今週中（5/15〜5/22）</h3>
+
+<table>
+<tr><th>#</th><th>アクション</th><th>領域</th></tr>
+<tr><td>1</td><td><b>ML-09 フォーム最小化＋FV情報固定</b>（カラーミーリピート側）</td><td>LP/フォーム</td></tr>
+<tr><td>2</td><td><b>Yahoo「シリカ 水」KW 5月停止の原因特定・復活</b></td><td>Yahoo</td></tr>
+<tr><td>3</td><td>「日常3_ピクニック」完全停止確認</td><td>Meta</td></tr>
+<tr><td>4</td><td>「悩み訴求-2」予算上限¥800/日設定</td><td>Meta</td></tr>
+<tr><td>5</td><td>LP→外部遷移時の安心メッセージ追加</td><td>LP</td></tr>
+</table>
+
+<h3>6-2. P1：今月中（5/22〜5/31）</h3>
+
+<table>
+<tr><th>#</th><th>アクション</th><th>領域</th></tr>
+<tr><td>6</td><td>CR-02・CR-03 動画制作完了・投入</td><td>Meta</td></tr>
+<tr><td>7</td><td>Yahoo計測タグ二重発火問題の修正</td><td>Yahoo計測</td></tr>
+<tr><td>8</td><td>カラーミー側「MCL50適用済」バッジ表示</td><td>フォーム</td></tr>
+<tr><td>9</td><td>OT-03 35-44女性専用セット新設</td><td>Meta</td></tr>
+<tr><td>10</td><td>1月の代引き12件流入経路をGA4で詳細特定</td><td>分析</td></tr>
+</table>
+
+<h3>6-3. P2：6月本番</h3>
+
+<table>
+<tr><th>#</th><th>アクション</th><th>領域</th></tr>
+<tr><td>11</td><td>週1運用テンプレ運用開始（月曜AM 60分）</td><td>運用</td></tr>
+<tr><td>12</td><td>LP埋め込みフォーム復活の技術検討（速度両立）</td><td>LP</td></tr>
+<tr><td>13</td><td>F2転換施策の本格実装（解約対策提案書）</td><td>LTV</td></tr>
+<tr><td>14</td><td>動画セクション復旧（フォーム到達率2.75倍）</td><td>LP</td></tr>
+</table>
+
+<h3>6-4. 月別目標と数値</h3>
+
+<div class="stat-grid">
+<div class="stat"><div class="label">6月目標</div><div class="num">20件</div><div class="delta">過去最大1月実績</div></div>
+<div class="stat"><div class="label">5月予測</div><div class="num">12件</div><div class="delta">15日経過6件×2</div></div>
+<div class="stat"><div class="label">4月実績</div><div class="num">17件</div><div class="delta">月最近最大</div></div>
+<div class="stat"><div class="label">必要追加</div><div class="num">+8件</div><div class="delta">5月12件→6月20件</div></div>
+</div>
+
+<h3>6-5. 1月の特殊性をどう再現するか</h3>
+
+<div class="gold-box">
+<b>1月20件達成の真の要因</b>:<br>
+① LP上カラーミー埋め込みフォーム（離脱率最小）<br>
+② Meta「価格訴求-口コミ版」投入（12/29〜・1月主力）<br>
+③ Yahoo広告月¥22K規模で並走<br>
+④ 年始の特需（推定）<br>
+<br>
+<b>6月で再現するための代替案</b>:<br>
+① → 外部リダイレクト先のUX改善（ML-09）<br>
+② → CR-02・CR-03 新クリエ投入<br>
+③ → Yahoo広告予算引き上げ検討（計測修正後）<br>
+④ → 6月特需は期待できないので、施策の精度を上げる
+</div>
+
+<div class="footer">
+データソース: カラーミー全注文CSV 10ファイル（2022/4〜2026/5、ユニーク500件）／ 代引きスプシ ／ Meta広告CSV 7ヶ月分 ／ Yahoo広告CSV 8ヶ月分×3レベル ／ GA4 全イベント×月×ソース 8ヶ月分 ／ メモリ（michiru_*.md）<br>
+作成: 星﨑（Claude） ／ 報告先: 鈴木氏 ／ 次回更新: 5/19 進捗判定
+</div>
+
+</div>
+</body>
+</html>
