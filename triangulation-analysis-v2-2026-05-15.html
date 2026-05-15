@@ -83,8 +83,9 @@ v1（同日作成）の「Yahoo主軸へシフト」結論は <b>Yahoo CV二重�
 <li><a href="#sec2">2. 重大発見: LP埋め込みフォームの影響</a></li>
 <li><a href="#sec3">3. 計測の信頼性問題（v1の誤り訂正）</a></li>
 <li><a href="#sec4">4. チャネル別実数（GA4 cv_40準拠）</a></li>
-<li><a href="#sec5">5. 真の戦略 — 月20件達成への新ルート</a></li>
-<li><a href="#sec6">6. 6月実行プラン</a></li>
+<li><a href="#sec_quality">5. Meta×Yahoo 品質月別比較</a></li>
+<li><a href="#sec5">6. 真の戦略 — 月20件達成への新ルート</a></li>
+<li><a href="#sec6">7. 6月実行プラン</a></li>
 </ul>
 </div>
 
@@ -245,8 +246,92 @@ GA4 cv_40 はカラーミー実購入の <b>22〜140% のばらつき</b>。完�
 <b>使い方</b>: GA4は「チャネル比率の推測」用、実数は「カラーミー＋代引き」で確定する。
 </div>
 
-<!-- ================ Section 5 ================ -->
-<h2 id="sec5">5. 真の戦略 — 月20件達成への新ルート</h2>
+<!-- ================ Section 5: 品質月別比較 ================ -->
+<h2 id="sec_quality">5. Meta × Yahoo 品質月別比較</h2>
+
+<h3>5-1. Meta広告 月別品質代替指標</h3>
+
+<p>Meta品質ランキング自体は4月分しかデータが無いので、<b>CTR・CPC・LP到達率</b>を品質代替指標として比較：</p>
+
+<table>
+<tr><th>月</th><th class="num">CTR</th><th class="num">CPC</th><th class="num">LP到達率</th><th class="num">平均IMP/広告</th><th>評価</th></tr>
+<tr><td>2025/10</td><td class="num">0.95%</td><td class="num">¥153</td><td class="num">1.9%</td><td class="num">237</td><td>🔴 初期・計測未整備</td></tr>
+<tr><td>2025/11</td><td class="num">1.67%</td><td class="num">¥139</td><td class="num">62.7%</td><td class="num">168</td><td>🟡 立ち上がり</td></tr>
+<tr><td>2025/12</td><td class="num">2.68%</td><td class="num">¥141</td><td class="num">70.4%</td><td class="num">113</td><td>🟡 品質改善</td></tr>
+<tr><td>2026/01</td><td class="num">1.27%</td><td class="num">¥122</td><td class="num">81.6%</td><td class="num"><b>840</b></td><td>🟢 LP動線確立</td></tr>
+<tr><td>2026/02</td><td class="num">1.33%</td><td class="num">¥86</td><td class="num">85.9%</td><td class="num">711</td><td>🟢 改善継続</td></tr>
+<tr class="success"><td><b>2026/03</b></td><td class="num">2.08%</td><td class="num">¥97</td><td class="num"><b>95.7%</b> ⭐</td><td class="num">373</td><td>🟢 <b>LP最高</b></td></tr>
+<tr class="success"><td><b>2026/04</b></td><td class="num"><b>4.07%</b> ⭐</td><td class="num"><b>¥51</b> ⭐</td><td class="num">69.7%</td><td class="num">175</td><td>🟢 CTR/CPC最良・LP低下</td></tr>
+</table>
+
+<div class="ok-box">
+<b>Meta品質トレンド: 明確に改善</b><br>
+CTR: 0.95% → 4.07%（<b>4.3倍</b>）<br>
+CPC: ¥153 → ¥51（<b>67%減</b>）<br>
+LP到達率: 1.9% → 95.7%（3月ピーク）→ 4月69.7%に低下<br>
+<br>
+<b>注意点</b>: 4月のCTR4.07%にはピクニック動画（CTR9.5%）の影響大。<br>
+ピクニックは品質ランキング「下位35%」で、純粋な品質改善ではなく低意図クリックの混入による見かけ上の数字。
+</div>
+
+<h3>5-2. Yahoo広告 月別品質インデックス分布</h3>
+
+<table>
+<tr><th>月</th><th class="num">KW数</th><th class="num">平均QI</th><th class="num">最高</th><th class="num">最低</th><th class="num">8-10 高品質</th><th class="num">6-7 標準</th><th class="num">4-5 要改善</th><th class="num">1-3 危険</th><th class="num">なし</th></tr>
+<tr><td>2025/10</td><td class="num">37</td><td class="num">4.9</td><td class="num">10</td><td class="num">3</td><td class="num">1</td><td class="num">1</td><td class="num">12</td><td class="num">1</td><td class="num">22</td></tr>
+<tr><td>2025/11</td><td class="num">37</td><td class="num">4.9</td><td class="num">10</td><td class="num">3</td><td class="num">1</td><td class="num">1</td><td class="num">13</td><td class="num">1</td><td class="num">21</td></tr>
+<tr><td>2025/12</td><td class="num">38</td><td class="num">4.9</td><td class="num">10</td><td class="num">3</td><td class="num">1</td><td class="num">1</td><td class="num">15</td><td class="num">1</td><td class="num">20</td></tr>
+<tr><td>2026/01</td><td class="num">36</td><td class="num">5.0</td><td class="num">10</td><td class="num">3</td><td class="num">1</td><td class="num">2</td><td class="num">15</td><td class="num">1</td><td class="num">17</td></tr>
+<tr><td>2026/02</td><td class="num">40</td><td class="num">5.0</td><td class="num">10</td><td class="num">3</td><td class="num">1</td><td class="num">3</td><td class="num">18</td><td class="num">1</td><td class="num">17</td></tr>
+<tr><td>2026/03</td><td class="num">41</td><td class="num">5.0</td><td class="num">10</td><td class="num">3</td><td class="num">1</td><td class="num">3</td><td class="num">19</td><td class="num">1</td><td class="num">17</td></tr>
+<tr class="success"><td><b>2026/04</b></td><td class="num">31</td><td class="num"><b>5.1</b> ⭐</td><td class="num">10</td><td class="num">3</td><td class="num"><b>2</b></td><td class="num">2</td><td class="num">19</td><td class="num">1</td><td class="num"><b>7</b> ⭐</td></tr>
+<tr class="alert"><td>2026/05</td><td class="num">38</td><td class="num">4.7 ⚠️</td><td class="num">10</td><td class="num">3</td><td class="num">1</td><td class="num">1</td><td class="num">22</td><td class="num">2</td><td class="num">12</td></tr>
+</table>
+
+<div class="ok-box">
+<b>Yahoo品質トレンド: ほぼ横ばい・4月にピーク</b><br>
+平均QI: 4.9 → 5.1（4月）→ 4.7（5月低下）<br>
+「品質なし」KW: 22個 → <b>7個（4月）</b> → 12個（5月）<br>
+<br>
+<b>4月にKW整理が効いた</b>: 3月のフレーズ一致＋除外KW精緻化作業の成果<br>
+<b>5月で再劣化</b>: 「品質なし」が7→12に戻り、要改善KWも22個に。新規KW追加 or 配信減少の影響？
+</div>
+
+<h3>5-3. 両広告の品質比較サマリー</h3>
+
+<table>
+<tr><th>指標</th><th>Meta</th><th>Yahoo</th></tr>
+<tr><td>過去半年のトレンド</td><td>📈 改善（CTR 4倍）</td><td>→ほぼ横ばい（4.9→5.0→4.7）</td></tr>
+<tr><td>最高品質月</td><td><b>2026/03</b>（LP到達率95.7%）</td><td><b>2026/04</b>（平均QI 5.1）</td></tr>
+<tr><td>最近の劣化</td><td>4月（LP低下・ピクニック影響）</td><td>5月（QI 4.7に低下）</td></tr>
+<tr><td>品質改善余地</td><td>大（クリエ整理で更に伸びる）</td><td>中（KW整理継続が鍵）</td></tr>
+</table>
+
+<h3>5-4. 主要KWの品質インデックス推移（前出再掲）</h3>
+
+<table>
+<tr><th>KW</th><th class="num">10月</th><th class="num">11月</th><th class="num">12月</th><th class="num">1月</th><th class="num">2月</th><th class="num">3月</th><th class="num">4月</th><th class="num">5月</th></tr>
+<tr><td>シリカ 水</td><td class="num">5</td><td class="num">5</td><td class="num">5</td><td class="num">5</td><td class="num">5</td><td class="num">5</td><td class="num">5</td><td class="num">—</td></tr>
+<tr><td>シリカ水 通販</td><td class="num">6</td><td class="num">6</td><td class="num">6</td><td class="num">6</td><td class="num">6</td><td class="num">6</td><td class="num">6</td><td class="num">6</td></tr>
+<tr><td>シリカ</td><td class="num">5</td><td class="num">5</td><td class="num">1</td><td class="num">5</td><td class="num">5</td><td class="num">5</td><td class="num">5</td><td class="num">5</td></tr>
+<tr><td>シリカ水 安い</td><td class="num">5</td><td class="num">5</td><td class="num">5</td><td class="num">5</td><td class="num">5</td><td class="num">5</td><td class="num">5</td><td class="num">5</td></tr>
+<tr><td>シリカ水 美容</td><td class="num">4</td><td class="num">4</td><td class="num">4</td><td class="num">4</td><td class="num">4</td><td class="num">4</td><td class="num">4</td><td class="num">4</td></tr>
+</table>
+
+<h3>5-5. 戦略示唆</h3>
+
+<div class="gold-box">
+<b>Meta側</b>: 3月のLP到達率95.7%が頂点。再現すべき。<br>
+<b>4月の「CTR高いがLP到達率低い」状態は、ピクニック動画など低意図クリック装置の影響</b>。<br>
+ピクニック停止＋価格訴求-年配などへの予算寄せで「3月+4月の良いとこ取り」が可能。<br>
+<br>
+<b>Yahoo側</b>: 4月のKW整理を継続することが品質維持の鍵。<br>
+<b>5月で「品質なし」KWが7→12に戻った原因</b>を特定（新規KW追加？「シリカ 水」停止の影響？）。<br>
+「シリカ水 通販」のQI=6を主軸に、他のKWを6点に引き上げる施策。
+</div>
+
+<!-- ================ Section 6 (元 sec5) ================ -->
+<h2 id="sec5">6. 真の戦略 — 月20件達成への新ルート</h2>
 
 <h3>5-1. 月20件達成シナリオ（過去ピークから逆算）</h3>
 
@@ -271,8 +356,8 @@ GA4 cv_40 はカラーミー実購入の <b>22〜140% のばらつき</b>。完�
 <tr style="background:#e8f5e9"><td><b>合計期待</b></td><td><b>+5件</b></td><td>4月17件 → <b>22件</b>（目標20件超過）</td></tr>
 </table>
 
-<!-- ================ Section 6 ================ -->
-<h2 id="sec6">6. 6月実行プラン</h2>
+<!-- ================ Section 7 (元 sec6) ================ -->
+<h2 id="sec6">7. 6月実行プラン</h2>
 
 <h3>6-1. P0：今週中（5/15〜5/22）</h3>
 
