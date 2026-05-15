@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ミチルシリカ 月次レポート | 2026年5月10日</title>
+    <title>ミチルシリカ 月次レポート | 2026年5月15日更新</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
@@ -114,7 +114,7 @@
         <h1>🔒 ミチルシリカ 内部マスター</h1>
         <div class="subtitle">継続更新型・全期間データ＋戦略議論 ・ 内部作業用（クライアント共有はしない）</div>
         <div class="meta">
-            <span>最終更新: 2026年5月11日</span>
+            <span>最終更新: 2026年5月15日（Amazon緊急最適化）</span>
             <span>次回会議: 2026年5月26日 9:30</span>
             <span>クライアント向け最新版: <a href="monthly-report-2026-05-10.html" style="color:#fff;text-decoration:underline;">5/11会議版</a></span>
         </div>
@@ -739,52 +739,70 @@
         <div class="section-header" style="background: linear-gradient(135deg, #FF9900, #FFB84D);">Amazon広告（5月）</div>
         <div class="section-body">
             <div class="summary-grid" style="margin-bottom: 20px;">
-                <div class="summary-card green-border">
-                    <div class="sc-label">購入数（5/1〜5/10）</div>
-                    <div class="sc-value green">30件</div>
-                    <div class="sc-sub">日平均 3.0件 / 月間ペース 約93件</div>
+                <div class="summary-card" style="border-left:4px solid var(--danger)">
+                    <div class="sc-label">購入数（5/13〜5/15）</div>
+                    <div class="sc-value" style="color:var(--danger)">1件</div>
+                    <div class="sc-sub">日平均 0.33件（5/1-10比 -89%）</div>
                 </div>
                 <div class="summary-card">
-                    <div class="sc-label">売上</div>
-                    <div class="sc-value blue">&yen;92,647</div>
-                    <div class="sc-sub">広告費 &yen;43,801</div>
+                    <div class="sc-label">3日コスト</div>
+                    <div class="sc-value blue">&yen;7,548</div>
+                    <div class="sc-sub">売上 &yen;2,667</div>
                 </div>
                 <div class="summary-card">
-                    <div class="sc-label">CPA</div>
-                    <div class="sc-value blue">&yen;1,460</div>
-                    <div class="sc-sub">4月前半 &yen;1,859 から-21%改善</div>
+                    <div class="sc-label">直近ROAS</div>
+                    <div class="sc-value" style="color:var(--danger)">0.35</div>
+                    <div class="sc-sub">5/1-10の2.12から大幅悪化</div>
                 </div>
-                <div class="summary-card green-border">
-                    <div class="sc-label">ROAS</div>
-                    <div class="sc-value green">2.12</div>
-                    <div class="sc-sub">4月前半 1.73 から+23%改善</div>
+                <div class="summary-card">
+                    <div class="sc-label">原因</div>
+                    <div class="sc-value" style="color:var(--warning);font-size:1.3em">入札不足</div>
+                    <div class="sc-sub">手動CP予算超過＋主力KW入札半額</div>
                 </div>
             </div>
 
-            <h3 style="margin-bottom: 12px; font-size: 1em;">月次比較</h3>
+            <h3 style="margin-bottom: 12px; font-size: 1em;">期間別パフォーマンス推移</h3>
             <table class="data-table">
                 <thead>
                     <tr><th>期間</th><th class="num">広告費</th><th class="num">売上</th><th class="num">購入</th><th class="num">CPA</th><th class="num">ROAS</th></tr>
                 </thead>
                 <tbody>
                     <tr><td>4/1〜4/11（11日）</td><td class="num">&yen;33,477</td><td class="num">&yen;57,855</td><td class="num">18件</td><td class="num">&yen;1,859</td><td class="num">1.73</td></tr>
-                    <tr class="highlight-row"><td>5/1〜5/10（10日）</td><td class="num">&yen;43,801</td><td class="num">&yen;92,647</td><td class="num" style="color:var(--success);font-weight:700">30件</td><td class="num" style="color:var(--success);font-weight:700">&yen;1,460</td><td class="num" style="color:var(--success);font-weight:700">2.12</td></tr>
+                    <tr><td>5/1〜5/10（10日）</td><td class="num">&yen;43,801</td><td class="num">&yen;92,647</td><td class="num">30件</td><td class="num">&yen;1,460</td><td class="num">2.12</td></tr>
+                    <tr style="background:#ffebee"><td><strong>5/13〜5/15（3日）</strong></td><td class="num">&yen;7,548</td><td class="num">&yen;2,667</td><td class="num" style="color:var(--danger);font-weight:700">1件</td><td class="num" style="color:var(--danger);font-weight:700">&yen;7,548</td><td class="num" style="color:var(--danger);font-weight:700">0.35</td></tr>
                 </tbody>
             </table>
 
-            <div class="note-box success" style="margin-top: 16px;">
-                <strong>Amazonは絶好調。</strong>4/24実施の最適化（除外KW追加・不採算KW停止・勝ちKW予算増額）の効果が完全に出ている。日平均3件・月間93件ペースで、カラーミー定期便（月15-16件ペース）を大きく上回るチャネルに。<strong>計測も自社サイトと違いAmazon内完結なので数値の信頼性が高い</strong>。
+            <div class="note-box" style="margin-top: 16px; background:#ffebee; border-left:4px solid var(--danger)">
+                <strong>🚨 5/13以降、急減フェーズ。</strong>5/15に検索シミュレーションで「シリカ水」「水 500ml 24本」「水 シリカ」など主力4KWで<strong>ミチルの広告枠が表示されていない</strong>ことを確認。商品ページは正常購入可。原因は<strong>手動CP「初CP_売れるKW専用」の入札不足</strong>（5/11に「最大入札」設定したはずが、動的入札ダウンのみ設定でアルゴリズムに引き下げられ、主力KW「水 シリカ」EXACT が推奨¥311-587に対して¥180で運用されていた）+<strong>毎日予算超過</strong>（¥800/日が朝で枯渇）の二重問題。
             </div>
 
-            <h3 style="margin: 20px 0 12px; font-size: 1em;">4/24実施の最適化内容（参考）</h3>
+            <h3 style="margin: 20px 0 12px; font-size: 1em;">📌 5/15実施の緊急最適化（手動CP）</h3>
             <table class="data-table">
                 <thead>
-                    <tr><th>アクション</th><th>内容</th></tr>
+                    <tr><th>KW</th><th>マッチ</th><th class="num">変更前</th><th class="num">変更後</th><th>備考</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td><strong>① 自動キャンペーン 除外KW追加</strong></td><td>アルカリイオン水・天然シリカ水・シリカ水500ml + ASIN6件（計¥4,928の無駄消化を止めた）</td></tr>
-                    <tr><td><strong>② 不採算KW停止</strong></td><td>水500ml24本・シリカ水500ml・水シリカ（ROAS 0.76赤字）の3KW停止</td></tr>
-                    <tr><td><strong>③ 勝ちKW強化</strong></td><td>「水 シリカ」（完全一致・ROAS 9.21）入札 ¥120→¥160、KW専用日予算 ¥800→¥1,200</td></tr>
+                    <tr><td><strong>水 シリカ</strong></td><td>完全一致</td><td class="num">&yen;180</td><td class="num" style="color:var(--success);font-weight:700">&yen;350</td><td>4月ROAS 21.87（最強KW）</td></tr>
+                    <tr><td><strong>水 500ml 24本</strong></td><td>フレーズ</td><td class="num">&yen;112</td><td class="num" style="color:var(--success);font-weight:700">&yen;150</td><td>5月主力</td></tr>
+                    <tr><td><strong>ミチルシリカ</strong></td><td>フレーズ</td><td class="num">&yen;150</td><td class="num" style="color:var(--success);font-weight:700">&yen;200</td><td>指名KW強化</td></tr>
+                    <tr><td><strong>しりかすい</strong></td><td>フレーズ</td><td class="num">&yen;120</td><td class="num" style="color:var(--warning);font-weight:700">&yen;70</td><td>予算泥棒抑制（5,000imp/0CV）</td></tr>
+                </tbody>
+            </table>
+
+            <div class="note-box info" style="margin-top: 12px;">
+                <strong>戦略：</strong>¥800/日の予算据え置きのまま、「しりかすい」PHRASEの入札を下げて<strong>節約した予算を「水 シリカ」EXACTに集中</strong>させる構造に変更。これで主力KWで広告枠を再取得し、4月並みのROAS 1.7+への復帰を狙う。<strong>5/18朝に3日CSV再取得 → 効果検証予定。</strong>
+            </div>
+
+            <h3 style="margin: 20px 0 12px; font-size: 1em;">過去の最適化履歴</h3>
+            <table class="data-table">
+                <thead>
+                    <tr><th>日付</th><th>内容</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>4/24</strong></td><td>除外KW追加・不採算KW停止・勝ちKW予算増額 → 5/1-10で月間ペース93件のピーク</td></tr>
+                    <tr><td><strong>5/11</strong></td><td>浪費KW除外（しりかすい500飲むシリカ系・温泉水99等）＋勝ちKW手動移行最大入札 → 動的入札で自動的に下がってしまう副作用</td></tr>
+                    <tr><td style="background:#fff3e0"><strong>5/15</strong></td><td><strong>本日の対応:</strong>手動CP主力KWの入札を固定値で再設定（¥180→¥350等）、しりかすい入札¥120→¥70で予算最適配分</td></tr>
                 </tbody>
             </table>
         </div>
@@ -1048,7 +1066,7 @@
     </div>
 
     <div style="text-align: center; margin-top: 30px; padding: 20px; font-size: 0.8em; color: var(--text-light);">
-        ミチルシリカ 月次レポート | 2026年5月10日 作成<br>
+        ミチルシリカ 月次レポート | 2026年5月15日 更新<br>
         データソース: ミチルシリカ広告ダッシュボード（スプシ確定値） / _TODO.md / 施策ログ.csv<br>
         スプシ最終更新: 2026/05/10 09:02
     </div>
