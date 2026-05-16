@@ -8,57 +8,95 @@
 <style>
   :root{--ink:#1a1a1a;--paper:#f7f5f0;--accent:#1E3A8A;--sub:#6FB7D4;--gold:#FFD93D;--line:#e3dfd5}
   *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:"Hiragino Sans","Yu Gothic",sans-serif;background:var(--paper);color:var(--ink);line-height:1.7;padding:32px 18px 80px}
-  .wrap{max-width:1080px;margin:0 auto}
-  header{border-bottom:2px solid var(--ink);padding-bottom:16px;margin-bottom:24px}
-  h1{font-family:"Hiragino Mincho ProN",serif;font-size:24px;letter-spacing:.05em}
-  .sub{font-size:12.5px;color:#666;margin-top:6px}
-  h2{font-size:16px;margin:36px 0 14px;border-left:5px solid var(--accent);padding-left:12px}
+  body{font-family:"Hiragino Sans","Yu Gothic",sans-serif;background:var(--paper);color:var(--ink);line-height:1.7}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 18px 80px}
+
+  /* HERO */
+  .hero{background:linear-gradient(135deg,#1E3A8A 0%,#2E7A9B 60%,#6FB7D4 100%);color:#fff;padding:48px 24px 56px;margin-bottom:28px;position:relative;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 80% 20%,rgba(255,217,61,.18),transparent 50%);pointer-events:none}
+  .hero-inner{max-width:1080px;margin:0 auto;position:relative}
+  .hero .tag{display:inline-block;background:var(--gold);color:#1E3A8A;font-size:11px;font-weight:700;letter-spacing:.12em;padding:4px 12px;border-radius:2px;margin-bottom:14px}
+  .hero h1{font-family:"Hiragino Mincho ProN",serif;font-size:32px;line-height:1.35;letter-spacing:.04em;margin-bottom:10px}
+  .hero h1 .star{color:var(--gold);letter-spacing:.1em;font-size:24px;margin-left:8px}
+  .hero .lead{font-size:14px;opacity:.92;margin-bottom:24px;max-width:640px}
+  .hero-meta{display:flex;flex-wrap:wrap;gap:16px;font-size:11.5px;opacity:.85;letter-spacing:.04em}
+  .hero-meta span{padding:4px 0}
+  .hero-video{margin:28px auto 0;max-width:640px;background:#000;border-radius:10px;overflow:hidden;box-shadow:0 16px 40px rgba(0,0,0,.35);border:3px solid var(--gold)}
+  .hero-video video{width:100%;display:block}
+  .hero-video .label{background:#1E3A8A;color:#fff;font-size:11px;letter-spacing:.12em;padding:8px 14px;text-align:center;font-weight:700}
+
+  h2{font-size:17px;margin:40px 0 14px;border-left:5px solid var(--accent);padding-left:12px;font-weight:700}
   .section{background:#fff;border:1px solid var(--line);border-radius:6px;padding:20px;margin-bottom:18px}
-  video,iframe{width:100%;border-radius:4px;background:#000}
+  iframe{width:100%;border-radius:4px;background:#000;border:0}
   .yt{position:relative;padding-bottom:56.25%;height:0}
   .yt iframe{position:absolute;top:0;left:0;width:100%;height:100%}
-  table{width:100%;border-collapse:collapse;font-size:13px;margin-top:8px}
-  th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+
+  /* 構成テーブル */
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th,td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
   th{background:#f3efe6;font-size:12px;letter-spacing:.04em}
-  td.t{white-space:nowrap;color:var(--accent);font-weight:700;width:84px}
+  td.t{white-space:nowrap;color:var(--accent);font-weight:700;width:84px;font-variant-numeric:tabular-nums}
   td.n{white-space:nowrap;width:60px;text-align:center;color:#666}
-  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}
+
+  /* パネル */
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
   @media (max-width:720px){.grid{grid-template-columns:repeat(2,1fr)}}
   .panel{background:#fff;border:1px solid var(--line);border-radius:4px;overflow:hidden}
   .panel img{width:100%;display:block;aspect-ratio:1/1;object-fit:cover;background:#222}
   .panel .cap{padding:8px 10px;font-size:11.5px;line-height:1.5}
-  .panel .cap b{display:block;color:var(--accent);font-size:11px;letter-spacing:.04em}
+  .panel .cap b{display:block;color:var(--accent);font-size:11px;letter-spacing:.04em;margin-bottom:2px}
+
+  /* 台本 */
+  .script{font-size:13px}
+  .script .row{display:grid;grid-template-columns:84px 60px 1fr 1.4fr;gap:10px;padding:10px 0;border-bottom:1px solid var(--line)}
+  .script .row:last-child{border-bottom:0}
+  .script .time{color:var(--accent);font-weight:700;font-variant-numeric:tabular-nums}
+  .script .num{color:#666;text-align:center}
+  .script .visual{color:#333}
+  .script .narration{background:#f3efe6;border-left:3px solid var(--gold);padding:6px 10px;border-radius:2px;font-family:"Hiragino Mincho ProN",serif;font-size:13px;line-height:1.55}
+  .script .narration .se{display:inline-block;font-family:"Hiragino Sans",sans-serif;font-size:10.5px;letter-spacing:.06em;color:#888;margin-right:6px}
+  @media (max-width:720px){.script .row{grid-template-columns:1fr;gap:4px}.script .time,.script .num{display:inline-block;margin-right:8px}}
+
   .ask{background:#fffbe6;border:1px solid #e6c97a;border-radius:6px;padding:16px 20px;margin-top:16px}
   .ask h3{font-size:14px;margin-bottom:8px;color:#8a6a00}
   .ask ol{padding-left:20px;font-size:13px}
   .ask li{margin:4px 0}
   .next{background:#eef5fa;border:1px solid #b7d4e3;border-radius:6px;padding:14px 18px;font-size:12.5px;margin-top:14px}
-  .back{display:inline-block;font-size:12px;color:#666;text-decoration:none;margin-bottom:10px}
-  .back:hover{color:var(--accent)}
+  .back{display:inline-block;font-size:12px;color:#fff;opacity:.85;text-decoration:none;margin-bottom:14px}
+  .back:hover{opacity:1}
 </style>
 </head>
 <body>
+
+<section class="hero">
+  <div class="hero-inner">
+    <a class="back" href="../">← 一覧に戻る</a>
+    <div class="tag">DRAFT ／ 構成案 v1</div>
+    <h1>天然シリカ水CUP <span class="star">★★★</span></h1>
+    <div class="lead">四谷サイネージ 15秒広告 ／ のむシリカ「ミネラルウォーターカップ篇」路線のスポーツ実況風コミックCM。<br>ROUND 1/2/3 の3連戦で他社を圧倒し、シリカ72mg/Lの強さを15秒で印象付ける。</div>
+    <div class="hero-meta">
+      <span>📅 2026-05-15</span>
+      <span>⏱ 15秒</span>
+      <span>📺 四谷サイネージ</span>
+      <span>🎨 アニメCG調・スポーツ実況風</span>
+    </div>
+
+    <div class="hero-video">
+      <div class="label">▶ ヘッドモックアップ（slideshow.mp4 / 1枚2秒・全24秒で確認用）</div>
+      <video src="slideshow.mp4" controls playsinline autoplay muted loop></video>
+    </div>
+  </div>
+</section>
+
 <div class="wrap">
-  <a class="back" href="../">← 一覧に戻る</a>
-  <header>
-    <h1>四谷サイネージ 15秒広告 構成案 — 天然シリカ水CUP</h1>
-    <div class="sub">参考路線：のむシリカ「ミネラルウォーターカップ篇」／ DRAFT 2026-05-15</div>
-  </header>
 
+  <h2>参考CM（路線イメージ）</h2>
   <div class="section">
-    <h2 style="margin-top:0">スライドショー（24秒・1枚2秒で切替）</h2>
-    <video src="slideshow.mp4" controls playsinline></video>
-    <p style="font-size:12px;color:#666;margin-top:8px">※ 確認用に1枚2秒で表示しています。実装時は各カット1〜2秒の動きのある映像に変換し15秒に収めます。</p>
-  </div>
-
-  <div class="section">
-    <h2 style="margin-top:0">参考CM（路線イメージ）</h2>
     <div class="yt"><iframe src="https://www.youtube.com/embed/xVBo64WwA-E" title="のむシリカ ミネラルウォーターカップ篇" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-    <p style="font-size:12px;color:#666;margin-top:8px">のむシリカ「ミネラルウォーターカップ篇」15秒。トーナメント実況風コミックCMの基準動画。</p>
+    <p style="font-size:12px;color:#666;margin-top:8px">のむシリカ「ミネラルウォーターカップ篇」15秒。本案はこのトーナメント実況風コミックCMを路線参考としています。</p>
   </div>
 
-  <h2>15秒CMの想定構成</h2>
+  <h2>15秒CM 想定構成</h2>
   <div class="section" style="padding:14px 16px">
     <table>
       <thead><tr><th>時間</th><th>#</th><th>カット内容</th></tr></thead>
@@ -74,6 +112,55 @@
         <tr><td class="t">12–15s</td><td class="n">⑫</td><td>クロージング「〜大分天然水〜 ミチルシリカ」</td></tr>
       </tbody>
     </table>
+  </div>
+
+  <h2>軽め台本（ナレーション・テロップ・SE）</h2>
+  <div class="section script">
+    <div class="row">
+      <div class="time">0–1s</div><div class="num">①</div>
+      <div class="visual">タイトル画面・トロフィー・★★★が降ってくる</div>
+      <div class="narration"><span class="se">[SE]</span>ファンファーレ／<b>N：</b>「天然シリカ水カップ、開幕！」<br><span class="se">[テロップ]</span>天然シリカ水CUP ★★★</div>
+    </div>
+    <div class="row">
+      <div class="time">1–2s</div><div class="num">②</div>
+      <div class="visual">ミチルボトルが空からスローモーションで登場・回転</div>
+      <div class="narration"><span class="se">[SE]</span>シュンッ／<b>N：</b>「エントリーNo.1、ミチル！」</div>
+    </div>
+    <div class="row">
+      <div class="time">2–3s</div><div class="num">③</div>
+      <div class="visual">VS画面・青（ミチル）vs 緑（他社A）が対峙</div>
+      <div class="narration"><span class="se">[テロップ]</span>VS<br><span class="se">[SE]</span>ゴング</div>
+    </div>
+    <div class="row">
+      <div class="time">3–4s</div><div class="num">④⑤</div>
+      <div class="visual">ROUND 1：成分グラフでシリカ含有量がせり上がり緑を圧倒</div>
+      <div class="narration"><span class="se">[テロップ]</span>ROUND 1 ／ シリカ 72mg/L<br><b>N：</b>「シリカ72mg/L、圧倒！」</div>
+    </div>
+    <div class="row">
+      <div class="time">4–5s</div><div class="num">⑥</div>
+      <div class="visual">ボトル衝突・黄色コミックバースト</div>
+      <div class="narration"><span class="se">[SE]</span>ドンッ！／<span class="se">[テロップ]</span>K.O.</div>
+    </div>
+    <div class="row">
+      <div class="time">5–7s</div><div class="num">⑦⑧</div>
+      <div class="visual">ROUND 2：オレンジ相手にも連勝</div>
+      <div class="narration"><span class="se">[テロップ]</span>ROUND 2<br><b>N：</b>「2回戦も、ミチル！」</div>
+    </div>
+    <div class="row">
+      <div class="time">7–9s</div><div class="num">⑨⑩</div>
+      <div class="visual">ROUND 3：紫相手にも連勝</div>
+      <div class="narration"><span class="se">[テロップ]</span>ROUND 3<br><b>N：</b>「決勝戦も、ミチル！」</div>
+    </div>
+    <div class="row">
+      <div class="time">9–12s</div><div class="num">⑪</div>
+      <div class="visual">WIN! ヒーロースポット・ミチル単独・花火</div>
+      <div class="narration"><span class="se">[SE]</span>歓声＋花火／<span class="se">[テロップ]</span><b>WIN!</b><br><b>N：</b>「優勝、ミチル！」</div>
+    </div>
+    <div class="row">
+      <div class="time">12–15s</div><div class="num">⑫</div>
+      <div class="visual">クロージング・ボトル単独・ロゴ表示</div>
+      <div class="narration"><span class="se">[テロップ]</span>〜大分天然水〜 ミチルシリカ<br><b>N：</b>「大分天然水、ミチルシリカ。」</div>
+    </div>
   </div>
 
   <h2>パネル一覧（生成画像12枚）</h2>
@@ -105,7 +192,8 @@
   <div class="next">
     <b>次のステップ（OKなら）</b><br>
     ・各カットを Seedance で動画化（1〜2秒×8カット）<br>
-    ・編集ソフトで連結＋テロップ「ROUND 1/2/3」「シリカ72mg/L」等を焼き込み
+    ・編集ソフトで連結＋テロップ「ROUND 1/2/3」「シリカ72mg/L」「WIN!」等を焼き込み<br>
+    ・ナレーション収録 or AI音声生成 → SE・BGM合成
   </div>
 </div>
 </body>
