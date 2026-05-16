@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>TENNEN SHIRIKA WATER CUP - 15s Storyboard</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:"Helvetica Neue","Arial",sans-serif;
+    background:#f5f0e8;color:#1a1a1a;
+    padding:30px 20px 60px;
+  }
+  .sheet{
+    max-width:1400px;margin:0 auto;
+    background:#fffbf5;
+    border:3px solid #1a1a1a;
+    padding:30px;
+    box-shadow:0 8px 30px rgba(0,0,0,0.15);
+  }
+
+  /* ===== ヘッダー（Xポスト風） ===== */
+  .header{
+    display:flex;justify-content:space-between;align-items:flex-start;
+    border-bottom:2px solid #1a1a1a;padding-bottom:14px;margin-bottom:18px;
+    flex-wrap:wrap;gap:12px;
+  }
+  .title-block h1{
+    font-size:28px;font-weight:900;letter-spacing:0.05em;line-height:1.1;
+    color:#1E3A8A;
+  }
+  .title-block .subtitle{
+    font-size:11px;color:#555;margin-top:6px;letter-spacing:0.15em;
+    font-style:italic;
+  }
+  .meta-block{
+    text-align:right;font-size:10px;color:#555;
+    border:1px solid #1a1a1a;padding:8px 12px;
+    line-height:1.5;letter-spacing:0.05em;
+  }
+  .meta-block b{color:#1a1a1a}
+
+  /* ===== グリッド ===== */
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:10px;
+    margin-bottom:14px;
+  }
+  @media(max-width:1000px){.grid{grid-template-columns:repeat(2,1fr)}}
+
+  .panel{
+    background:#fff;
+    border:2px solid #1a1a1a;
+    overflow:hidden;
+    display:flex;flex-direction:column;
+  }
+  .panel-head{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:5px 8px;border-bottom:1px solid #1a1a1a;
+    background:#1a1a1a;color:#FFD93D;
+    font-size:10px;font-weight:800;letter-spacing:0.08em;
+  }
+  .panel-head .num{
+    background:#FFD93D;color:#1a1a1a;
+    width:18px;height:18px;display:flex;align-items:center;justify-content:center;
+    border-radius:50%;font-size:11px;font-weight:900;
+  }
+  .panel-head .time{color:#fff;font-size:9px;letter-spacing:0.05em}
+  .panel-img{
+    width:100%;aspect-ratio:16/9;
+    background:#000;
+  }
+  .panel-img img{width:100%;height:100%;object-fit:cover;display:block}
+  .panel-notes{
+    padding:6px 8px;font-size:9.5px;line-height:1.4;
+    background:#fffbf5;flex:1;
+  }
+  .panel-notes .label{
+    font-size:8px;font-weight:800;color:#1E3A8A;letter-spacing:0.1em;margin-bottom:2px;
+  }
+  .panel-notes ul{padding-left:12px;margin:0}
+  .panel-notes li{margin-bottom:1px;color:#333}
+
+  /* ===== フッター情報行 ===== */
+  .info-row{
+    display:grid;grid-template-columns:1fr 1.5fr 1.5fr 1fr;gap:10px;
+    border-top:2px solid #1a1a1a;padding-top:12px;margin-top:6px;
+  }
+  @media(max-width:900px){.info-row{grid-template-columns:1fr 1fr}}
+  .info-block{
+    border:1px solid #1a1a1a;padding:8px 10px;background:#fffbf5;
+  }
+  .info-block h3{
+    font-size:9px;font-weight:900;letter-spacing:0.1em;
+    color:#1E3A8A;margin-bottom:4px;
+  }
+  .info-block p,.info-block ul{
+    font-size:9.5px;line-height:1.5;color:#333;
+  }
+  .info-block ul{padding-left:14px}
+  .info-block .check{color:#1E3A8A;font-weight:700}
+
+  /* ===== タイマー＆フォーマット表示 ===== */
+  .timer-row{
+    display:flex;justify-content:space-between;align-items:center;
+    background:#1a1a1a;color:#FFD93D;
+    padding:8px 14px;margin-top:12px;
+    font-size:11px;letter-spacing:0.1em;font-weight:800;
+  }
+  .timer-row .total{font-size:18px;color:#fff}
+
+  .footer-note{
+    margin-top:14px;text-align:center;font-size:10px;color:#888;
+    border-top:1px dashed #888;padding-top:10px;
+  }
+  .footer-note b{color:#1E3A8A}
+
+  /* キーカラー凡例 */
+  .swatch{display:inline-block;width:10px;height:10px;border:1px solid #1a1a1a;vertical-align:middle;margin-right:4px}
+  .sw-blue{background:#1E3A8A}
+  .sw-yellow{background:#FFD93D}
+  .sw-michiru{background:#6FB7D4}
+  .sw-white{background:#fff}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <!-- ===== HEADER ===== -->
+  <div class="header">
+    <div class="title-block">
+      <h1>TENNEN SHIRIKA WATER CUP</h1>
+      <div class="subtitle">ONE BOTTLE. ONE STAGE. ONE WATER THAT NEVER LOSES.</div>
+    </div>
+    <div class="meta-block">
+      <b>FORMAT:</b> 16:9 STORYBOARD<br>
+      <b>PANELS:</b> 8 PANELS / 2 ROWS<br>
+      <b>DURATION:</b> 15 SECONDS<br>
+      <b>STYLE:</b> SPORTS TOURNAMENT COMIC
+    </div>
+  </div>
+
+  <!-- ===== GRID 8 PANELS ===== -->
+  <div class="grid">
+
+    <!-- P1 -->
+    <div class="panel">
+      <div class="panel-head"><span class="num">1</span><span>TITLE</span><span class="time">00:00.0 - 00:02.0</span></div>
+      <div class="panel-img" style="position:relative">
+        <img src="panels/p1_title_v2_02.png" alt="P1">
+        <div style="position:absolute;right:5%;top:50%;transform:translateY(-50%);text-align:right;color:#fff;font-family:'Hiragino Mincho ProN',serif;text-shadow:0 0 8px rgba(0,0,0,0.7)">
+          <div style="font-size:14px;font-weight:900;letter-spacing:0.08em;line-height:1.1;color:#FFD93D">天然シリカ水</div>
+          <div style="font-size:18px;font-weight:900;letter-spacing:0.1em">CUP</div>
+        </div>
+      </div>
+      <div class="panel-notes">
+        <div class="label">SCENE</div>
+        <ul>
+          <li>青背景＋トロフィー＋★★★</li>
+          <li>テロップ「天然シリカ水カップ」</li>
+          <li>シンプル・低彩度で目を止める</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- P2 -->
+    <div class="panel">
+      <div class="panel-head"><span class="num">2</span><span>BOTTLE IN</span><span class="time">00:02.0 - 00:03.0</span></div>
+      <div class="panel-img"><img src="panels/p2_bottle_flying_v3.png" alt="P2" style="object-position:center"></div>
+      <div class="panel-notes">
+        <div class="label">SCENE</div>
+        <ul>
+          <li>ミチルボトル登場・宙を舞う</li>
+          <li>テロップ無し（音と動きで魅せる）</li>
+          <li>What提示</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- P3 -->
+    <div class="panel">
+      <div class="panel-head"><span class="num">3</span><span>ROUND 1</span><span class="time">00:03.0 - 00:05.0</span></div>
+      <div class="panel-img"><img src="panels/p3_round1_battle_v3.png" alt="P3" style="object-position:center"></div>
+      <div class="panel-notes">
+        <div class="label">SCENE</div>
+        <ul>
+          <li>VS対戦カード「ミチル vs 他社A」</li>
+          <li>左:ミチル(青) / 右:他社(緑)</li>
+          <li>テロップ「ROUND 1」</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- P4 -->
+    <div class="panel">
+      <div class="panel-head"><span class="num">4</span><span>CLASH</span><span class="time">00:05.0 - 00:07.0</span></div>
+      <div class="panel-img"><img src="panels/p4_clash_action_v3.png" alt="P4" style="object-position:center"></div>
+      <div class="panel-notes">
+        <div class="label">SCENE</div>
+        <ul>
+          <li>ボトル衝突・水しぶき・コミック</li>
+          <li>SE「ガシャーン！」</li>
+          <li>テンション最高潮</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- P5 -->
+    <div class="panel">
+      <div class="panel-head"><span class="num">5</span><span>WIN!</span><span class="time">00:07.0 - 00:09.0</span></div>
+      <div class="panel-img" style="position:relative">
+        <img src="panels/p5_win_v2_02.png" alt="P5">
+        <div style="position:absolute;left:6%;top:50%;transform:translateY(-50%);font-family:'Helvetica Neue',sans-serif;font-weight:900;color:#FFD93D;font-size:36px;letter-spacing:-0.02em;line-height:1;text-shadow:0 3px 0 #1a1a1a, 0 6px 12px rgba(0,0,0,0.6);font-style:italic">WIN!</div>
+      </div>
+      <div class="panel-notes">
+        <div class="label">SCENE</div>
+        <ul>
+          <li>黄色「WIN!」コミック表記</li>
+          <li>ミチル単独・花火エフェクト</li>
+          <li>勝利の根拠を予感させる</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- P6 -->
+    <div class="panel">
+      <div class="panel-head"><span class="num">6</span><span>COMBO WIN</span><span class="time">00:09.0 - 00:11.0</span></div>
+      <div class="panel-img" style="position:relative">
+        <img src="panels/p6_combo_v2_01.png" alt="P6">
+        <div style="position:absolute;left:0;right:0;top:6%;text-align:center;font-family:'Helvetica Neue',sans-serif;font-weight:900;color:#fff;font-size:14px;letter-spacing:0.15em;text-shadow:0 2px 6px rgba(0,0,0,0.8)">連勝</div>
+      </div>
+      <div class="panel-notes">
+        <div class="label">SCENE</div>
+        <ul>
+          <li>Round 2-3 連勝カード</li>
+          <li>VICTORY/MICHIRU重ね</li>
+          <li>圧勝感の積み上げ</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- P7 -->
+    <div class="panel">
+      <div class="panel-head"><span class="num">7</span><span>CHART</span><span class="time">00:11.0 - 00:14.0</span></div>
+      <div class="panel-img"><img src="panels/p7_silica_chart_01.png" alt="P7"></div>
+      <div class="panel-notes">
+        <div class="label">SCENE</div>
+        <ul>
+          <li>棒グラフ：シリカ72mg/L圧勝</li>
+          <li>テロップ「シリカ含有量 72mg/L」</li>
+          <li>数値で根拠を確定</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- P8 -->
+    <div class="panel">
+      <div class="panel-head"><span class="num">8</span><span>FINALE</span><span class="time">00:14.0 - 00:15.0</span></div>
+      <div class="panel-img"><img src="panels/p8_final_michiru_01.png" alt="P8"></div>
+      <div class="panel-notes">
+        <div class="label">SCENE</div>
+        <ul>
+          <li>ミチルボトル単独・暗青背景</li>
+          <li>テロップ「天然シリカ水ミチル／大分・玖珠」</li>
+          <li>ブランド締め</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ===== INFO ROW ===== -->
+  <div class="info-row">
+    <div class="info-block">
+      <h3>★ FOCUS</h3>
+      <ul>
+        <li class="check">COMIC READABILITY</li>
+        <li class="check">SHARP TRANSITIONS</li>
+        <li class="check">BLUE × YELLOW</li>
+      </ul>
+    </div>
+
+    <div class="info-block">
+      <h3>★ KEY ELEMENTS</h3>
+      <ul>
+        <li>ミチルボトル（PET透明・グレーキャップ・青ラベル）</li>
+        <li>トロフィー＋★★★ チャンピオンモチーフ</li>
+        <li>VS バトルカード（青vs緑）</li>
+        <li>WIN! 黄色コミックバースト</li>
+        <li>シリカ72mg/L 棒グラフ</li>
+      </ul>
+    </div>
+
+    <div class="info-block">
+      <h3>★ VISUAL NOTES</h3>
+      <ul>
+        <li>カラー: <span class="swatch sw-blue"></span>#1E3A8A 深青 / <span class="swatch sw-yellow"></span>#FFD93D 黄色 / <span class="swatch sw-michiru"></span>#6FB7D4 ミチル水色 / <span class="swatch sw-white"></span>白抜き</li>
+        <li>フォント: 太字サンセリフ（コミック調）+ 締めは明朝</li>
+        <li>SE: ガシャーン／キラーン／ファンファーレ</li>
+        <li>16:9 サイネージ前提・音声OFF想定</li>
+      </ul>
+    </div>
+
+    <div class="info-block">
+      <h3>★ TIMING & RHYTHM</h3>
+      <ul>
+        <li>8 BEATS / 15 SECONDS</li>
+        <li>FAST PACED COMIC</li>
+        <li>仲野式: ①Who/What→②What→③共感→④根拠→⑤オファー</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ===== TIMER ===== -->
+  <div class="timer-row">
+    <span>★ TOTAL DURATION</span>
+    <span class="total">15.0s</span>
+    <span>★ MICHIRU SILICA × YOTSUYA SIGNAGE</span>
+  </div>
+
+  <div class="footer-note">
+    REMEMBER: <b>のむシリカ「ミネラルウォーターカップ」構成完全コピー</b> × 文字・配色は独自で著作権セーフ ／ 採水地: 大分・玖珠 清水瀑園 ／ シリカ72mg/L
+  </div>
+
+</div>
+</body>
+</html>
