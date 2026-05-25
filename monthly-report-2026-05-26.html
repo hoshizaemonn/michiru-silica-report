@@ -196,8 +196,7 @@
                     <tr class="success-row"><td>5/11</td><td>Amazon</td><td>浪費KW除外（フレーズ除外8件＋ASIN除外5件）→ ¥7,000+/0件の浪費を遮断</td></tr>
                     <tr class="success-row"><td>5/11</td><td>Amazon</td><td>勝ちKW入札最大化（水500ml24本／水大分／ミネラルウォーターラベルレス）</td></tr>
                     <tr class="success-row"><td>5/15</td><td>Amazon</td><td>緊急最適化（「水 シリカ」EXACT 推奨¥311-587に対し¥180だった件を是正、予算超過対策）</td></tr>
-                    <tr class="success-row"><td>運用中</td><td>解約対策</td><td>サイト動線で解約しにくくする：/cancel/ を「よくあるご質問」ページに変更し、解約専用ボタンを排除。電話 or 問い合わせフォーム経由のみに（温泉水99型のハードル化）</td></tr>
-                    <tr class="success-row"><td>運用中</td><td>解約対策</td><td>同梱物による解約防止（初回チラシ修正版＋解約者向けポストカード3案）</td></tr>
+                    <tr class="success-row"><td>5月通月</td><td>解約対策</td><td>サイト動線で解約しにくくする：/cancel/ を「よくあるご質問」ページに変更し、解約専用ボタンを排除。電話 or 問い合わせフォーム経由のみに（温泉水99型のハードル化）</td></tr>
                     <tr class="success-row"><td>5/23</td><td>判断</td><td>「触らず1日様子見」判断（CPC急騰・Yahoo半減でも放置）→ 翌日2件発火復活で正解実証</td></tr>
                     <tr class="success-row"><td>5/25</td><td>LP</td><td>2回目特典LP仮画面 作成（提案・6月から裏で回しながら本番投入準備）</td></tr>
                     <tr class="success-row"><td>5/25</td><td>データ</td><td>Meta品質ランキング・年齢×性別・Yahoo品質指数・GA4 LP別データ取得</td></tr>
@@ -272,9 +271,110 @@
                 <strong>この5要素のうち1つでも欠けると後半の発火は起きなかった</strong>。6月はこの循環を意図的に強化します。
             </div>
 
-            <h3 style="margin:24px 0 10px; font-size:1.05em; color:var(--primary)">⚠️ ただし注意：「質の基準」はまだ完全には可視化されていない</h3>
-            <p style="font-size:0.9em">Meta品質ランキングは「平均以下／平均／平均以上」の3段階表示しかなく、リーチ500未満は「データ不足（―）」となる。<br>
-            つまり <strong>「どのクリエが本当に良質か」を厳密に判定するには、品質ランキング＋購入数＋CPC＋エンゲージメント率の複合判断が必要</strong>。6月はこれを毎週確認する運用に切り替えます。</p>
+            <h3 style="margin:24px 0 10px; font-size:1.05em; color:var(--primary)">🎯 品質スコアの基準と「いつ差し替えるか」の判断ルール</h3>
+            <div class="note-box info">
+                Meta品質ランキングは「平均以下／平均／平均以上／―（データ不足）」の4種類で表示。<strong>「平均」を保てれば配信は健全</strong>、「平均以下」になると配信が絞られ、CPC急騰します。
+            </div>
+
+            <h4 style="margin:16px 0 8px; font-size:1em; color:var(--text)">▼ Meta品質ランキング 3指標の中身</h4>
+            <table class="data-table">
+                <thead>
+                    <tr><th>指標</th><th>何を見ているか</th><th>「平均」を保つ目安</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>品質ランキング</strong></td>
+                        <td>ユーザー反応（CTR）＋不快フィードバック＋画像/動画品質</td>
+                        <td>CTR 1.0%以上 ／ 「広告を非表示」報告が極少 ／ フリークエンシー 3.0未満</td>
+                    </tr>
+                    <tr>
+                        <td><strong>エンゲージメント率</strong></td>
+                        <td>いいね・コメント・シェア・保存・動画完了率</td>
+                        <td>動画3秒再生率 50%以上 ／ 動画50%再生率 25%以上</td>
+                    </tr>
+                    <tr>
+                        <td><strong>コンバージョン率</strong></td>
+                        <td>クリック→購入の到達率</td>
+                        <td>リンククリック→cv 1%以上 ／ LP着地後の離脱率 70%未満</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4 style="margin:20px 0 8px; font-size:1em; color:var(--text)">▼ ランキング表示までに必要なデータ量</h4>
+            <ul style="font-size:0.9em;padding-left:22px">
+                <li><strong>リーチ500人以上</strong>に達するまでは「―（データ不足）」表示。それまでは判断不能</li>
+                <li>リーチ500〜2,000で初回評価が確定（通常2-4週間）</li>
+                <li>その後は <strong>過去7日のローリングデータ</strong> でリアルタイムに更新される</li>
+            </ul>
+
+            <h4 style="margin:20px 0 8px; font-size:1em; color:var(--text)">▼ ミチル5月実績で「平均」と「平均以下」の境目</h4>
+            <table class="data-table">
+                <thead>
+                    <tr><th>クリエ</th><th class="num">CTR</th><th class="num">CPC</th><th class="num">フリーケン</th><th>品質判定</th></tr>
+                </thead>
+                <tbody>
+                    <tr class="success-row">
+                        <td>価格訴求-年配</td><td class="num">1.82%</td><td class="num">¥105</td><td class="num">1.09-1.22</td><td><span class="badge badge-up">平均（健全）</span></td>
+                    </tr>
+                    <tr class="success-row">
+                        <td>悩み訴求</td><td class="num">2.87%</td><td class="num">¥127</td><td class="num">1.31-1.33</td><td><span class="badge badge-up">平均（高CTR）</span></td>
+                    </tr>
+                    <tr class="success-row">
+                        <td>日常4_腸内</td><td class="num">1.73%</td><td class="num">¥163</td><td class="num">1.11</td><td><span class="badge badge-up">平均</span></td>
+                    </tr>
+                    <tr style="background:#fff8e1">
+                        <td>飲む美容_99円</td><td class="num">1.74%</td><td class="num">¥175</td><td class="num">1.23-1.26</td><td><span class="badge badge-flat">平均（CV0で要注意）</span></td>
+                    </tr>
+                    <tr class="alert-row">
+                        <td>日常3_ピクニック</td><td class="num">13.86%</td><td class="num">¥7</td><td class="num">1.10</td><td><span class="badge badge-down"><strong>平均以下</strong>（CTR異常高＝低意図クリック装置）</span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="note-box warning">
+                <strong>💡 ミチル独自の発見：CTRが高すぎても「平均以下」になる</strong><br>
+                「日常3_ピクニック」はCTR 13.86%と桁違いに高いが品質ランキングは「平均以下」。理由は<strong>クリックは集まるがLP到達後にすぐ離脱する=コンバージョン率が極端に低い</strong>から。Metaは「クリックだけ集めて売らない広告」を低評価する。
+            </div>
+
+            <h4 style="margin:20px 0 8px; font-size:1em; color:var(--text)">▼ 「いつクリエを差し替えるか」判断ルール（6月から運用）</h4>
+            <table class="data-table">
+                <thead>
+                    <tr><th>シグナル</th><th>判断</th><th>アクション</th></tr>
+                </thead>
+                <tbody>
+                    <tr class="success-row">
+                        <td>品質ランキング「平均以下」が <strong>3日以上継続</strong></td>
+                        <td>差し替え確定</td>
+                        <td>同日に停止＋新規1本追加</td>
+                    </tr>
+                    <tr style="background:#fff8e1">
+                        <td>CPC が <strong>過去7日平均の+50%</strong> を超えた</td>
+                        <td>差し替え候補</td>
+                        <td>1週間様子見 → 戻らなければ差し替え</td>
+                    </tr>
+                    <tr style="background:#fff8e1">
+                        <td>消化 ¥2,000以上 / 月で <strong>購入0件</strong></td>
+                        <td>差し替え確定</td>
+                        <td>翌週に停止＋新規1本追加</td>
+                    </tr>
+                    <tr style="background:#fff8e1">
+                        <td>フリークエンシー <strong>3.5以上</strong>（同じ人に4回以上配信）</td>
+                        <td>疲弊サイン</td>
+                        <td>新規クリエ追加（停止はしない）</td>
+                    </tr>
+                    <tr>
+                        <td>リーチ500未満で評価不能（―）</td>
+                        <td>判定保留</td>
+                        <td>2週間待つ → 評価出るまで配信維持</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="note-box success">
+                <strong>📌 6月の運用ルーティン：</strong>
+                毎週金曜にMetaの「内訳→広告」で全クリエの品質ランキング・CTR・CPC・フリーケンシーを確認。<br>
+                上記シグナルに当てはまるクリエがあれば <strong>翌週月曜に1本だけ差し替え</strong>（3/27の一気停止事故防止のため、週2本まで）。
+            </div>
 
             <h3 style="margin:24px 0 10px; font-size:1.05em; color:var(--primary)">🚨 残課題：若者向けLP（bibyou）がCV0</h3>
             <p style="font-size:0.9em">Meta広告6本中5本がbibyou着地なのに<strong>5月GA4キーイベント0件</strong>（既存LP=3件、Yahoo LP=1件）。5/3リニューアル後にCVが機能していない疑い。6月最優先で調査・修正。</p>
@@ -310,16 +410,16 @@
                         <td>CPC半減・実購入2件。<strong>絞り込みでアルゴ学習を安定化</strong></td>
                     </tr>
                     <tr class="success-row">
-                        <td><strong>3月</strong></td>
-                        <td>③ 解約しにくくする</td>
-                        <td>サイトの /cancel/ をFAQ化、解約専用ボタンを排除</td>
-                        <td>解約までのハードル増→離脱抑制。<strong>温泉水99型の防御線</strong></td>
-                    </tr>
-                    <tr class="success-row">
                         <td><strong>4月</strong></td>
-                        <td>④ クリエの量を増やす</td>
+                        <td>③ クリエの量を増やす</td>
                         <td>新クリエ大量出稿（価格訴求-年配・悩み訴求・日常系等）</td>
                         <td>クリエ在庫が溜まり、5月の「自然淘汰での学習集中」を可能にした<br>※ただし質が伴わないと低意図クリック装置になる教訓も</td>
+                    </tr>
+                    <tr class="success-row">
+                        <td><strong>5月通月</strong></td>
+                        <td>④ 解約しにくくする</td>
+                        <td>サイトの /cancel/ をFAQ化、解約専用ボタンを排除（温泉水99型のハードル化）</td>
+                        <td>解約までのハードル増→離脱抑制。<strong>新規獲得と並行して既存維持の防御線を構築</strong></td>
                     </tr>
                     <tr class="success-row">
                         <td><strong>5/3〜5/6</strong></td>
