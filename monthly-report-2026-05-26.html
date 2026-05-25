@@ -512,48 +512,328 @@
         </div>
     </div>
 
-    <!-- ===== 6月戦略 ===== -->
+    <!-- ===== 6月戦略：クリエ運用の中庸戦略 ===== -->
     <div class="section">
-        <div class="section-header teal">🚀 6月戦略 — 3本柱</div>
+        <div class="section-header teal">🎯 6月戦略①: クリエの「中庸差し替え」運用に切り替え</div>
         <div class="section-body">
 
+            <div class="note-box info">
+                <strong>💡 提案の核：「いじりすぎ」でも「いじらなすぎ」でもなく、<u>本数を変えずに悪いものだけ差し替える</u></strong><br>
+                これまでの運用は両極を行き来していました。5月の実データから、<strong>「クリエ本数は維持・低パフォーマンスのみ差し替え・新規追加で鮮度キープ」</strong>が最適と判断します。以下にデータで裏付けます。
+            </div>
+
+            <h3 style="margin:24px 0 12px; font-size:1.05em; color:var(--primary)">A. 過去2つの極端な運用の事故データ</h3>
+            <table class="data-table">
+                <thead>
+                    <tr><th>パターン</th><th>事例</th><th>何が起きたか</th><th>結果</th></tr>
+                </thead>
+                <tbody>
+                    <tr class="alert-row">
+                        <td><strong>🔴 いじりすぎ事故</strong></td>
+                        <td>2026/3/27 — Meta広告4本を一気停止</td>
+                        <td>残り3本以下になり、配信機会・ピクセル学習が崩壊。<br>同時にYahoo広告も停止した。</td>
+                        <td><strong>5日間 購入ゼロ</strong>（3/27〜3/31）</td>
+                    </tr>
+                    <tr class="alert-row">
+                        <td><strong>🔴 いじりすぎ事故</strong></td>
+                        <td>2026/5/3 — LP大規模リニューアル＋Meta広告5本のリンク先一斉切り替え</td>
+                        <td>カラーミー側のPixel ID入力漏れで4日間Pixel計測不能。<br>広告とLPを同時に大幅変更。</td>
+                        <td><strong>4日連続CV0</strong>（5/3〜5/6）、購入経由不明</td>
+                    </tr>
+                    <tr class="alert-row">
+                        <td><strong>🔴 いじらなすぎ事故</strong></td>
+                        <td>2026/3/14〜5/23 — 同一クリエ素材を72日間使い続けた</td>
+                        <td>同じユーザーに何度も配信され「またこれか」とスルーされた（フリークエンシー上昇）。<br>新規クリエ投入を怠った。</td>
+                        <td><strong>CPC &yen;90→&yen;204（2.3倍急騰）</strong>、CTR半減</td>
+                    </tr>
+                    <tr class="alert-row">
+                        <td><strong>🔴 いじらなすぎ事故</strong></td>
+                        <td>2026/5/16 — Meta配信額急減</td>
+                        <td>放置されたクリエの品質スコア低下で、Metaのアルゴリズムが配信を絞った。</td>
+                        <td><strong>1日消化¥1,140（通常の¥4,000の28%まで急減）</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="note-box danger">
+                <strong>📌 教訓：</strong>「広告を止める」も「広告を放置する」もどちらも売上を壊す。本数を維持しながら、悪いものだけ静かに入れ替える「<strong>中庸差し替え</strong>」が必要。
+            </div>
+
+            <h3 style="margin:24px 0 12px; font-size:1.05em; color:var(--primary)">B. 5月のクリエ別パフォーマンス（実データ）</h3>
+            <p style="font-size:0.9em; color:var(--text-light);">5月の配信全期間で集計。インプレッション降順。</p>
+            <table class="data-table">
+                <thead>
+                    <tr><th>広告名</th><th class="num">インプ</th><th class="num">消化額</th><th class="num">CPC</th><th class="num">CTR</th><th class="num">購入</th><th>判定</th></tr>
+                </thead>
+                <tbody>
+                    <tr style="background:#e8f5e9">
+                        <td><strong>価格訴求-年配</strong></td>
+                        <td class="num">8,439</td>
+                        <td class="num">&yen;16,243</td>
+                        <td class="num">&yen;105</td>
+                        <td class="num">1.82%</td>
+                        <td class="num" style="color:var(--success);font-weight:700">5件</td>
+                        <td><span class="badge badge-up">🏆 主役・残す</span></td>
+                    </tr>
+                    <tr class="alert-row">
+                        <td><strong>飲む美容_99円</strong></td>
+                        <td class="num">5,582</td>
+                        <td class="num">&yen;16,940</td>
+                        <td class="num">&yen;175</td>
+                        <td class="num">1.74%</td>
+                        <td class="num" style="color:var(--danger);font-weight:700">0件</td>
+                        <td><span class="badge badge-down">🔴 最大の浪費・差し替え</span></td>
+                    </tr>
+                    <tr class="alert-row">
+                        <td><strong>悩み訴求 - 2</strong></td>
+                        <td class="num">4,609</td>
+                        <td class="num">&yen;8,983</td>
+                        <td class="num">&yen;183</td>
+                        <td class="num">1.06%</td>
+                        <td class="num" style="color:var(--danger);font-weight:700">0件</td>
+                        <td><span class="badge badge-down">🔴 重複・差し替え</span></td>
+                    </tr>
+                    <tr style="background:#fff8e1">
+                        <td><strong>悩み訴求</strong></td>
+                        <td class="num">4,491</td>
+                        <td class="num">&yen;16,366</td>
+                        <td class="num">&yen;127</td>
+                        <td class="num">2.87%</td>
+                        <td class="num">2件</td>
+                        <td><span class="badge badge-flat">🟡 残す（CV発火実績）</span></td>
+                    </tr>
+                    <tr class="alert-row">
+                        <td><strong>価格訴求</strong></td>
+                        <td class="num">3,379</td>
+                        <td class="num">&yen;4,031</td>
+                        <td class="num">&yen;96</td>
+                        <td class="num">1.24%</td>
+                        <td class="num" style="color:var(--danger);font-weight:700">0件</td>
+                        <td><span class="badge badge-down">🔴 年配版に統合・廃止</span></td>
+                    </tr>
+                    <tr>
+                        <td>日常3_ピクニック</td>
+                        <td class="num">3,160</td>
+                        <td class="num">&yen;2,896</td>
+                        <td class="num">&yen;7</td>
+                        <td class="num">13.86%</td>
+                        <td class="num">0件</td>
+                        <td><span class="badge badge-flat">🟡 認知用・維持</span></td>
+                    </tr>
+                    <tr style="background:#fff8e1">
+                        <td>日常4_腸内</td>
+                        <td class="num">2,487</td>
+                        <td class="num">&yen;6,992</td>
+                        <td class="num">&yen;163</td>
+                        <td class="num">1.73%</td>
+                        <td class="num">1件</td>
+                        <td><span class="badge badge-flat">🟡 残す</span></td>
+                    </tr>
+                    <tr style="background:#fff8e1">
+                        <td>膝訴求2</td>
+                        <td class="num">1,008</td>
+                        <td class="num">&yen;2,989</td>
+                        <td class="num">&yen;111</td>
+                        <td class="num">2.68%</td>
+                        <td class="num">1件</td>
+                        <td><span class="badge badge-flat">🟡 残す</span></td>
+                    </tr>
+                    <tr class="alert-row">
+                        <td>のむシリカ風バージョン</td>
+                        <td class="num">183</td>
+                        <td class="num">&yen;954</td>
+                        <td class="num">&yen;238</td>
+                        <td class="num">2.19%</td>
+                        <td class="num">0件</td>
+                        <td><span class="badge badge-down">🔴 低インプ＆CPC高・差し替え</span></td>
+                    </tr>
+                    <tr class="alert-row">
+                        <td>日常1_新規</td>
+                        <td class="num">265</td>
+                        <td class="num">&yen;1,371</td>
+                        <td class="num">&yen;274</td>
+                        <td class="num">1.89%</td>
+                        <td class="num">0件</td>
+                        <td><span class="badge badge-down">🔴 CPC最悪・差し替え</span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 style="margin:24px 0 12px; font-size:1.05em; color:var(--primary)">C. 6月の差し替えプラン（本数維持・5本入替）</h3>
             <div class="action-grid">
 
-                <div class="action-card new-card">
-                    <div class="ac-status new">柱①</div>
-                    <div class="ac-title">2回目特典LP 本番投入＋A/Bテスト</div>
+                <div class="action-card alert-card">
+                    <div class="ac-status alert">🔴 抜く（5本）</div>
+                    <div class="ac-title">低パフォーマンス・浪費クリエ</div>
                     <div class="ac-desc">
-                        <strong>本番URL:</strong> michiru.olivia-store.com/2kaime/<br>
-                        <strong>投入時期:</strong> 6/1〜<br>
-                        <strong>広告流入:</strong> Meta「価格訴求-年配」「悩み訴求」セットからリンク先切り替え（一部）<br>
-                        <strong>A/Bテスト:</strong> 既存LP vs 2回目特典LP、2週間で勝者決定<br>
-                        <strong>KPI:</strong> F2継続率（既存30%→50%目標）／解約率（既存50%→30%目標）
+                        ① 飲む美容_99円（消化¥16,940・購入0）<br>
+                        ② 悩み訴求-2（消化¥8,983・購入0）<br>
+                        ③ 価格訴求（年配版に統合）<br>
+                        ④ のむシリカ風バージョン（インプ183）<br>
+                        ⑤ 日常1_新規（CPC¥274）<br><br>
+                        <strong>合計浪費額: 約 &yen;32,300 / 月</strong>
                     </div>
                 </div>
 
-                <div class="action-card progress-card">
-                    <div class="ac-status progress">柱②</div>
-                    <div class="ac-title">クリエ鮮度更新ローテーション（週1本ペース）</div>
+                <div class="action-card new-card">
+                    <div class="ac-status new">🟣 入れる（5本）</div>
+                    <div class="ac-title">新規クリエ投入</div>
                     <div class="ac-desc">
-                        3/14素材を72日経過させた反省。6月は週1本ペースで新クリエ追加をルール化：<br><br>
-                        <strong>6/1-6/7:</strong> 価格訴求v2（年配層）<br>
-                        <strong>6/8-6/14:</strong> 3ヶ月継続UGC（F2転換・解約抑制）<br>
-                        <strong>6/15-6/21:</strong> 日常-B拡張（35-44女性）<br>
-                        <strong>6/22-6/28:</strong> ギフト訴求（父の日後の母娘訴求）
+                        ① 価格訴求v2（年配層・主役の鮮度更新）<br>
+                        ② 3ヶ月継続UGC（F2転換・解約抑制）<br>
+                        ③ 日常-B拡張（35-44女性層向け）<br>
+                        ④ ギフト訴求（父の日後の母娘訴求）<br>
+                        ⑤ 飲む美容v2（若年女性層・99円訴求の角度変え）<br><br>
+                        <strong>制作リード: 各クリエ3-5日</strong>
                     </div>
                 </div>
 
                 <div class="action-card done-card">
-                    <div class="ac-status done">柱③</div>
-                    <div class="ac-title">解約対策の実装（設計完了済）</div>
+                    <div class="ac-status done">🟢 残す（13本）</div>
+                    <div class="ac-title">CV発火実績・低コスト維持</div>
                     <div class="ac-desc">
-                        <strong>① LP内mailto削除:</strong> 3LPから計5箇所削除、特商法ページのみ残す<br>
-                        <strong>② Gmail自動返信:</strong> info@olivia-store.com の自動返信ON<br>
-                        <strong>③ 解約専用フォーム:</strong> Googleフォーム作成、4選択肢の引き留めオファー<br>
-                        <strong>期待効果:</strong> 解約抑止率15-25%（Oisix・FANCL事例参考）
+                        価格訴求-年配 ・ 悩み訴求 ・ 日常4_腸内 ・ 膝訴求2 ・ 日常3_ピクニック（認知）他<br><br>
+                        <strong>配信本数の合計目標：常時10本前後</strong> を維持
                     </div>
                 </div>
 
+            </div>
+
+            <h3 style="margin:24px 0 12px; font-size:1.05em; color:var(--primary)">D. 差し替え実施のルール（事故再発防止）</h3>
+            <div class="note-box success">
+                <ol style="padding-left:20px;margin:0">
+                    <li><strong>1週間に最大2本までしか差し替えない</strong>（3/27の一気停止事故防止）</li>
+                    <li><strong>停止と新規追加は同日に行う</strong>（配信本数を3本以下にしない）</li>
+                    <li><strong>停止後7日間は他のクリエを触らない</strong>（学習リセット防止）</li>
+                    <li><strong>停止判断の基準値：</strong>
+                        <ul style="margin-top:6px">
+                            <li>インプ &lt; 100/週 かつ 消化 &gt; ¥200 → 停止候補</li>
+                            <li>購入0 かつ 消化 &gt; ¥2,000/月 → 停止候補</li>
+                            <li>CPC &gt; ¥200 が3日以上継続 → 停止候補</li>
+                        </ul>
+                    </li>
+                    <li><strong>LPは触らない</strong>（広告差し替え期間中はピクセル学習を守るためLP変更禁止）</li>
+                </ol>
+            </div>
+
+            <h3 style="margin:24px 0 12px; font-size:1.05em; color:var(--primary)">E. 期待効果</h3>
+            <div class="summary-grid">
+                <div class="summary-card green-border">
+                    <div class="sc-label">浪費削減</div>
+                    <div class="sc-value green">&yen;32K</div>
+                    <div class="sc-sub">5本停止で月次節約</div>
+                </div>
+                <div class="summary-card">
+                    <div class="sc-label">CPC改善（見込み）</div>
+                    <div class="sc-value blue">&yen;128 → &yen;90</div>
+                    <div class="sc-sub">鮮度更新でCTR回復</div>
+                </div>
+                <div class="summary-card orange-border">
+                    <div class="sc-label">月次購入数</div>
+                    <div class="sc-value orange">14→20件</div>
+                    <div class="sc-sub">+43% / 月20件達成</div>
+                </div>
+                <div class="summary-card red-border">
+                    <div class="sc-label">CPA改善目標</div>
+                    <div class="sc-value red">&yen;6,708→&yen;5,000</div>
+                    <div class="sc-sub">-25%</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ===== 6月戦略②: 解約対策の進捗 ===== -->
+    <div class="section">
+        <div class="section-header pink">💌 6月戦略②: 解約対策 — 実施済み施策と6月の追加実装</div>
+        <div class="section-body">
+
+            <div class="note-box info">
+                <strong>現状の課題：</strong> 解約率50%・1回解約率89.5%（10月〜4月実績）。F2転換（2回目購入への壁）が最大の課題。
+                同梱物・ポストカード・初回チラシなど打ち手は既に複数走っていますが、6月は「メール解約導線」「2回目特典LP」の2本を追加します。
+            </div>
+
+            <h3 style="margin:24px 0 12px; font-size:1.05em; color:var(--primary)">✅ 既に実施済の解約対策</h3>
+            <table class="data-table">
+                <thead>
+                    <tr><th>施策</th><th>実施時期</th><th>内容</th><th>状態</th></tr>
+                </thead>
+                <tbody>
+                    <tr style="background:#e8f5e9">
+                        <td><strong>① 解約者向けポストカード3案</strong></td>
+                        <td>運用中</td>
+                        <td>A案（手紙風）／B案（損失回避）／C案（復帰者の声）100×148mm。解約済顧客への復帰促進DM</td>
+                        <td><span class="badge badge-up">運用中</span></td>
+                    </tr>
+                    <tr style="background:#e8f5e9">
+                        <td><strong>② 初回同梱チラシ（修正版）</strong></td>
+                        <td>運用中</td>
+                        <td>A5両面。感謝メッセージ＋4安心ポイント（シリカ72mg/L・軟水24mg/L・1本99円・大分玖珠の天然水）＋定期便の安心訴求（サイクル変更・スキップ・解約方法）</td>
+                        <td><span class="badge badge-up">運用中</span></td>
+                    </tr>
+                    <tr style="background:#e8f5e9">
+                        <td><strong>③ 解約対策設計書（C案ハイブリッド）</strong></td>
+                        <td>2026/5/22</td>
+                        <td>LP本体からメアド削除＋特商法ページのみ残す＋Gmail自動返信（4選択肢オファー）＋専用Googleフォーム</td>
+                        <td><span class="badge badge-info">設計完了・実装待ち</span></td>
+                    </tr>
+                    <tr style="background:#e8f5e9">
+                        <td><strong>④ Meta Pixel ID入力（カラーミー）</strong></td>
+                        <td>2026/5/6</td>
+                        <td>カラーミーリピート側にMeta Pixel ID入力。Pixel計測復旧で学習継続可能化</td>
+                        <td><span class="badge badge-up">完了</span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 style="margin:24px 0 12px; font-size:1.05em; color:var(--primary)">🚀 6月に追加実装する解約対策</h3>
+            <div class="action-grid">
+
+                <div class="action-card new-card">
+                    <div class="ac-status new">追加①</div>
+                    <div class="ac-title">2回目特典LP本番公開（6/1〜）</div>
+                    <div class="ac-desc">
+                        <strong>URL:</strong> michiru.olivia-store.com/2kaime/<br>
+                        <strong>訴求:</strong> 2回目お届け時にミチル12本（または24本）プレゼント<br>
+                        <strong>緊急感:</strong> 100名様限定・5月末まで（追従CTAあり）<br>
+                        <strong>狙い:</strong> 1回解約89.5%の壁を「2回目に得がある」訴求で突破<br>
+                        <strong>KPI:</strong> F2継続率 10.5% → 30〜50%
+                    </div>
+                </div>
+
+                <div class="action-card progress-card">
+                    <div class="ac-status progress">追加②</div>
+                    <div class="ac-title">メール解約導線の実装（C案ハイブリッド）</div>
+                    <div class="ac-desc">
+                        <strong>① LP内mailto削除（3LP・5箇所）</strong>: 特商法ページのみ残す<br>
+                        <strong>② Gmail自動返信ON</strong>: 解約メール来訪時に4選択肢オファー自動送信<br>
+                        <strong>③ 専用Googleフォーム作成</strong>: お休み/延期/30%OFF/量変更の引き留め<br>
+                        <strong>期待効果:</strong> 解約抑止15-25%（Oisix・FANCL事例参考）
+                    </div>
+                </div>
+
+                <div class="action-card pending-card">
+                    <div class="ac-status pending">追加③</div>
+                    <div class="ac-title">同梱物の拡充（温泉水99型6種化）</div>
+                    <div class="ac-desc">
+                        現状①初回チラシ のみ → 6月以降に <strong>②シリカ&Q&A紙 ③レシピブック ④ブランドガイド</strong> を順次追加。<br>
+                        ※同梱パンフレット原稿の確定が5/26会議で議題
+                    </div>
+                </div>
+
+                <div class="action-card pending-card">
+                    <div class="ac-status pending">追加④</div>
+                    <div class="ac-title">3ヶ月継続UGC動画（広告クリエ）</div>
+                    <div class="ac-desc">
+                        「シリカは3ヶ月以上で違いを実感」という継続説得型UGC。広告だけでなく同梱QRコード経由でも展開予定。<br>
+                        F2転換と解約抑制の両面で効く想定
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="note-box warning" style="margin-top:20px">
+                <strong>📌 重要：</strong>解約対策は<strong>「複数施策の積み重ね」</strong>でしか効きません。単発で「これだけやれば解約率半減」は存在しないため、6月は<strong>4施策を並行で進めて2-3ヶ月後の効果測定</strong>を行います。
             </div>
 
             <h3 style="margin:24px 0 12px; font-size:1.05em; color:var(--primary)">6月の数値目標</h3>
@@ -566,17 +846,17 @@
                 <div class="summary-card">
                     <div class="sc-label">CPA</div>
                     <div class="sc-value blue">&yen;5,000</div>
-                    <div class="sc-sub">5月&yen;7,826 → -36%</div>
+                    <div class="sc-sub">5月&yen;6,708 → -25%</div>
                 </div>
                 <div class="summary-card orange-border">
                     <div class="sc-label">F2継続率</div>
-                    <div class="sc-value orange">50%</div>
-                    <div class="sc-sub">5/11会議目標</div>
+                    <div class="sc-value orange">30%</div>
+                    <div class="sc-sub">現状10.5% → +3倍<br>2回目特典LP効果</div>
                 </div>
                 <div class="summary-card red-border">
                     <div class="sc-label">解約率</div>
-                    <div class="sc-value red">30%</div>
-                    <div class="sc-sub">既存50%から</div>
+                    <div class="sc-value red">30-40%</div>
+                    <div class="sc-sub">現状50% → 段階的に改善<br>2-3ヶ月で効果測定</div>
                 </div>
             </div>
 
