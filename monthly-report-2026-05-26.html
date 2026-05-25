@@ -740,6 +740,239 @@
         </div>
     </div>
 
+    <!-- ===== 追加データから判明した3つの決定的事実 ===== -->
+    <div class="section">
+        <div class="section-header purple">🆕 鈴木さん追加データから判明した3つの決定的事実（5/25取得）</div>
+        <div class="section-body">
+
+            <h3 style="margin:16px 0 12px; font-size:1.05em; color:var(--primary)">事実① 男性配信18.7%は依然として無駄打ち</h3>
+            <p>4月の男性配信40%から5月18.7%まで縮小したが、結果（LPV）は <strong>女性89件 vs 男性9件</strong>。男性配信の効率は依然として10倍以上悪い。</p>
+            <table class="data-table">
+                <thead>
+                    <tr><th>性別</th><th class="num">消化額</th><th class="num">消化%</th><th class="num">リーチ</th><th class="num">結果(LPV)</th><th>判定</th></tr>
+                </thead>
+                <tbody>
+                    <tr style="background:#e8f5e9">
+                        <td><strong>女性</strong></td>
+                        <td class="num">¥73,820</td>
+                        <td class="num">81.0%</td>
+                        <td class="num">25,694</td>
+                        <td class="num" style="color:var(--success);font-weight:700">89件</td>
+                        <td><span class="badge badge-up">主戦力</span></td>
+                    </tr>
+                    <tr class="alert-row">
+                        <td><strong>男性</strong></td>
+                        <td class="num">¥17,044</td>
+                        <td class="num">18.7%</td>
+                        <td class="num">7,828</td>
+                        <td class="num">9件</td>
+                        <td><span class="badge badge-down">浪費 — 性別「女性のみ」固定再確認</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="note-box warning">
+                <strong>💡 アクション：</strong>広告セット設定の性別を「女性のみ」に再確認。Advantage+オーディエンス拡張がOFFになっているか確認。<strong>男性配信を完全に止めれば月¥17,044の節約。</strong>
+            </div>
+
+            <h3 style="margin:24px 0 12px; font-size:1.05em; color:var(--primary)">事実② 35-44女性が最効率セグメント（¥302/結果）</h3>
+            <table class="data-table">
+                <thead>
+                    <tr><th>セグメント</th><th class="num">消化額</th><th class="num">結果</th><th class="num">結果単価</th><th>効率順位</th></tr>
+                </thead>
+                <tbody>
+                    <tr style="background:#dcedc8">
+                        <td><strong>35-44 女性</strong></td>
+                        <td class="num">¥9,067</td>
+                        <td class="num" style="color:var(--success);font-weight:700">30件</td>
+                        <td class="num"><strong>¥302</strong></td>
+                        <td><span class="badge badge-up">🏆 1位（圧倒的最効率）</span></td>
+                    </tr>
+                    <tr style="background:#fff8e1">
+                        <td>55-64 女性</td>
+                        <td class="num">¥25,618</td>
+                        <td class="num">29件</td>
+                        <td class="num">¥884</td>
+                        <td><span class="badge badge-flat">2位（消化額1位の主役層）</span></td>
+                    </tr>
+                    <tr style="background:#fff8e1">
+                        <td>65+ 女性</td>
+                        <td class="num">¥10,065</td>
+                        <td class="num">11件</td>
+                        <td class="num">¥915</td>
+                        <td><span class="badge badge-flat">3位</span></td>
+                    </tr>
+                    <tr style="background:#fff8e1">
+                        <td>45-54 女性</td>
+                        <td class="num">¥24,003</td>
+                        <td class="num">12件</td>
+                        <td class="num">¥2,000</td>
+                        <td><span class="badge badge-flat">4位（消化2位なのに効率低）</span></td>
+                    </tr>
+                    <tr>
+                        <td>25-34 女性</td>
+                        <td class="num">¥3,951</td>
+                        <td class="num">6件</td>
+                        <td class="num">¥659</td>
+                        <td><span class="badge badge-info">5位</span></td>
+                    </tr>
+                    <tr class="alert-row">
+                        <td>18-24 女性</td>
+                        <td class="num">¥1,116</td>
+                        <td class="num">1件</td>
+                        <td class="num">¥1,116</td>
+                        <td><span class="badge badge-down">配信除外候補</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="note-box info">
+                <strong>💡 アクション：</strong>
+                <ul style="margin-top:6px">
+                    <li><strong>35-44女性専用セット（OT-03）の新設を最優先化</strong>。¥302/結果は他層の2-7倍効率。日予算¥500から開始</li>
+                    <li><strong>45-54女性は予算を絞る</strong>。消化2位なのに効率4位は要見直し</li>
+                    <li><strong>18-24女性を除外</strong>。¥1,116/件は配信価値なし</li>
+                </ul>
+            </div>
+
+            <h3 style="margin:24px 0 12px; font-size:1.05em; color:var(--primary)">事実③ 若者向けLP（bibyou）がGA4キーイベント0 — Meta広告の主流入先なのに</h3>
+            <table class="data-table">
+                <thead>
+                    <tr><th>LP</th><th class="num">表示回数</th><th class="num">ユーザー</th><th class="num">エンゲ率</th><th class="num">キーイベント</th><th>判定</th></tr>
+                </thead>
+                <tbody>
+                    <tr style="background:#e8f5e9">
+                        <td><strong>既存（michiru.olivia-store.com/）</strong></td>
+                        <td class="num">870</td>
+                        <td class="num">612</td>
+                        <td class="num">45.1%</td>
+                        <td class="num" style="color:var(--success);font-weight:700">3件</td>
+                        <td><span class="badge badge-up">🏆 CV主役</span></td>
+                    </tr>
+                    <tr class="alert-row">
+                        <td><strong>若者向け（/water-bibyou/）</strong></td>
+                        <td class="num">574</td>
+                        <td class="num">373</td>
+                        <td class="num">57.6%</td>
+                        <td class="num" style="color:var(--danger);font-weight:700">0件</td>
+                        <td><span class="badge badge-down">🔴 Meta主流入なのに0CV</span></td>
+                    </tr>
+                    <tr style="background:#fff8e1">
+                        <td>Yahoo（/yahoo/）</td>
+                        <td class="num">388</td>
+                        <td class="num">334</td>
+                        <td class="num">53.6%</td>
+                        <td class="num">1件</td>
+                        <td><span class="badge badge-flat">Yahoo流入で安定</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="note-box danger">
+                <strong>🚨 緊急事態：</strong>5/3にリニューアルした「若者向けLP（bibyou）」は <strong>Meta広告6本中5本の着地先</strong>なのに、5月のGA4キーイベント0件。エンゲ率57.6%（既存より高い）でユーザーは滞在しているのに、CVに繋がっていない。<br><br>
+                <strong>原因仮説：</strong>
+                <ol style="margin-top:6px;padding-left:20px">
+                    <li>LP内のCTAボタンの押しにくさ・離脱箇所がある</li>
+                    <li>申込フォーム入力ハードルが高い</li>
+                    <li>5/3リニューアル後のPixel計測がまだ不完全な可能性</li>
+                </ol>
+                <strong>アクション：</strong>会議でLP内のClarityレコーディング確認＋CTA位置の再点検を提案。Metaの主流入先を「既存LP」に戻すA/Bテスト検討。
+            </div>
+
+            <h3 style="margin:24px 0 12px; font-size:1.05em; color:var(--primary)">事実+α Meta 品質ランキング（参考）</h3>
+            <p style="font-size:0.9em;color:var(--text-light)">大半は「データ不足（―）」または「平均」評価。<strong>「日常3_ピクニック」のみが「平均以下」</strong>と判定された唯一のクリエ。</p>
+            <table class="data-table">
+                <thead>
+                    <tr><th>広告名</th><th>品質</th><th>エンゲ率</th><th>CV率</th><th>判定</th></tr>
+                </thead>
+                <tbody>
+                    <tr class="alert-row">
+                        <td>日常3_ピクニック</td>
+                        <td><strong style="color:var(--danger)">平均以下</strong></td>
+                        <td>―</td>
+                        <td>平均以上</td>
+                        <td><span class="badge badge-down">🔴 客観的に停止候補</span></td>
+                    </tr>
+                    <tr>
+                        <td>価格訴求-年配</td>
+                        <td>平均</td>
+                        <td>平均</td>
+                        <td>平均</td>
+                        <td><span class="badge badge-up">🟢 維持（実績ベスト）</span></td>
+                    </tr>
+                    <tr>
+                        <td>日常4_腸内</td>
+                        <td>平均</td>
+                        <td>平均</td>
+                        <td>平均</td>
+                        <td><span class="badge badge-flat">🟡 維持</span></td>
+                    </tr>
+                    <tr>
+                        <td>飲む美容_99円</td>
+                        <td>平均</td>
+                        <td>平均</td>
+                        <td>平均</td>
+                        <td><span class="badge badge-flat">🟡 品質は平均だが結果0件→bibyou LP問題も併発</span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 style="margin:24px 0 12px; font-size:1.05em; color:var(--primary)">事実+β Yahoo品質インデックス（主要KW）</h3>
+            <table class="data-table">
+                <thead>
+                    <tr><th>キーワード</th><th>マッチ</th><th class="num">品質指数</th><th class="num">インプ</th><th class="num">CV</th><th>判定</th></tr>
+                </thead>
+                <tbody>
+                    <tr style="background:#e8f5e9">
+                        <td>シリカ水 通販</td>
+                        <td>インテント</td>
+                        <td class="num"><strong>6</strong></td>
+                        <td class="num">796</td>
+                        <td class="num">2件</td>
+                        <td><span class="badge badge-up">🏆 隠れた優良KW</span></td>
+                    </tr>
+                    <tr style="background:#e8f5e9">
+                        <td>水 シリカ 水</td>
+                        <td>インテント</td>
+                        <td class="num">5</td>
+                        <td class="num">2,829</td>
+                        <td class="num">2件</td>
+                        <td><span class="badge badge-up">主力</span></td>
+                    </tr>
+                    <tr style="background:#e8f5e9">
+                        <td>シリカ水</td>
+                        <td>フレーズ</td>
+                        <td class="num">5</td>
+                        <td class="num">1,070</td>
+                        <td class="num">1件</td>
+                        <td><span class="badge badge-up">指名系</span></td>
+                    </tr>
+                    <tr class="alert-row">
+                        <td>飲む 美容</td>
+                        <td>フレーズ</td>
+                        <td class="num">―</td>
+                        <td class="num">2,506</td>
+                        <td class="num">0件</td>
+                        <td><span class="badge badge-down">🔴 浪費・除外候補</span></td>
+                    </tr>
+                    <tr>
+                        <td>シリカ水 美容</td>
+                        <td>インテント</td>
+                        <td class="num">4</td>
+                        <td class="num">570</td>
+                        <td class="num">0件</td>
+                        <td><span class="badge badge-flat">🟡 品質低・要観察</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="note-box info">
+                <strong>💡 Yahoo分析：</strong>
+                <ul style="margin-top:6px">
+                    <li><strong>「シリカ水 通販」（品質6）</strong>は他より高品質で安定CV。入札を強化推奨</li>
+                    <li><strong>「飲む 美容」フレーズ一致</strong>は品質判定不能＋CV0でインプ2,506 → 即除外で月¥1,000以上節約</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
     <!-- ===== 6月戦略：クリエ運用の中庸戦略 ===== -->
     <div class="section">
         <div class="section-header teal">🎯 6月戦略①: クリエの「中庸差し替え」運用に切り替え</div>
