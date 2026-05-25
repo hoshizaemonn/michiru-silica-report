@@ -389,14 +389,14 @@
                     <tr class="success-row">
                         <td><strong>既存LP（TOP）</strong></td>
                         <td class="num">870</td><td class="num">45.1%</td><td class="num"><strong>3件</strong></td>
-                        <td>膝訴求2・悩み訴求（指名検索含む）</td>
-                        <td><span class="badge badge-up">🏆 CV主役</span></td>
+                        <td>悩み訴求・膝訴求2（指名検索含む）</td>
+                        <td><span class="badge badge-up">既存LPで安定発火</span></td>
                     </tr>
-                    <tr class="alert-row">
+                    <tr class="success-row">
                         <td><strong>若者向けLP（bibyou）</strong></td>
-                        <td class="num">574</td><td class="num">57.6%</td><td class="num" style="color:var(--danger);font-weight:700">🚨 0件</td>
-                        <td><strong>Meta広告6本中5本</strong>（飲む美容/価格訴求-年配/悩み訴求/日常4等）</td>
-                        <td><span class="badge badge-down">主力流入なのにCV出ず</span></td>
+                        <td class="num">574</td><td class="num">57.6%</td><td class="num">参考値※</td>
+                        <td>Meta広告6本中5本が着地（価格訴求-年配ほか）</td>
+                        <td><span class="badge badge-up">🏆 Meta経由CV主役</span></td>
                     </tr>
                     <tr style="background:#fff8e1">
                         <td>Yahoo LP</td>
@@ -406,12 +406,37 @@
                     </tr>
                 </tbody>
             </table>
-            <div class="note-box danger">
-                <strong>🚨 致命的：Meta広告の主役クリエ（価格訴求-年配・悩み訴求）はbibyou LPに着地している</strong><br>
-                Meta広告データで判定すると「価格訴求-年配」「悩み訴求」が勝ち筋だが、着地先のbibyou LPでCV発火していない。
-                つまり <strong>「広告は機能しているがLPが機能していない」</strong> 状態。<br>
-                逆に既存LPに着地している膝訴求2・悩み訴求（一部）が3件CVを生んでいる。<br>
-                → 6月最優先：<strong>Meta主力クリエの着地先を既存LPに戻すA/Bテスト</strong>
+            <p style="font-size:0.78em;color:var(--text-light)">※GA4「ページとスクリーン」のキーイベントはお申し込みフォーム遷移後のCVを含まないため参考値。<strong>正確なLP別CVは下記Meta「広告別 結果」から集計</strong>。</p>
+
+            <h4 style="margin:20px 0 8px; font-size:0.95em; color:var(--text)">▼ 広告→LP別 Meta結果（購入数・5月実測）</h4>
+            <table class="data-table">
+                <thead>
+                    <tr><th>広告</th><th>着地LP</th><th class="num">購入</th><th class="num">クリック</th><th>判定</th></tr>
+                </thead>
+                <tbody>
+                    <tr class="success-row"><td><strong>価格訴求-年配</strong></td><td>bibyou LP</td><td class="num"><strong>5件</strong></td><td class="num">154</td><td><span class="badge badge-up">🏆 主役</span></td></tr>
+                    <tr class="success-row"><td><strong>悩み訴求</strong></td><td>既存LP（TOP）</td><td class="num">2件</td><td class="num">129</td><td><span class="badge badge-up">既存LPで安定</span></td></tr>
+                    <tr style="background:#fff8e1"><td>日常4_腸内</td><td>bibyou LP</td><td class="num">1件</td><td class="num">43</td><td><span class="badge badge-flat">単発発火</span></td></tr>
+                    <tr style="background:#fff8e1"><td>膝訴求2</td><td>既存LP（TOP）</td><td class="num">1件</td><td class="num">27</td><td><span class="badge badge-flat">単発発火</span></td></tr>
+                    <tr style="background:#fff8e1"><td>肌訴求2</td><td>bibyou LP</td><td class="num">1件</td><td class="num">3</td><td><span class="badge badge-flat">少リーチ</span></td></tr>
+                    <tr style="background:#fff8e1"><td>価格訴求-年齢</td><td>bibyou LP</td><td class="num">1件</td><td class="num">6</td><td><span class="badge badge-flat">少リーチ</span></td></tr>
+                    <tr class="alert-row"><td>飲む美容_99円</td><td>bibyou LP</td><td class="num" style="color:var(--danger);font-weight:700">0件</td><td class="num">97</td><td><span class="badge badge-down">最大浪費（消化¥16,940）</span></td></tr>
+                    <tr class="alert-row"><td>悩み訴求-2</td><td>bibyou LP</td><td class="num" style="color:var(--danger);font-weight:700">0件</td><td class="num">49</td><td><span class="badge badge-down">重複・浪費</span></td></tr>
+                </tbody>
+            </table>
+
+            <h4 style="margin:16px 0 8px; font-size:0.95em; color:var(--text)">▼ LP別 Meta経由 購入数</h4>
+            <table class="data-table">
+                <thead><tr><th>LP</th><th class="num">Meta経由 購入</th><th>主に発火した広告</th></tr></thead>
+                <tbody>
+                    <tr class="success-row"><td><strong>bibyou LP（若者向け）</strong></td><td class="num"><strong>8件</strong></td><td>価格訴求-年配5件／日常4・肌訴求2・価格訴求-年齢 各1件</td></tr>
+                    <tr class="success-row"><td><strong>既存LP（TOP）</strong></td><td class="num"><strong>3件</strong></td><td>悩み訴求2件／膝訴求2 1件</td></tr>
+                </tbody>
+            </table>
+
+            <div class="note-box success">
+                <strong>💡 結論修正：bibyou LP はちゃんと機能している（Meta経由CVの73%を生んでいる）</strong><br>
+                LP差し替えA/Bテストは不要、既存運用を維持。<strong>真の課題は「同じLPでもクリエの差が激しい」こと</strong>（価格訴求-年配 5件 vs 飲む美容_99円 0件）。打ち手は<strong>クリエ側の差し替え（飲む美容_99円・悩み訴求-2の停止）</strong>。
             </div>
 
             <h3 style="margin:24px 0 10px; font-size:1.05em; color:var(--primary)">🟡 Yahoo広告 5月実績</h3>
@@ -440,16 +465,21 @@
                 </tbody>
             </table>
             <div class="note-box info">
+                <strong>💡 Yahoo品質指数の見方：</strong>1〜10の10段階。<strong>5以上で「平均」、6以上で「平均以上」、4以下は「平均以下」</strong>でクリック単価が高くなる傾向。「―」表示はクリック数が少なく評価不能。
+            </div>
+
+            <div class="note-box info">
                 <strong>💡 Yahoo戦略：</strong>
                 <ul style="margin-top:6px;padding-left:20px">
-                    <li><strong>「シリカ水 通販」を入札強化</strong>（品質6・最高評価）。月次CV安定の柱に</li>
-                    <li><strong>「飲む 美容」フレーズ一致を即除外</strong>（CV0で月¥1,000以上の浪費）</li>
-                    <li>Yahoo広告は <strong>品質指数5-6を保てる指名系・成分検索系</strong> に予算集中</li>
+                    <li><strong>「シリカ水 通販」を入札強化</strong>（品質指数6・最高評価層）。月次CV安定の柱に</li>
+                    <li><strong>「シリカ水」「水 シリカ 水」（品質5）は現状維持</strong></li>
+                    <li><strong>「飲む 美容」フレーズ一致（品質不能）を即除外</strong>（CV0で月¥1,000以上の浪費）</li>
+                    <li>新規KW追加時は <strong>品質指数5以上を維持</strong> を基準に</li>
                 </ul>
             </div>
 
             <h3 style="margin:24px 0 10px; font-size:1.05em; color:var(--primary)">🟢 Amazon広告 5月実績</h3>
-            <p style="font-size:0.9em">Amazon側は別チャネルとして<strong>月90件ペース達成中</strong>（自社直販ECとは別計算）。5月は2回の最適化で立て直しました。</p>
+            <p style="font-size:0.9em">Amazon側は別チャネルとして<strong>月60件ペース</strong>（自社直販ECとは別計算）。5月は2回の最適化で立て直しました。</p>
             <table class="data-table">
                 <thead>
                     <tr><th>実施日</th><th>内容</th><th>結果</th></tr>
@@ -474,7 +504,7 @@
             </table>
             <div class="note-box success">
                 <strong>📈 Amazon広告の位置づけ：</strong>
-                自社直販EC（カラーミー）月20件目標とは別建てで <strong>Amazon月90件ペース</strong> を維持。Amazon側はレビュー★4.6で土台が強く、入札・予算管理だけで成果が出る運用フェーズ。
+                自社直販EC（カラーミー）月20件目標とは別建てで <strong>Amazon月60件ペース</strong>。Amazon側はレビュー★4.6で土台が強く、入札・予算管理だけで成果が出る運用フェーズ。
                 <strong>6月もこの最適化ルーティン（週次入札確認）を継続</strong>。
             </div>
 
@@ -694,14 +724,6 @@
                     <li>2回目特典の最終条件（プレゼント本数 12本 or 24本／原価試算）</li>
                     <li>2回目特典LP仮画面の確認・修正点指示</li>
                     <li>価格表示ポリシー（都度価格＋定期10%オフ基準 or 現行維持）</li>
-                </ol>
-            </div>
-
-            <div class="note-box warning">
-                <strong>🟠 今週中にお願い</strong>
-                <ol style="margin-top:6px;padding-left:20px">
-                    <li>Metaアクセストークン再発行（管理者権限が必要）</li>
-                    <li>同梱パンフレット原稿の進捗確認（5月中期限）</li>
                 </ol>
             </div>
 
