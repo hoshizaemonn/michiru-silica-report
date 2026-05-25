@@ -439,6 +439,45 @@
                 LP差し替えA/Bテストは不要、既存運用を維持。<strong>真の課題は「同じLPでもクリエの差が激しい」こと</strong>（価格訴求-年配 5件 vs 飲む美容_99円 0件）。打ち手は<strong>クリエ側の差し替え（飲む美容_99円・悩み訴求-2の停止）</strong>。
             </div>
 
+            <div class="note-box warning">
+                <strong>⚠️ 注意：広告→LP着地の対応は最新確認が必要</strong><br>
+                上記の「着地LP」列は <strong>5/10時点のメモリ・過去レポート由来</strong>で、5月後半の最新状態は確認できていません。
+                例えば「日常4_腸内（年配層訴求）→ bibyou LP（若者向け）」は不自然な組み合わせで、実は既存LP着地の可能性もあります。
+                <br><br>
+                <strong>正確に確認する3つの方法:</strong>
+                <ol style="margin-top:6px;padding-left:20px">
+                    <li><strong>Meta広告マネージャー → 広告タブ → 列追加「ウェブサイトURL」</strong>でCSVエクスポート ← 最確実</li>
+                    <li>GA4「探索」で <strong>ランディングページ × セッションのコンテンツ（utm_content）</strong> をクロス集計</li>
+                    <li>Meta「内訳 → 着地ページ」で着地URL別パフォーマンス確認</li>
+                </ol>
+                <strong>会議で鈴木さんに「現在の各広告のリンク先URL一覧」を確認させてください。</strong>これが取れれば「年配クリエ→既存LP」「若者向けクリエ→bibyou LP」など <strong>ターゲット層とLP整合性のチェック</strong> ができ、6月のLP連動を最適化できます。
+            </div>
+
+            <h4 style="margin:20px 0 8px; font-size:0.95em; color:var(--text)">▼ クリエ層×LP適性の理想形（仮説）</h4>
+            <table class="data-table">
+                <thead>
+                    <tr><th>クリエ層</th><th>適性LP</th><th>理由</th></tr>
+                </thead>
+                <tbody>
+                    <tr class="success-row">
+                        <td><strong>年配層向け</strong>（価格訴求-年配・悩み訴求・膝訴求・腸内）</td>
+                        <td>既存LP（TOP）</td>
+                        <td>白基調・読みやすい大文字・年配層の安心訴求</td>
+                    </tr>
+                    <tr class="success-row">
+                        <td><strong>若年〜中年層向け</strong>（飲む美容・肌訴求・日常-B）</td>
+                        <td>bibyou LP（若者向け）</td>
+                        <td>Noto Serif JP×アンティークゴールド・Hero女性写真の世界観</td>
+                    </tr>
+                    <tr class="success-row">
+                        <td><strong>指名検索・成分系</strong></td>
+                        <td>Yahoo LP（50-60代女性向け）</td>
+                        <td>のむシリカ風比較表・Amazon★4.6レビュー4名</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p style="font-size:0.85em;color:var(--text-light);margin-top:6px">※ 現状の着地LPが理想形と一致しているかを Meta広告マネージャーで確認 → 不一致なら6/1から着地URLを修正</p>
+
             <h3 style="margin:24px 0 10px; font-size:1.05em; color:var(--primary)">🟡 Yahoo広告 5月実績</h3>
             <p style="font-size:0.9em;margin-bottom:8px">Yahoo広告はメタと比べ小さい予算だが、安定したCV源として機能。<strong>キーワード「シリカ水 通販」が隠れた優良KW</strong>。</p>
             <table class="data-table">
