@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ミチルシリカ 月次レポート | 2026年5月26日</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #0d47a1; --primary-light: #1976d2;
+            --success: #2e7d32; --success-light: #4caf50;
+            --warning: #ef6c00; --danger: #c62828;
+            --text: #263238; --text-light: #546e7a;
+            --bg: #f5f7fa; --card-bg: #ffffff;
+            --border: #e0e4e8; --radius: 12px;
+            --shadow: 0 2px 12px rgba(0,0,0,0.06);
+            --shadow-lg: 0 8px 30px rgba(0,0,0,0.1);
+        }
+        body { font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif; line-height: 1.7; color: var(--text); background: var(--bg); padding: 30px 20px; }
+        .container { max-width: 1100px; margin: 0 auto; }
+
+        .report-header { background: linear-gradient(135deg, #0d47a1 0%, #1565c0 50%, #1976d2 100%); color: white; padding: 50px 40px; border-radius: var(--radius); margin-bottom: 30px; box-shadow: var(--shadow-lg); position: relative; overflow: hidden; }
+        .report-header::before { content: ''; position: absolute; top: -50%; right: -10%; width: 300px; height: 300px; background: rgba(255,255,255,0.05); border-radius: 50%; }
+        .report-header h1 { font-size: 2em; font-weight: 800; margin-bottom: 8px; }
+        .report-header .subtitle { font-size: 1.1em; opacity: 0.9; }
+        .report-header .meta { margin-top: 16px; font-size: 0.9em; opacity: 0.75; display: flex; gap: 20px; flex-wrap: wrap; }
+
+        .section { background: var(--card-bg); border-radius: var(--radius); margin-bottom: 24px; box-shadow: var(--shadow); overflow: hidden; }
+        .section-header { padding: 20px 28px; font-size: 1.2em; font-weight: 700; color: white; display: flex; align-items: center; gap: 10px; }
+        .section-header.blue { background: linear-gradient(135deg, var(--primary), var(--primary-light)); }
+        .section-header.green { background: linear-gradient(135deg, var(--success), var(--success-light)); }
+        .section-header.orange { background: linear-gradient(135deg, #e65100, var(--warning)); }
+        .section-header.purple { background: linear-gradient(135deg, #4a148c, #7b1fa2); }
+        .section-header.teal { background: linear-gradient(135deg, #00695c, #00897b); }
+        .section-header.dark { background: linear-gradient(135deg, #263238, #37474f); }
+        .section-header.pink { background: linear-gradient(135deg, #880e4f, #c2185b); }
+        .section-header.red { background: linear-gradient(135deg, #b71c1c, #e53935); }
+        .section-body { padding: 28px; }
+
+        .purchase-hero { background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 50%, #43a047 100%); color: white; padding: 40px; border-radius: var(--radius); margin-bottom: 24px; text-align: center; box-shadow: var(--shadow-lg); }
+        .ph-label { font-size: 1em; opacity: 0.85; letter-spacing: 2px; margin-bottom: 4px; }
+        .ph-period { font-size: 0.9em; opacity: 0.7; margin-bottom: 16px; }
+        .ph-number { font-size: 5em; font-weight: 900; line-height: 1; }
+        .ph-unit { font-size: 1.2em; opacity: 0.85; margin-top: 4px; }
+        .purchase-breakdown { display: flex; justify-content: center; gap: 40px; margin-top: 24px; flex-wrap: wrap; }
+        .pb-item { text-align: center; }
+        .pb-value { font-size: 2.8em; font-weight: 900; }
+        .pb-label { font-size: 0.85em; opacity: 0.8; }
+
+        .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 24px; }
+        .summary-card { background: var(--card-bg); border-radius: var(--radius); padding: 24px; text-align: center; box-shadow: var(--shadow); border-top: 4px solid var(--primary); }
+        .summary-card.green-border { border-top-color: var(--success); }
+        .summary-card.orange-border { border-top-color: var(--warning); }
+        .summary-card.red-border { border-top-color: var(--danger); }
+        .summary-card .sc-label { font-size: 0.85em; color: var(--text-light); margin-bottom: 8px; }
+        .summary-card .sc-value { font-size: 2.2em; font-weight: 900; }
+        .summary-card .sc-value.blue { color: var(--primary); }
+        .summary-card .sc-value.green { color: var(--success); }
+        .summary-card .sc-value.orange { color: var(--warning); }
+        .summary-card .sc-value.red { color: var(--danger); }
+        .summary-card .sc-sub { font-size: 0.8em; color: var(--text-light); margin-top: 6px; }
+
+        .data-table { width: 100%; border-collapse: collapse; font-size: 0.9em; }
+        .data-table thead { background: #263238; color: white; }
+        .data-table th { padding: 12px 14px; text-align: left; font-weight: 600; font-size: 0.85em; }
+        .data-table td { padding: 12px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+        .data-table tbody tr:hover { background: #f5f8ff; }
+        .data-table .num { text-align: right; font-variant-numeric: tabular-nums; }
+        .data-table .total-row { background: #f0f4ff; font-weight: 700; }
+        .data-table .highlight-row { background: #fff8e1; }
+        .data-table .alert-row { background: #ffebee; }
+
+        .note-box { padding: 16px 20px; border-radius: 8px; font-size: 0.9em; line-height: 1.7; margin: 12px 0; }
+        .note-box.success { background: #e8f5e9; border-left: 4px solid var(--success); }
+        .note-box.info { background: #e3f2fd; border-left: 4px solid var(--primary); }
+        .note-box.warning { background: #fff3e0; border-left: 4px solid var(--warning); }
+        .note-box.danger { background: #ffebee; border-left: 4px solid var(--danger); }
+
+        .badge { display: inline-block; padding: 3px 12px; border-radius: 20px; font-size: 0.8em; font-weight: 700; white-space: nowrap; }
+        .badge-up { background: #e8f5e9; color: var(--success); }
+        .badge-down { background: #ffebee; color: var(--danger); }
+        .badge-flat { background: #fff3e0; color: var(--warning); }
+        .badge-info { background: #e3f2fd; color: var(--primary); }
+
+        .action-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; }
+        .action-card { border: 2px solid var(--border); border-radius: var(--radius); padding: 22px; transition: transform 0.2s, box-shadow 0.2s; }
+        .action-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+        .action-card .ac-status { font-size: 0.75em; font-weight: 700; letter-spacing: 1px; margin-bottom: 8px; }
+        .action-card .ac-status.done { color: var(--success); }
+        .action-card .ac-status.progress { color: var(--primary); }
+        .action-card .ac-status.pending { color: var(--warning); }
+        .action-card .ac-status.alert { color: var(--danger); }
+        .action-card .ac-status.new { color: #7b1fa2; }
+        .action-card .ac-title { font-size: 1.05em; font-weight: 700; margin-bottom: 10px; }
+        .action-card .ac-desc { font-size: 0.85em; color: var(--text-light); line-height: 1.6; }
+        .action-card.done-card { border-color: var(--success); background: linear-gradient(135deg, #f9fff9, #fff); }
+        .action-card.progress-card { border-color: var(--primary); background: linear-gradient(135deg, #f8fbff, #fff); }
+        .action-card.pending-card { border-color: var(--warning); background: linear-gradient(135deg, #fffdf5, #fff); }
+        .action-card.alert-card { border-color: var(--danger); background: linear-gradient(135deg, #fff5f5, #fff); }
+        .action-card.new-card { border-color: #7b1fa2; background: linear-gradient(135deg, #faf5ff, #fff); }
+
+        @media (max-width: 768px) {
+            body { padding: 16px 12px; }
+            .report-header { padding: 30px 24px; }
+            .report-header h1 { font-size: 1.5em; }
+            .section-body { padding: 20px; }
+            .ph-number { font-size: 3.6em; }
+            .summary-grid { grid-template-columns: 1fr 1fr; }
+            .summary-card { padding: 18px 12px; }
+            .summary-card .sc-value { font-size: 1.7em; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- ===== Header ===== -->
+    <div class="report-header">
+        <h1>ミチルシリカ 月次レポート</h1>
+        <div class="subtitle">5/11会議からの進捗報告 + 5月実績 + 6月戦略</div>
+        <div class="meta">
+            <span>会議日: 2026年5月26日（月）9:30</span>
+            <span>前回会議: 2026年5月11日</span>
+            <span>対象期間: 5/11 〜 5/24（14日間）</span>
+        </div>
+    </div>
+
+    <!-- ===== Purchase Hero ===== -->
+    <div class="purchase-hero">
+        <div class="ph-label">5月購入件数（5/1〜5/24）</div>
+        <div class="ph-period">2026年5月1日 〜 5月24日（24日間） — スプシ確定値</div>
+        <div class="ph-number">12</div>
+        <div class="ph-unit">件</div>
+        <div class="purchase-breakdown">
+            <div class="pb-item">
+                <div class="pb-value">8</div>
+                <div class="pb-label">カラーミー定期便</div>
+            </div>
+            <div class="pb-item">
+                <div class="pb-value">4</div>
+                <div class="pb-label">代引き</div>
+            </div>
+        </div>
+        <div style="margin-top: 16px; font-size: 0.9em; opacity: 0.85;">
+            5/13 ・ 5/15 ・ 5/17 ・ 5/19 ・ 5/21 ・ 5/22 ・ 5/24×2 など隔日発火が継続
+        </div>
+        <div style="margin-top: 8px; font-size: 0.85em; opacity: 0.85;">
+            経由: Meta広告「価格訴求-年配」中心 ・ Yahoo広告も5/19・5/20・5/24で発火復活
+        </div>
+        <div style="margin-top: 12px; font-size: 0.85em; opacity: 0.7;">月20件目標まで残り6日で-8件 ・ 月末スパート期</div>
+    </div>
+
+    <!-- ===== Monthly Totals ===== -->
+    <div class="summary-grid">
+        <div class="summary-card green-border">
+            <div class="sc-label">4月 月次合計</div>
+            <div class="sc-value green">7件</div>
+            <div class="sc-sub">広告費 &yen;43,426 ・ CPA &yen;6,203<br>目標50件・達成率14%</div>
+        </div>
+        <div class="summary-card orange-border">
+            <div class="sc-label">5月（5/24まで）</div>
+            <div class="sc-value orange">12件</div>
+            <div class="sc-sub">広告費 &yen;93,913 ・ CPA &yen;7,826<br>目標20件・達成率60%</div>
+        </div>
+        <div class="summary-card">
+            <div class="sc-label">4月→5月 購入推移</div>
+            <div class="sc-value blue">7→12件</div>
+            <div class="sc-sub">+71%増 ・ 月内回復軌道</div>
+        </div>
+        <div class="summary-card red-border">
+            <div class="sc-label">5月CPA</div>
+            <div class="sc-value red">&yen;7,826</div>
+            <div class="sc-sub">4月 &yen;6,203 から +26%悪化<br>目標 &yen;4,000 まで遠い</div>
+        </div>
+    </div>
+
+    <!-- ===== Summary KPI ===== -->
+    <div class="summary-grid">
+        <div class="summary-card">
+            <div class="sc-label">広告費合計（5/1〜5/24）</div>
+            <div class="sc-value blue">&yen;93,913</div>
+            <div class="sc-sub">Meta &yen;77,188 + Yahoo &yen;16,725<br>日平均 &yen;3,913（予算&yen;4,000/日に概ね一致）</div>
+        </div>
+        <div class="summary-card green-border">
+            <div class="sc-label">配信中広告本数</div>
+            <div class="sc-value green">7-10本</div>
+            <div class="sc-sub">5本以上を常時維持<br>「価格訴求-年配」が今期の主役</div>
+        </div>
+        <div class="summary-card orange-border">
+            <div class="sc-label">Meta CPC（5月平均）</div>
+            <div class="sc-value orange">&yen;128</div>
+            <div class="sc-sub">前月 &yen;42 から大幅悪化<br>クリエ鮮度切れの影響顕在化</div>
+        </div>
+        <div class="summary-card red-border">
+            <div class="sc-label">直近CPC変動</div>
+            <div class="sc-value red" style="font-size:1.6em">&yen;90 → &yen;204</div>
+            <div class="sc-sub">5/20 → 5/23（2.3倍急騰）<br>5/24は &yen;181 にやや戻る</div>
+        </div>
+    </div>
+
+    <!-- ===== Key Findings ===== -->
+    <div class="section">
+        <div class="section-header green">🌟 5月の3大ハイライト</div>
+        <div class="section-body">
+
+            <div class="note-box success">
+                <strong>① 「価格訴求-年配」が今期の勝ち筋として確立</strong><br>
+                5/13以降の12日間で <strong>8件発火</strong>（隔日リズム）。1月の「価格訴求-口コミ版」と同系列の年配層訴求が継続的に効いています。
+                <strong>触らずに維持</strong> が最重要方針。
+            </div>
+
+            <div class="note-box info">
+                <strong>② 「触らず様子見」判断が正解だった事例（5/23-5/24）</strong><br>
+                5/23にMeta CPC急騰¥204・Yahoo予算消化半減という赤信号が3つ出ましたが、慌てて広告を止めずに1日様子見した結果、
+                <strong>翌5/24に両媒体で発火復活（計2件）</strong>。3/27に4本一気停止で5日間CVゼロになった過去の教訓を活かした判断。
+            </div>
+
+            <div class="note-box warning">
+                <strong>③ クリエ鮮度切れの兆候が確実に表面化</strong><br>
+                3/14投入素材を <strong>72日間</strong> 使い続けた結果、Meta CPCが &yen;90→&yen;204 と急騰。
+                4月までは &yen;42 だったものが5月平均 &yen;128 に。<strong>新クリエ（CR-03 価格訴求v2）の早期投入</strong> が月末スパート＆6月達成の鍵。
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ===== 5/11会議進捗 ===== -->
+    <div class="section">
+        <div class="section-header blue">📋 5/11会議 決定事項10項目の進捗</div>
+        <div class="section-body">
+
+            <div class="summary-grid" style="margin-bottom:24px">
+                <div class="summary-card green-border">
+                    <div class="sc-label">完了</div>
+                    <div class="sc-value green">2</div>
+                    <div class="sc-sub">10件中</div>
+                </div>
+                <div class="summary-card orange-border">
+                    <div class="sc-label">進行中</div>
+                    <div class="sc-value orange">2</div>
+                    <div class="sc-sub">10件中</div>
+                </div>
+                <div class="summary-card red-border">
+                    <div class="sc-label">未着手</div>
+                    <div class="sc-value red">6</div>
+                    <div class="sc-sub">10件中</div>
+                </div>
+                <div class="summary-card">
+                    <div class="sc-label">完了率</div>
+                    <div class="sc-value blue">20%</div>
+                    <div class="sc-sub">2/10</div>
+                </div>
+            </div>
+
+            <div class="action-grid">
+
+                <div class="action-card done-card">
+                    <div class="ac-status done">✅ 完了</div>
+                    <div class="ac-title">2回目特典LP仮画面の作成（案B軸）</div>
+                    <div class="ac-desc">「2回目に12本プレゼント」訴求＋緊急感バナー（5月末まで・100名様限定・残り22名様）でHTML完成。温泉水99型を踏襲。<strong>会議で内容確認お願いします。</strong></div>
+                </div>
+
+                <div class="action-card done-card">
+                    <div class="ac-status done">✅ 完了</div>
+                    <div class="ac-title">解約対策の設計（C案ハイブリッド）</div>
+                    <div class="ac-desc">LP本体からメアド削除＋特商法ページのみ残す＋Gmail自動返信＋専用Googleフォーム（4選択肢の引き留めオファー）の設計書完成。実装は会議後に着手。</div>
+                </div>
+
+                <div class="action-card progress-card">
+                    <div class="ac-status progress">🟠 進行中</div>
+                    <div class="ac-title">同梱パンフレット原稿・デザイン確定（5月中）</div>
+                    <div class="ac-desc">5月中の期限あり。<strong>進捗確認お願いします。</strong>必要ならClaudeで原稿叩き作成可能。</div>
+                </div>
+
+                <div class="action-card progress-card">
+                    <div class="ac-status progress">🟠 進行中</div>
+                    <div class="ac-title">月末「20件」達成の追い込み</div>
+                    <div class="ac-desc">5/24時点12件。残り6日で-8件・1.33件/日ペース必要。隔日発火が継続できるかが分かれ目。</div>
+                </div>
+
+                <div class="action-card pending-card">
+                    <div class="ac-status pending">⚪ 未着手</div>
+                    <div class="ac-title">2回目1ケースプレゼント原価・粗利試算</div>
+                    <div class="ac-desc">LP本番投入のブロッカー。<strong>会議で試算結果共有を依頼。</strong>プレゼント本数（12本 or 24本）の決定が必要。</div>
+                </div>
+
+                <div class="action-card pending-card">
+                    <div class="ac-status pending">⚪ 未着手</div>
+                    <div class="ac-title">2回目特典の最終条件確定</div>
+                    <div class="ac-desc">24本×1ケース or 2ケース／40本購入者の扱い／既存定期顧客の対応方針</div>
+                </div>
+
+                <div class="action-card pending-card">
+                    <div class="ac-status pending">⚪ 未着手</div>
+                    <div class="ac-title">お試し重複購入の運用ルール策定</div>
+                    <div class="ac-desc">住所判定でキャンセル／メール変更等の抜け道許容範囲／責任者設定</div>
+                </div>
+
+                <div class="action-card pending-card">
+                    <div class="ac-status pending">⚪ 未着手</div>
+                    <div class="ac-title">価格表示ポリシー統一</div>
+                    <div class="ac-desc">都度価格基準＋定期10%オフを基準表示に揃えるか、現行（初回50%OFF）維持か</div>
+                </div>
+
+                <div class="action-card pending-card">
+                    <div class="ac-status pending">⚪ 未着手</div>
+                    <div class="ac-title">公式LINE初期設定（カラミー割引適用可否確認）</div>
+                    <div class="ac-desc">登録特典の設計／カラミー側で500円クーポンの適用可否確認／2回目特典との重複は抑制方針</div>
+                </div>
+
+                <div class="action-card pending-card">
+                    <div class="ac-status pending">⚪ 未着手</div>
+                    <div class="ac-title">丸正スーパーサイネージ現地確認（杉さん）</div>
+                    <div class="ac-desc">視認性（セルフレジ7割）・放映枠条件・店頭陳列/ブース設置の交渉可能性確認</div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== 5月の重要トピック・タイムライン ===== -->
+    <div class="section">
+        <div class="section-header purple">📅 5/11会議以降の主要イベント</div>
+        <div class="section-body">
+
+            <table class="data-table">
+                <thead>
+                    <tr><th>日付</th><th>イベント</th><th>影響・対応</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>5/13(火)</strong></td>
+                        <td>カラーミー1件発火<br>「価格訴求-年配」</td>
+                        <td><span class="badge badge-up">発火開始</span> 隔日発火パターンの起点</td>
+                    </tr>
+                    <tr>
+                        <td><strong>5/15(木)</strong></td>
+                        <td>Amazon広告 緊急最適化<br>（入札不足・予算超過対策）</td>
+                        <td><span class="badge badge-info">対応済</span> 主力KW「水 シリカ」入札¥180→最大化、毎日予算¥800の調整</td>
+                    </tr>
+                    <tr class="highlight-row">
+                        <td><strong>5/17(土)</strong></td>
+                        <td>代引き1件発火</td>
+                        <td><span class="badge badge-up">発火</span> Amazon広告経由</td>
+                    </tr>
+                    <tr class="highlight-row">
+                        <td><strong>5/19(火)</strong></td>
+                        <td>カラーミー1件 + Yahoo CV1件</td>
+                        <td><span class="badge badge-up">Yahoo発火</span> Yahooオートビッド学習完了</td>
+                    </tr>
+                    <tr class="highlight-row">
+                        <td><strong>5/20(水)</strong></td>
+                        <td>Yahoo CV2件</td>
+                        <td><span class="badge badge-up">Yahoo好調</span> CPC&yen;33・最高効率</td>
+                    </tr>
+                    <tr class="highlight-row">
+                        <td><strong>5/21(木) / 5/22(金)</strong></td>
+                        <td>カラーミー連続発火（各1件）</td>
+                        <td><span class="badge badge-up">隔日継続</span> 価格訴求-年配の鉄板パターン</td>
+                    </tr>
+                    <tr class="alert-row">
+                        <td><strong>5/23(土)</strong></td>
+                        <td>Meta CPC&yen;204急騰・CV0<br>Yahoo予算消化半減</td>
+                        <td><span class="badge badge-down">赤信号</span> クリエ鮮度切れ症状＋土曜要因。<strong>「触らず1日様子見」と判断</strong></td>
+                    </tr>
+                    <tr class="highlight-row">
+                        <td><strong>5/24(日)</strong></td>
+                        <td>Meta+Yahoo両媒体で発火復活<br>計2件購入</td>
+                        <td><span class="badge badge-up">判断正解</span> CPC&yen;181へ戻り、CPA&yen;9,316→&yen;7,826に改善</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="note-box info">
+                <strong>💡 学び：</strong>5/23の赤信号3つに対して即座に広告停止していたら、5/24の発火復活がなかった可能性が高い。
+                3/27の「4本一気停止→5日間CVゼロ」事故の教訓が活きました。
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ===== 月末スパート ===== -->
+    <div class="section">
+        <div class="section-header red">🎯 月末スパート計画（残り6日：5/25〜5/31）</div>
+        <div class="section-body">
+
+            <div class="summary-grid">
+                <div class="summary-card red-border">
+                    <div class="sc-label">必要発火件数</div>
+                    <div class="sc-value red">+8件</div>
+                    <div class="sc-sub">月20件目標まで</div>
+                </div>
+                <div class="summary-card orange-border">
+                    <div class="sc-label">日次ペース</div>
+                    <div class="sc-value orange">1.33件/日</div>
+                    <div class="sc-sub">残り6日</div>
+                </div>
+                <div class="summary-card">
+                    <div class="sc-label">残予算（Meta）</div>
+                    <div class="sc-value blue">&yen;24,000</div>
+                    <div class="sc-sub">&yen;4,000/日×6日</div>
+                </div>
+                <div class="summary-card green-border">
+                    <div class="sc-label">残予算（Yahoo）</div>
+                    <div class="sc-value green">&yen;4,200</div>
+                    <div class="sc-sub">&yen;700/日×6日</div>
+                </div>
+            </div>
+
+            <h3 style="margin:24px 0 12px; font-size:1.05em; color:var(--primary)">達成シミュレーション</h3>
+            <table class="data-table">
+                <thead>
+                    <tr><th>シナリオ</th><th class="num">残り発火</th><th class="num">最終着地</th><th>判定</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>現状ペース継続（隔日発火）</td>
+                        <td class="num">+3件</td>
+                        <td class="num">15件</td>
+                        <td><span class="badge badge-down">75% 未達</span></td>
+                    </tr>
+                    <tr>
+                        <td>毎日発火（5月前半同等）</td>
+                        <td class="num">+6件</td>
+                        <td class="num">18件</td>
+                        <td><span class="badge badge-flat">90% 未達</span></td>
+                    </tr>
+                    <tr class="highlight-row">
+                        <td>毎日発火 + 新クリエ効果（楽観）</td>
+                        <td class="num">+8件</td>
+                        <td class="num">20件</td>
+                        <td><span class="badge badge-up">100% 達成</span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 style="margin:24px 0 12px; font-size:1.05em; color:var(--primary)">4つの打ち手</h3>
+            <div class="action-grid">
+
+                <div class="action-card progress-card">
+                    <div class="ac-status progress">① 継続</div>
+                    <div class="ac-title">触らず継続観察（5/24発火パターンを壊さない）</div>
+                    <div class="ac-desc">価格訴求-年配の隔日発火維持。期待効果 +3件（現状ペース）。広告停止・大幅変更は厳禁。</div>
+                </div>
+
+                <div class="action-card alert-card">
+                    <div class="ac-status alert">② 緊急</div>
+                    <div class="ac-title">新クリエ「価格訴求v2」 制作・投入（5/27まで）</div>
+                    <div class="ac-desc">既存素材の鮮度切れ対策。期待効果 +2件。既存クリエの停止はせず、新規追加の形で投入。</div>
+                </div>
+
+                <div class="action-card new-card">
+                    <div class="ac-status new">③ 準備</div>
+                    <div class="ac-title">2回目特典LP 本番公開準備（5/30まで）</div>
+                    <div class="ac-desc">条件確定後、本番URLに設置。期待効果 +1件（5月内寄与は限定的・本命は6月LTV改善）。</div>
+                </div>
+
+                <div class="action-card pending-card">
+                    <div class="ac-status pending">④ 検討</div>
+                    <div class="ac-title">Yahoo入札 &yen;50→&yen;80 引き上げ</div>
+                    <div class="ac-desc">月末スパート用クリック増狙い。期待効果 +1-2件。<strong>会議で許可を判断ください。</strong></div>
+                </div>
+
+            </div>
+
+            <div class="note-box danger" style="margin-top:20px">
+                <strong>⚠️ 月末スパート期間中 絶対にやらないこと</strong>
+                <ul style="margin-top:8px;padding-left:20px">
+                    <li>価格訴求-年配を含む既存広告の停止（10日8発火の生命線）</li>
+                    <li>配信中広告を3本以下にする</li>
+                    <li>予算変更と広告停止を同じ日にやる</li>
+                    <li>Yahoo広告を完全停止</li>
+                    <li>LP大幅変更（Pixel学習リセット）</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ===== 6月戦略 ===== -->
+    <div class="section">
+        <div class="section-header teal">🚀 6月戦略 — 3本柱</div>
+        <div class="section-body">
+
+            <div class="action-grid">
+
+                <div class="action-card new-card">
+                    <div class="ac-status new">柱①</div>
+                    <div class="ac-title">2回目特典LP 本番投入＋A/Bテスト</div>
+                    <div class="ac-desc">
+                        <strong>本番URL:</strong> michiru.olivia-store.com/2kaime/<br>
+                        <strong>投入時期:</strong> 6/1〜<br>
+                        <strong>広告流入:</strong> Meta「価格訴求-年配」「悩み訴求」セットからリンク先切り替え（一部）<br>
+                        <strong>A/Bテスト:</strong> 既存LP vs 2回目特典LP、2週間で勝者決定<br>
+                        <strong>KPI:</strong> F2継続率（既存30%→50%目標）／解約率（既存50%→30%目標）
+                    </div>
+                </div>
+
+                <div class="action-card progress-card">
+                    <div class="ac-status progress">柱②</div>
+                    <div class="ac-title">クリエ鮮度更新ローテーション（週1本ペース）</div>
+                    <div class="ac-desc">
+                        3/14素材を72日経過させた反省。6月は週1本ペースで新クリエ追加をルール化：<br><br>
+                        <strong>6/1-6/7:</strong> 価格訴求v2（年配層）<br>
+                        <strong>6/8-6/14:</strong> 3ヶ月継続UGC（F2転換・解約抑制）<br>
+                        <strong>6/15-6/21:</strong> 日常-B拡張（35-44女性）<br>
+                        <strong>6/22-6/28:</strong> ギフト訴求（父の日後の母娘訴求）
+                    </div>
+                </div>
+
+                <div class="action-card done-card">
+                    <div class="ac-status done">柱③</div>
+                    <div class="ac-title">解約対策の実装（設計完了済）</div>
+                    <div class="ac-desc">
+                        <strong>① LP内mailto削除:</strong> 3LPから計5箇所削除、特商法ページのみ残す<br>
+                        <strong>② Gmail自動返信:</strong> info@olivia-store.com の自動返信ON<br>
+                        <strong>③ 解約専用フォーム:</strong> Googleフォーム作成、4選択肢の引き留めオファー<br>
+                        <strong>期待効果:</strong> 解約抑止率15-25%（Oisix・FANCL事例参考）
+                    </div>
+                </div>
+
+            </div>
+
+            <h3 style="margin:24px 0 12px; font-size:1.05em; color:var(--primary)">6月の数値目標</h3>
+            <div class="summary-grid">
+                <div class="summary-card green-border">
+                    <div class="sc-label">カラーミー購入</div>
+                    <div class="sc-value green">20件</div>
+                    <div class="sc-sub">5月実績12件 → +8件</div>
+                </div>
+                <div class="summary-card">
+                    <div class="sc-label">CPA</div>
+                    <div class="sc-value blue">&yen;5,000</div>
+                    <div class="sc-sub">5月&yen;7,826 → -36%</div>
+                </div>
+                <div class="summary-card orange-border">
+                    <div class="sc-label">F2継続率</div>
+                    <div class="sc-value orange">50%</div>
+                    <div class="sc-sub">5/11会議目標</div>
+                </div>
+                <div class="summary-card red-border">
+                    <div class="sc-label">解約率</div>
+                    <div class="sc-value red">30%</div>
+                    <div class="sc-sub">既存50%から</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ===== Active LPs ===== -->
+    <div class="section">
+        <div class="section-header blue">現在稼働中のLP（3つ）+ 開発中（1つ）</div>
+        <div class="section-body">
+            <table class="data-table">
+                <thead>
+                    <tr><th>LP</th><th>URL</th><th>用途・流入元</th><th>備考</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>若者向け（飲む美容）</strong></td>
+                        <td><a href="https://michiru.olivia-store.com/water-bibyou/" target="_blank">/water-bibyou/</a></td>
+                        <td>Meta広告着地（20-30代）</td>
+                        <td>5/2新規投入。Meta広告の主要着地LP</td>
+                    </tr>
+                    <tr>
+                        <td><strong>既存（TOP）</strong></td>
+                        <td><a href="https://michiru.olivia-store.com/" target="_blank">/</a></td>
+                        <td>Instagram流入の主着地・指名検索</td>
+                        <td>5/5にFVのみ変更</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Yahoo検索専用</strong></td>
+                        <td><a href="https://michiru.olivia-store.com/yahoo/" target="_blank">/yahoo/</a></td>
+                        <td>Yahoo検索広告着地（50-60代女性）</td>
+                        <td>5/3にCV改善3点パッケージ実装済</td>
+                    </tr>
+                    <tr class="highlight-row">
+                        <td><strong>2回目特典LP（開発中）</strong></td>
+                        <td>/2kaime/ <span class="badge badge-info">6月公開予定</span></td>
+                        <td>新規ダブルオファー専用</td>
+                        <td><strong>5/26会議で内容確認・条件確定後、6/1公開目標</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- ===== 会議で決めたいこと ===== -->
+    <div class="section">
+        <div class="section-header dark">📌 5/26会議で決めていただきたいこと</div>
+        <div class="section-body">
+
+            <div class="note-box danger">
+                <strong>🔴 緊急（即決）</strong>
+                <ol style="margin-top:8px;padding-left:20px">
+                    <li><strong>2回目特典の最終条件確定</strong> — プレゼント本数（12本 or 24本）、対象（新規定期のみ）、原価試算結果</li>
+                    <li><strong>2回目特典LP仮画面の内容確認</strong> — 会議で実物を見て、修正点を指示</li>
+                    <li><strong>価格表示ポリシー</strong> — 都度価格＋定期10%オフを基準にするか、現行（初回50%OFF）維持か</li>
+                    <li><strong>Yahoo入札 &yen;50→&yen;80 の許可</strong> — 月末スパート用、リスク：CPC上昇</li>
+                </ol>
+            </div>
+
+            <div class="note-box warning">
+                <strong>🟠 今週中にやっていただきたい</strong>
+                <ol style="margin-top:8px;padding-left:20px">
+                    <li><strong>Metaアクセストークン再発行</strong> — 4月から計測手動化中、管理者権限が必要</li>
+                    <li><strong>同梱パンフレット原稿の進捗確認</strong>（5月中期限） — 必要ならClaudeで原稿叩き作成</li>
+                    <li><strong>お試し重複購入の運用ルール</strong> — 住所判定・メアド変更対応のフロー</li>
+                </ol>
+            </div>
+
+            <div class="note-box info">
+                <strong>🔵 確認・共有（情報レベル）</strong>
+                <ol style="margin-top:8px;padding-left:20px">
+                    <li>解約対策の実装スケジュール — LP内mailto削除（PHPファイル貼付け方式で進める）、Gmail自動返信ON、Googleフォーム作成</li>
+                    <li>杉さんの丸正サイネージ現地確認進捗</li>
+                    <li>北崎氏レベニューシェア条件案の着手時期</li>
+                </ol>
+            </div>
+
+        </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 30px; padding: 20px; font-size: 0.8em; color: var(--text-light);">
+        ミチルシリカ 月次レポート | 2026年5月26日 会議用<br>
+        データソース: ミチルシリカ広告ダッシュボード（スプシ確定値） / 施策ログ.csv<br>
+        スプシ最終更新: 2026/05/25
+    </div>
+
+</div>
+</body>
+</html>
