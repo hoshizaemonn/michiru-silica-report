@@ -196,7 +196,7 @@
                     <tr class="success-row"><td>5/11</td><td>Amazon</td><td>浪費KW除外（フレーズ除外8件＋ASIN除外5件）→ ¥7,000+/0件の浪費を遮断</td></tr>
                     <tr class="success-row"><td>5/11</td><td>Amazon</td><td>勝ちKW入札最大化（水500ml24本／水大分／ミネラルウォーターラベルレス）</td></tr>
                     <tr class="success-row"><td>5/15</td><td>Amazon</td><td>緊急最適化（「水 シリカ」EXACT 推奨¥311-587に対し¥180だった件を是正、予算超過対策）</td></tr>
-                    <tr class="success-row"><td>5月通月</td><td>解約対策</td><td>サイト動線で解約しにくくする：/cancel/ を「よくあるご質問」ページに変更し、解約専用ボタンを排除。電話 or 問い合わせフォーム経由のみに（温泉水99型のハードル化）</td></tr>
+                    <tr class="success-row"><td>5/14</td><td>解約対策</td><td>サイト動線で解約しにくくする：/cancel/ を「よくあるご質問」ページに変更し、解約専用ボタンを排除。電話 or 問い合わせフォーム経由のみに（温泉水99型のハードル化）→ 効果は別セクションで分析</td></tr>
                     <tr class="success-row"><td>5/23</td><td>判断</td><td>「触らず1日様子見」判断（CPC急騰・Yahoo半減でも放置）→ 翌日2件発火復活で正解実証</td></tr>
                     <tr class="success-row"><td>5/25</td><td>LP</td><td>2回目特典LP仮画面 作成</td></tr>
                     <tr class="success-row"><td>5/25</td><td>データ</td><td>Meta品質ランキング・年齢×性別・Yahoo品質指数・GA4 LP別データ取得</td></tr>
@@ -508,6 +508,88 @@
                 <strong>6月もこの最適化ルーティン（週次入札確認）を継続</strong>。
             </div>
 
+            <h3 style="margin:32px 0 10px; font-size:1.05em; color:var(--primary)">💌 解約対策の効果検証（5/14実施前後の比較）</h3>
+            <p style="font-size:0.9em;margin-bottom:8px">5/14に「サイト動線で解約しにくくする」（/cancel/ をFAQ化＋解約専用ボタン排除）を実施。実施前後の解約データを比較：</p>
+
+            <div class="summary-grid">
+                <div class="summary-card red-border">
+                    <div class="sc-label">5/14前（5/1-5/13）</div>
+                    <div class="sc-value red">7件</div>
+                    <div class="sc-sub">13日間 / <strong>0.54件/日</strong></div>
+                </div>
+                <div class="summary-card green-border">
+                    <div class="sc-label">5/14以降（5/14-5/22）</div>
+                    <div class="sc-value green">4件</div>
+                    <div class="sc-sub">9日間 / <strong>0.44件/日</strong></div>
+                </div>
+                <div class="summary-card">
+                    <div class="sc-label">解約ペース改善</div>
+                    <div class="sc-value blue">-17%</div>
+                    <div class="sc-sub">短期間だが減少傾向</div>
+                </div>
+                <div class="summary-card orange-border">
+                    <div class="sc-label">解約フォーム経由</div>
+                    <div class="sc-value orange">3→1</div>
+                    <div class="sc-sub">サイト動線ハードル化の効果</div>
+                </div>
+            </div>
+
+            <h4 style="margin:20px 0 8px; font-size:0.95em; color:var(--text)">▼ 解約手段の変化</h4>
+            <table class="data-table">
+                <thead>
+                    <tr><th>解約手段</th><th class="num">5/14前</th><th class="num">5/14以降</th><th>動き</th></tr>
+                </thead>
+                <tbody>
+                    <tr class="success-row">
+                        <td>解約フォーム</td><td class="num">3件</td><td class="num">1件</td>
+                        <td><span class="badge badge-up">⬇ サイト動線ハードル化で減少</span></td>
+                    </tr>
+                    <tr><td>LINE</td><td class="num">2件</td><td class="num">1件</td><td><span class="badge badge-flat">微減</span></td></tr>
+                    <tr><td>TEL</td><td class="num">1件</td><td class="num">1件</td><td><span class="badge badge-flat">横ばい</span></td></tr>
+                    <tr><td>メール</td><td class="num">1件</td><td class="num">1件</td><td><span class="badge badge-flat">横ばい</span></td></tr>
+                </tbody>
+            </table>
+
+            <h4 style="margin:20px 0 8px; font-size:0.95em; color:var(--text)">▼ 解約理由カテゴリの変化</h4>
+            <table class="data-table">
+                <thead>
+                    <tr><th>カテゴリ</th><th class="num">5/14前</th><th class="num">5/14以降</th><th>備考</th></tr>
+                </thead>
+                <tbody>
+                    <tr class="success-row">
+                        <td>商品起因（飲まない・飲みにくい・お腹下し）</td>
+                        <td class="num">3件</td><td class="num">0件</td>
+                        <td><span class="badge badge-up">⬇ 商品不満は減</span></td>
+                    </tr>
+                    <tr class="alert-row">
+                        <td>価格・競合起因（他社・コスト・ジムで安い）</td>
+                        <td class="num">1件</td><td class="num">2件</td>
+                        <td><span class="badge badge-down">⬆ 増加 → 2回目特典LPで対策</span></td>
+                    </tr>
+                    <tr>
+                        <td>ライフ起因（事情変化・転居等）</td>
+                        <td class="num">0件</td><td class="num">1件</td>
+                        <td><span class="badge badge-flat">対策困難</span></td>
+                    </tr>
+                    <tr>
+                        <td>その他・不明</td>
+                        <td class="num">3件</td><td class="num">1件</td>
+                        <td><span class="badge badge-flat">減</span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="note-box info">
+                <strong>💡 解約対策の中間評価：</strong>
+                <ol style="margin-top:6px;padding-left:20px">
+                    <li><strong>解約ペース17%減</strong>（0.54→0.44件/日）。9日間のサンプルだが減少傾向は確認</li>
+                    <li><strong>解約フォーム経由が3件→1件</strong>。サイト動線ハードル化が効いている兆候</li>
+                    <li><strong>商品起因の解約が3→0件</strong>。同梱物（初回チラシ）が安心訴求として機能している可能性</li>
+                    <li>残った解約理由は <strong>「価格・競合」「ライフ事情」</strong> に集約 → <strong>2回目特典LP（6月公開予定）で「価格・競合」を直接対策</strong></li>
+                </ol>
+                ※9日間のサンプルなので6月いっぱい観察を継続。前川さん（12回継続後の解約）のような長期顧客の流出が増えていないかを引き続き確認。
+            </div>
+
 </div>
     </div>
 
@@ -545,10 +627,10 @@
                         <td>クリエ在庫が溜まり、5月の「自然淘汰での学習集中」を可能にした<br>※ただし質が伴わないと低意図クリック装置になる教訓も</td>
                     </tr>
                     <tr class="success-row">
-                        <td><strong>5月通月</strong></td>
+                        <td><strong>5/14</strong></td>
                         <td>④ 解約しにくくする</td>
                         <td>サイトの /cancel/ をFAQ化、解約専用ボタンを排除（温泉水99型のハードル化）</td>
-                        <td>解約までのハードル増→離脱抑制。<strong>新規獲得と並行して既存維持の防御線を構築</strong></td>
+                        <td>5/14以降 解約ペース <strong>0.54件/日 → 0.44件/日（-17%）</strong>。詳細は下記「解約対策の効果検証」セクション</td>
                     </tr>
                     <tr class="success-row">
                         <td><strong>5/3〜5/6</strong></td>
