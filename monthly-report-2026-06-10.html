@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ミチルシリカ 月次レポート | 2026年6月10日会議</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --primary: #0d47a1; --primary-light: #1976d2;
+  --success: #2e7d32; --success-light: #4caf50;
+  --warning: #ef6c00; --danger: #c62828;
+  --text: #263238; --text-light: #546e7a;
+  --bg: #f5f7fa; --card-bg: #ffffff;
+  --border: #e0e4e8; --radius: 12px;
+  --shadow: 0 2px 12px rgba(0,0,0,0.06);
+  --shadow-lg: 0 8px 30px rgba(0,0,0,0.1);
+}
+body { font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif; line-height: 1.7; color: var(--text); background: var(--bg); padding: 30px 20px; }
+.container { max-width: 980px; margin: 0 auto; }
+
+.report-header { background: linear-gradient(135deg, #0d47a1 0%, #1565c0 50%, #1976d2 100%); color: white; padding: 40px; border-radius: var(--radius); margin-bottom: 24px; box-shadow: var(--shadow-lg); }
+.report-header h1 { font-size: 1.9em; font-weight: 800; margin-bottom: 6px; }
+.report-header .subtitle { font-size: 1.05em; opacity: 0.9; }
+.report-header .meta { margin-top: 14px; font-size: 0.9em; opacity: 0.75; display: flex; gap: 18px; flex-wrap: wrap; }
+
+.section { background: var(--card-bg); border-radius: var(--radius); margin-bottom: 20px; box-shadow: var(--shadow); overflow: hidden; }
+.section-header { padding: 18px 26px; font-size: 1.15em; font-weight: 700; color: white; }
+.section-header.blue { background: linear-gradient(135deg, var(--primary), var(--primary-light)); }
+.section-header.green { background: linear-gradient(135deg, var(--success), var(--success-light)); }
+.section-header.orange { background: linear-gradient(135deg, #e65100, var(--warning)); }
+.section-header.red { background: linear-gradient(135deg, #b71c1c, #e53935); }
+.section-header.dark { background: linear-gradient(135deg, #263238, #37474f); }
+.section-body { padding: 24px 28px; }
+
+.purchase-hero { background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 50%, #43a047 100%); color: white; padding: 36px; border-radius: var(--radius); margin-bottom: 22px; text-align: center; box-shadow: var(--shadow-lg); }
+.ph-label { font-size: 0.95em; opacity: 0.85; letter-spacing: 1.5px; margin-bottom: 4px; }
+.ph-period { font-size: 0.85em; opacity: 0.7; margin-bottom: 12px; }
+.ph-number { font-size: 4.5em; font-weight: 900; line-height: 1; }
+.ph-unit { font-size: 1.1em; opacity: 0.85; margin-top: 4px; }
+.ph-target { margin-top: 14px; font-size: 0.9em; opacity: 0.85; background:rgba(255,255,255,0.18); padding:10px 18px; border-radius:8px; display:inline-block; }
+
+.source-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px,1fr)); gap: 12px; margin-top: 22px; }
+.source-card { background: rgba(255,255,255,0.15); padding: 14px; border-radius: 10px; text-align: center; }
+.source-card .sc-name { font-size: 0.85em; opacity: 0.85; }
+.source-card .sc-num { font-size: 2em; font-weight: 800; margin: 4px 0; }
+.source-card .sc-sub { font-size: 0.78em; opacity: 0.78; }
+
+.summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; margin-bottom: 22px; }
+.summary-card { background: var(--card-bg); border-radius: var(--radius); padding: 20px; text-align: center; box-shadow: var(--shadow); border-top: 4px solid var(--primary); }
+.summary-card.green-border { border-top-color: var(--success); }
+.summary-card.orange-border { border-top-color: var(--warning); }
+.summary-card.red-border { border-top-color: var(--danger); }
+.summary-card .sc-label { font-size: 0.82em; color: var(--text-light); margin-bottom: 6px; }
+.summary-card .sc-value { font-size: 1.9em; font-weight: 900; }
+.summary-card .sc-value.blue { color: var(--primary); }
+.summary-card .sc-value.green { color: var(--success); }
+.summary-card .sc-value.orange { color: var(--warning); }
+.summary-card .sc-value.red { color: var(--danger); }
+.summary-card .sc-sub { font-size: 0.78em; color: var(--text-light); margin-top: 5px; }
+
+.data-table { width: 100%; border-collapse: collapse; font-size: 0.9em; }
+.data-table thead { background: #263238; color: white; }
+.data-table th { padding: 10px 12px; text-align: left; font-weight: 600; font-size: 0.85em; }
+.data-table td { padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+.data-table .num { text-align: right; font-variant-numeric: tabular-nums; }
+.data-table .success-row { background: #e8f5e9; }
+.data-table .alert-row { background: #ffebee; }
+
+.note-box { padding: 14px 18px; border-radius: 8px; font-size: 0.9em; line-height: 1.65; margin: 12px 0; }
+.note-box.info { background: #e3f2fd; border-left: 4px solid var(--primary); }
+.note-box.success { background: #e8f5e9; border-left: 4px solid var(--success); }
+.note-box.warning { background: #fff3e0; border-left: 4px solid var(--warning); }
+.note-box.danger { background: #ffebee; border-left: 4px solid var(--danger); }
+
+.badge { display: inline-block; padding: 2px 10px; border-radius: 14px; font-size: 0.75em; font-weight: 700; }
+.badge-up { background: #e8f5e9; color: var(--success); }
+.badge-down { background: #ffebee; color: var(--danger); }
+.badge-flat { background: #fff3e0; color: var(--warning); }
+
+.todo-card { background: white; border-left: 5px solid var(--primary); padding: 16px 20px; margin: 10px 0; border-radius: 6px; box-shadow: var(--shadow); }
+.todo-card.priority-red { border-color: var(--danger); }
+.todo-card.priority-orange { border-color: var(--warning); }
+.todo-card.priority-green { border-color: var(--success); }
+.todo-card .tc-head { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+.todo-card .tc-num { background: var(--primary); color: white; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85em; flex-shrink: 0; }
+.todo-card.priority-red .tc-num { background: var(--danger); }
+.todo-card.priority-orange .tc-num { background: var(--warning); }
+.todo-card.priority-green .tc-num { background: var(--success); }
+.todo-card .tc-title { font-weight: 700; font-size: 1em; }
+.todo-card .tc-data { font-size: 0.82em; color: var(--text-light); background: #f5f7fa; padding: 6px 10px; border-radius: 4px; margin: 6px 0; }
+.todo-card .tc-action { font-size: 0.9em; }
+
+.agenda-list { list-style: none; counter-reset: agenda; }
+.agenda-list li { counter-increment: agenda; padding: 14px 18px 14px 56px; position: relative; background: #f5f7fa; margin: 10px 0; border-radius: 8px; font-size: 0.95em; }
+.agenda-list li::before { content: counter(agenda); position: absolute; left: 14px; top: 50%; transform: translateY(-50%); width: 30px; height: 30px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.95em; }
+
+@media (max-width: 768px) {
+  body { padding: 14px 10px; }
+  .report-header { padding: 26px 22px; }
+  .report-header h1 { font-size: 1.4em; }
+  .section-body { padding: 18px; }
+  .ph-number { font-size: 3.3em; }
+  .summary-grid { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="report-header">
+  <h1>ミチルシリカ 月次レポート</h1>
+  <div class="subtitle">2026年6月10日 定例会議資料</div>
+  <div class="meta">
+    <span>📅 対象期間: 4月〜6月8日</span>
+    <span>📊 株式会社 斗</span>
+    <span>🕐 14:00〜</span>
+  </div>
+</div>
+
+<!-- ===================== 全体サマリー ===================== -->
+<div class="purchase-hero">
+  <div class="ph-label">6 M O N T H L Y  P U R C H A S E S</div>
+  <div class="ph-period">2026年6月1日〜6月8日（8日間）</div>
+  <div class="ph-number">23<span class="ph-unit">件</span></div>
+  <div class="ph-target">📈 月換算 約89件ペース ／ 5月実績 84件を超える可能性</div>
+
+  <div class="source-grid">
+    <div class="source-card">
+      <div class="sc-name">Amazon</div>
+      <div class="sc-num">16</div>
+      <div class="sc-sub">件（8日）</div>
+    </div>
+    <div class="source-card">
+      <div class="sc-name">直営（カラーミー+代引き）</div>
+      <div class="sc-num">7</div>
+      <div class="sc-sub">件（8日）</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== 3ヶ月比較 ===================== -->
+<div class="section">
+  <div class="section-header blue">📊 3ヶ月推移 — 全チャネル合算</div>
+  <div class="section-body">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>月</th>
+          <th class="num">Amazon</th>
+          <th class="num">直営</th>
+          <th class="num">合計</th>
+          <th class="num">直営広告費</th>
+          <th class="num">直営CPA</th>
+          <th>状況</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>4月</td>
+          <td class="num">60件</td>
+          <td class="num">16件</td>
+          <td class="num"><b>76件</b></td>
+          <td class="num">¥54,459</td>
+          <td class="num">¥3,404</td>
+          <td><span class="badge badge-flat">基準月</span></td>
+        </tr>
+        <tr class="success-row">
+          <td>5月</td>
+          <td class="num">68件</td>
+          <td class="num">16件</td>
+          <td class="num"><b>84件</b></td>
+          <td class="num">¥92,701</td>
+          <td class="num">¥5,794</td>
+          <td><span class="badge badge-up">+10.5%</span></td>
+        </tr>
+        <tr>
+          <td>6月（〜8日）</td>
+          <td class="num">16件</td>
+          <td class="num">7件</td>
+          <td class="num"><b>23件</b></td>
+          <td class="num">¥16,558+</td>
+          <td class="num">¥2,365</td>
+          <td><span class="badge badge-up">月換算89件ペース</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="note-box success">
+      <b>💡 ハイライト：</b>
+      6月は前半8日間で23件、月換算<b>89件ペース</b>。5月最高実績の84件を超える勢い。
+      AmazonがAmazonスマイルセール（5/27-6/2）の追い風もあり好調。
+    </div>
+  </div>
+</div>
+
+<!-- ===================== Amazon分析 ===================== -->
+<div class="section">
+  <div class="section-header orange">🛒 Amazon広告 — 5月vs6月分析</div>
+  <div class="section-body">
+    <div class="summary-grid">
+      <div class="summary-card green-border">
+        <div class="sc-label">5月 購入数</div>
+        <div class="sc-value green">68<span style="font-size:0.5em;">件</span></div>
+        <div class="sc-sub">日次2.2件平均</div>
+      </div>
+      <div class="summary-card">
+        <div class="sc-label">6月8日時点</div>
+        <div class="sc-value blue">16<span style="font-size:0.5em;">件</span></div>
+        <div class="sc-sub">日次2.0件平均</div>
+      </div>
+      <div class="summary-card orange-border">
+        <div class="sc-label">5月CPA</div>
+        <div class="sc-value orange">¥1,805</div>
+        <div class="sc-sub">ROAS 170%</div>
+      </div>
+      <div class="summary-card red-border">
+        <div class="sc-label">6月CPA（最適化前）</div>
+        <div class="sc-value red">¥2,087</div>
+        <div class="sc-sub">ROAS 140% ⬇️</div>
+      </div>
+    </div>
+
+    <div class="note-box warning">
+      <b>⚠️ 6月前半の課題：</b><br>
+      ROASが5月170% → 6月140%へ <b>-30pt悪化</b>。
+      原因分析の結果、<b>5/11実施のAM-01/02最適化が一部機能してなかった</b>ことが判明。
+    </div>
+
+    <h3 style="font-size:1.1em; margin:24px 0 12px; color: var(--primary);">🔧 6/7実施済の緊急最適化（5ブロック）</h3>
+
+    <div class="todo-card priority-green">
+      <div class="tc-head">
+        <div class="tc-num">①</div>
+        <div class="tc-title">浪費KW除外強化（フレーズ→完全一致＋クローズマッチ）</div>
+      </div>
+      <div class="tc-data">対象：飲むシリカ／水 シリカ／のむしりか水／海洋深層水 等 10件 × 自動・手動両CP</div>
+      <div class="tc-action">月¥25,000-30,000の浪費削減効果見込み</div>
+    </div>
+
+    <div class="todo-card priority-green">
+      <div class="tc-head">
+        <div class="tc-num">②</div>
+        <div class="tc-title">競合ASIN除外 5件</div>
+      </div>
+      <div class="tc-data">B0G64KGDR5 / B072Z8FFXR / B081VHVPV8 / B087G3JQ92 / B092D5HM5S</div>
+      <div class="tc-action">競合商品への誘導クリック遮断</div>
+    </div>
+
+    <div class="todo-card priority-orange">
+      <div class="tc-head">
+        <div class="tc-num">③</div>
+        <div class="tc-title">高浪費KW 2件を「一時停止」</div>
+      </div>
+      <div class="tc-data">水 シリカ（¥2,283・0購入）／水 500ml 24本（¥4,360・1購入・ROAS 0.61）</div>
+      <div class="tc-action">赤字確定KWの停止で消化効率改善</div>
+    </div>
+
+    <div class="todo-card priority-green">
+      <div class="tc-head">
+        <div class="tc-num">④</div>
+        <div class="tc-title">指名KW手動最大化 ⭐</div>
+      </div>
+      <div class="tc-data">ミチル／みちる 水 完全一致 ¥300／ミチルシリカ ¥200→¥300</div>
+      <div class="tc-action">5月実績「みちる 水」CPA¥2、「ミチル」CPA¥4の超激安KWを取り切る</div>
+    </div>
+
+    <div class="todo-card priority-green">
+      <div class="tc-head">
+        <div class="tc-num">⑤</div>
+        <div class="tc-title">新発見の勝ちKW 7件追加</div>
+      </div>
+      <div class="tc-data">シリカ水 定期購入／飲み物 箱買い 激安／シリカ水 人気／体にいい水／純水／シリカ水 おすすめ／天然水</div>
+      <div class="tc-action">6月前半データから抽出した転換高KW</div>
+    </div>
+
+    <div class="note-box info">
+      <b>📆 効果検証：</b> 6/14（実施7日後）に判定。<br>
+      目標：ROAS 170%回復 ／ 日次CV 2.8件以上 ／ 手動CP CPA ¥2,000以下
+    </div>
+  </div>
+</div>
+
+<!-- ===================== 直営広告分析 ===================== -->
+<div class="section">
+  <div class="section-header blue">📱 直営広告 — Meta / Yahoo</div>
+  <div class="section-body">
+
+    <h3 style="font-size:1.1em; margin-bottom:12px; color: var(--primary);">Meta広告（直近7日トレンド）</h3>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>日付</th>
+          <th class="num">Meta消化</th>
+          <th class="num">link</th>
+          <th class="num">CPC</th>
+          <th class="num">Meta購入</th>
+          <th class="num">Yahoo消化</th>
+          <th class="num">yCV</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>06/02</td><td class="num">¥4,104</td><td class="num">26</td><td class="num">¥158</td><td class="num">0</td><td class="num">¥884</td><td class="num">0</td></tr>
+        <tr><td>06/03</td><td class="num">¥3,716</td><td class="num">34</td><td class="num">¥109</td><td class="num">0</td><td class="num">¥700</td><td class="num">0</td></tr>
+        <tr><td>06/04</td><td class="num">¥3,876</td><td class="num">19</td><td class="num">¥204</td><td class="num">0</td><td class="num">¥717</td><td class="num">0</td></tr>
+        <tr><td>06/05</td><td class="num">¥3,802</td><td class="num">18</td><td class="num">¥211</td><td class="num">1</td><td class="num">¥684</td><td class="num">0</td></tr>
+        <tr class="success-row"><td>06/06 ⭐</td><td class="num">¥2,270</td><td class="num">18</td><td class="num">¥126</td><td class="num">2</td><td class="num">¥486</td><td class="num">0</td></tr>
+        <tr><td>06/07</td><td class="num">¥4,301</td><td class="num">38</td><td class="num">¥113</td><td class="num">0</td><td class="num">¥861</td><td class="num">0</td></tr>
+        <tr><td>06/08</td><td class="num">¥3,533</td><td class="num">33</td><td class="num">¥107</td><td class="num">0</td><td class="num">¥943</td><td class="num">0</td></tr>
+      </tbody>
+    </table>
+
+    <div class="note-box success">
+      <b>🟢 改善トレンド：</b><br>
+      Meta CPC <b>¥211 → ¥126 → ¥113 → ¥107</b> と4日連続改善。
+      OT-09（CV最適化メインCPC急騰）の症状が完全に解消傾向。
+    </div>
+
+    <div class="note-box danger">
+      <b>🔴 課題：Yahoo CV 7日連続ゼロ（6/2〜6/8）</b><br>
+      Yahoo LP（YL-02/03/04）改修の急務度上昇。クリック数は18-22で安定だが、転換ゼロが続く。
+    </div>
+  </div>
+</div>
+
+<!-- ===================== ステップメール4週 ===================== -->
+<div class="section">
+  <div class="section-header green">📧 ステップメール4週 — 進捗報告</div>
+  <div class="section-body">
+
+    <div class="note-box info">
+      <b>✅ 制作完了 + 市川さん指摘の修正 全完了</b><br>
+      4週分のHTMLメールを完成。デザイン・コーディング・修正対応すべて納品済。
+    </div>
+
+    <table class="data-table" style="margin-top:14px;">
+      <thead>
+        <tr><th>Vol</th><th>テーマ</th><th>状態</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Vol.01</td><td>採水地紹介（玖珠の朝） + 🍚ご飯レシピ</td><td>✅ 完成</td></tr>
+        <tr><td>Vol.02</td><td>シリカ72mg/Lの意味 + ☕コーヒーレシピ</td><td>✅ 完成（カード段差・工場表記 修正済）</td></tr>
+        <tr><td>Vol.03</td><td>製造工程（玖珠の工場） + 🍵お茶レシピ</td><td>✅ 完成（No.03改行・工場表記 修正済）</td></tr>
+        <tr><td>Vol.04</td><td>続けてくださる方への お礼 + 💧スキンケアTip</td><td>✅ 完成（1ヶ月固定表現を非依存に修正）</td></tr>
+      </tbody>
+    </table>
+
+    <h3 style="font-size:1em; margin:18px 0 10px;">📌 6/10会議で議論したい点</h3>
+    <ul class="agenda-list">
+      <li>第4週「ささやかなお礼」の<b>具体的な特典内容</b>を確定<br>
+        <span style="font-size:0.85em; color:var(--text-light);">候補：味噌汁同梱 or 12/24本ボトル追加</span></li>
+      <li><b>配信ツール選定</b>（MailChimp / Klaviyo / 既存ツール継続）</li>
+      <li>Vol.04の<b>配信タイミング設計</b>（1ヶ月／2ヶ月／3ヶ月サイクル混在問題）</li>
+      <li>Amazonレビュー <b>仮テキスト → 実本文への差し替え</b>（136件から選定）</li>
+      <li><b>配信開始時期</b>の確定</li>
+    </ul>
+
+    <div class="note-box success">
+      <b>🔗 確認URL：</b><br>
+      <a href="https://hoshizaemonn.github.io/michiru-silica-report/step_mail/index.html" target="_blank" style="color:var(--primary); font-weight:600;">
+        プレビュー一覧（最新版）
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== 6/10 議題 ===================== -->
+<div class="section">
+  <div class="section-header dark">🎯 6/10 会議 議題</div>
+  <div class="section-body">
+
+    <ul class="agenda-list">
+      <li><b>Amazon広告 5月vs6月 効果検証</b>（6/7最適化結果は6/14再評価）</li>
+      <li><b>ステップメール4週デザイン最終確認</b>＋特典内容確定</li>
+      <li><b>配信ツール選定</b>（MailChimp等）</li>
+      <li><b>Amazonレビュー実本文の差し替え</b>（136件から選定）</li>
+      <li><b>配信開始時期</b>の確定</li>
+      <li><b>Yahoo LP改修 着手判断</b>（YL-02/03/04・7日連続CV0継続中）</li>
+      <li><b>動画クリエ新規制作判断</b>（CR-03 価格訴求v2／CR-02 継続UGC）</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===================== 7月アクション ===================== -->
+<div class="section">
+  <div class="section-header red">🚀 6月後半〜7月アクション</div>
+  <div class="section-body">
+
+    <div class="todo-card priority-red">
+      <div class="tc-head">
+        <div class="tc-num">1</div>
+        <div class="tc-title">Yahoo LP改修 — YL-02/03/04 着手</div>
+      </div>
+      <div class="tc-data">課題：7日連続CV0・クリック18-22で安定するが転換せず</div>
+      <div class="tc-action">「他社との違い」上部移動 ／ 65%地点リマインドCTA ／ 注文フォーム削減</div>
+    </div>
+
+    <div class="todo-card priority-orange">
+      <div class="tc-head">
+        <div class="tc-num">2</div>
+        <div class="tc-title">CR-03 価格訴求v2 動画クリエ制作</div>
+      </div>
+      <div class="tc-data">背景：3/14投入素材から12週超 ／ CPC高止まりの根本原因</div>
+      <div class="tc-action">既存「価格訴求」「価格訴求-年配」のリフレッシュ版</div>
+    </div>
+
+    <div class="todo-card priority-orange">
+      <div class="tc-head">
+        <div class="tc-num">3</div>
+        <div class="tc-title">ステップメール 配信開始準備</div>
+      </div>
+      <div class="tc-data">タイミング：6/10会議で配信ツール選定後、即準備開始</div>
+      <div class="tc-action">市川さんとMailChimp等のセットアップ・テスト配信</div>
+    </div>
+
+    <div class="todo-card priority-green">
+      <div class="tc-head">
+        <div class="tc-num">4</div>
+        <div class="tc-title">Amazon広告 6/7最適化の検証＋次の打ち手</div>
+      </div>
+      <div class="tc-data">6/14検証 → 結果次第で②期最適化（手動キャンペーン予算調整等）</div>
+      <div class="tc-action">マスター記録：Amazon/広告運用/2026年6月7日_浪費KW再除外_設定リスト.md</div>
+    </div>
+
+    <div class="todo-card priority-green">
+      <div class="tc-head">
+        <div class="tc-num">5</div>
+        <div class="tc-title">店頭・西崎氏セミナー販促物</div>
+      </div>
+      <div class="tc-data">A4セミナー配布資料 制作中・素材確定後印刷</div>
+      <div class="tc-action">6月：店頭広告開始 ／ 7月：Google広告再開予定</div>
+    </div>
+
+  </div>
+</div>
+
+<div class="section" style="text-align:center; padding:24px; background:#37474f; color:white;">
+  <p style="margin:0; font-size:0.85em; opacity:0.85;">本レポートは 2026年6月10日 定例会議 議論用</p>
+  <p style="margin:6px 0 0; font-size:0.78em; opacity:0.6;">作成: 株式会社 斗 / 北斗 / 2026-06-09</p>
+</div>
+
+</div>
+</body>
+</html>
