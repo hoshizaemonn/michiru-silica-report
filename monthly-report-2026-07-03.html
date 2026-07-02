@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ミチルシリカ 月次レポート | 2026年7月3日会議</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --primary: #0d47a1; --primary-light: #1976d2;
+  --success: #2e7d32; --success-light: #4caf50;
+  --warning: #ef6c00; --danger: #c62828;
+  --text: #263238; --text-light: #546e7a;
+  --bg: #f5f7fa; --card-bg: #ffffff;
+  --border: #e0e4e8; --radius: 12px;
+  --shadow: 0 2px 12px rgba(0,0,0,0.06);
+  --shadow-lg: 0 8px 30px rgba(0,0,0,0.1);
+}
+body { font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif; line-height: 1.7; color: var(--text); background: var(--bg); padding: 30px 20px; }
+.container { max-width: 980px; margin: 0 auto; }
+
+.report-header { background: linear-gradient(135deg, #0d47a1 0%, #1565c0 50%, #1976d2 100%); color: white; padding: 40px; border-radius: var(--radius); margin-bottom: 24px; box-shadow: var(--shadow-lg); }
+.report-header h1 { font-size: 1.9em; font-weight: 800; margin-bottom: 6px; }
+.report-header .subtitle { font-size: 1.05em; opacity: 0.9; }
+.report-header .meta { margin-top: 14px; font-size: 0.9em; opacity: 0.75; display: flex; gap: 18px; flex-wrap: wrap; }
+
+.section { background: var(--card-bg); border-radius: var(--radius); margin-bottom: 20px; box-shadow: var(--shadow); overflow: hidden; }
+.section-header { padding: 18px 26px; font-size: 1.15em; font-weight: 700; color: white; }
+.section-header.blue { background: linear-gradient(135deg, var(--primary), var(--primary-light)); }
+.section-header.green { background: linear-gradient(135deg, var(--success), var(--success-light)); }
+.section-header.orange { background: linear-gradient(135deg, #e65100, var(--warning)); }
+.section-header.red { background: linear-gradient(135deg, #b71c1c, #e53935); }
+.section-header.dark { background: linear-gradient(135deg, #263238, #37474f); }
+.section-body { padding: 24px 28px; }
+
+.purchase-hero { background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 50%, #43a047 100%); color: white; padding: 36px; border-radius: var(--radius); margin-bottom: 22px; text-align: center; box-shadow: var(--shadow-lg); }
+.ph-label { font-size: 0.95em; opacity: 0.85; letter-spacing: 1.5px; margin-bottom: 4px; }
+.ph-period { font-size: 0.85em; opacity: 0.7; margin-bottom: 12px; }
+.ph-number { font-size: 4.5em; font-weight: 900; line-height: 1; }
+.ph-unit { font-size: 1.1em; opacity: 0.85; margin-top: 4px; }
+.ph-target { margin-top: 14px; font-size: 0.9em; opacity: 0.85; background:rgba(255,255,255,0.18); padding:10px 18px; border-radius:8px; display:inline-block; }
+
+.source-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px,1fr)); gap: 12px; margin-top: 22px; }
+.source-card { background: rgba(255,255,255,0.15); padding: 14px; border-radius: 10px; text-align: center; }
+.source-card .sc-name { font-size: 0.85em; opacity: 0.85; }
+.source-card .sc-num { font-size: 2em; font-weight: 800; margin: 4px 0; }
+.source-card .sc-sub { font-size: 0.78em; opacity: 0.78; }
+
+.summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; margin-bottom: 22px; }
+.summary-card { background: var(--card-bg); border-radius: var(--radius); padding: 20px; text-align: center; box-shadow: var(--shadow); border-top: 4px solid var(--primary); }
+.summary-card.green-border { border-top-color: var(--success); }
+.summary-card.orange-border { border-top-color: var(--warning); }
+.summary-card.red-border { border-top-color: var(--danger); }
+.summary-card .sc-label { font-size: 0.82em; color: var(--text-light); margin-bottom: 6px; }
+.summary-card .sc-value { font-size: 1.9em; font-weight: 900; }
+.summary-card .sc-value.blue { color: var(--primary); }
+.summary-card .sc-value.green { color: var(--success); }
+.summary-card .sc-value.orange { color: var(--warning); }
+.summary-card .sc-value.red { color: var(--danger); }
+.summary-card .sc-sub { font-size: 0.78em; color: var(--text-light); margin-top: 5px; }
+
+.data-table { width: 100%; border-collapse: collapse; font-size: 0.9em; }
+.data-table thead { background: #263238; color: white; }
+.data-table th { padding: 10px 12px; text-align: left; font-weight: 600; font-size: 0.85em; }
+.data-table td { padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+.data-table .num { text-align: right; font-variant-numeric: tabular-nums; }
+.data-table .success-row { background: #e8f5e9; }
+.data-table .alert-row { background: #ffebee; }
+
+.note-box { padding: 14px 18px; border-radius: 8px; font-size: 0.9em; line-height: 1.65; margin: 12px 0; }
+.note-box.info { background: #e3f2fd; border-left: 4px solid var(--primary); }
+.note-box.success { background: #e8f5e9; border-left: 4px solid var(--success); }
+.note-box.warning { background: #fff3e0; border-left: 4px solid var(--warning); }
+.note-box.danger { background: #ffebee; border-left: 4px solid var(--danger); }
+
+.badge { display: inline-block; padding: 2px 10px; border-radius: 14px; font-size: 0.75em; font-weight: 700; }
+.badge-up { background: #e8f5e9; color: var(--success); }
+.badge-down { background: #ffebee; color: var(--danger); }
+.badge-flat { background: #fff3e0; color: var(--warning); }
+
+.todo-card { background: white; border-left: 5px solid var(--primary); padding: 16px 20px; margin: 10px 0; border-radius: 6px; box-shadow: var(--shadow); }
+.todo-card.priority-red { border-color: var(--danger); }
+.todo-card.priority-orange { border-color: var(--warning); }
+.todo-card.priority-green { border-color: var(--success); }
+.todo-card .tc-head { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+.todo-card .tc-num { background: var(--primary); color: white; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85em; flex-shrink: 0; }
+.todo-card.priority-red .tc-num { background: var(--danger); }
+.todo-card.priority-orange .tc-num { background: var(--warning); }
+.todo-card.priority-green .tc-num { background: var(--success); }
+.todo-card .tc-title { font-weight: 700; font-size: 1em; }
+.todo-card .tc-data { font-size: 0.82em; color: var(--text-light); background: #f5f7fa; padding: 6px 10px; border-radius: 4px; margin: 6px 0; }
+.todo-card .tc-action { font-size: 0.9em; }
+
+.agenda-list { list-style: none; counter-reset: agenda; }
+.agenda-list li { counter-increment: agenda; padding: 14px 18px 14px 56px; position: relative; background: #f5f7fa; margin: 10px 0; border-radius: 8px; font-size: 0.95em; }
+.agenda-list li::before { content: counter(agenda); position: absolute; left: 14px; top: 50%; transform: translateY(-50%); width: 30px; height: 30px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.95em; }
+
+@media (max-width: 768px) {
+  body { padding: 14px 10px; }
+  .report-header { padding: 26px 22px; }
+  .report-header h1 { font-size: 1.4em; }
+  .section-body { padding: 18px; }
+  .ph-number { font-size: 3.3em; }
+  .summary-grid { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="report-header">
+  <h1>ミチルシリカ 月次レポート</h1>
+  <div class="subtitle">2026年7月3日 定例会議資料 — 6月実績まとめ</div>
+  <div class="meta">
+    <span>📅 対象期間: 2026年6月（3ヶ月推移含む）</span>
+    <span>📊 株式会社 斗</span>
+  </div>
+</div>
+
+<!-- ===================== 全体サマリー ===================== -->
+<div class="purchase-hero">
+  <div class="ph-label">J U N E &nbsp; D I R E C T &nbsp; S A L E S</div>
+  <div class="ph-period">2026年6月1日〜6月30日（直営 = カラーミー＋代引き）</div>
+  <div class="ph-number">26<span class="ph-unit">件</span></div>
+  <div class="ph-target">📈 5月16件 → 6月26件（<b>+62.5%</b>）／ 1件あたりの広告費は ¥7,908 → ¥4,738（<b>-40%改善</b>）</div>
+
+  <div class="source-grid">
+    <div class="source-card">
+      <div class="sc-name">カラーミー（定期）</div>
+      <div class="sc-num">15</div>
+      <div class="sc-sub">件</div>
+    </div>
+    <div class="source-card">
+      <div class="sc-name">代引き</div>
+      <div class="sc-num">11</div>
+      <div class="sc-sub">件</div>
+    </div>
+    <div class="source-card">
+      <div class="sc-name">Amazon（別集計）</div>
+      <div class="sc-num">45</div>
+      <div class="sc-sub">件（6月）</div>
+    </div>
+  </div>
+</div>
+
+<div class="note-box success">
+  <b>💡 6月ハイライト：</b> 直営（当社運用チャネル）が <b>過去最多の26件</b>。件数を伸ばしながら 1件あたりの広告費を4割改善しており、「回復基調」から「成長基調」へ。Amazonを含めた6月全体では <b>約71件</b>（Amazon45＋直営26）。
+</div>
+
+<!-- ===================== 3ヶ月推移 ===================== -->
+<div class="section">
+  <div class="section-header blue">📊 3ヶ月推移 — 直営（カラーミー＋代引き）</div>
+  <div class="section-body">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>月</th>
+          <th class="num">購入</th>
+          <th class="num">Meta広告費</th>
+          <th class="num">Yahoo広告費</th>
+          <th class="num">広告費合計</th>
+          <th class="num">1件あたりの広告費</th>
+          <th>状況</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>4月</td>
+          <td class="num">5件</td>
+          <td class="num">¥12,946</td>
+          <td class="num">¥2,413</td>
+          <td class="num">¥15,359</td>
+          <td class="num">¥3,071</td>
+          <td><span class="badge badge-flat">※4/26〜計測開始（実質1週間）</span></td>
+        </tr>
+        <tr>
+          <td>5月</td>
+          <td class="num">16件</td>
+          <td class="num">¥108,914</td>
+          <td class="num">¥17,624</td>
+          <td class="num">¥126,538</td>
+          <td class="num">¥7,908</td>
+          <td><span class="badge badge-flat">本格運用開始</span></td>
+        </tr>
+        <tr class="success-row">
+          <td><b>6月</b></td>
+          <td class="num"><b>26件</b></td>
+          <td class="num">¥112,753</td>
+          <td class="num">¥10,458</td>
+          <td class="num">¥123,211</td>
+          <td class="num"><b>¥4,738</b></td>
+          <td><span class="badge badge-up">件数+62.5% / 1件あたり費用-40%</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="note-box info">
+      <b>📊 5月→6月の伸び：</b> ほぼ同じ広告費（¥126,538→¥123,211）で購入は16件→26件。1件あたりの獲得コストが大幅に下がり、<b>広告の効率が明確に改善</b>しています。
+    </div>
+  </div>
+</div>
+
+<!-- ===================== 直営広告 Meta/Yahoo ===================== -->
+<div class="section">
+  <div class="section-header blue">📱 直営広告 — Meta / Yahoo（6月末7日トレンド）</div>
+  <div class="section-body">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>日付</th>
+          <th class="num">Meta広告費</th>
+          <th class="num">クリック数</th>
+          <th class="num">1クリックの広告費</th>
+          <th class="num">購入</th>
+          <th class="num">配信中の広告数</th>
+          <th class="num">Yahoo広告費</th>
+          <th class="num">Yahoo購入</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>06/24</td><td class="num">¥3,613</td><td class="num">29</td><td class="num">¥125</td><td class="num">0</td><td class="num">7本</td><td class="num">¥659</td><td class="num">0</td></tr>
+        <tr class="success-row"><td>06/25</td><td class="num">¥3,389</td><td class="num">37</td><td class="num">¥92</td><td class="num">1</td><td class="num">9本</td><td class="num">¥669</td><td class="num">0</td></tr>
+        <tr class="success-row"><td>06/26</td><td class="num">¥3,487</td><td class="num">35</td><td class="num">¥100</td><td class="num">1</td><td class="num">10本</td><td class="num">¥691</td><td class="num">0</td></tr>
+        <tr class="success-row"><td>06/27 ⭐</td><td class="num">¥3,669</td><td class="num">50</td><td class="num">¥73</td><td class="num">2</td><td class="num">8本</td><td class="num">¥720</td><td class="num">0</td></tr>
+        <tr><td>06/28</td><td class="num">¥3,930</td><td class="num">47</td><td class="num">¥84</td><td class="num">0</td><td class="num">10本</td><td class="num">¥730</td><td class="num">0</td></tr>
+        <tr class="success-row"><td>06/29 ⭐</td><td class="num">¥3,222</td><td class="num">33</td><td class="num">¥98</td><td class="num">2</td><td class="num">7本</td><td class="num">¥570</td><td class="num">1</td></tr>
+        <tr class="alert-row"><td>06/30</td><td class="num">¥3,933</td><td class="num">43</td><td class="num">¥91</td><td class="num">0</td><td class="num"><b>3本</b></td><td class="num">¥558</td><td class="num">0</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:0.82em; color:var(--text-light); margin-top:8px;">
+      ・<b>1クリックの広告費</b>＝広告が1回押されるのにかかった費用（安いほど効率が良い）<br>
+      ・<b>配信中の広告数</b>＝その日に実際に表示された広告（動画・画像）の数。Metaが予算を自動配分するため日によって変動します（＝広告を減らしたわけではありません）
+    </p>
+
+    <div class="note-box success">
+      <b>🟢 1クリックの広告費は低め安定：</b> 6月末は ¥73〜¥125 で推移。5月に一時的に高騰していた費用が落ち着きました。特に6/27は ¥73・購入2件と好調。
+    </div>
+    <div class="note-box success">
+      <b>🟢 Yahoo：</b> 6/29に約1ヶ月ぶりの購入が発生。少額（1日¥600前後）で最も効率の良い窓口のため継続します。<br>
+      なお、<b>Yahoo用のページ（LP）を新しく変更しました</b>。今後この新ページで効果を観察します。<br>
+      🔗 新しいYahoo用ページ：<a href="https://michiru.olivia-store.com/yahoo/" target="_blank" style="color:var(--primary); font-weight:600;">https://michiru.olivia-store.com/yahoo/</a>
+    </div>
+
+    <div style="margin:16px 0; text-align:center;">
+      <div style="font-size:0.9em; color:var(--text-light); margin-bottom:8px;">▼ 新しいYahoo用ページに掲載中の「愛飲者の声」（実際のお客様の声）</div>
+      <a href="https://michiru.olivia-store.com/yahoo/" target="_blank">
+        <img src="assets/yahoo_voices.jpg" alt="新Yahoo用ページ 愛飲者の声セクション" style="width:100%; max-width:560px; border:1px solid var(--border); border-radius:8px; box-shadow:var(--shadow);">
+      </a>
+      <div style="font-size:0.78em; color:var(--text-light); margin-top:6px;">画像をクリックすると新ページが開きます</div>
+    </div>
+
+    <div class="note-box info">
+      <b>📌 補足：日によって"実際に表示された広告の数"が変動しています</b>（6月は7〜10本／6/30は3本）。これは広告を減らしたのではなく、Metaが日ごとに表示先を自動で絞り込むためです。ただし現在の広告は3/14から使い続けており、そろそろ<b>新しい若者向けの広告を足していくタイミング</b>です（下記アクション①）。
+    </div>
+  </div>
+</div>
+
+<!-- ===================== 若者向けクリエ ===================== -->
+<div class="section">
+  <div class="section-header green">🌟 若者向け広告（動画）制作 — 6/10会議の最優先施策 → 準備中</div>
+  <div class="section-body">
+    <div class="note-box warning">
+      <b>⏳ 「価格訴求 若者版」動画を準備中です。</b><br>
+      6/10会議で「次の主力施策」と位置づけた、30-49歳女性向けの広告動画。既存の年配層向けとは別に、若い層に刺さる価格訴求の動画を制作中です（BGM入りまで完成、仕上げ段階）。
+    </div>
+
+    <table class="data-table" style="margin-top:12px;">
+      <thead><tr><th>項目</th><th>内容</th></tr></thead>
+      <tbody>
+        <tr><td>尺・仕様</td><td>33秒・縦型9:16（Meta/Instagram向け）</td></tr>
+        <tr><td>構成</td><td>つかみ→悩み→解決→価格(99円)→成分(72mg)→<b>お客様の声</b>→半額オファー→購入への誘導</td></tr>
+        <tr><td>お客様の声</td><td><b>若い女性3人が1人ずつ飲むテスティモニアル形式</b>。各カットに <b>実在のAmazonレビュー</b> を★★★★★＋出典表示付きで掲載（味・価格・継続の声・薬機法セーフ）</td></tr>
+        <tr><td>ナレーション</td><td>台本確定済（BGM版は完成／ナレ音声を載せれば最終版に仕上げ可）</td></tr>
+      </tbody>
+    </table>
+
+    <div class="note-box success">
+      <b>🎯 今後の方針：まずは「若者」で攻めます。</b><br>
+      これまで主力だった年配層向けに加えて、次は<b>若い層をメインターゲット</b>に。ラインナップは <b>①価格訴求（準備中）→ ②日常 → ③若者の悩み</b> の順で広告を展開し、若い世代の新規獲得を狙います。
+    </div>
+  </div>
+</div>
+
+<!-- ===================== Amazon ===================== -->
+<div class="section">
+  <div class="section-header orange">🛒 Amazon広告 — 6月の状況と6/27再最適化</div>
+  <div class="section-body">
+    <div class="summary-grid">
+      <div class="summary-card">
+        <div class="sc-label">6月購入</div>
+        <div class="sc-value blue">45<span style="font-size:0.5em;">件</span></div>
+        <div class="sc-sub">別集計</div>
+      </div>
+      <div class="summary-card orange-border">
+        <div class="sc-label">広告費（6/1〜27時点）</div>
+        <div class="sc-value orange">¥77,691</div>
+        <div class="sc-sub">売上 ¥132,226</div>
+      </div>
+      <div class="summary-card red-border">
+        <div class="sc-label">広告費の回収倍率（〜6/27）</div>
+        <div class="sc-value red">1.7倍</div>
+        <div class="sc-sub">売れないKWに費用の71%が流出</div>
+      </div>
+      <div class="summary-card green-border">
+        <div class="sc-label">6/27 再最適化</div>
+        <div class="sc-value green">実施済</div>
+        <div class="sc-sub">効果は来週判定</div>
+      </div>
+    </div>
+
+    <div class="note-box warning">
+      <b>⚠️ 課題：</b> 1件も売れていない検索ワードに広告費の <b>71%（約¥55,000）</b> が流れており、使った広告費に対して売上が1.7倍（ほぼトントン）まで落ちていました。<br><span style="font-size:0.85em; color:var(--text-light);">※「回収倍率」＝使った広告費の何倍の売上になったか。2倍以上でようやく利益が見えてきます（業界用語ではROAS）。</span>
+    </div>
+
+    <h3 style="font-size:1.05em; margin:20px 0 10px; color:var(--primary);">🔧 6/27 実施済の再最適化（5アクション）</h3>
+    <div class="todo-card priority-green">
+      <div class="tc-head"><div class="tc-num">①</div><div class="tc-title">浪費KW 16件を完全一致で除外</div></div>
+      <div class="tc-data">純水／ミネラルウォーター／シリカ／天然水 等（すべて購入0実績）</div>
+    </div>
+    <div class="todo-card priority-green">
+      <div class="tc-head"><div class="tc-num">②</div><div class="tc-title">競合ASIN 11件を除外</div></div>
+      <div class="tc-data">競合商品への流出クリックを遮断</div>
+    </div>
+    <div class="todo-card priority-green">
+      <div class="tc-head"><div class="tc-num">③</div><div class="tc-title">勝ちKW 7件を手動キャンペーンへ追加・強化</div></div>
+      <div class="tc-data">水 500ml／シリカ水 人気／体にいい水／飲み物 箱買い 激安 等（よく売れているワード）</div>
+    </div>
+    <div class="todo-card priority-green">
+      <div class="tc-head"><div class="tc-num">④</div><div class="tc-title">指名KW（しりかすい・ミチル）維持</div></div>
+      <div class="tc-data">最も効率の良い資産KWを確保</div>
+    </div>
+    <div class="todo-card priority-green">
+      <div class="tc-head"><div class="tc-num">⑤</div><div class="tc-title">「検索結果のトップ」への上乗せ入札 +50% → 0%</div></div>
+      <div class="tc-data">トップ表示枠は広告費が売上の75%＝赤字だったため上乗せを停止。効率の良い枠（広告費は売上の33%）へ予算を回す</div>
+    </div>
+
+    <div class="note-box info">
+      <b>📆 効果検証：</b> 来週レポート（7/1〜27 と 6/1〜27 を同じ期間で比較）で判定。目標＝広告費の回収倍率 1.7倍 → 2.5〜3倍 ／ 売れないワードへの流出 71% → 減少 ／ 購入45件ペースは維持。
+    </div>
+  </div>
+</div>
+
+<!-- ===================== その他の流入 ===================== -->
+<div class="section">
+  <div class="section-header blue">📍 その他の流入 — サイネージ・西崎さん</div>
+  <div class="section-body">
+    <div class="note-box info">
+      <b>🖥 デジタルサイネージ（四谷）</b><br>
+      6月の流入：約 <b>81件</b>（サイトへの訪問・目安）。<br>
+      <span style="font-size:0.85em; color:var(--text-light);">※QRを読んだ人は「トップページにスマホで直接来た人」としてまとめて集計され、ブックマーク等の直接アクセスも含むため、あくまで<b>目安（正確な数ではありません）</b>。購入がサイネージ経由かどうかは現状では正確に判別できません。<b>正確に測るには、サイネージ専用のクーポンを分ける</b>のが有効です。</span>
+    </div>
+    <div class="note-box info">
+      <b>🎤 西崎さん（セミナー）経由</b><br>
+      6/26に <b>1件購入</b> を確認。今後セミナーの本格展開により増加が見込まれます。
+    </div>
+  </div>
+</div>
+
+<!-- ===================== ステップメール ===================== -->
+<div class="section">
+  <div class="section-header green">📧 ステップメール — 配信開始</div>
+  <div class="section-body">
+    <div class="note-box success">
+      <b>✅ Vol.1 を実配信しました。</b> 6/10会議で残課題だった「配信開始」に着手。宛先リストは <b>カラーミーの定期購入者＋代引き＋新規購入者</b> をカバー。
+    </div>
+    <table class="data-table" style="margin-top:12px;">
+      <thead><tr><th>項目</th><th>状態</th></tr></thead>
+      <tbody>
+        <tr><td>配信ツール</td><td>Benchmark Email で運用開始</td></tr>
+        <tr><td>宛先リスト作成</td><td>✅ カラーミーCSV → 取込用CSVへ自動加工する半自動フロー構築（継続中・受け取る・氏名/メール有りで抽出）</td></tr>
+        <tr><td>Vol.1（採水地紹介）</td><td>✅ 配信済</td></tr>
+        <tr><td>Vol.2〜4</td><td>✅ 制作完了（順次配信予定）</td></tr>
+        <tr><td>個別最適化</td><td>宛名パーソナライズは外し、汎用挨拶で安定配信に統一</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box info">
+      <b>📌 会議で確認したい点：</b> Vol.2以降の配信サイクル（1ヶ月／2ヶ月／3ヶ月混在への対応）と、購入時の自動配信化のスケジュール。
+    </div>
+  </div>
+</div>
+
+<!-- ===================== Instagram オーガニック ===================== -->
+<div class="section">
+  <div class="section-header green">📸 Instagram オーガニック投稿 — 継続運用</div>
+  <div class="section-body">
+    <div class="note-box info">
+      季節・生活シーンに合わせたフィード投稿を継続。6月は <b>紫陽花（梅雨）／七夕／夏の水分補給／朝の習慣（飲む美容）</b> 等を投稿。すべて薬機法セーフでブランドトーン統一。
+    </div>
+  </div>
+</div>
+
+<!-- ===================== 7月アクション ===================== -->
+<div class="section">
+  <div class="section-header red">🚀 7月アクション</div>
+  <div class="section-body">
+
+    <div class="todo-card priority-red">
+      <div class="tc-head"><div class="tc-num">1</div><div class="tc-title">🌟 若者ターゲットで攻める（①価格訴求→②日常→③若者の悩み）</div></div>
+      <div class="tc-data">まず準備中の「価格訴求 若者版」を仕上げて投入。続けて「日常」「若者の悩み」の動画も展開し、新しい広告を足していく</div>
+      <div class="tc-action">投入後7日で「1クリックの広告費」「購入数」「どの年代に届いているか」を検証</div>
+    </div>
+
+    <div class="todo-card priority-red">
+      <div class="tc-head"><div class="tc-num">2</div><div class="tc-title">Amazon 6/27最適化の効果判定</div></div>
+      <div class="tc-data">7/1〜27 と 6/1〜27 を同期間で比較し、広告費の回収倍率・売れないワードへの流出・購入数を検証</div>
+      <div class="tc-action">改善が確認できたら第2期最適化（入札・予算配分）へ</div>
+    </div>
+
+    <div class="todo-card priority-orange">
+      <div class="tc-head"><div class="tc-num">3</div><div class="tc-title">Yahoo用ページを変更済み → 効果を観察</div></div>
+      <div class="tc-data">クリックは安定していたが購入につながりにくかったため、Yahoo用ページ（LP）を新しく変更。<a href="https://michiru.olivia-store.com/yahoo/" target="_blank" style="color:var(--primary);">https://michiru.olivia-store.com/yahoo/</a></div>
+      <div class="tc-action">新ページの購入率を観察し、良ければ他ページにも横展開</div>
+    </div>
+
+    <div class="todo-card priority-orange">
+      <div class="tc-head"><div class="tc-num">4</div><div class="tc-title">ステップメール Vol.2以降の配信 ＋ 自動化</div></div>
+      <div class="tc-data">配信サイクル設計＋購入時自動配信のセットアップ</div>
+    </div>
+
+    <div class="todo-card priority-green">
+      <div class="tc-head"><div class="tc-num">5</div><div class="tc-title">広告（動画）の新しさを保ち続ける</div></div>
+      <div class="tc-data">「新しい広告が入り続けると売れる」パターンを維持。若者版に続く次の動画も準備</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===================== 会議議題 ===================== -->
+<div class="section">
+  <div class="section-header dark">🎯 7/3 会議 議題</div>
+  <div class="section-body">
+    <ul class="agenda-list">
+      <li><b>6月実績レビュー</b>（直営26件・1件あたりの広告費¥4,738・5月比+62.5%）</li>
+      <li><b>若者ターゲットで攻める方針の共有</b>（①価格訴求(準備中)→②日常→③若者の悩み）</li>
+      <li><b>準備中の若者版動画の仕上げ</b>（ナレーション音声の要否）</li>
+      <li><b>Amazon 6/27最適化の途中経過</b>（効果は来週判定）</li>
+      <li><b>Yahoo用ページ変更の共有＆効果観察</b>（新ページに変更済み）</li>
+      <li><b>ステップメール配信状況</b>と今後のサイクル・自動化</li>
+    </ul>
+  </div>
+</div>
+
+<div class="section" style="text-align:center; padding:24px; background:#37474f; color:white;">
+  <p style="margin:0; font-size:0.85em; opacity:0.85;">本レポートは 2026年7月3日 定例会議 議論用</p>
+  <p style="margin:6px 0 0; font-size:0.78em; opacity:0.6;">作成: 株式会社 斗 / 2026-07-01</p>
+</div>
+
+</div>
+</body>
+</html>
