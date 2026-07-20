@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ミチルシリカ 定例会議レポート | 2026年7月20日</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --primary: #0d47a1; --primary-light: #1976d2;
+  --success: #2e7d32; --success-light: #4caf50;
+  --warning: #ef6c00; --danger: #c62828;
+  --text: #263238; --text-light: #546e7a;
+  --bg: #f5f7fa; --card-bg: #ffffff;
+  --border: #e0e4e8; --radius: 12px;
+  --shadow: 0 2px 12px rgba(0,0,0,0.06);
+  --shadow-lg: 0 8px 30px rgba(0,0,0,0.1);
+}
+body { font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif; line-height: 1.7; color: var(--text); background: var(--bg); padding: 30px 20px; }
+.container { max-width: 980px; margin: 0 auto; }
+
+.report-header { background: linear-gradient(135deg, #0d47a1 0%, #1565c0 50%, #1976d2 100%); color: white; padding: 40px; border-radius: var(--radius); margin-bottom: 24px; box-shadow: var(--shadow-lg); }
+.report-header h1 { font-size: 1.9em; font-weight: 800; margin-bottom: 6px; }
+.report-header .subtitle { font-size: 1.05em; opacity: 0.9; }
+.report-header .meta { margin-top: 14px; font-size: 0.9em; opacity: 0.75; display: flex; gap: 18px; flex-wrap: wrap; }
+
+.section { background: var(--card-bg); border-radius: var(--radius); margin-bottom: 20px; box-shadow: var(--shadow); overflow: hidden; }
+.section-header { padding: 18px 26px; font-size: 1.15em; font-weight: 700; color: white; }
+.section-header.blue { background: linear-gradient(135deg, var(--primary), var(--primary-light)); }
+.section-header.green { background: linear-gradient(135deg, var(--success), var(--success-light)); }
+.section-header.orange { background: linear-gradient(135deg, #e65100, var(--warning)); }
+.section-header.red { background: linear-gradient(135deg, #b71c1c, #e53935); }
+.section-header.dark { background: linear-gradient(135deg, #263238, #37474f); }
+.section-body { padding: 24px 28px; }
+
+.purchase-hero { background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 50%, #43a047 100%); color: white; padding: 36px; border-radius: var(--radius); margin-bottom: 22px; text-align: center; box-shadow: var(--shadow-lg); }
+.ph-label { font-size: 0.95em; opacity: 0.85; letter-spacing: 1.5px; margin-bottom: 4px; }
+.ph-period { font-size: 0.85em; opacity: 0.7; margin-bottom: 12px; }
+.ph-number { font-size: 4.5em; font-weight: 900; line-height: 1; }
+.ph-unit { font-size: 1.1em; opacity: 0.85; margin-top: 4px; }
+.ph-target { margin-top: 14px; font-size: 0.9em; opacity: 0.85; background:rgba(255,255,255,0.18); padding:10px 18px; border-radius:8px; display:inline-block; }
+
+.source-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px,1fr)); gap: 12px; margin-top: 22px; }
+.source-card { background: rgba(255,255,255,0.15); padding: 14px; border-radius: 10px; text-align: center; }
+.source-card .sc-name { font-size: 0.85em; opacity: 0.85; }
+.source-card .sc-num { font-size: 2em; font-weight: 800; margin: 4px 0; }
+.source-card .sc-sub { font-size: 0.78em; opacity: 0.78; }
+
+.summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; margin-bottom: 22px; }
+.summary-card { background: var(--card-bg); border-radius: var(--radius); padding: 20px; text-align: center; box-shadow: var(--shadow); border-top: 4px solid var(--primary); }
+.summary-card.green-border { border-top-color: var(--success); }
+.summary-card.orange-border { border-top-color: var(--warning); }
+.summary-card.red-border { border-top-color: var(--danger); }
+.summary-card .sc-label { font-size: 0.82em; color: var(--text-light); margin-bottom: 6px; }
+.summary-card .sc-value { font-size: 1.9em; font-weight: 900; }
+.summary-card .sc-value.blue { color: var(--primary); }
+.summary-card .sc-value.green { color: var(--success); }
+.summary-card .sc-value.orange { color: var(--warning); }
+.summary-card .sc-value.red { color: var(--danger); }
+.summary-card .sc-sub { font-size: 0.78em; color: var(--text-light); margin-top: 5px; }
+
+.data-table { width: 100%; border-collapse: collapse; font-size: 0.9em; }
+.data-table thead { background: #263238; color: white; }
+.data-table th { padding: 10px 12px; text-align: left; font-weight: 600; font-size: 0.85em; }
+.data-table td { padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+.data-table .num { text-align: right; font-variant-numeric: tabular-nums; }
+.data-table .success-row { background: #e8f5e9; }
+.data-table .alert-row { background: #ffebee; }
+
+.note-box { padding: 14px 18px; border-radius: 8px; font-size: 0.9em; line-height: 1.65; margin: 12px 0; }
+.note-box.info { background: #e3f2fd; border-left: 4px solid var(--primary); }
+.note-box.success { background: #e8f5e9; border-left: 4px solid var(--success); }
+.note-box.warning { background: #fff3e0; border-left: 4px solid var(--warning); }
+.note-box.danger { background: #ffebee; border-left: 4px solid var(--danger); }
+
+.badge { display: inline-block; padding: 2px 10px; border-radius: 14px; font-size: 0.75em; font-weight: 700; }
+.badge-up { background: #e8f5e9; color: var(--success); }
+.badge-down { background: #ffebee; color: var(--danger); }
+.badge-flat { background: #fff3e0; color: var(--warning); }
+
+.todo-card { background: white; border-left: 5px solid var(--primary); padding: 16px 20px; margin: 10px 0; border-radius: 6px; box-shadow: var(--shadow); }
+.todo-card.priority-red { border-color: var(--danger); }
+.todo-card.priority-orange { border-color: var(--warning); }
+.todo-card.priority-green { border-color: var(--success); }
+.todo-card .tc-head { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+.todo-card .tc-num { background: var(--primary); color: white; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85em; flex-shrink: 0; }
+.todo-card.priority-red .tc-num { background: var(--danger); }
+.todo-card.priority-orange .tc-num { background: var(--warning); }
+.todo-card.priority-green .tc-num { background: var(--success); }
+.todo-card .tc-title { font-weight: 700; font-size: 1em; }
+.todo-card .tc-data { font-size: 0.82em; color: var(--text-light); background: #f5f7fa; padding: 6px 10px; border-radius: 4px; margin: 6px 0; }
+.todo-card .tc-action { font-size: 0.9em; }
+
+.agenda-list { list-style: none; counter-reset: agenda; }
+.agenda-list li { counter-increment: agenda; padding: 14px 18px 14px 56px; position: relative; background: #f5f7fa; margin: 10px 0; border-radius: 8px; font-size: 0.95em; }
+.agenda-list li::before { content: counter(agenda); position: absolute; left: 14px; top: 50%; transform: translateY(-50%); width: 30px; height: 30px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.95em; }
+
+@media (max-width: 768px) {
+  body { padding: 14px 10px; }
+  .report-header { padding: 26px 22px; }
+  .report-header h1 { font-size: 1.4em; }
+  .section-body { padding: 18px; }
+  .ph-number { font-size: 3.3em; }
+  .summary-grid { grid-template-columns: 1fr 1fr; }
+}
+
+.table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 0 -4px; }
+.table-wrap .data-table { min-width: 560px; }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<div class="report-header">
+  <h1>ミチルシリカ 定例会議レポート</h1>
+  <div class="subtitle">2026年7月20日 会議資料 — 前回会議（7/3）以降の実績と、Amazonセールの影響について</div>
+  <div class="meta">
+    <span>📅 対象期間: 2026年7月3日〜7月19日（17日間）</span>
+    <span>📊 株式会社 斗</span>
+  </div>
+</div>
+
+<!-- ===== 結論 ===== -->
+<div class="section">
+  <div class="section-header red">🔴 まず結論 — 3行</div>
+  <div class="section-body">
+    <div class="note-box danger">
+      <b>1. 期間中の実購入は8件。前回会議時のペースから大きく落ちました。</b><br>
+      <b>2. 落ち込みの主因は Amazonプライムデー（7/7〜13）です。</b>この7日間の購入はわずか1件で、
+      1日あたり0.14件（直前の1.25件から <b>▲89%</b>）。<b>弊社が事前に調べていた「Amazonのセール中は自社ショップが売れなくなる」という傾向が、そのまま出た形です。</b><br>
+      <b>3. 広告の運用自体は悪化していません。</b>1クリックの単価は¥65→¥70→¥67で安定していて、クリック率も落ちていません。
+      <b>「広告が効かなくなった」のではなく「買う場所がAmazonへ移った」</b>と読むのが正確です。
+    </div>
+  </div>
+</div>
+
+<!-- ===== 実購入ヒーロー ===== -->
+<div class="purchase-hero">
+  <div class="ph-label">実 購 入 数</div>
+  <div class="ph-period">2026年7月3日 〜 7月19日（17日間）</div>
+  <div class="ph-number">8</div>
+  <div class="ph-unit">件</div>
+  <div class="ph-target">7月累計 10件（7/1〜7/19）　うち8件が本レポートの対象期間</div>
+  <div class="source-grid">
+    <div class="source-card"><div class="sc-name">代引き</div><div class="sc-num">5</div><div class="sc-sub">件</div></div>
+    <div class="source-card"><div class="sc-name">カラーミー</div><div class="sc-num">3</div><div class="sc-sub">件</div></div>
+    <div class="source-card"><div class="sc-name">広告費計</div><div class="sc-num">7.7万</div><div class="sc-sub">円</div></div>
+    <div class="source-card"><div class="sc-name">1件あたり広告費</div><div class="sc-num">9,581</div><div class="sc-sub">円</div></div>
+  </div>
+</div>
+
+<!-- ===== プライムデーの影響 ===== -->
+<div class="section">
+  <div class="section-header orange">📉 期間を3つに割ると、原因がはっきり出ます</div>
+  <div class="section-body">
+    <div class="table-wrap"><table class="data-table">
+      <thead><tr><th>期間</th><th class="num">日数</th><th class="num">実購入</th><th class="num">1日あたり</th><th class="num">広告費</th><th class="num">CPA<br><span style="font-weight:400;font-size:0.85em">1件あたり広告費</span></th><th class="num">CPC<br><span style="font-weight:400;font-size:0.85em">1クリック単価</span></th></tr></thead>
+      <tbody>
+        <tr class="success-row"><td><b>① 前</b> 7/3〜7/6</td><td class="num">4日</td><td class="num"><b>5件</b></td><td class="num"><b>1.25件</b></td><td class="num">¥18,347</td><td class="num"><b>¥3,669</b></td><td class="num">¥65</td></tr>
+        <tr class="alert-row"><td><b>② プライムデー</b> 7/7〜7/13<br><span style="font-size:0.85em;color:#666">先行7/7-9・本番7/10-13</span></td><td class="num">7日</td><td class="num"><b>1件</b></td><td class="num"><b>0.14件</b><br><span class="badge badge-down">▲89%</span></td><td class="num">¥31,381</td><td class="num"><b>¥31,381</b></td><td class="num">¥70</td></tr>
+        <tr><td><b>③ 明け</b> 7/14〜7/19</td><td class="num">6日</td><td class="num">2件</td><td class="num">0.33件</td><td class="num">¥26,923</td><td class="num">¥13,461</td><td class="num">¥67</td></tr>
+      </tbody>
+    </table></div>
+    <div class="note-box warning">
+      <b>読み方のポイント：1クリックあたりの単価は、3期間とも ¥65〜¥70 でほとんど動いていません。</b><br>
+      つまり<b>広告の集客力は落ちていない</b>のに、購入だけが消えた期間があるということです。
+      クリックは取れているが買われない ＝ <b>「今はAmazonで買おう」と判断された</b>と考えるのが自然です。
+    </div>
+    <div class="note-box danger">
+      <b>プライムデー期間は、1件のご購入を得るのに ¥31,381 かかった計算になります。</b>この7日間に広告費を投じた効率としては、極めて悪い数字です。
+      ここが今回いちばんの反省点であり、同時に<b>次回から確実に改善できる部分</b>です（後述の打ち手①）。
+    </div>
+  </div>
+</div>
+
+<!-- ===== Amazonセールと自社ショップの関係 ===== -->
+<div class="section">
+  <div class="section-header dark">🔍 Amazonのセール中、自社ショップの売上はどうなるのか<br><span style="font-size:0.8em;font-weight:400;opacity:0.85">弊社にて自主的に調査したものです</span></div>
+  <div class="section-body">
+    <div class="note-box info">
+      <b>なぜ調べたか</b><br>
+      日々の数字を追う中で、<b>弊社の方で一つ気になることがありました。</b><br><br>
+      ミチルは<b>自社のネットショップ（カラーミー・代引き）と Amazon の2か所で売っています。</b>
+      同じ商品なので、お客様から見ればどちらで買っても同じです。
+      であれば、<b>「Amazonがセールで安くなっている間は、自社のショップでは買われなくなるのではないか」</b>——
+      もしそうなら、<b>セール中に自社ショップの広告を出しても、お金を使うだけで買われない</b>ことになります。<br><br>
+      感覚で判断せず<b>実際の数字で確かめておくべきだと考え、弊社にて調査しました。</b>
+    </div>
+    <p style="margin:14px 0 8px"><b>検証方法</b></p>
+    <ul style="margin-left:20px;font-size:0.92em;line-height:1.9">
+      <li><b>Amazon側</b>：スポンサー広告の日別 購入数（4/1〜7/13）</li>
+      <li><b>自社ショップ側</b>：日ごとの新しいお申し込み ＝ 定期購入の新規（カード＋代引き）＋単品購入<br>
+      　<span style="color:#666">※2回目以降の定期発送は自動で出荷されるもので「新しく買われた」わけではないため、数から除いています</span></li>
+      <li>3つの確定セールで「セール中 vs 直前7日」を比較（プライムデー日程はAmazon公式）</li>
+    </ul>
+    <div class="table-wrap"><table class="data-table" style="margin-top:16px">
+      <thead><tr><th>セール</th><th class="num">Amazon購入<br>（直前→中）</th><th class="num">自社ショップの新規申込<br>（直前→中）</th><th>結果</th></tr></thead>
+      <tbody>
+        <tr class="alert-row"><td><b>プライムデー</b><br>7/7-13</td><td class="num">10 → <b>39件</b><br><span class="badge badge-up">+290%</span></td><td class="num">7 → <b>1件</b><br><span class="badge badge-down">▲86%</span></td><td>◎ はっきり移動あり</td></tr>
+        <tr class="alert-row"><td><b>GW スマイル</b><br>4/30-5/3</td><td class="num">11 → <b>21件</b><br><span class="badge badge-up">+234%</span></td><td class="num">8 → <b>2件</b><br><span class="badge badge-down">▲56%</span></td><td>○ 移動あり</td></tr>
+        <tr><td>スマイルSALE<br>5/27-6/2</td><td class="num">11 → 32件<br><span class="badge badge-up">+191%</span></td><td class="num">4 → 4件<br><span class="badge badge-flat">±0%</span></td><td>△ 影響なし</td></tr>
+      </tbody>
+    </table></div>
+    <div class="note-box success" style="margin-top:16px">
+      <b>結論：仮説は「大型セールでは YES」。ただし全セール一律ではありません。</b><br>
+      ・Amazon側は<b>3セール全部で購入が約3倍</b>に跳ねる（買う人がAmazonに集中するのは確実）<br>
+      ・自社ショップは<b>大型2セール（プライムデー・GW）ではっきり落ちる</b>。特にプライムデーは7/7〜7/11が完全ゼロ<br>
+      ・中規模のスマイルSALEでは<b>自社ショップは横ばい</b>＝Amazonが伸びても影響なし
+    </div>
+    
+  </div>
+</div>
+
+<!-- ===== 広告別 ===== -->
+<div class="section">
+  <div class="section-header blue">📊 広告別パフォーマンス（7/3〜7/19）</div>
+  <div class="section-body">
+    <div class="table-wrap"><table class="data-table">
+      <thead><tr><th>広告名</th><th class="num">消化</th><th class="num">比率</th><th class="num">クリック</th><th class="num">1クリック<br>単価</th><th class="num">クリック率</th></tr></thead>
+      <tbody>
+        <tr class="success-row"><td><b>飲む美容_99円</b></td><td class="num">¥23,383</td><td class="num">36%</td><td class="num">326</td><td class="num">¥71</td><td class="num">4.2%</td></tr>
+        <tr><td>日常4_腸内</td><td class="num">¥17,389</td><td class="num">27%</td><td class="num">236</td><td class="num">¥73</td><td class="num">4.8%</td></tr>
+        <tr><td>価格訴求-年配</td><td class="num">¥16,009</td><td class="num">25%</td><td class="num">167</td><td class="num">¥95</td><td class="num"><b>5.6%</b></td></tr>
+        <tr><td>成分</td><td class="num">¥3,984</td><td class="num">6%</td><td class="num">51</td><td class="num">¥78</td><td class="num">3.4%</td></tr>
+        <tr><td>のむシリカ風バージョン</td><td class="num">¥2,762</td><td class="num">4%</td><td class="num">27</td><td class="num">¥102</td><td class="num">4.7%</td></tr>
+        <tr><td>その他8本</td><td class="num">¥1,251</td><td class="num">2%</td><td class="num">17</td><td class="num">—</td><td class="num">—</td></tr>
+      </tbody>
+    </table></div>
+    <div class="note-box warning">
+      <b>いま出している素材が、そろそろ限界にきています。</b><br>
+      主力の素材は<b>3月14日から4ヶ月以上、同じものを出し続けています。</b>
+      広告は同じ画・同じ言葉を見続けられると反応が鈍っていくため、そろそろ入れ替えの時期です。<br><br>
+      それが数字にも出ています。<b>Metaは日によって配信先を大きく振っており</b>、たとえば「日常4_腸内」は
+      7/10に¥5まで落ちた後、7/15には¥2,111まで戻り、7/19にまた¥329へ落ちています。
+      <b>どの素材も安定して勝ち切れていない状態</b>で、システムが正解を探しあぐねているように見えます。<br><br>
+      さらに<b>実際に動いているのは上位3本だけ（消化の88%）</b>で、下位8本は合計¥1,251とほぼ止まっています。<br>
+      <b>→ 素材の質が落ちてきているので、新しいものを入れます。</b>
+      次の打ち手②③のとおり、<b>夏の訴求</b>と<b>日常系（腸活）</b>を軸に制作を進めます。
+    </div>
+  </div>
+</div>
+
+<!-- ===== その他指標 ===== -->
+<div class="section">
+  <div class="section-header blue">🖥 LP（お申し込みページ）の状況</div>
+  <div class="section-body">
+    <div class="summary-grid">
+      <div class="summary-card"><div class="sc-label">広告からLPへの訪問</div><div class="sc-value blue">798</div><div class="sc-sub">回（Meta 581／Yahoo 217）</div></div>
+      <div class="summary-card orange-border"><div class="sc-label">申込フォームに進んだ数</div><div class="sc-value orange">92</div><div class="sc-sub">回</div></div>
+      <div class="summary-card"><div class="sc-label">LPの平均滞在時間</div><div class="sc-value blue">43<span style="font-size:0.5em">秒</span></div><div class="sc-sub">Meta経由</div></div>
+    </div>
+
+    <div class="note-box info">
+      <b>広告からLPに来た方のうち、申込フォームまで進むのは 約1割（92／798）です。</b><br>
+      裏を返せば<b>9割の方はLPを見ただけで離れています。</b>
+      広告で人を集める力は保たれているので、<b>次に伸ばせる余地はLP側</b>だと考えています。
+      具体的には、次の順で手を入れていきます。
+      <div style="margin-top:12px;padding:14px 16px;background:#fff;border-radius:8px;line-height:1.85">
+        <b>① 広告とLPの最初の画面を揃える</b><br>
+        <span style="font-size:0.93em">「1本99円」の広告を見て来た方には、LPでもまず価格が目に入るようにします。
+        いまは広告の訴求が違っても、LPの入口が同じです。<b>期待した内容と違うと、読む前に離れます。</b></span>
+        <div style="height:10px"></div>
+        <b>② 申込フォームの入力項目を減らす</b><br>
+        <span style="font-size:0.93em">フォームまで来た92名を取りこぼさないための対策です。
+        入力の手間が減るほど、途中でやめる方は減ります。</span>
+        <div style="height:10px"></div>
+        <b>③ Yahoo用LPの作りを、Meta用にも取り入れる</b><br>
+        <span style="font-size:0.93em">Yahoo用LPのほうが注文ボタンの位置などが整理されています。
+        ただ<b>滞在が長い理由が「LPの作り」なのか「来られる方の関心の高さ」なのかは、まだ切り分けられていません。</b>
+        そこを確かめながら進めます。</span>
+      </div>
+    </div>
+
+    <div class="note-box success">
+      <b>Yahooから来た方のほうが、LPを長く読んでいます。</b>（Yahoo 64秒 / Meta 43秒）<br>
+      Yahooは「シリカ水」などご自身で検索して来られる方なので、<b>もともと関心が高い</b>ためと見ています。
+      1クリックの単価もMetaの半額（¥39）で、<b>引き続きいちばん効率のよい入口</b>です。ここは止めません。
+    </div>
+
+    
+  </div>
+</div>
+
+<!-- ===== 実施したこと ===== -->
+<div class="section">
+  <div class="section-header green">✅ 前回会議以降に実施したこと</div>
+  <div class="section-body">
+    <div class="table-wrap"><table class="data-table">
+      <thead><tr><th>施策</th><th>内容</th><th>状態</th></tr></thead>
+      <tbody>
+        <tr><td><b>Amazonセールの影響調査</b></td><td>3つのセールについて、Amazon側と自社ショップ側の両方の数字を突き合わせて調査</td><td>✅ 完了</td></tr>
+        <tr><td><b>Instagram そうめんレシピ投稿</b></td><td>3枚組。そうめんに使う水を変える提案。レシピは保存されやすく、投稿が広がりやすい</td><td>✅ 完成（投稿待ち）</td></tr>
+        <tr><td><b>Instagram シリカ解説投稿</b></td><td>「シリカって、結局なに？」7枚組の解説投稿</td><td>✅ 完成</td></tr>
+        <tr><td><b>Instagram 特徴訴求の動画</b></td><td>15秒。グラフでシリカの特徴を伝える動画</td><td>✅ 完成</td></tr>
+        <tr><td><b>Meta広告 動画「成分」</b></td><td>シリカ含有量を訴求する新規動画。7/11より配信開始（期間中 ¥3,984・51クリック）</td><td>✅ 配信中</td></tr>
+        <tr><td><b>Meta広告 動画（若者向け・価格訴求）</b></td><td>30〜40代女性に向けた「1本99円」の価格訴求動画。ナレーション入り・お客様の声3名を収録</td><td>🟡 社内確認中</td></tr>
+              </tbody>
+    </table></div>
+  </div>
+</div>
+
+<!-- ===== 打ち手 ===== -->
+<div class="section">
+  <div class="section-header red">🎯 次の打ち手</div>
+  <div class="section-body">
+    <div class="todo-card priority-red">
+      <div class="tc-head"><div class="tc-num">1</div><div class="tc-title">Amazon大型セール期は、自社ショップの広告費を絞る</div></div>
+      <div class="tc-data">根拠：プライムデーの7日間は1件あたり ¥31,381（通常期 ¥3,669 の約8.6倍）</div>
+      <div class="tc-action">どのみち買う人はAmazonへ向かうため、<b>同じ予算を通常期に寄せた方が確実に効率が上がります。</b>
+      次の大型セールは年末商戦。<b>それまでにセールカレンダーを作って運用ルール化</b>したいです。
+      <br>※中規模セールは自社ショップに影響が出ないため、一律に絞る必要はありません。</div>
+    </div>
+    <div class="todo-card priority-orange">
+      <div class="tc-head"><div class="tc-num">2</div><div class="tc-title">夏バージョンの訴求動画を増やす</div></div>
+      <div class="tc-data">根拠：季節訴求は「いま飲む理由」を作れる。現行素材に夏の切り口が1本もない</div>
+      <div class="tc-action">水は夏がいちばん飲まれる時期ですが、<b>いまの広告素材は通年のものだけ</b>です。
+      「汗をかく季節の水分補給」「常温でも飲みやすい」「そうめん・麦茶にも」など、
+      <b>季節で買う理由を作る素材</b>を投入します。<br>
+      ※Amazonレビューにも<b>「常温でも飲みやすくクセがなくゴクゴク飲めました」</b>という実際の声があり、
+      夏訴求と噛み合います（★5・2022/5/21・逐語確認済）。</div>
+    </div>
+    <div class="todo-card priority-orange">
+      <div class="tc-head"><div class="tc-num">3</div><div class="tc-title">日常系（腸活）の素材を増やす — 反応が出ている路線</div></div>
+      <div class="tc-data">根拠：「日常4_腸内」は期間中 消化¥17,389（27%）・クリック率 4.8%・クリック単価 ¥73 で安定稼働</div>
+      <div class="tc-action">日常4_腸内は<b>会議期間の前半まで主力を張っていた素材</b>で、反応は明確に出ています。
+      1本だけで回している状態なので、<b>同じ路線で複数本に増やして疲弊を防ぎます。</b><br>
+      <span style="color:#b71c1c">※ただし薬機法の制約があります。ミチルはただの水（トクホでも機能性表示食品でもない）ため、
+      <b>「腸に効く」「腸内環境を整える」は表現できません。</b>
+      「毎日の習慣」「朝の一杯」といった<b>生活シーンとして描く</b>形で作ります。</span></div>
+    </div>
+    <div class="todo-card priority-orange">
+      <div class="tc-head"><div class="tc-num">4</div><div class="tc-title">LPに手を入れる（広告とLPの入口を揃える／フォームを短くする）</div></div>
+      <div class="tc-data">根拠：広告からLPに来た798名のうち、申込フォームまで進んだのは92名（約1割）</div>
+      <div class="tc-action">広告で集める力は保たれているため、<b>ここから先はLP側が伸びしろ</b>です。
+      上記の①〜③の順で着手します。<b>広告と違って一度直せば効き続ける</b>ので、優先度を上げたいところです。</div>
+    </div>
+    <div class="todo-card priority-orange">
+      <div class="tc-head"><div class="tc-num">5</div><div class="tc-title">Instagramの投稿を再開（制作物が溜まっています）</div></div>
+      <div class="tc-data">完成済：そうめんカルーセル3枚／教育カルーセル7枚／特徴動画15秒</div>
+      <div class="tc-action">広告以外の入口を作る施策です。特に<b>レシピ系は「保存」されるため配信が伸びやすい</b>ので、
+      夏のうちに出したいところです。</div>
+    </div>
+    <div class="todo-card priority-green">
+      <div class="tc-head"><div class="tc-num">6</div><div class="tc-title">設定は当面いじらない</div></div>
+      <div class="tc-data">根拠：クリック単価・クリック率とも安定。悪化の兆候なし</div>
+      <div class="tc-action">セール明けの自然回復を観測中です。<b>ここで設定を触るとデータが濁り、原因の切り分けができなくなります。</b></div>
+    </div>
+  </div>
+</div>
+
+
+
+<div style="text-align:center;color:#90a4ae;font-size:0.82em;padding:24px 0">
+  作成: 株式会社 斗 ／ 2026年7月20日<br>
+  データ出典: Meta広告・Yahoo広告・Googleアナリティクス・カラーミーリピート・代引き管理表・Amazon広告レポート
+</div>
+
+</div>
+
+</body>
+</html>
