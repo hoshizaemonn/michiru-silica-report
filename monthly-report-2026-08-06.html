@@ -244,43 +244,78 @@ body { font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hirag
   </div>
 </div>
 
-<!-- ===== 予算シフト提案 ===== -->
+<!-- ===== BF予算配分戦略 ===== -->
 <div class="section">
-  <div class="section-header orange">💡 ご提案 — 「Amazonのセール期にAmazonへ予算を寄せる」運用ルール化</div>
+  <div class="section-header orange">🖤 ブラックフライデー（11月）に向けた予算配分戦略（案）</div>
   <div class="section-body">
     <div class="note-box info">
-      御社からいただいた<b>「Amazonのセール（プライムデー以外の飲料セール含む）に合わせて予算をAmazonへ回し、Metaを下げてはどうか」</b>という着眼、
-      弊社も同じ方向で検証しました。<b>結論、方向性は妥当です。</b>ただし1点だけ、"型"にする際に押さえるべきことがあります。
+      <b>結論：1年分の日別データから、セール期は「Amazonで量を取り、Meta/Yahooは学習を壊さない範囲で絞る」が最適</b>と分かりました。
+      Amazonの増額は御社で実施（BF週に2倍）、<b>弊社はMeta/Yahooの運用でこれに合わせます</b>。まず<b>8/28スマイルSALEで予行練習</b>します。
     </div>
+    <p style="margin:6px 0 4px"><b>去年の実データ（2025年・日別で検証）</b></p>
     <div class="table-wrap"><table class="data-table">
-      <thead><tr><th>時期</th><th>Amazonの動き</th><th>過去ROAS</th></tr></thead>
+      <thead><tr><th>セール</th><th class="num">1日あたり購入</th><th class="num">ROAS</th><th>読み取り</th></tr></thead>
       <tbody>
-        <tr class="success-row"><td>タイムセール祭り（ほぼ隔月）</td><td>水はまとめ買いで動きやすい</td><td class="num">—</td></tr>
-        <tr class="success-row"><td>プライム感謝祭（10月）</td><td>好調</td><td class="num">2025/10 = 2.47</td></tr>
-        <tr class="success-row"><td>ブラックフライデー（11月）</td><td>年間最大級</td><td class="num">2025/11 = 2.28</td></tr>
-        <tr><td>プライムデー（7月）</td><td>会員限定・既知</td><td class="num">2026/7 自動 2.80</td></tr>
+        <tr class="success-row"><td><b>スマイルSALE</b>（8/29-9/4）</td><td class="num"><b>約6倍</b><br><span style="font-size:0.8em">0.4→2.4件</span></td><td class="num"><b>2.44</b></td><td>量も効率も取れる。<b>予行に最適</b></td></tr>
+        <tr><td>感謝祭など（10月）</td><td class="num">—</td><td class="num"><b>1.96</b></td><td>効率のピーク月</td></tr>
+        <tr class="alert-row"><td><b>ブラックフライデー</b>（11/21-27）</td><td class="num"><b>約3.3倍</b></td><td class="num">1.62</td><td>量は激増、ただし競争で効率は低下</td></tr>
       </tbody>
     </table></div>
     <div class="note-box warning">
-      <b>1点だけ注意：Metaは「いきなりゼロ」にしない。</b><br>
-      Metaを完全に止めると、①<b>Metaの学習（AIの最適化）がリセットされ、セール明けに効率が悪化</b>する、
-      ②<b>Metaがもたらしていた"認知"がAmazon購入を後押ししていた場合、Amazonまで落ちる</b>——という2つのリスクがあります。<br>
-      → そこで<b>「Metaは小額で常時残し、大きな予算だけ一時停止→セール後に戻す」</b>方式を推奨します。
-      学習を守りつつセール期はAmazonに寄せられ、<b>この1回で「Metaは認知に効いていたのか」の答え合わせもできます。</b>
+      <b>ポイント：BFは「効率」より「量」で勝つ局面。</b>広告費を積めば購入は伸びますが、ROASは通常期より下がります（競争激化）。
+      <b>「どこまで広告費を積むと利益が出るか」は"粗利率"で決まる</b>ため、後述のとおり粗利率だけご共有ください。
     </div>
-    <p style="margin:14px 0 6px"><b>直近の"狙い目"セール（出品者告知・確度A）</b></p>
+    <p style="margin:10px 0 4px"><b>Meta / Yahoo の運用スケジュール（案・T＝BF初日）</b></p>
     <div class="table-wrap"><table class="data-table">
-      <thead><tr><th>セール</th><th>時期（2026）</th><th>規模</th><th>対応方針</th></tr></thead>
+      <thead><tr><th>日程</th><th class="num">Meta</th><th class="num">Yahoo</th><th>操作</th></tr></thead>
       <tbody>
-        <tr class="success-row"><td><b>スマイルSALE（夏）</b></td><td><b>8/28〜9/3</b></td><td>中規模・ほぼ毎月開催</td><td><b>最初の試し所</b>。Amazonへ寄せ・Meta大額停止を初トライ</td></tr>
-        <tr><td>プライム感謝祭</td><td>10月（例年）</td><td>大型・会員限定</td><td>予算をAmazonへ厚く</td></tr>
-        <tr class="success-row"><td>ブラックフライデー</td><td>11月下旬</td><td>年間最大級</td><td>年間最大の寄せ所</td></tr>
+        <tr><td>通常</td><td class="num">¥3,300</td><td class="num">¥700</td><td>—</td></tr>
+        <tr class="alert-row"><td><b>BF 5日前</b></td><td class="num"><b>¥2,300</b><br><span style="font-size:0.8em">−30%</span></td><td class="num">¥700</td><td>Metaを1段だけ下げる（下げるのはこの1回）</td></tr>
+        <tr class="success-row"><td><b>BF週</b></td><td class="num">¥2,300 維持</td><td class="num">¥700 維持</td><td>Amazon2倍の裏でMetaは下限維持・Yahoo据置</td></tr>
+        <tr><td>BF明け(+7日)</td><td class="num">¥2,900</td><td class="num">¥700</td><td>Meta戻し①</td></tr>
+        <tr><td>+10日</td><td class="num">¥3,300</td><td class="num">¥700</td><td>Meta戻し②（通常復帰）</td></tr>
       </tbody>
     </table></div>
-    <div style="font-size:0.8em;color:#546e7a;margin:4px 2px 8px">※中小セール（スマイルSALE等）の日程は「年間確定一覧」は公式非公開で、告知は1〜2週間前。<b>セラーセントラルのイベント告知／エントリー画面で先取り確認</b>できます（出典下記）。</div>
     <div class="note-box success">
-      <b>次の一手：</b>まず<b>8/28〜9/3のスマイルSALE</b>で予算シフトを一度試し、8月のAmazon実データ（広告＋ビジネスレポート）と突き合わせて
-      <b>「セール日 × 売上スパイク」を可視化</b>。そのうえで10月感謝祭・11月ブラックフライデーに向けた<b>年間の予算配分カレンダー</b>を作ります。
+      <b>崩さないためのルール：</b>①1回の変更は±30%以内 ②Metaを触るのは合計3回だけ（下げ1・戻し2）、BF週中はいじらない
+      ③<b>ゼロ停止はしない</b>（学習が全リセットされ、戻すのに約7日かかる）。<b>Yahoo¥700は据え置き</b>（指名検索の受け皿）。
+      <b>下限は通常の約7割（¥2,300）</b>——これ以下は"節約額より戻す時の再学習ロスが大きく"割に合いません。
+    </div>
+    <div class="note-box warning">
+      <b>会議でお願いしたいこと（これで"確定版"にできます）：</b><br>
+      ① <b>だいたいの粗利率（もうけの割合）</b> … 「BF週にAmazon広告をいくらまで積むと利益最大か」の線引きに必要（正確な原価でなく感覚値でOK）<br>
+      ② <b>今年BFのクーポン/値引き計画・FBA在庫見込み</b> … 在庫が量に耐えるか
+    </div>
+  </div>
+</div>
+
+<!-- ===== 顧客発見＋谷対策 ===== -->
+<div class="section">
+  <div class="section-header dark">🔗 重要な発見 — 定期とAmazonは「別のお客様」／セール明けの谷対策</div>
+  <div class="section-body">
+    <p style="margin:0 0 6px"><b>お客様リスト（配送データ）で、定期とAmazonの重複を精査しました</b></p>
+    <div class="table-wrap"><table class="data-table">
+      <thead><tr><th></th><th class="num">定期（自社サブスク）</th><th class="num">Amazon</th><th class="num">重複</th></tr></thead>
+      <tbody>
+        <tr class="success-row"><td>実人数</td><td class="num"><b>119人</b></td><td class="num"><b>443人</b></td><td class="num"><b>0人（0%）</b></td></tr>
+      </tbody>
+    </table></div>
+    <div class="note-box success">
+      <b>定期のお客様とAmazonのお客様は、電話・住所で照合しても重複ゼロ＝完全に別の集団</b>でした（氏名一致1件も別人）。
+      → ① <b>両者はカニバっていない</b>（Amazonを伸ばしても定期を食わない） ② <b>Amazonの443人が一人も定期便になっていない＝最大の伸びしろ</b>。
+    </div>
+    <div class="note-box info">
+      <b>「セール明けに1週間ほど購入が止まる」問題への対策</b><br>
+      原因は<b>需要の先食い</b>（セールでまとめ買い＝在庫を作った人はしばらく買わない・水は特に）。完全には避けられませんが、<b>谷を浅く・短く</b>できます。
+      <div style="margin-top:10px;padding:12px 14px;background:#fff;border-radius:8px;line-height:1.85">
+        <b>① セール中に"定期便"へ転換する（本丸）</b><br>
+        <span style="font-size:0.93em">BFで買う瞬間が一番前のめり。<b>単発でなく定期便で買ってもらえれば、次回は自動発送＝その人の谷が消える</b>。Amazon定期おトク便をBF割引対象に＋発送箱に自社定期のチラシ同梱。水は消耗品でサブスク最適。</span>
+        <div style="height:8px"></div>
+        <b>② 明けのMeta広告は「リタゲ＋補充」に向ける</b><br>
+        <span style="font-size:0.93em">明け直後の新規は在庫を作った後で薄い。<b>セール中に見て買わなかった人・過去購入者</b>へ「BF逃した方へ」「そろそろ補充？」で再訪を促す。<b>リターゲ用の動画を2本（補充訴求／定期便訴求）BF前に用意</b>します。</span>
+        <div style="height:8px"></div>
+        <b>③ 広告を急に切らない</b>（上のスケジュールどおり段階復帰。ランキングの勢いを守る）
+      </div>
     </div>
   </div>
 </div>
