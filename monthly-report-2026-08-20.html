@@ -113,7 +113,6 @@
 <body>
 <div class="container">
 
-    <!-- ===== Header ===== -->
     <div class="report-header">
         <h1>ミチルシリカ 月次レポート</h1>
         <div class="subtitle">8月の落ち込みの原因特定 ＋ お盆明けに向けた予算設計</div>
@@ -124,44 +123,33 @@
         </div>
     </div>
 
-    <!-- ===== Purchase Hero ===== -->
     <div class="purchase-hero" style="background:linear-gradient(135deg,#b71c1c 0%,#c62828 50%,#e53935 100%)">
-        <div class="ph-label">購入件数</div>
+        <div class="ph-label">自社EC 購入件数</div>
         <div class="ph-period">2026年8月1日 〜 8月18日（18日間）</div>
         <div class="ph-number">5</div>
         <div class="ph-unit">件</div>
         <div class="purchase-breakdown">
-            <div class="pb-item">
-                <div class="pb-value">4</div>
-                <div class="pb-label">カラーミー定期便</div>
-            </div>
-            <div class="pb-item">
-                <div class="pb-value">1</div>
-                <div class="pb-label">代引き</div>
-            </div>
-            <div class="pb-item">
-                <div class="pb-value">0</div>
-                <div class="pb-label">うち8/7〜13（お盆）</div>
-            </div>
+            <div class="pb-item"><div class="pb-value">4</div><div class="pb-label">カラーミー定期便</div></div>
+            <div class="pb-item"><div class="pb-value">1</div><div class="pb-label">代引き</div></div>
+            <div class="pb-item"><div class="pb-value">0</div><div class="pb-label">うち8/7〜13（お盆）</div></div>
         </div>
     </div>
 
-    <!-- ===== Summary Cards ===== -->
     <div class="summary-grid">
         <div class="summary-card red-border">
-            <div class="sc-label">お盆7日間の購入</div>
+            <div class="sc-label">お盆7日間の自社EC</div>
             <div class="sc-value red">0件</div>
             <div class="sc-sub">広告費 &yen;25,997 を使用</div>
         </div>
-        <div class="summary-card green-border">
-            <div class="sc-label">お盆を除く11日間</div>
-            <div class="sc-value green">0.455件/日</div>
-            <div class="sc-sub">7月0.516件/日と差なし</div>
+        <div class="summary-card red-border">
+            <div class="sc-label">お盆7日間のAmazon</div>
+            <div class="sc-value red">&minus;68.8%</div>
+            <div class="sc-sub">5.50件/日 → 1.71件/日</div>
         </div>
-        <div class="summary-card">
-            <div class="sc-label">お盆期間のアクセス</div>
-            <div class="sc-value blue">109.9/日</div>
-            <div class="sc-sub">7月109.0/日 — 減っていない</div>
+        <div class="summary-card green-border">
+            <div class="sc-label">LPのCTAタップ率</div>
+            <div class="sc-value green">11.7%</div>
+            <div class="sc-sub">7月12.4% — 変化なし</div>
         </div>
         <div class="summary-card orange-border">
             <div class="sc-label">8月CPA（8/18時点）</div>
@@ -171,13 +159,13 @@
     </div>
 
     <div class="note-box info">
-        <strong>このレポートの結論（3行）</strong><br>
+        <strong>このレポートの結論（4行）</strong><br>
         ① 8月の落ち込みは <strong>8/7〜13の7日間に100%集中</strong>しています。前後は7月と統計的に差がありません。<br>
-        ② お盆に落ちるのは<strong>過去4年すべてで再現する構造的な季節性</strong>です。来年から先回りできます。<br>
-        ③ 今回わかったのは「<strong>集客は落ちていなかった</strong>」こと。広告もアクセスも平常で、<strong>止まったのは購入の最終判断だけ</strong>でした。
+        ② <strong>同じ7日間に、Amazonも &minus;68.8% 落ちていました</strong>（P=0.0000006）。弊社の広告とは無関係な独立チャネルです。<strong>さらに2025年8月も同じ7日間に &minus;78.6%</strong> で、2年連続の再現です。<br>
+        ③ 広告の配信内容もLP上のお客様の行動も<strong>7月と変わっていません</strong>。<strong>市場の側で買う人が減っていた</strong>と考えられます。<br>
+        ④ 残る論点は「<strong>注文ボタンを押した後で止まっている</strong>」理由です。ここはデータでは届かず、お客様に伺うしかありません。
     </div>
 
-    <!-- ===== 1. どこが落ちたのか ===== -->
     <div class="section">
         <div class="section-header blue">1. 落ち込みはどこで起きたのか</div>
         <div class="section-body">
@@ -198,48 +186,112 @@
         </div>
     </div>
 
-    <!-- ===== 2. なぜ売れなかったのか ===== -->
     <div class="section">
         <div class="section-header orange">2. なぜお盆に売れなかったのか</div>
         <div class="section-body">
-            <p style="margin-bottom:18px">「お盆だから」で止めず、考えられる原因を3つに分けて1つずつ検証しました。</p>
+            <p style="margin-bottom:8px"><strong>「アクセスは減っていないのに売れなかった＝流入の質が落ちたのでは」</strong>という論点を、3方向から検証しました。</p>
 
-            <div class="action-grid">
-                <div class="action-card done-card">
-                    <div class="ac-status done">検証結果 — 否定されました</div>
-                    <div class="ac-title">原因A：広告が止まっていた・届いていなかった</div>
-                    <div class="ac-desc">クリック数は7月比 −13% にとどまり、<strong>CPCはむしろ改善</strong>（&yen;113→&yen;90）。表示回数も平常でした。広告は普通に配信されていました。</div>
-                </div>
-                <div class="action-card done-card">
-                    <div class="ac-status done">検証結果 — 否定されました</div>
-                    <div class="ac-title">原因B：そもそも人が来ていなかった</div>
-                    <div class="ac-desc">お盆期間のアクセスは <strong>109.9セッション/日</strong> で、7月（109.0）・お盆前（100.0）を上回り<strong>期間中で最多</strong>でした。人は来ていました。</div>
-                </div>
-                <div class="action-card pending-card">
-                    <div class="ac-status pending">検証結果 — 判定できず</div>
-                    <div class="ac-title">原因C：サイト・フォームが壊れていた</div>
-                    <div class="ac-desc">本来いちばん確認すべき点ですが、<strong>現在のフォーム計測が実態と合っていない</strong>ため判定できません。購入が発生した日にフォーム記録が0件になるケースが8月だけで3日ありました。<strong>計測の切り分けが必要です（§6）。</strong></div>
-                </div>
+            <h3 style="margin:22px 0 10px;font-size:1.1em">検証① 広告の配信内容は変わったか → 変わっていません</h3>
+            <table class="data-table">
+                <thead><tr><th>項目</th><th class="num">7月</th><th class="num">8/7〜13（お盆）</th><th class="num">8/14〜18</th></tr></thead>
+                <tbody>
+                    <tr><td>Instagram / Facebook の費用比</td><td class="num">76.5% / 23.5%</td><td class="num">79.2% / 20.8%</td><td class="num">76.0% / 24.0%</td></tr>
+                    <tr><td>主力セット「CTA最適化_30-65+女性」の費用シェア</td><td class="num">70.2%</td><td class="num">69.8%</td><td class="num">70.6%</td></tr>
+                    <tr class="highlight-row"><td><strong>同セットのCPC</strong></td><td class="num"><strong>&yen;75</strong></td><td class="num"><strong>&yen;75</strong></td><td class="num"><strong>&yen;79</strong></td></tr>
+                </tbody>
+            </table>
+            <div class="note-box success">
+                配信面・ターゲット配分・クリック単価のすべてが<strong>ほぼ完全に不変</strong>です。「安い枠や別の層に流れて質が落ちた」という現象は起きていません。
             </div>
 
-            <h3 style="margin:26px 0 10px;font-size:1.1em">検証して残ったもの ― 止まったのは「クリックした後」だけ</h3>
+            <h3 style="margin:26px 0 10px;font-size:1.1em">検証② LPに来たお客様の行動は変わったか → 変わっていません</h3>
+            <p style="margin-bottom:10px">Microsoft Clarity でお盆期間（8/7〜13）の実際の閲覧行動を計測しました。</p>
             <table class="data-table">
-                <thead><tr><th>期間</th><th class="num">クリック</th><th class="num">購入</th><th class="num">クリック→購入率</th></tr></thead>
+                <thead><tr><th>LP</th><th>指標</th><th class="num">7月</th><th class="num">8/7〜13（お盆）</th><th>判定</th></tr></thead>
                 <tbody>
-                    <tr><td>7月全体</td><td class="num">1,909</td><td class="num">16件</td><td class="num">0.84%</td></tr>
-                    <tr><td>8/1〜6</td><td class="num">356</td><td class="num">3件</td><td class="num">0.84%</td></tr>
-                    <tr class="highlight-row"><td><strong>8/7〜13（お盆）</strong></td><td class="num"><strong>374</strong></td><td class="num"><strong>0件</strong></td><td class="num"><strong>0.00%</strong></td></tr>
-                    <tr><td>8/14〜18</td><td class="num">279</td><td class="num">2件</td><td class="num">0.72%</td></tr>
+                    <tr><td rowspan="3"><strong>美容LP</strong><br><span style="color:var(--text-light);font-size:0.9em">広告費の主力</span></td><td>5%到達率</td><td class="num">97.8%</td><td class="num">99.0%</td><td><span class="badge badge-flat">変化なし</span></td></tr>
+                    <tr><td>25%到達率</td><td class="num">44.5%</td><td class="num">42.2%</td><td><span class="badge badge-flat">変化なし</span></td></tr>
+                    <tr class="highlight-row"><td><strong>CTAタップ率</strong></td><td class="num"><strong>12.4%</strong></td><td class="num"><strong>11.7%</strong></td><td><span class="badge badge-flat">変化なし</span></td></tr>
+                    <tr><td>トップLP</td><td>25%到達率</td><td class="num">52.0%</td><td class="num">58.8%</td><td><span class="badge badge-up">むしろ深い</span></td></tr>
+                    <tr><td>Yahoo LP</td><td>5%到達率</td><td class="num">69.7%</td><td class="num">67.6%</td><td><span class="badge badge-flat">変化なし</span></td></tr>
+                </tbody>
+            </table>
+            <div class="note-box success">
+                <strong>同じ深さまで読み、同じ率で「注文する」を押していました。</strong>質の低い流入が来ていれば、まずスクロール到達率が崩れます。崩れていません。
+            </div>
+
+            <h3 style="margin:26px 0 10px;font-size:1.1em">検証③ Amazonはどうだったか → <span style="color:var(--danger)">同じ7日間に一緒に落ちていました</span></h3>
+            <table class="data-table">
+                <thead><tr><th>期間</th><th class="num">購入</th><th class="num">購入/日</th><th class="num">クリック/日</th><th class="num">クリック単位CVR</th></tr></thead>
+                <tbody>
+                    <tr><td>8/1〜6</td><td class="num">33件</td><td class="num">5.50</td><td class="num">38.5</td><td class="num">14.3%</td></tr>
+                    <tr class="highlight-row"><td><strong>8/7〜13（お盆）</strong></td><td class="num"><strong>12件</strong></td><td class="num"><strong>1.71</strong></td><td class="num">26.7</td><td class="num"><strong>6.3%</strong></td></tr>
+                    <tr><td>8/14〜19</td><td class="num">7件</td><td class="num">1.17</td><td class="num">21.3</td><td class="num">5.5%</td></tr>
                 </tbody>
             </table>
             <div class="note-box danger">
-                <strong>374クリックで購入0件。</strong>7月のペースなら3.13件が期待値で、これが0件になる確率は <strong>P=0.044</strong>。偶然では説明しにくい水準です。<br>
-                つまり「広告が悪かった」のでも「人が来なかった」のでもなく、<strong>来てくださった方が最後の一歩を踏まなかった</strong>——ここまでが数字で確定した内容です。
+                <strong>&minus;68.8%（P=0.0000006）。</strong>Amazonは弊社のMeta/Yahoo広告とは無関係に動く独立チャネルです。そこが同じ7日間に7割落ちている以上、<strong>原因は弊社の広告配信ではありません。</strong><br>
+                同時に、かねてよりの<strong>「Amazonセールに食われたのでは」という仮説も否定されました</strong>。Amazonが食ったのではなく、Amazonも一緒に落ちていました。
+            </div>
+
+            <h3 style="margin:26px 0 10px;font-size:1.1em">検証④ 去年のAmazonはどうだったか → <span style="color:var(--danger)">去年も同じ7日間に落ちています</span></h3>
+            <table class="data-table">
+                <thead><tr><th>年</th><th>期間</th><th class="num">購入/日</th><th class="num">クリック/日</th><th class="num">CVR</th></tr></thead>
+                <tbody>
+                    <tr><td rowspan="3"><strong>2025年</strong></td><td>8/1〜6</td><td class="num">0.67</td><td class="num">13.0</td><td class="num">5.1%</td></tr>
+                    <tr class="highlight-row"><td><strong>8/7〜13（お盆）</strong></td><td class="num"><strong>0.14</strong></td><td class="num"><strong>6.6</strong></td><td class="num"><strong>2.2%</strong></td></tr>
+                    <tr><td>増減</td><td class="num"><span class="badge badge-down">&minus;78.6%</span></td><td class="num"><span class="badge badge-down">&minus;49.5%</span></td><td class="num">半減以下</td></tr>
+                    <tr><td rowspan="3"><strong>2026年</strong></td><td>8/1〜6</td><td class="num">5.50</td><td class="num">38.5</td><td class="num">14.3%</td></tr>
+                    <tr class="highlight-row"><td><strong>8/7〜13（お盆）</strong></td><td class="num"><strong>1.71</strong></td><td class="num"><strong>27.0</strong></td><td class="num"><strong>6.3%</strong></td></tr>
+                    <tr><td>増減</td><td class="num"><span class="badge badge-down">&minus;68.8%</span></td><td class="num"><span class="badge badge-down">&minus;29.9%</span></td><td class="num">半減</td></tr>
+                </tbody>
+            </table>
+            <div class="note-box danger">
+                <strong>2年連続で、同じ7日間に、同じ方向・同じ規模で落ちています。</strong>しかも壊れ方の中身まで一致しており、<strong>クリック数とCVRが同時に落ちる</strong>という形が2年とも共通です。<br>
+                購入件数のP値は2025年が0.053とやや弱いですが、これは<strong>去年の母数が小さいため</strong>です（2025年8月は月間20件）。<strong>クリック数で見ると2年とも P=0.00000014</strong> で、偶然の余地はありません。
+            </div>
+
+            <div class="note-box info">
+                <strong>これで「お盆＝構造的な季節性」が3系統で揃いました。</strong><br>
+                ・自社EC（サブスク台帳）: 2022〜2025年の<strong>4年連続</strong>で谷（P=0.00003）<br>
+                ・Amazon: 2025・2026年の<strong>2年連続</strong>で谷（クリック P=1.4e-7）<br>
+                ・自社EC（2026年）: 8/7〜13が0件（P=0.027）<br>
+                <strong>媒体もチャネルも年も違うのに、すべてが同じ7日間に落ちます。</strong>
+            </div>
+
+            <div class="malz-box">
+                <h3>「アクセスは横ばいなのに売れない」の正体</h3>
+                <p style="margin-bottom:14px">矛盾ではなく、媒体の構造の違いでした。</p>
+                <div class="malz-grid">
+                    <div class="malz-item">
+                        <div class="label">Meta / Yahoo ＝ プッシュ型</div>
+                        <div class="value" style="font-size:1.05em;line-height:1.6">こちらから押し出すので、買う気の人が減っても<strong>配信量は変わらない</strong>。<br>→ アクセスは横ばいに見え、低下は<strong>すべて転換率の側に出る</strong></div>
+                    </div>
+                    <div class="malz-item">
+                        <div class="label">Amazon ＝ プル型（検索）</div>
+                        <div class="value" style="font-size:1.05em;line-height:1.6">お客様が探しに来るので、買う気が減ると<strong>クリック自体が減る</strong>。<br>→ 実際にクリック &minus;30%、さらにCVRも14.3%→6.3%と<strong>半減</strong></div>
+                    </div>
+                </div>
+                <p style="margin-top:16px;font-size:0.95em">つまり<strong>「アクセスが横ばいだったこと」は、需要が正常だった証拠にはなりません。</strong>プッシュ型の広告では、需要の低下はアクセス数ではなく転換率に現れます。</p>
+            </div>
+
+            <h3 style="margin:26px 0 10px;font-size:1.1em">検証の結果、落ちた場所はここまで絞れました</h3>
+            <table class="data-table">
+                <thead><tr><th>ファネル</th><th>お盆の状態</th></tr></thead>
+                <tbody>
+                    <tr><td>広告の表示・クリック</td><td><span class="badge badge-flat">平常</span> クリック53.4/日（7月61.6/日）</td></tr>
+                    <tr><td>LPへの着地</td><td><span class="badge badge-flat">平常</span> 109.9セッション/日（7月109.0/日）</td></tr>
+                    <tr><td>LPの読み込み</td><td><span class="badge badge-flat">平常</span> スクロール到達率は7月と同等</td></tr>
+                    <tr><td>「注文する」を押す</td><td><span class="badge badge-flat">平常</span> CTAタップ率 11.7%（7月12.4%）／3LP計29タップ</td></tr>
+                    <tr class="highlight-row"><td><strong>注文の完了</strong></td><td><span class="badge badge-down">ここで0件</span> 7月の実績なら29タップで2.4件の見込み → <strong>実測0件</strong></td></tr>
+                </tbody>
+            </table>
+            <div class="note-box warning">
+                <strong>押すところまでは普段どおりで、その先で止まっています。</strong>ただしタップ数29に対する期待2.4件は P=0.089 で、この一点だけでは統計的に確定しません。<strong>方向性を示すものとしてご覧ください。</strong>
             </div>
         </div>
     </div>
 
-    <!-- ===== 3. 過去4年 ===== -->
     <div class="section">
         <div class="section-header purple">3. お盆に落ちるのは毎年起きています</div>
         <div class="section-body">
@@ -257,64 +309,63 @@
                 お盆の谷は<strong>過去4年すべてで再現</strong>しています（全4年 P=0.00003 ／ 2023年の外れ値を除く3年 P=0.012 ／ 2024年単独 P=0.004）。
             </div>
             <div class="note-box success">
-                <strong>そして2024年は、お盆明けの 8/25〜27 が年間で最も質の高い獲得期でした。</strong><br>
+                <strong>2024年は、お盆明けの 8/25〜27 が年間で最も質の高い獲得期でした。</strong><br>
                 ・3日間で8件（<strong>年平均の8.6倍</strong>）／定着率62%／<strong>8件中7件がサイクル設定済み</strong><br>
                 ・2022年も同じ3日間が年平均の6.1倍でした<br>
-                ・ただし<strong>2023年・2025年は戻りませんでした</strong>（4年中2年）。毎年必ず戻るとは言えません。
+                ・ただし<strong>2023年・2025年は戻りませんでした</strong>（4年中2年）。毎年必ず戻るとは言えません。<br>
+                ・<strong>また、戻る時期は年によってずれます。</strong>2025年のAmazonは 8/25〜27 が0.33件/日と弱く、<strong>8/28〜31 に2.00件/日（月平均の3倍）と月内最強</strong>でした。
+            </div>
+            <div class="note-box danger">
+                <strong>今年は警戒が必要です。</strong>Amazonがお盆明けも戻っていません（1.71件/日 → <strong>1.17件/日</strong>）。お盆前の5.50件/日に対して<strong>まだ約1/5</strong>です。自社ECは8/14・8/16に動きましたが、Amazonは沈んだままで、<strong>「明けに戻る」前提が今年は崩れている可能性があります。</strong>
             </div>
         </div>
     </div>
 
-    <!-- ===== 4. 仮説 ===== -->
     <div class="section">
-        <div class="section-header teal">4. 最有力の見立て（※まだ裏が取れていません）</div>
+        <div class="section-header teal">4. 残された論点 — 注文ボタンの先で何が起きているか</div>
         <div class="section-body">
-            <p>「集客は来ている・買う直前で止まる・毎年お盆に起きる・明けに戻る年がある」を同時に説明できる筋は、<strong>「見る時間はあるが、受け取れない」</strong>です。</p>
+            <p>ここまでで「弊社の広告・LPに問題はなく、市場の側で買う人が減っていた」ことは確認できました。残るのは<strong>「注文するを押した方が、なぜ完了しなかったのか」</strong>です。</p>
+            <p style="margin-top:12px">最有力の見立ては<strong>「見る時間はあるが、受け取れない」</strong>です。</p>
             <ul style="margin:14px 0 14px 22px">
                 <li>お盆は帰省・旅行で家を空ける。<strong>定期便の初回も代引きも、受け取りが必要</strong>な商品です</li>
-                <li>アクセスがむしろ増えているのは、移動中・帰省先でスマホを見る時間が増えることと矛盾しません</li>
-                <li>だとすれば需要は<strong>消えたのではなく先送りされた</strong>ことになり、2022年・2024年の「お盆明けの山」と整合します</li>
+                <li>注文画面でお届け日を見て手が止まる、という流れであれば、CTAタップは普段どおりで完了だけ0という今回の形と一致します</li>
+                <li>需要が<strong>消えたのではなく先送りされた</strong>のであれば、2022年・2024年の「お盆明けの山」とも整合します</li>
             </ul>
             <div class="note-box warning">
-                <strong>この見立てはまだ検証できていません。</strong>滞在時間の変化も調べましたが、購入が正常だった8/1〜6の時点ですでに落ちており、購入が戻った8/14以降も低いままで、<strong>購入と連動していないため根拠にはなりませんでした</strong>。<br>
-                現時点で確定しているのは「<strong>原因の所在地（集客ではなく最終判断）</strong>」までで、<strong>理由の特定には至っていません。</strong>
+                <strong>この見立てはデータでは確認できません。</strong>行動ログで分かるのは「押した／押さなかった」までで、押さなかった理由は記録されないためです。<strong>お客様に直接伺う以外に方法がありません。</strong>
             </div>
         </div>
     </div>
 
-    <!-- ===== 5. 打ち手 ===== -->
     <div class="section">
         <div class="section-header green">5. 打ち手のご提案</div>
         <div class="section-body">
             <table class="data-table">
                 <thead><tr><th>時期</th><th>やること</th><th>理由</th></tr></thead>
                 <tbody>
-                    <tr class="highlight-row"><td><strong>今年 8/20〜</strong></td><td><strong>8/25〜27に予算を寄せる</strong></td><td>2024年・2022年ともにこの3日間が年平均の6〜8.6倍。2024年は定着62%・サイクル設定7/8件と質も最高でした</td></tr>
+                    <tr class="highlight-row"><td><strong>今年 8/20〜</strong></td><td><strong>8/25〜月末にかけて段階的に厚くする</strong><br><span style="color:var(--text-light);font-size:0.9em">3日間に一括投入はしない</span></td><td>自社ECは2024年・2022年ともに8/25〜27が年平均の6〜8.6倍。<strong>一方でAmazonは2025年に8/28〜31が月内最強</strong>でした。<strong>戻る時期が年・チャネルでずれるため、ピンポイントではなくレンジで構えます。</strong>今年は8/18時点でAmazonが1.17件/日と未回復のため、なおさら早撃ちは避けます</td></tr>
                     <tr><td><strong>来年 8/7〜</strong></td><td><strong>お盆は「小額常時＋大額停止・再開」</strong><br><span style="color:var(--text-light);font-size:0.9em">7/21会議 SL-01 の具体化</span></td><td>今年はこの7日間に &yen;25,997 を使って0件。同額を来年はお盆明けに回せます</td></tr>
                     <tr><td>通年</td><td><strong>完全停止はしない</strong></td><td>Metaの学習が抜けて、明けの立ち上がりが鈍ります（運用鉄則「止めるより足す」）</td></tr>
-                    <tr><td>要相談</td><td>お盆期間は「お届け日が選べる」旨をLPで明示<br><span style="color:var(--text-light);font-size:0.9em">※§4の見立てが正しい場合のみ有効</span></td><td>不在で受け取れないことが理由なら、「明けに届けられる」と分かれば離脱を防げる可能性があります。裏取り前の実施は要ご相談</td></tr>
+                    <tr><td>要相談</td><td>お盆期間は「お届け日が選べる」旨を注文導線で明示<br><span style="color:var(--text-light);font-size:0.9em">※§4の見立てが正しい場合のみ有効</span></td><td>不在で受け取れないことが理由なら、「明けに届けられる」と分かれば離脱を防げる可能性があります。裏取り前の実施は要ご相談</td></tr>
                 </tbody>
             </table>
         </div>
     </div>
 
-    <!-- ===== 6. お願い ===== -->
     <div class="section">
-        <div class="section-header dark">6. ご提供をお願いしたいデータ</div>
+        <div class="section-header dark">6. ご確認をお願いしたいこと</div>
         <div class="section-body">
             <table class="data-table">
-                <thead><tr><th>#</th><th>必要なもの</th><th>これで何が分かるか</th></tr></thead>
+                <thead><tr><th>#</th><th>お願いしたいこと</th><th>これで何が分かるか</th></tr></thead>
                 <tbody>
-                    <tr class="highlight-row"><td>1</td><td><strong>Amazon 8/1〜8/16の日別販売数</strong></td><td>「お盆」なのか「Amazonセールに食われた」のかの判別。<strong>同じ7日間を両方が説明できてしまう</strong>ため、これが無いと確定できません</td></tr>
-                    <tr><td>2</td><td>お盆期間のお問い合わせ・解約理由の記述</td><td>「受け取れない」が実際に語られているかの直接確認</td></tr>
-                    <tr><td>3</td><td>カートに入れて買わなかった方のデータ（取得可能であれば）</td><td>最終判断がどこで止まったかの直接確認</td></tr>
-                    <tr><td>4</td><td>計測系の切り分け<span style="color:var(--text-light);font-size:0.9em">（弊社作業）</span></td><td>§2の原因Cを消すため。代引きページのGA4欠落・Metaピクセル二重送信・流入元不明4割の3点</td></tr>
+                    <tr class="highlight-row"><td>1</td><td><strong>お盆期間のお問い合わせ・解約理由に「受け取れない」旨の記述がなかったか</strong></td><td>§4の見立ての裏取り。データでは届かない唯一の部分です</td></tr>
+                    <tr><td>2</td><td>注文フォームまで進んで完了しなかった方の記録（取得可能であれば）</td><td>止まった場所の直接確認</td></tr>
+                    <tr><td>3</td><td>Amazonの回復状況（8/20以降の日別）</td><td>お盆明けの戻りが今年あるかどうかの判断。§3の警戒点に直結します</td></tr>
                 </tbody>
             </table>
         </div>
     </div>
 
-    <!-- ===== 7. 着地見通し ===== -->
     <div class="section">
         <div class="section-header blue">7. 8月はどう着地しそうか</div>
         <div class="section-body">
@@ -325,12 +376,11 @@
                 <div class="summary-card orange-border"><div class="sc-label">判断できる日</div><div class="sc-value orange">8/27</div><div class="sc-sub">それまで待ちます</div></div>
             </div>
             <div class="note-box warning">
-                8/17〜18が0件でしたが、7月のペースでも2日連続0件は36%の確率で起きるため、<strong>まだどちらの型にも乗っています</strong>。<strong>8月の評価は月末まで確定しません。</strong>
+                8/17〜18が0件でしたが、7月のペースでも2日連続0件は36%の確率で起きるため、まだどちらの型にも乗っています。<strong>ただしAmazonが未回復であることを踏まえると、現時点では2025年型（戻らない）の可能性を高めに見ておくべきです。</strong>
             </div>
         </div>
     </div>
 
-    <!-- ===== 8. 月次推移 ===== -->
     <div class="section">
         <div class="section-header dark">8. 月次推移</div>
         <div class="section-body">
@@ -352,7 +402,7 @@
 
     <div style="text-align: center; margin-top: 30px; padding: 20px; font-size: 0.8em; color: var(--text-light);">
         ミチルシリカ 月次レポート | 2026年8月19日 作成<br>
-        データソース: Meta広告マネージャー / Yahoo!広告 / カラーミーリピート / GA4 / サブスク台帳
+        データソース: Meta広告マネージャー / Yahoo!広告 / カラーミーリピート / GA4 / Microsoft Clarity / Amazon広告（2025年8月・2026年8月 日別）/ サブスク台帳
     </div>
 
 </div>
