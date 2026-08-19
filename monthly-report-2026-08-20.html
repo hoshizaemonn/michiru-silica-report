@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ミチルシリカ 月次レポート | 2026年8月20日</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #0d47a1; --primary-light: #1976d2;
+            --success: #2e7d32; --success-light: #4caf50;
+            --warning: #ef6c00; --danger: #c62828;
+            --text: #263238; --text-light: #546e7a;
+            --bg: #f5f7fa; --card-bg: #ffffff;
+            --border: #e0e4e8; --radius: 12px;
+            --shadow: 0 2px 12px rgba(0,0,0,0.06);
+            --shadow-lg: 0 8px 30px rgba(0,0,0,0.1);
+        }
+        body { font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif; line-height: 1.7; color: var(--text); background: var(--bg); padding: 30px 20px; }
+        .container { max-width: 1100px; margin: 0 auto; }
+
+        .report-header { background: linear-gradient(135deg, #0d47a1 0%, #1565c0 50%, #1976d2 100%); color: white; padding: 50px 40px; border-radius: var(--radius); margin-bottom: 30px; box-shadow: var(--shadow-lg); position: relative; overflow: hidden; }
+        .report-header::before { content: ''; position: absolute; top: -50%; right: -10%; width: 300px; height: 300px; background: rgba(255,255,255,0.05); border-radius: 50%; }
+        .report-header h1 { font-size: 2em; font-weight: 800; margin-bottom: 8px; }
+        .report-header .subtitle { font-size: 1.1em; opacity: 0.9; }
+        .report-header .meta { margin-top: 16px; font-size: 0.9em; opacity: 0.75; display: flex; gap: 20px; flex-wrap: wrap; }
+
+        .section { background: var(--card-bg); border-radius: var(--radius); margin-bottom: 24px; box-shadow: var(--shadow); overflow: hidden; }
+        .section-header { padding: 20px 28px; font-size: 1.2em; font-weight: 700; color: white; display: flex; align-items: center; gap: 10px; }
+        .section-header.blue { background: linear-gradient(135deg, var(--primary), var(--primary-light)); }
+        .section-header.green { background: linear-gradient(135deg, var(--success), var(--success-light)); }
+        .section-header.orange { background: linear-gradient(135deg, #e65100, var(--warning)); }
+        .section-header.purple { background: linear-gradient(135deg, #4a148c, #7b1fa2); }
+        .section-header.teal { background: linear-gradient(135deg, #00695c, #00897b); }
+        .section-header.dark { background: linear-gradient(135deg, #263238, #37474f); }
+        .section-header.pink { background: linear-gradient(135deg, #880e4f, #c2185b); }
+        .section-body { padding: 28px; }
+
+        .purchase-hero { background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 50%, #43a047 100%); color: white; padding: 40px; border-radius: var(--radius); margin-bottom: 24px; text-align: center; box-shadow: var(--shadow-lg); }
+        .ph-label { font-size: 1em; opacity: 0.85; letter-spacing: 2px; margin-bottom: 4px; }
+        .ph-period { font-size: 0.9em; opacity: 0.7; margin-bottom: 16px; }
+        .ph-number { font-size: 5em; font-weight: 900; line-height: 1; }
+        .ph-unit { font-size: 1.2em; opacity: 0.85; margin-top: 4px; }
+        .purchase-breakdown { display: flex; justify-content: center; gap: 40px; margin-top: 24px; flex-wrap: wrap; }
+        .pb-item { text-align: center; }
+        .pb-value { font-size: 2.8em; font-weight: 900; }
+        .pb-label { font-size: 0.85em; opacity: 0.8; }
+
+        .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 24px; }
+        .summary-card { background: var(--card-bg); border-radius: var(--radius); padding: 24px; text-align: center; box-shadow: var(--shadow); border-top: 4px solid var(--primary); }
+        .summary-card.green-border { border-top-color: var(--success); }
+        .summary-card.orange-border { border-top-color: var(--warning); }
+        .summary-card.red-border { border-top-color: var(--danger); }
+        .summary-card .sc-label { font-size: 0.85em; color: var(--text-light); margin-bottom: 8px; }
+        .summary-card .sc-value { font-size: 2.2em; font-weight: 900; }
+        .summary-card .sc-value.blue { color: var(--primary); }
+        .summary-card .sc-value.green { color: var(--success); }
+        .summary-card .sc-value.orange { color: var(--warning); }
+        .summary-card .sc-value.red { color: var(--danger); }
+        .summary-card .sc-sub { font-size: 0.8em; color: var(--text-light); margin-top: 6px; }
+
+        .data-table { width: 100%; border-collapse: collapse; font-size: 0.9em; }
+        .data-table thead { background: #263238; color: white; }
+        .data-table th { padding: 12px 14px; text-align: left; font-weight: 600; font-size: 0.85em; }
+        .data-table td { padding: 12px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+        .data-table tbody tr:hover { background: #f5f8ff; }
+        .data-table .num { text-align: right; font-variant-numeric: tabular-nums; }
+        .data-table .total-row { background: #f0f4ff; font-weight: 700; }
+        .data-table .highlight-row { background: #fff8e1; }
+
+        .note-box { padding: 16px 20px; border-radius: 8px; font-size: 0.9em; line-height: 1.7; margin: 12px 0; }
+        .note-box.success { background: #e8f5e9; border-left: 4px solid var(--success); }
+        .note-box.info { background: #e3f2fd; border-left: 4px solid var(--primary); }
+        .note-box.warning { background: #fff3e0; border-left: 4px solid var(--warning); }
+        .note-box.danger { background: #ffebee; border-left: 4px solid var(--danger); }
+
+        .badge { display: inline-block; padding: 3px 12px; border-radius: 20px; font-size: 0.8em; font-weight: 700; white-space: nowrap; }
+        .badge-up { background: #e8f5e9; color: var(--success); }
+        .badge-down { background: #ffebee; color: var(--danger); }
+        .badge-flat { background: #fff3e0; color: var(--warning); }
+        .badge-info { background: #e3f2fd; color: var(--primary); }
+
+        .action-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; }
+        .action-card { border: 2px solid var(--border); border-radius: var(--radius); padding: 22px; transition: transform 0.2s, box-shadow 0.2s; }
+        .action-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+        .action-card .ac-status { font-size: 0.75em; font-weight: 700; letter-spacing: 1px; margin-bottom: 8px; }
+        .action-card .ac-status.done { color: var(--success); }
+        .action-card .ac-status.progress { color: var(--primary); }
+        .action-card .ac-status.pending { color: var(--warning); }
+        .action-card .ac-status.new { color: #7b1fa2; }
+        .action-card .ac-title { font-size: 1.05em; font-weight: 700; margin-bottom: 10px; }
+        .action-card .ac-desc { font-size: 0.85em; color: var(--text-light); line-height: 1.6; }
+        .action-card.done-card { border-color: var(--success); background: linear-gradient(135deg, #f9fff9, #fff); }
+        .action-card.progress-card { border-color: var(--primary); background: linear-gradient(135deg, #f8fbff, #fff); }
+        .action-card.pending-card { border-color: var(--warning); background: linear-gradient(135deg, #fffdf5, #fff); }
+        .action-card.new-card { border-color: #7b1fa2; background: linear-gradient(135deg, #faf5ff, #fff); }
+
+        .malz-box { background: linear-gradient(135deg, #4a148c 0%, #7b1fa2 50%, #9c27b0 100%); color: white; padding: 30px; border-radius: var(--radius); margin-bottom: 24px; }
+        .malz-box h3 { font-size: 1.3em; margin-bottom: 16px; }
+        .malz-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .malz-item { background: rgba(255,255,255,0.12); padding: 16px; border-radius: 8px; }
+        .malz-item .label { font-size: 0.8em; opacity: 0.8; margin-bottom: 4px; }
+        .malz-item .value { font-size: 1.4em; font-weight: 900; }
+
+        @media (max-width: 900px) {
+            .summary-grid { grid-template-columns: 1fr 1fr; }
+            .container { padding: 16px; }
+            .action-grid { grid-template-columns: 1fr; }
+            .malz-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- ===== Header ===== -->
+    <div class="report-header">
+        <h1>ミチルシリカ 月次レポート</h1>
+        <div class="subtitle">8月の落ち込みの原因特定 ＋ お盆明けに向けた予算設計</div>
+        <div class="meta">
+            <span>会議日: 2026年8月20日（木）</span>
+            <span>前回会議: 2026年7月21日</span>
+            <span>対象期間: 8/1 〜 8/18（18日間）</span>
+        </div>
+    </div>
+
+    <!-- ===== Purchase Hero ===== -->
+    <div class="purchase-hero" style="background:linear-gradient(135deg,#b71c1c 0%,#c62828 50%,#e53935 100%)">
+        <div class="ph-label">購入件数</div>
+        <div class="ph-period">2026年8月1日 〜 8月18日（18日間）</div>
+        <div class="ph-number">5</div>
+        <div class="ph-unit">件</div>
+        <div class="purchase-breakdown">
+            <div class="pb-item">
+                <div class="pb-value">4</div>
+                <div class="pb-label">カラーミー定期便</div>
+            </div>
+            <div class="pb-item">
+                <div class="pb-value">1</div>
+                <div class="pb-label">代引き</div>
+            </div>
+            <div class="pb-item">
+                <div class="pb-value">0</div>
+                <div class="pb-label">うち8/7〜13（お盆）</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== Summary Cards ===== -->
+    <div class="summary-grid">
+        <div class="summary-card red-border">
+            <div class="sc-label">お盆7日間の購入</div>
+            <div class="sc-value red">0件</div>
+            <div class="sc-sub">広告費 &yen;25,997 を使用</div>
+        </div>
+        <div class="summary-card green-border">
+            <div class="sc-label">お盆を除く11日間</div>
+            <div class="sc-value green">0.455件/日</div>
+            <div class="sc-sub">7月0.516件/日と差なし</div>
+        </div>
+        <div class="summary-card">
+            <div class="sc-label">お盆期間のアクセス</div>
+            <div class="sc-value blue">109.9/日</div>
+            <div class="sc-sub">7月109.0/日 — 減っていない</div>
+        </div>
+        <div class="summary-card orange-border">
+            <div class="sc-label">8月CPA（8/18時点）</div>
+            <div class="sc-value orange">&yen;15,297</div>
+            <div class="sc-sub">7月 &yen;8,605 から悪化</div>
+        </div>
+    </div>
+
+    <div class="note-box info">
+        <strong>このレポートの結論（3行）</strong><br>
+        ① 8月の落ち込みは <strong>8/7〜13の7日間に100%集中</strong>しています。前後は7月と統計的に差がありません。<br>
+        ② お盆に落ちるのは<strong>過去4年すべてで再現する構造的な季節性</strong>です。来年から先回りできます。<br>
+        ③ 今回わかったのは「<strong>集客は落ちていなかった</strong>」こと。広告もアクセスも平常で、<strong>止まったのは購入の最終判断だけ</strong>でした。
+    </div>
+
+    <!-- ===== 1. どこが落ちたのか ===== -->
+    <div class="section">
+        <div class="section-header blue">1. 落ち込みはどこで起きたのか</div>
+        <div class="section-body">
+            <p style="margin-bottom:14px">7月の実績ペース（0.516件/日）を基準に、8月を区間ごとに検定しました。</p>
+            <table class="data-table">
+                <thead><tr><th>期間</th><th class="num">実測</th><th class="num">件/日</th><th class="num">期待値</th><th class="num">P値</th><th>判定</th></tr></thead>
+                <tbody>
+                    <tr><td>8/1〜6（お盆前）</td><td class="num">3件</td><td class="num">0.500</td><td class="num">3.10</td><td class="num">0.626</td><td><span class="badge badge-flat">正常</span></td></tr>
+                    <tr class="highlight-row"><td><strong>8/7〜13（お盆）</strong></td><td class="num"><strong>0件</strong></td><td class="num"><strong>0.000</strong></td><td class="num">3.61</td><td class="num"><strong>0.027</strong></td><td><span class="badge badge-down">有意に低い</span></td></tr>
+                    <tr><td>8/14〜16（お盆明け）</td><td class="num">2件</td><td class="num">0.667</td><td class="num">1.55</td><td class="num">0.797</td><td><span class="badge badge-up">7月を上回る</span></td></tr>
+                    <tr><td>8/17〜18</td><td class="num">0件</td><td class="num">0.000</td><td class="num">1.03</td><td class="num">0.356</td><td><span class="badge badge-flat">ノイズ範囲</span></td></tr>
+                    <tr class="total-row"><td>お盆を除く11日間</td><td class="num">5件</td><td class="num">0.455</td><td class="num">5.68</td><td class="num">0.499</td><td><span class="badge badge-info">7月と差なし</span></td></tr>
+                </tbody>
+            </table>
+            <div class="note-box danger">
+                <strong>この7日間で、広告費 &yen;25,997（Meta &yen;21,084 ＋ Yahoo &yen;4,913）を使って購入は0件でした。</strong>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== 2. なぜ売れなかったのか ===== -->
+    <div class="section">
+        <div class="section-header orange">2. なぜお盆に売れなかったのか</div>
+        <div class="section-body">
+            <p style="margin-bottom:18px">「お盆だから」で止めず、考えられる原因を3つに分けて1つずつ検証しました。</p>
+
+            <div class="action-grid">
+                <div class="action-card done-card">
+                    <div class="ac-status done">検証結果 — 否定されました</div>
+                    <div class="ac-title">原因A：広告が止まっていた・届いていなかった</div>
+                    <div class="ac-desc">クリック数は7月比 −13% にとどまり、<strong>CPCはむしろ改善</strong>（&yen;113→&yen;90）。表示回数も平常でした。広告は普通に配信されていました。</div>
+                </div>
+                <div class="action-card done-card">
+                    <div class="ac-status done">検証結果 — 否定されました</div>
+                    <div class="ac-title">原因B：そもそも人が来ていなかった</div>
+                    <div class="ac-desc">お盆期間のアクセスは <strong>109.9セッション/日</strong> で、7月（109.0）・お盆前（100.0）を上回り<strong>期間中で最多</strong>でした。人は来ていました。</div>
+                </div>
+                <div class="action-card pending-card">
+                    <div class="ac-status pending">検証結果 — 判定できず</div>
+                    <div class="ac-title">原因C：サイト・フォームが壊れていた</div>
+                    <div class="ac-desc">本来いちばん確認すべき点ですが、<strong>現在のフォーム計測が実態と合っていない</strong>ため判定できません。購入が発生した日にフォーム記録が0件になるケースが8月だけで3日ありました。<strong>計測の切り分けが必要です（§6）。</strong></div>
+                </div>
+            </div>
+
+            <h3 style="margin:26px 0 10px;font-size:1.1em">検証して残ったもの ― 止まったのは「クリックした後」だけ</h3>
+            <table class="data-table">
+                <thead><tr><th>期間</th><th class="num">クリック</th><th class="num">購入</th><th class="num">クリック→購入率</th></tr></thead>
+                <tbody>
+                    <tr><td>7月全体</td><td class="num">1,909</td><td class="num">16件</td><td class="num">0.84%</td></tr>
+                    <tr><td>8/1〜6</td><td class="num">356</td><td class="num">3件</td><td class="num">0.84%</td></tr>
+                    <tr class="highlight-row"><td><strong>8/7〜13（お盆）</strong></td><td class="num"><strong>374</strong></td><td class="num"><strong>0件</strong></td><td class="num"><strong>0.00%</strong></td></tr>
+                    <tr><td>8/14〜18</td><td class="num">279</td><td class="num">2件</td><td class="num">0.72%</td></tr>
+                </tbody>
+            </table>
+            <div class="note-box danger">
+                <strong>374クリックで購入0件。</strong>7月のペースなら3.13件が期待値で、これが0件になる確率は <strong>P=0.044</strong>。偶然では説明しにくい水準です。<br>
+                つまり「広告が悪かった」のでも「人が来なかった」のでもなく、<strong>来てくださった方が最後の一歩を踏まなかった</strong>——ここまでが数字で確定した内容です。
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== 3. 過去4年 ===== -->
+    <div class="section">
+        <div class="section-header purple">3. お盆に落ちるのは毎年起きています</div>
+        <div class="section-body">
+            <p style="margin-bottom:14px">サブスク台帳（2022年4月〜2026年6月・388件）で、各年の8月を日別に割りました。</p>
+            <table class="data-table">
+                <thead><tr><th>年</th><th class="num">年間</th><th class="num">8/1〜6</th><th class="num">8/7〜18（お盆）</th><th class="num">8/19〜31</th><th class="num">うち8/25〜27</th><th class="num">年平均</th></tr></thead>
+                <tbody>
+                    <tr><td>2022年</td><td class="num">41件</td><td class="num">0.67/日</td><td class="num">0.17/日</td><td class="num">0.15/日</td><td class="num">0.67/日</td><td class="num">0.11/日</td></tr>
+                    <tr><td>2023年</td><td class="num">81件</td><td class="num">4.67/日</td><td class="num">0.92/日</td><td class="num">0.15/日</td><td class="num">0.00/日</td><td class="num">0.22/日</td></tr>
+                    <tr class="highlight-row"><td><strong>2024年</strong></td><td class="num">113件</td><td class="num">2.17/日</td><td class="num">0.17/日</td><td class="num">0.62/日</td><td class="num"><strong>2.67/日</strong></td><td class="num">0.31/日</td></tr>
+                    <tr><td>2025年</td><td class="num">91件</td><td class="num">0.33/日</td><td class="num">0.08/日</td><td class="num">0.00/日</td><td class="num">0.00/日</td><td class="num">0.25/日</td></tr>
+                </tbody>
+            </table>
+            <div class="note-box info">
+                お盆の谷は<strong>過去4年すべてで再現</strong>しています（全4年 P=0.00003 ／ 2023年の外れ値を除く3年 P=0.012 ／ 2024年単独 P=0.004）。
+            </div>
+            <div class="note-box success">
+                <strong>そして2024年は、お盆明けの 8/25〜27 が年間で最も質の高い獲得期でした。</strong><br>
+                ・3日間で8件（<strong>年平均の8.6倍</strong>）／定着率62%／<strong>8件中7件がサイクル設定済み</strong><br>
+                ・2022年も同じ3日間が年平均の6.1倍でした<br>
+                ・ただし<strong>2023年・2025年は戻りませんでした</strong>（4年中2年）。毎年必ず戻るとは言えません。
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== 4. 仮説 ===== -->
+    <div class="section">
+        <div class="section-header teal">4. 最有力の見立て（※まだ裏が取れていません）</div>
+        <div class="section-body">
+            <p>「集客は来ている・買う直前で止まる・毎年お盆に起きる・明けに戻る年がある」を同時に説明できる筋は、<strong>「見る時間はあるが、受け取れない」</strong>です。</p>
+            <ul style="margin:14px 0 14px 22px">
+                <li>お盆は帰省・旅行で家を空ける。<strong>定期便の初回も代引きも、受け取りが必要</strong>な商品です</li>
+                <li>アクセスがむしろ増えているのは、移動中・帰省先でスマホを見る時間が増えることと矛盾しません</li>
+                <li>だとすれば需要は<strong>消えたのではなく先送りされた</strong>ことになり、2022年・2024年の「お盆明けの山」と整合します</li>
+            </ul>
+            <div class="note-box warning">
+                <strong>この見立てはまだ検証できていません。</strong>滞在時間の変化も調べましたが、購入が正常だった8/1〜6の時点ですでに落ちており、購入が戻った8/14以降も低いままで、<strong>購入と連動していないため根拠にはなりませんでした</strong>。<br>
+                現時点で確定しているのは「<strong>原因の所在地（集客ではなく最終判断）</strong>」までで、<strong>理由の特定には至っていません。</strong>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== 5. 打ち手 ===== -->
+    <div class="section">
+        <div class="section-header green">5. 打ち手のご提案</div>
+        <div class="section-body">
+            <table class="data-table">
+                <thead><tr><th>時期</th><th>やること</th><th>理由</th></tr></thead>
+                <tbody>
+                    <tr class="highlight-row"><td><strong>今年 8/20〜</strong></td><td><strong>8/25〜27に予算を寄せる</strong></td><td>2024年・2022年ともにこの3日間が年平均の6〜8.6倍。2024年は定着62%・サイクル設定7/8件と質も最高でした</td></tr>
+                    <tr><td><strong>来年 8/7〜</strong></td><td><strong>お盆は「小額常時＋大額停止・再開」</strong><br><span style="color:var(--text-light);font-size:0.9em">7/21会議 SL-01 の具体化</span></td><td>今年はこの7日間に &yen;25,997 を使って0件。同額を来年はお盆明けに回せます</td></tr>
+                    <tr><td>通年</td><td><strong>完全停止はしない</strong></td><td>Metaの学習が抜けて、明けの立ち上がりが鈍ります（運用鉄則「止めるより足す」）</td></tr>
+                    <tr><td>要相談</td><td>お盆期間は「お届け日が選べる」旨をLPで明示<br><span style="color:var(--text-light);font-size:0.9em">※§4の見立てが正しい場合のみ有効</span></td><td>不在で受け取れないことが理由なら、「明けに届けられる」と分かれば離脱を防げる可能性があります。裏取り前の実施は要ご相談</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- ===== 6. お願い ===== -->
+    <div class="section">
+        <div class="section-header dark">6. ご提供をお願いしたいデータ</div>
+        <div class="section-body">
+            <table class="data-table">
+                <thead><tr><th>#</th><th>必要なもの</th><th>これで何が分かるか</th></tr></thead>
+                <tbody>
+                    <tr class="highlight-row"><td>1</td><td><strong>Amazon 8/1〜8/16の日別販売数</strong></td><td>「お盆」なのか「Amazonセールに食われた」のかの判別。<strong>同じ7日間を両方が説明できてしまう</strong>ため、これが無いと確定できません</td></tr>
+                    <tr><td>2</td><td>お盆期間のお問い合わせ・解約理由の記述</td><td>「受け取れない」が実際に語られているかの直接確認</td></tr>
+                    <tr><td>3</td><td>カートに入れて買わなかった方のデータ（取得可能であれば）</td><td>最終判断がどこで止まったかの直接確認</td></tr>
+                    <tr><td>4</td><td>計測系の切り分け<span style="color:var(--text-light);font-size:0.9em">（弊社作業）</span></td><td>§2の原因Cを消すため。代引きページのGA4欠落・Metaピクセル二重送信・流入元不明4割の3点</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- ===== 7. 着地見通し ===== -->
+    <div class="section">
+        <div class="section-header blue">7. 8月はどう着地しそうか</div>
+        <div class="section-body">
+            <div class="summary-grid">
+                <div class="summary-card"><div class="sc-label">8/18時点</div><div class="sc-value blue">5件</div><div class="sc-sub">確定値</div></div>
+                <div class="summary-card green-border"><div class="sc-label">2024年型なら</div><div class="sc-value green">8〜9件</div><div class="sc-sub">お盆明けに戻る</div></div>
+                <div class="summary-card red-border"><div class="sc-label">2025年型なら</div><div class="sc-value red">5〜6件</div><div class="sc-sub">戻らない</div></div>
+                <div class="summary-card orange-border"><div class="sc-label">判断できる日</div><div class="sc-value orange">8/27</div><div class="sc-sub">それまで待ちます</div></div>
+            </div>
+            <div class="note-box warning">
+                8/17〜18が0件でしたが、7月のペースでも2日連続0件は36%の確率で起きるため、<strong>まだどちらの型にも乗っています</strong>。<strong>8月の評価は月末まで確定しません。</strong>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== 8. 月次推移 ===== -->
+    <div class="section">
+        <div class="section-header dark">8. 月次推移</div>
+        <div class="section-body">
+            <table class="data-table">
+                <thead><tr><th>月</th><th class="num">購入</th><th class="num">件/日</th><th class="num">広告費</th><th class="num">CPA</th></tr></thead>
+                <tbody>
+                    <tr><td>4月</td><td class="num">17件</td><td class="num">0.567</td><td class="num">&yen;58,100</td><td class="num">&yen;3,417</td></tr>
+                    <tr><td>5月</td><td class="num">16件</td><td class="num">0.516</td><td class="num">&yen;126,538</td><td class="num">&yen;7,908</td></tr>
+                    <tr><td>6月</td><td class="num">27件</td><td class="num">0.900</td><td class="num">&yen;131,779</td><td class="num">&yen;4,880</td></tr>
+                    <tr><td>7月</td><td class="num">16件</td><td class="num">0.516</td><td class="num">&yen;137,690</td><td class="num">&yen;8,605</td></tr>
+                    <tr class="highlight-row"><td><strong>8月（8/18時点）</strong></td><td class="num">5件</td><td class="num">0.312</td><td class="num">&yen;76,486</td><td class="num">&yen;15,297</td></tr>
+                </tbody>
+            </table>
+            <div class="note-box warning">
+                <strong>5月以降のCPA悪化は、お盆とは別の問題として未解明です。</strong>4月 &yen;3,417 → 8月 &yen;15,297。次回はここを重点的に見ます。
+            </div>
+        </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 30px; padding: 20px; font-size: 0.8em; color: var(--text-light);">
+        ミチルシリカ 月次レポート | 2026年8月19日 作成<br>
+        データソース: Meta広告マネージャー / Yahoo!広告 / カラーミーリピート / GA4 / サブスク台帳
+    </div>
+
+</div>
+</body>
+</html>
