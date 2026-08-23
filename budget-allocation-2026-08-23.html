@@ -226,7 +226,7 @@ footer{text-align:center;font-size:12px;color:var(--sub);margin-top:30px;line-he
     <div class="c ok">
       <div class="n">1</div>
       <div class="t">4日間だけ Meta → Amazon に移す</div>
-      <div class="d">Meta ¥3,800→¥1,000／Amazon ¥4,800→¥7,600。<b>合計¥9,300は変えない。</b>Yahooは触らない。</div>
+      <div class="d">Meta ¥3,800→¥1,000／Amazon ¥4,800→¥7,600（<b>自動¥6,000＋手動¥1,600</b>）。<b>合計¥9,300は変えない。</b>Yahooは触らない。</div>
     </div>
     <div class="c warn">
       <div class="n">2</div>
@@ -337,32 +337,78 @@ footer{text-align:center;font-size:12px;color:var(--sub);margin-top:30px;line-he
 </section>
 
 <section>
-  <h2><span class="num">検証 ②</span>増額先を間違えると、悪い方に金が流れる</h2>
-  <p class="lead">Amazonキャンペーン別 実績（2026年8月1-19日）。稼働は2本のみ。</p>
-  <div class="mm">
-    <div class="mm-c bad">
-      <div class="name">自動キャンペーン</div>
-      <div class="metric"><span>予算シェア</span><b>78%</b></div>
-      <div class="track"><i style="width:78%"></i></div>
-      <div class="metric"><span>ROAS</span><b>1.98</b></div>
-      <div class="track"><i style="width:66%"></i></div>
-      <div class="verdict">▲ 予算の大半を持っているが、効率は下</div>
-    </div>
-    <div class="mm-c good">
-      <div class="name">動CP_売れるKW専用</div>
-      <div class="metric"><span>予算シェア</span><b>22%</b></div>
-      <div class="track"><i style="width:22%"></i></div>
-      <div class="metric"><span>ROAS</span><b>3.02</b></div>
-      <div class="track"><i style="width:100%"></i></div>
-      <div class="verdict">● ROASが1.5倍いいのに、予算は22%だけ</div>
-    </div>
+  <h2><span class="num">検証 ②</span>増額先は自動か手動か — 78:22は「設定」であって Amazon の判断ではない</h2>
+  <p class="lead">予算シェアの偏りが、こちらの設定によるものか、配信の結果なのかを日別で確認しました。</p>
+
+  <h3>① 手動KWは日予算 約¥800 の蓋に張り付いている</h3>
+  <div class="tw"><table>
+    <thead><tr><th>キャンペーン</th><th>最小</th><th>最大</th><th>変動幅</th><th>判定</th></tr></thead>
+    <tbody>
+      <tr class="crit"><td><b>動CP_売れるKW専用</b></td><td>¥714</td><td>¥899</td>
+        <td><b style="color:var(--red)">1.26倍</b></td>
+        <td style="font-size:12.5px"><b>18日中18日が¥700〜900。</b>上限で止められている</td></tr>
+      <tr><td><b>自動キャンペーン</b></td><td>¥1,353</td><td>¥4,738</td><td>3.50倍</td>
+        <td style="font-size:12.5px">需要に応じて自由に動いている</td></tr>
+    </tbody>
+  </table></div>
+  <div class="punch">
+    Amazon日予算 ¥4,800 の内訳は <b>自動¥4,000 ＋ 手動¥800</b>。<br>
+    78:22 は Amazon が選んだ結果ではなく、<b>こちらが設定した予算そのもの</b>
   </div>
-  <div class="punch">増額は「売れるKW専用」に寄せる。自動キャンペーンは増やさない。</div>
+
+  <h3>② では、どちらに増やすべきか — 2025年の実績で確認</h3>
+  <div class="tw"><table>
+    <thead><tr><th>2025年 通年</th><th>広告費</th><th>購入</th><th>ROAS</th><th>CPA</th><th>予算シェア</th></tr></thead>
+    <tbody>
+      <tr style="background:var(--green-l)"><td><b>自動</b></td><td>¥316,663</td><td><b>230件</b></td>
+        <td><b style="color:var(--green)">2.32</b></td><td><b style="color:var(--green)">¥1,377</b></td><td>28%</td></tr>
+      <tr><td>手動</td><td>¥357,993</td><td>140件</td><td>1.25</td><td>¥2,557</td><td>31%</td></tr>
+      <tr><td>旧CP</td><td>¥463,689</td><td>171件</td><td>1.13</td><td>¥2,712</td><td>41%</td></tr>
+    </tbody>
+  </table></div>
+  <div class="tw"><table>
+    <thead><tr><th>2025年 セール4日間（8/28-31）</th><th>費用/日</th><th>注文</th><th>ROAS</th><th>CPA</th></tr></thead>
+    <tbody>
+      <tr style="background:var(--green-l)"><td><b>自動</b></td><td>¥1,419</td><td><b>6件</b></td>
+        <td><b style="color:var(--green)">3.66</b></td><td><b style="color:var(--green)">¥946</b></td></tr>
+      <tr><td>手動</td><td>¥2,220</td><td>2件</td><td>1.17</td><td>¥4,439</td></tr>
+    </tbody>
+  </table></div>
+  <div class="punch">
+    セール中も自動が圧勝。<b>手動は費用を1.6倍かけて、注文は3分の1</b><br>
+    通年でも 自動は ROAS 1.9倍・CPA 1.9倍安い
+  </div>
+
   <div class="decide">
-    <div class="t">🔴 セール前に必ず終わらせること</div>
-    <p><b>AM-04（自動キャンペーンの入札是正）</b>が未着手です。ROASが0.98まで落ちた原因を、
+    <div class="t">🔴 ただし、2025年の手動と2026年の手動は別のキャンペーンです</div>
+    <p>
+      2025年 ＝ <code>手動キャンペーン</code>（2025/5/14作成）／
+      2026年 ＝ <code>動CP_売れるKW専用</code>（<b>2026/3/3作成</b>・7月に再構築）。<br>
+      <b>去年の手動の成績を、そのまま今の手動に当てはめるのは不当です。</b>
+      だから手動は据え置きにせず、<b>倍増して検証</b>します。外れても4日で¥3,200の損失に収まります。
+    </p>
+  </div>
+
+  <h3>③ 増額の内訳（結論）</h3>
+  <div class="tw"><table>
+    <thead><tr><th>キャンペーン</th><th>現状</th><th>セール中</th><th>差</th><th>理由</th></tr></thead>
+    <tbody>
+      <tr style="background:var(--green-l)"><td><b>自動</b></td><td>¥4,000</td><td><b>¥6,000</b></td>
+        <td style="color:var(--green)"><b>+¥2,000</b></td>
+        <td style="font-size:12.5px">前年セールで ROAS 3.66・CPA ¥946。通年でも最も効率がいい</td></tr>
+      <tr><td><b>動CP_売れるKW専用</b></td><td>¥800</td><td><b>¥1,600</b></td>
+        <td style="color:var(--green)"><b>+¥800</b></td>
+        <td style="font-size:12.5px">¥800の蓋の外側を一度も見ていない。別キャンペーンなので倍増して検証</td></tr>
+      <tr><td><b>Amazon 計</b></td><td><b>¥4,800</b></td><td><b>¥7,600</b></td><td><b>+¥2,800</b></td>
+        <td style="font-size:12.5px">4日間で <b>+¥11,200</b> → 想定 <b>約11件</b>（自動8.5件＋手動3.2件）</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="decide">
+    <div class="t">🔴 セール前に必ず終わらせること（自動に厚く張るなら尚更）</div>
+    <p><b>AM-04（自動キャンペーンの入札是正）</b>が未着手です。ROASが0.98まで落ちた原因を
     「動的な入札＝ダウンのみ」と「掲載枠ごとの調整＝全て0%」の<b>両方</b>で確認します。
-    ここが直っていないまま増額すると、効率の悪い側に金が流れます。</p>
+    <b>ここが直らないまま¥6,000を入れると損失が拡大します。</b></p>
   </div>
 </section>
 
@@ -380,7 +426,7 @@ footer{text-align:center;font-size:12px;color:var(--sub);margin-top:30px;line-he
           効率のいい導線を止める割に合わない</td></tr>
       <tr class="crit"><td><b>Amazon</b></td><td>¥4,800</td><td><b>¥7,600</b></td>
           <td style="color:var(--green)"><b>+¥2,800</b></td>
-          <td style="font-size:12.5px">増額分は「売れるKW専用」へ。入札は+20〜30%</td></tr>
+          <td style="font-size:12.5px">内訳は <b>自動 ¥4,000→¥6,000</b> ／ <b>手動KW ¥800→¥1,600</b>。入札は+20〜30%</td></tr>
       <tr><td><b>合計</b></td><td><b>¥9,300</b></td><td><b>¥9,300</b></td><td><b>±0</b></td>
           <td style="font-size:12.5px">4日間の移動総額 <b>¥11,200</b></td></tr>
     </tbody>
@@ -531,7 +577,7 @@ footer{text-align:center;font-size:12px;color:var(--sub);margin-top:30px;line-he
         <td><b>AM-04 自動キャンペーンの入札是正</b><br>
           <span style="font-size:12.5px;color:var(--sub)">「動的な入札＝ダウンのみ」＋「掲載枠ごとの調整＝全て0%」の両方を確認</span></td>
         <td><span class="chip ng">未着手</span></td></tr>
-      <tr><td>8/27</td><td>Amazon 日予算 ¥4,800 → ¥7,600、入札 +20〜30%（売れるKW専用に寄せる）</td>
+      <tr><td>8/27</td><td>Amazon 日予算 ¥4,800 → ¥7,600（<b>自動 ¥6,000</b> ／ <b>手動KW ¥1,600</b>）、入札 +20〜30%</td>
         <td><span class="chip wait">承認待ち</span></td></tr>
       <tr><td>8/28</td><td>Meta 日予算 ¥3,800 → ¥1,000（Yahooは触らない）</td>
         <td><span class="chip wait">承認待ち</span></td></tr>
@@ -552,6 +598,9 @@ footer{text-align:center;font-size:12px;color:var(--sub);margin-top:30px;line-he
     <li><b>2026年8月のAmazonは前年比で規模が約3倍</b>（注文 0.44件/日 → 1.7件/日）。前年の伸び率がそのまま乗る保証はありません</li>
     <li><b>「消化見込 ¥7,700/日」は前年の伸び率を今年に当てはめた推定</b>です。実際に伸びるかはセール当日にしか分かりません</li>
     <li>シルバーウィークの根拠は<b>前年Amazonのみ</b>（−63.3%・P=0.038）。<b>Metaの前年SW実績は手元にありません</b></li>
+    <li><b>2024年のデータは月次でしか取得できず</b>、日別・セール期間単位の比較ができません。<b>判断材料は2025年の1年分だけ</b>です</li>
+    <li>xlsxの「イベント時期分析」シートは<b>根拠に使っていません</b>。タイムセール7日間で¥434,599という値が出ますが年間総額¥1,191,938と整合せず、シート自身に「期間またぎあり・参考値」と注記があります</li>
+    <li>2026年の手動のROAS 3.02は<b>18日中8日が注文0件</b>で、数日の当たりに支えられています。また蓋を開けても<b>検索ボリュームの天井で使い切れない可能性</b>があります</li>
     <li>10月の感謝祭・11月のブラックフライデーの<b>日程は例年ベースの推定</b>で、確定ではありません</li>
   </ul>
 </section>
