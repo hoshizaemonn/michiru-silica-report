@@ -140,7 +140,7 @@ h3{font-size:15px;font-weight:700;margin:22px 0 10px}
 .ch .res{font-size:34px;font-weight:700;line-height:1}
 .ch.a .res{color:var(--sub)} .ch.b .res{color:var(--green)}
 .ch .unit{font-size:13px;font-weight:400;margin-left:3px}
-.ch .cpa{font-size:12px;color:var(--sub);margin-top:10px}
+.ch .cpa{font-size:12px;color:var(--sub);margin-top:10px;overflow-wrap:anywhere;line-height:1.6}
 .ch .note{font-size:12px;margin-top:auto;padding-top:12px;line-height:1.6}
 
 /* 判断ボックス */
@@ -461,7 +461,7 @@ footer{text-align:center;font-size:12px;color:var(--sub);margin-top:30px;line-he
     <div class="ch b">
       <div class="h">Amazon（セール中）に移す</div>
       <div class="res">13〜20<span class="unit">件</span></div>
-      <div class="cpa">想定獲得単価 ¥946〜1,500（前年セール実績〜保守）</div>
+      <div class="cpa">想定獲得単価 ¥946〜1,500<br>（前年セール実績〜保守）</div>
       <div class="note">保守的に獲得単価¥1,500で見ても <b>13.1件</b>。<br>どう見積もっても Meta の10倍以上。</div>
     </div>
   </div>
@@ -521,15 +521,100 @@ footer{text-align:center;font-size:12px;color:var(--sub);margin-top:30px;line-he
       <li><b>ゼロにはしない（¥1,000を残す）。</b>完全停止すると再開時に配信の立ち上がりが遅く、審査が入り直すこともあります。少額でも回し続ければ、9/4に戻したとき1日で復帰します</li>
       <li><b>7日間で必ず戻す。</b>9/4に¥3,800へ復帰させます。恒久的な減額ではなく、セール期間限定の移動です</li>
     </ol>
-    <p style="margin-top:12px">→ <b>9月のシルバーウィーク（9/19-23）</b>でも同じ−50%を実施し、そこで
+    <p style="margin-top:12px">→ <b>9月のシルバーウィーク（9/19-23）</b>でもMetaの−50%を実施し、そこで
     「Metaを絞ると何が起きるか」をもう一度測ります。その2回の結果を見て、
     <b>10月の感謝祭・11月のブラックフライデーで本採用するか</b>を決めます。</p>
   </div>
 </section>
 
 <section class="pb">
-  <h2><span class="num">その後</span>9月のシルバーウィークは別途 −50%</h2>
-  <p class="lead">こちらはセールの原資ではなく、単独で成立する話です。</p>
+  <h2><span class="num">その後</span>9月のシルバーウィーク（9/19-23）をどうするか</h2>
+  <p class="lead">2026年は 9/19(土)〜9/23(水) の5連休。判断材料は2025年9月の実績のみです。</p>
+
+  <h3>① 判断の軸は ROAS ではなく「1件取るのにいくらかかったか」</h3>
+  <p style="font-size:13.5px;color:var(--sub);margin-bottom:10px">
+    連休の購入件数は5日で3件と少なく、ROASでは母数が足りません。獲得単価なら粗利率を知らなくても比較できます。</p>
+  <div class="tw"><table>
+    <thead><tr><th>2025年9月 Amazon全体</th><th>費用</th><th>購入</th><th>獲得単価</th></tr></thead>
+    <tbody>
+      <tr><td>9/1-12 通常</td><td>¥22,026</td><td>14件</td><td>¥1,573</td></tr>
+      <tr class="crit"><td><b>9/19-23 連休</b></td><td>¥10,550</td><td><b>3件</b></td>
+        <td><b style="color:var(--red)">¥3,517</b></td></tr>
+      <tr style="background:var(--green-l)"><td><b>9/24-30 明け</b></td><td>¥14,119</td><td><b>10件</b></td>
+        <td><b style="color:var(--green)">¥1,412</b></td></tr>
+    </tbody>
+  </table></div>
+  <div class="punch">
+    連休は通常の <b>2.2倍</b>、明けの <b>2.5倍</b> 高い。<br>
+    同じ1件を、連休なら¥3,517、明けなら¥1,412で取れる
+  </div>
+
+  <h3>② 連休中、自動と手動で何が起きていたか</h3>
+  <div class="tw"><table>
+    <thead><tr><th>2025/9/19-23</th><th>費用</th><th>クリック</th><th>購入</th><th>CVR</th><th>獲得単価</th></tr></thead>
+    <tbody>
+      <tr style="background:var(--green-l)"><td><b>自動</b></td><td>¥4,452</td><td><b>38</b></td>
+        <td><b>3件</b></td><td><b>7.89%</b></td><td>¥1,484</td></tr>
+      <tr class="crit"><td><b>手動</b></td><td>¥6,098</td><td><b>38</b></td>
+        <td><b style="color:var(--red)">0件</b></td><td>0.00%</td><td>—</td></tr>
+    </tbody>
+  </table></div>
+  <p style="font-size:13.5px;margin-top:8px">
+    <b>クリック数は38対38で同じ。</b>そこから自動は3件、手動は0件。
+    しかも手動は連休中に消化が <b>+34%</b> 増えています（¥910→¥1,220/日）。
+    <b>止められる無駄はここです。</b></p>
+
+  <h3>③ 配分案 — シルバーウィーク 9/19〜23（5日間）</h3>
+  <div class="tw"><table>
+    <thead><tr><th>媒体</th><th>現状</th><th>SW中</th><th></th><th>理由</th></tr></thead>
+    <tbody>
+      <tr><td><b>Meta</b></td><td>¥3,800</td><td><b>¥1,900</b></td>
+        <td style="color:var(--red)"><b>−50%</b></td>
+        <td style="font-size:12.5px">予算を100%消化するので<b>絞れば確実に減る</b>。獲得単価¥15,206で全媒体中いちばん高い</td></tr>
+      <tr><td><b>Yahoo</b></td><td>¥700</td><td><b>¥700</b></td><td>据置</td>
+        <td style="font-size:12.5px">CPC ¥32。5日絞っても¥1,750しか浮かない</td></tr>
+      <tr><td><b>Amazon 自動</b></td><td>¥4,000</td><td><b>¥3,000</b></td>
+        <td style="color:var(--red)"><b>−25%</b></td>
+        <td style="font-size:12.5px">連休中もROAS 2.71は保っていたので半減はしない。ただし
+        <b>2025年の自動は日¥926規模、2026年は日¥2,000〜4,600規模で3倍以上</b>。
+        「勝手に絞られる」がそのまま当てはまる保証がないので保険として小幅に</td></tr>
+      <tr class="crit"><td><b>Amazon 手動</b></td><td>¥800</td><td><b>¥0</b></td>
+        <td style="color:var(--red)"><b>停止</b></td>
+        <td style="font-size:12.5px">連休5日は38クリック0件。通年でも不振（8月セール1.17／9月0.68／通年1.25）</td></tr>
+      <tr><td><b>合計</b></td><td><b>¥9,300</b></td><td><b>¥5,600</b></td><td><b>−¥3,700</b></td>
+        <td style="font-size:12.5px">5日間で <b>¥18,500</b> が浮く</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>④ 浮いた ¥18,500 を連休明け（9/24〜30）に回す</h3>
+  <div class="choice">
+    <div class="ch a">
+      <div class="h">連休に置いたまま</div>
+      <div class="res">5.3<span class="unit">件</span></div>
+      <div class="cpa">獲得単価 ¥3,517</div>
+      <div class="note">同じ金額で、これだけしか取れない。</div>
+    </div>
+    <div class="ch b">
+      <div class="h">連休明けに移す</div>
+      <div class="res">13.1<span class="unit">件</span></div>
+      <div class="cpa">獲得単価 ¥1,412</div>
+      <div class="note"><b>差は +7.8件。</b><br>粗利率を知らなくても成立する判断。</div>
+    </div>
+  </div>
+  <div class="tw"><table>
+    <thead><tr><th>連休明け 9/24〜30（7日間）</th><th>SW中</th><th>明け</th><th></th></tr></thead>
+    <tbody>
+      <tr><td>Meta</td><td>¥1,900</td><td><b>¥4,560</b></td><td>通常比 +20%</td></tr>
+      <tr><td>Yahoo</td><td>¥700</td><td>¥700</td><td>据置</td></tr>
+      <tr><td>Amazon 自動</td><td>¥3,000</td><td><b>¥5,200</b></td><td>通常比 +30%</td></tr>
+      <tr><td>Amazon 手動</td><td>¥0</td><td><b>¥800</b></td><td>復帰</td></tr>
+      <tr><td><b>追加分</b></td><td colspan="3"><b>+¥2,760/日 × 7日 = ¥19,320</b>（浮いた¥18,500とほぼ同額）</td></tr>
+    </tbody>
+  </table></div>
+  <p style="font-size:13px;color:var(--sub);margin-top:10px">
+    前年の連休明け（9/24-30）は通常比 <b>+22%</b>。需要は消えるのではなく、後ろにずれます。</p>
+
+  <h3>⑤ 全体のスケジュール</h3>
   <div class="tl">
     <div class="tl-row">
       <div class="tl-date">8/23 〜 8/27<br><span style="font-weight:400">5日間</span></div>
@@ -549,17 +634,17 @@ footer{text-align:center;font-size:12px;color:var(--sub);margin-top:30px;line-he
     </div>
     <div class="tl-row">
       <div class="tl-date">9/19 〜 9/23<br><span style="font-weight:400">5日間</span></div>
-      <div class="tl-bar tl-dn"><span class="tag dn">−50%</span><span class="lab">🔴 シルバーウィーク</span>
-        <span class="amt">3媒体とも −50%</span>
+      <div class="tl-bar tl-dn"><span class="tag dn">−¥3,700</span><span class="lab">🔴 シルバーウィーク</span>
+        <span class="amt">Meta ¥1,900 ／ Yahoo ¥700 ／ 自動 ¥3,000 ／ 手動 <b>停止</b></span>
         <div style="flex-basis:100%;font-size:12px;color:var(--sub)">
-          前年の連休7日は −63.3%（P=0.038）・<b>ROASが1.0を割る</b>（0.99 / 0.87）。完全停止はしない</div></div>
+          獲得単価が通常の2.2倍に上がる期間。5日間で ¥18,500 を明けに繰り越す</div></div>
     </div>
     <div class="tl-row">
       <div class="tl-date">9/24 〜 9/30<br><span style="font-weight:400">7日間</span></div>
-      <div class="tl-bar tl-mid"><span class="tag mid">+20%</span><span class="lab">🟢 連休明け</span>
-        <span class="amt">3媒体とも +20%</span>
+      <div class="tl-bar tl-mid"><span class="tag mid">+¥2,760</span><span class="lab">🟢 連休明け</span>
+        <span class="amt">Meta +20% ／ 自動 +30% ／ 手動 復帰</span>
         <div style="flex-basis:100%;font-size:12px;color:var(--sub)">
-          前年の連休明け（9/24-30）は通常比 +22.4%。需要は消えず後ろにずれる</div></div>
+          前年の連休明けは通常比 +22%。獲得単価が年間で最も安い ¥1,412</div></div>
     </div>
   </div>
 </section>
@@ -598,7 +683,9 @@ footer{text-align:center;font-size:12px;color:var(--sub);margin-top:30px;line-he
     <li>🔴 <b>前年のセールは4日間、今年は7日間</b>です。前年の日次の伸びが7日間そのまま続く保証はなく、<b>後半は落ちる可能性</b>があります。想定件数を13〜20件と幅で置いているのはこのためです</li>
     <li><b>2026年8月のAmazonは前年比で規模が約3倍</b>（注文 0.44件/日 → 1.7件/日）。前年の伸び率がそのまま乗る保証はありません</li>
     <li><b>「消化見込 ¥7,700/日」は前年の伸び率を今年に当てはめた推定</b>です。実際に伸びるかはセール当日にしか分かりません</li>
-    <li>シルバーウィークの根拠は<b>前年Amazonのみ</b>（−63.3%・P=0.038）。<b>Metaの前年SW実績は手元にありません</b></li>
+    <li>シルバーウィークの<b>獲得単価 ¥3,517 は5日間で購入3件</b>から出た数字です。1件増減するだけで¥2,600〜¥5,300の範囲で動きます。明けの¥1,412も10件で、どちらも統計的な強度はありません</li>
+    <li><b>Metaの前年SW実績は手元にありません。</b>Amazonの結果と「予算を100%消化する」という性質から−50%としています</li>
+    <li><b>粗利率が未確認</b>のため「どのROASを割ったら止めるか」の絶対線は引けていません。今回は<b>相対比較（連休 vs 明け）だけ</b>で判断しています</li>
     <li><b>2024年のデータは月次でしか取得できず</b>、日別・セール期間単位の比較ができません。<b>判断材料は2025年の1年分だけ</b>です</li>
     <li>xlsxの「イベント時期分析」シートは<b>根拠に使っていません</b>。タイムセール7日間で¥434,599という値が出ますが年間総額¥1,191,938と整合せず、シート自身に「期間またぎあり・参考値」と注記があります</li>
     <li>2026年の手動のROAS 3.02は<b>18日中8日が注文0件</b>で、数日の当たりに支えられています。また蓋を開けても<b>検索ボリュームの天井で使い切れない可能性</b>があります</li>
