@@ -153,6 +153,9 @@ h3{font-size:15px;font-weight:700;margin:22px 0 10px}
 
 /* TODO */
 table{width:100%;border-collapse:collapse;font-size:13.5px;margin-top:6px}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:6px}
+.tw>table{margin-top:0;min-width:520px}
+.tw .tw{overflow:visible}.tw .tw>table{min-width:0}
 th{background:#eef3f7;text-align:left;padding:10px 12px;font-size:12.5px;
   color:var(--sub);border-bottom:2px solid var(--line);white-space:nowrap}
 td{padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top}
@@ -191,6 +194,10 @@ footer{text-align:center;font-size:12px;color:var(--sub);margin-top:30px;line-he
 @media print{
   body{background:#fff}
   .pb{page-break-before:always;break-before:page}
+  .tw{break-inside:avoid;page-break-inside:avoid;overflow:visible}
+  .tw>table{min-width:0}
+  thead{display:table-header-group}
+  h3{break-after:avoid;page-break-after:avoid}
   .weak{page-break-before:avoid;break-before:avoid}
   .wrap{padding:0 0 10px}
   section,header{break-inside:avoid;page-break-inside:avoid}
@@ -203,124 +210,140 @@ footer{text-align:center;font-size:12px;color:var(--sub);margin-top:30px;line-he
 </head>
 <body>
 <div class="wrap">
-
 <header>
   <div class="kicker">ミチルシリカ ／ 広告予算配分</div>
   <h1><span class="np">8/28-31 Amazonスマイルセール</span> <span class="np">に向けた予算配分</span></h1>
   <div class="meta">
     作成 2026-08-23 ／ <b>判断期限 8/26</b>（セール2日前・入札反映に1日みる）<br>
-    根拠データ：2025年8月Amazon日別実績／2026年8月Meta・Amazon日別実績（8/21まで）
+    根拠データ：2025年8月Amazon日別実績／2026年8月 Meta・Yahoo・Amazon 日別実績（8/22まで）
   </div>
 </header>
 
-<!-- 結論 -->
 <section>
   <h2><span class="num">結論</span>やること3つ</h2>
-  <p class="lead">新しい予算は要りません。同じ総額の置き場所を変えるだけです。</p>
+  <p class="lead">新しい予算は要りません。<b>セールの4日間だけ、Metaの予算をAmazonに載せ替えます。</b></p>
   <div class="concl">
     <div class="c ok">
       <div class="n">1</div>
-      <div class="t">8/28-31 は Amazon に寄せる</div>
-      <div class="d">前年の同じセールで <b>CPAが39%下がった</b>。セール中は同じ金額でより安く売れる。</div>
+      <div class="t">4日間だけ Meta → Amazon に移す</div>
+      <div class="d">Meta ¥3,800→¥1,000／Amazon ¥4,800→¥7,600。<b>合計¥9,300は変えない。</b>Yahooは触らない。</div>
     </div>
     <div class="c warn">
       <div class="n">2</div>
-      <div class="t">上げるのは「日予算」ではなく「入札」</div>
-      <div class="d">日予算¥4,000に対し <b>実消化は70%</b>。上限だけ上げても金は出ていかない。</div>
+      <div class="t">前年のセールで CPAが39%下がった</div>
+      <div class="d">費用2.8倍で注文4.5倍。<b>セール中は同じ金額でより安く売れる。</b></div>
     </div>
     <div class="c">
       <div class="n">3</div>
-      <div class="t">原資はシルバーウィークから前借り</div>
-      <div class="d">9/19-23を−50%にすると <b>約¥16,500</b> 浮く。増額分¥9,600を賄える。</div>
+      <div class="t">同じ月の中で完結する</div>
+      <div class="d">9月から前借りしない。<b>借りて返す必要すらない。</b>4日分を4日間移すだけ。</div>
     </div>
   </div>
 </section>
 
-<!-- 根拠：前年セール -->
+<section>
+  <h2><span class="num">現状</span>いま3媒体にどう配分されているか</h2>
+  <p class="lead">日予算と、実際に使えている金額（2026年8月11-18日の実測）。</p>
+  <div class="tw"><table>
+    <thead><tr><th>媒体</th><th>日予算</th><th>実消化</th><th>消化率</th><th></th></tr></thead>
+    <tbody>
+      <tr><td><b>Meta</b></td><td>¥3,800</td><td>¥3,802</td><td><b>100%</b></td>
+          <td><span style="color:var(--sub);font-size:12.5px">使い切っている</span></td></tr>
+      <tr><td><b>Yahoo</b></td><td>¥700</td><td>¥657</td><td><b>94%</b></td>
+          <td><span style="color:var(--green);font-size:12.5px">CPC ¥32 — Metaの3分の1で最も効率がいい</span></td></tr>
+      <tr class="crit"><td><b>Amazon</b></td><td>¥4,800</td><td>¥2,793</td><td><b style="color:var(--red)">58%</b></td>
+          <td><span style="color:var(--red);font-size:12.5px">毎日 ¥2,007 が使われずに残っている</span></td></tr>
+      <tr><td><b>合計</b></td><td><b>¥9,300</b></td><td><b>¥7,252</b></td><td>78%</td>
+          <td><span style="color:var(--sub);font-size:12.5px">月換算 予算¥288,300 / 実消化¥224,816</span></td></tr>
+    </tbody>
+  </table></div>
+  <div class="decide">
+    <div class="t">🔴 8/26までに確定が必要</div>
+    <p>打ち合わせで出た「3媒体の合計で月10万」と、実績「月約22万」に<b>3倍近い開き</b>があります。
+    ここがズレたまま9月の予算は組めません。</p>
+  </div>
+</section>
+
 <section>
   <h2><span class="num">根拠</span>2025年の同じスマイルセールで何が起きたか</h2>
   <p class="lead">Amazon日別実績。セール前27日間（8/1-27）と、セール4日間（8/28-31）の比較。</p>
-
   <div class="bars">
-    <div class="bar-g">
-      <div class="cap">費用 / 日</div>
+    <div class="bar-g"><div class="cap">費用 / 日</div>
       <div class="bar-row">
         <div class="bar b1"><div class="v">¥1,320</div><div class="fill" style="height:36%"></div></div>
-        <div class="bar b2"><div class="v">¥3,639</div><div class="fill" style="height:100%"></div></div>
-      </div>
+        <div class="bar b2"><div class="v">¥3,639</div><div class="fill" style="height:100%"></div></div></div>
       <div class="bar-lbl"><span>セール前</span><span>セール中</span></div>
-      <div class="delta up">2.8倍</div>
-    </div>
-    <div class="bar-g">
-      <div class="cap">注文 / 日</div>
+      <div class="delta up">2.8倍</div></div>
+    <div class="bar-g"><div class="cap">注文 / 日</div>
       <div class="bar-row">
         <div class="bar b1"><div class="v">0.44件</div><div class="fill" style="height:22%"></div></div>
-        <div class="bar b2"><div class="v">2.00件</div><div class="fill" style="height:100%"></div></div>
-      </div>
+        <div class="bar b2"><div class="v">2.00件</div><div class="fill" style="height:100%"></div></div></div>
       <div class="bar-lbl"><span>セール前</span><span>セール中</span></div>
-      <div class="delta up">4.5倍</div>
-    </div>
-    <div class="bar-g">
-      <div class="cap">ROAS</div>
+      <div class="delta up">4.5倍</div></div>
+    <div class="bar-g"><div class="cap">ROAS</div>
       <div class="bar-row">
         <div class="bar b1"><div class="v">1.29</div><div class="fill" style="height:60%"></div></div>
-        <div class="bar b2"><div class="v">2.14</div><div class="fill" style="height:100%"></div></div>
-      </div>
+        <div class="bar b2"><div class="v">2.14</div><div class="fill" style="height:100%"></div></div></div>
       <div class="bar-lbl"><span>セール前</span><span>セール中</span></div>
-      <div class="delta up">1.7倍</div>
-    </div>
-    <div class="bar-g">
-      <div class="cap">CPA（1件あたり）</div>
+      <div class="delta up">1.7倍</div></div>
+    <div class="bar-g"><div class="cap">CPA（1件あたり）</div>
       <div class="bar-row">
         <div class="bar b1"><div class="v">¥2,969</div><div class="fill" style="height:100%"></div></div>
-        <div class="bar b2"><div class="v">¥1,820</div><div class="fill" style="height:61%"></div></div>
-      </div>
+        <div class="bar b2"><div class="v">¥1,820</div><div class="fill" style="height:61%"></div></div></div>
       <div class="bar-lbl"><span>セール前</span><span>セール中</span></div>
-      <div class="delta down">−39%</div>
-    </div>
+      <div class="delta down">−39%</div></div>
   </div>
-
   <div class="punch">
     費用を2.8倍にして、注文は4.5倍。<br>
     単価が上がるどころか <span style="color:var(--red)">39%下がる</span> ── だからセールに寄せる価値がある
   </div>
 </section>
 
-<!-- 落とし穴1 -->
 <section class="pb">
-  <h2><span class="num">落とし穴 ①</span>日予算を上げても、そもそも使い切れていない</h2>
-  <p class="lead">2026年8月11-18日のAmazon実消化を測定（8/19は途中取得のため除外）。</p>
-
+  <h2><span class="num">検証 ①</span>Amazonは予算の58%しか使えていない。原因は入札ではなく需要</h2>
+  <p class="lead">日予算¥4,800に対する実消化率を、期間ごとに測定しました。</p>
   <div class="gauge-wrap">
     <div class="gauge">
-      <svg viewBox="0 0 200 200" width="200" height="200" role="img"
-           aria-label="日予算に対する実消化率は70パーセント">
+      <svg viewBox="0 0 200 200" width="200" height="200" role="img" aria-label="日予算に対する実消化率は58パーセント">
         <circle cx="100" cy="100" r="80" fill="none" stroke="#e6edf2" stroke-width="26"/>
         <circle cx="100" cy="100" r="80" fill="none" stroke="#c8443c" stroke-width="26"
-                stroke-dasharray="351.8 502.7" stroke-linecap="round"
-                transform="rotate(-90 100 100)"/>
+                stroke-dasharray="291.5 502.7" stroke-linecap="round" transform="rotate(-90 100 100)"/>
       </svg>
-      <div class="txt"><div class="pc">70%</div><div class="pl">消化率</div></div>
+      <div class="txt"><div class="pc">58%</div><div class="pl">現在の消化率</div></div>
     </div>
     <div class="gap-note">
-      <span class="big">日予算 ¥4,000 に対して、実際に使えているのは ¥2,793</span>
-      毎日 <b>¥1,207 が使われないまま</b>残っています。この状態で日予算の上限だけ
-      ¥7,000 に引き上げても、消化は増えません。<br><br>
-      <b>入札（または目標ROAS）を同時に上げる必要があります。</b><br>
-      打ち合わせで「使い切れてないと思う」とおっしゃっていた点は、実測でもそのとおりでした。
-      <br><br>
-      <span style="font-size:12.5px;color:var(--sub)">
-      ※ 消化率が70%に留まる原因（入札が低いのか、在庫・カート取得の問題か）は未特定です。
-      8/28以降は毎日消化率を確認し、70%のままなら入札を追加します。</span>
+      <span class="big">日予算 ¥4,800 に対して、実際に使えているのは ¥2,793</span>
+      毎日 <b>¥2,007 が使われないまま</b>残っています。<br><br>
+      <b>ただし、これは最近だけの現象です。</b>
+      <table style="margin-top:10px">
+        <tbody>
+          <tr><td style="padding:7px 10px">8/1-7　通常</td><td style="padding:7px 10px"><b>¥4,634</b>/日</td>
+              <td style="padding:7px 10px"><b style="color:var(--green)">97%</b></td>
+              <td style="padding:7px 10px;font-size:12px;color:var(--sub)">ほぼ使い切っていた</td></tr>
+          <tr><td style="padding:7px 10px">8/8-16　お盆</td><td style="padding:7px 10px">¥3,178/日</td>
+              <td style="padding:7px 10px">66%</td><td></td></tr>
+          <tr><td style="padding:7px 10px">8/11-18　現在</td><td style="padding:7px 10px">¥2,793/日</td>
+              <td style="padding:7px 10px"><b style="color:var(--red)">58%</b></td>
+              <td style="padding:7px 10px;font-size:12px;color:var(--sub)">お盆以降に落ちた</td></tr>
+        </tbody>
+      </table></div>
     </div>
+  </div>
+  <div class="punch">
+    8月前半は <span style="color:var(--green)">97%</span> 消化していた。<br>
+    詰まっているのは入札ではなく、<b>お盆以降に需要そのものが落ちたから</b>
+  </div>
+  <div class="decide">
+    <div class="t">だから打ち手はこうなる</div>
+    <p><b>セールで需要が戻れば、予算は自然に消化されます。</b>入札の引き上げは構造対策ではなく保険なので、
+    <b>+20〜30%程度の小さめ</b>で足ります。それでも8/28以降は毎日消化率を確認し、
+    伸びなければ追加します。</p>
   </div>
 </section>
 
-<!-- 落とし穴2 -->
 <section>
-  <h2><span class="num">落とし穴 ②</span>増額先を間違えると、悪い方に金が流れる</h2>
+  <h2><span class="num">検証 ②</span>増額先を間違えると、悪い方に金が流れる</h2>
   <p class="lead">Amazonキャンペーン別 実績（2026年8月1-19日）。稼働は2本のみ。</p>
-
   <div class="mm">
     <div class="mm-c bad">
       <div class="name">自動キャンペーン</div>
@@ -339,11 +362,7 @@ footer{text-align:center;font-size:12px;color:var(--sub);margin-top:30px;line-he
       <div class="verdict">● ROASが1.5倍いいのに、予算は22%だけ</div>
     </div>
   </div>
-
-  <div class="punch">
-    増額は「売れるKW専用」に寄せる。自動キャンペーンは増やさない。
-  </div>
-
+  <div class="punch">増額は「売れるKW専用」に寄せる。自動キャンペーンは増やさない。</div>
   <div class="decide">
     <div class="t">🔴 セール前に必ず終わらせること</div>
     <p><b>AM-04（自動キャンペーンの入札是正）</b>が未着手です。ROASが0.98まで落ちた原因を、
@@ -352,166 +371,197 @@ footer{text-align:center;font-size:12px;color:var(--sub);margin-top:30px;line-he
   </div>
 </section>
 
-<!-- 予算配分 -->
 <section class="pb">
-  <h2><span class="num">配分案</span>8/23 〜 9/30 の予算スケジュール</h2>
-  <p class="lead">現状：Meta ¥3,802/日 ＋ Amazon ¥2,793/日（上限¥4,000）＝ 合計 約¥6,600/日</p>
+  <h2><span class="num">配分案</span>セール4日間（8/28-31）の載せ替え</h2>
+  <p class="lead">総額は1円も増やしません。Metaの4日分を、そのままAmazonに移すだけです。</p>
+  <div class="tw"><table>
+    <thead><tr><th>媒体</th><th>現状の日予算</th><th>セール中の日予算</th><th>差</th><th>理由</th></tr></thead>
+    <tbody>
+      <tr><td><b>Meta</b></td><td>¥3,800</td><td><b>¥1,000</b></td>
+          <td style="color:var(--red)"><b>−¥2,800</b></td>
+          <td style="font-size:12.5px">CPA ¥15,206。同じ金額でAmazonの9分の1しか取れない</td></tr>
+      <tr><td><b>Yahoo</b></td><td>¥700</td><td><b>¥700</b></td><td>±0</td>
+          <td style="font-size:12.5px"><b>触らない。</b>CPC ¥32でMetaの3分の1。全部動かしても4日で¥2,800にしかならず、
+          効率のいい導線を止める割に合わない</td></tr>
+      <tr class="crit"><td><b>Amazon</b></td><td>¥4,800</td><td><b>¥7,600</b></td>
+          <td style="color:var(--green)"><b>+¥2,800</b></td>
+          <td style="font-size:12.5px">増額分は「売れるKW専用」へ。入札は+20〜30%</td></tr>
+      <tr><td><b>合計</b></td><td><b>¥9,300</b></td><td><b>¥9,300</b></td><td><b>±0</b></td>
+          <td style="font-size:12.5px">4日間の移動総額 <b>¥11,200</b></td></tr>
+    </tbody>
+  </table></div>
 
-  <div class="tl">
-    <div class="tl-row">
-      <div class="tl-date">8/23 〜 8/27<br><span style="font-weight:400">5日間</span></div>
-      <div class="tl-bar tl-flat">
-        <span class="tag flat">据置</span>
-        <span class="lab">需要回帰期</span>
-        <span class="amt">Meta ¥3,800 ／ Amazon 上限¥4,000</span>
-      </div>
-    </div>
-    <div class="tl-row">
-      <div class="tl-date">8/28 〜 8/31<br><span style="font-weight:400">4日間</span></div>
-      <div class="tl-bar tl-up">
-        <span class="tag up">増額</span>
-        <span class="lab">🟢 Amazonスマイルセール</span>
-        <span class="amt">Meta 据置 ／ <b>Amazon 上限¥7,000＋入札+40%</b></span>
-        <div style="flex-basis:100%;font-size:12px;color:var(--sub)">
-          実消化見込 ¥5,200/日 ＝ 4日間で <b>+¥9,600</b>。増額先は「売れるKW専用」
-        </div>
-      </div>
-    </div>
-    <div class="tl-row">
-      <div class="tl-date">9/1 〜 9/18<br><span style="font-weight:400">18日間</span></div>
-      <div class="tl-bar tl-flat">
-        <span class="tag flat">据置</span>
-        <span class="lab">通常運転</span>
-        <span class="amt">±0</span>
-      </div>
-    </div>
-    <div class="tl-row">
-      <div class="tl-date">9/19 〜 9/23<br><span style="font-weight:400">5日間</span></div>
-      <div class="tl-bar tl-dn">
-        <span class="tag dn">−50%</span>
-        <span class="lab">🔴 シルバーウィーク</span>
-        <span class="amt">Meta ¥1,900 ／ Amazon ¥1,400 ＝ <b>−¥16,500</b></span>
-        <div style="flex-basis:100%;font-size:12px;color:var(--sub)">
-          前年の連休7日は −63.3%（P=0.038）・ROAS 1.0割れ。<b>完全停止はしない</b>
-        </div>
-      </div>
-    </div>
-    <div class="tl-row">
-      <div class="tl-date">9/24 〜 9/30<br><span style="font-weight:400">7日間</span></div>
-      <div class="tl-bar tl-mid">
-        <span class="tag mid">+20%</span>
-        <span class="lab">🟢 連休明け</span>
-        <span class="amt">両媒体とも +20% ＝ +¥9,200</span>
-        <div style="flex-basis:100%;font-size:12px;color:var(--sub)">
-          前年の連休明け（9/24-30）は通常比 +22.4%。需要は消えず後ろにずれる
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <h3>お金の流れ</h3>
+  <h3>受け皿は足りるか（検算）</h3>
   <div class="flow">
-    <div class="flow-box flow-from">
-      <div class="l">シルバーウィーク抑制</div>
-      <div class="v">−¥16,500</div>
-      <div class="s">9/19-23 の5日間</div>
+    <div class="flow-box flow-to" style="background:var(--blue-l);border-color:#c9e0f2">
+      <div class="l">セール中のAmazon消化見込</div>
+      <div class="v" style="color:var(--blue-d)">¥7,700<span style="font-size:13px">/日</span></div>
+      <div class="s">現在¥2,793 × 前年セールの伸び率2.76倍</div>
     </div>
-    <div class="flow-arrow">➡</div>
+    <div class="flow-arrow">vs</div>
     <div class="flow-box flow-to">
-      <div class="l">セール増額 ＋ 連休明けの上乗せ</div>
-      <div class="v">+¥18,800</div>
-      <div class="s">8/28-31 に¥9,600 ／ 9/24-30 に¥9,200</div>
+      <div class="l">新しい日予算</div>
+      <div class="v">¥7,600<span style="font-size:13px">/日</span></div>
+      <div class="s">見込消化率 <b>101%</b> — ちょうど使い切るサイズ</div>
     </div>
   </div>
   <p style="text-align:center;font-size:13px;color:var(--sub);margin-top:14px">
-    差引 <b>約 +¥2,300</b>。実質は同額のまま、置き場所を変えるだけです。
+    大きすぎて余ることも、小さすぎて頭打ちになることもありません。
   </p>
-</section>
 
-<!-- Meta据え置きの判断 -->
-<section class="pb">
-  <h2><span class="num">判断</span>「LPを¥1,000に落としてAmazonへ」案について</h2>
-  <p class="lead">打ち合わせで出た案。同じ ¥9,200 を4日間どちらに置くかで比べました。</p>
-
+  <h3>同じ ¥11,200 をどこに置くか</h3>
   <div class="choice">
     <div class="ch a">
-      <div class="h">Meta（LP）に置く</div>
-      <div class="res">0.6<span class="unit">件</span></div>
+      <div class="h">Meta に置いたまま</div>
+      <div class="res">0.7<span class="unit">件</span></div>
       <div class="cpa">想定CPA ¥15,206（8月実績）</div>
       <div class="note">8月のMetaは21日間で購入8件。<br>1件あたり1万5千円かかっている。</div>
     </div>
     <div class="ch b">
-      <div class="h">Amazon（セール中）に置く</div>
-      <div class="res">5〜6<span class="unit">件</span></div>
-      <div class="cpa">想定CPA ¥1,500〜1,800（前年セール実績）</div>
-      <div class="note">同じ金額で <b>8〜10倍</b>。<br>数字だけ見れば、移すのが正解。</div>
+      <div class="h">Amazon（セール中）に移す</div>
+      <div class="res">6.2<span class="unit">件</span></div>
+      <div class="cpa">想定CPA ¥1,820（前年セール実績）</div>
+      <div class="note">保守的にCPA¥2,500で見ても <b>4.5件</b>。<br>どう見積もっても Meta の6〜9倍。</div>
+    </div>
+  </div>
+</section>
+
+<section class="pb">
+  <h2><span class="num">検証 ③</span>Metaを一気に74%減らして大丈夫か</h2>
+  <p class="lead">通常の運用ルールは「±30%刻み」です。今回はそれを大きく超えるので、根拠を確認しました。</p>
+
+  <h3>① そもそもMetaは「学習」を抜けたことがない</h3>
+  <div class="tw"><table>
+    <tbody>
+      <tr><td style="width:42%">Metaが学習フェーズを抜ける条件</td><td><b>1広告セットあたり 50CV / 週</b></td></tr>
+      <tr><td>ミチルの実績（8月）</td><td><b style="color:var(--red)">週 2.7件</b>（全セット合計・21日間で8件）</td></tr>
+      <tr><td>1セットあたり</td><td><b style="color:var(--red)">週1件未満</b></td></tr>
+    </tbody>
+  </table></div>
+  <div class="punch" style="background:var(--blue-l);border-color:#c9e0f2;color:var(--blue-d)">
+    「刻んで下げる」のは学習を守るためのルール。<br>
+    <b>ミチルのMetaは最初から学習を抜けていないので、守るべき学習がない。</b>
+  </div>
+
+  <h3>② 実データ：配信が落ちても翌日に戻っている</h3>
+  <div class="tw"><table>
+    <thead><tr><th>日付</th><th>消化</th><th>クリック</th><th>CPC</th><th>CTR</th><th></th></tr></thead>
+    <tbody>
+      <tr><td>8/07</td><td>¥3,366</td><td>30</td><td>¥112</td><td>2.40%</td><td style="font-size:12px;color:var(--sub)">通常</td></tr>
+      <tr class="crit"><td>8/08</td><td><b>¥1,189</b></td><td>14</td><td>¥85</td><td>3.26%</td>
+          <td style="font-size:12px;color:var(--red)">通常の31%まで落ちた日</td></tr>
+      <tr><td>8/09</td><td><b>¥4,198</b></td><td>45</td><td>¥93</td><td>3.01%</td>
+          <td style="font-size:12px;color:var(--green)"><b>翌日に完全復帰。CPCも悪化せず</b></td></tr>
+    </tbody>
+  </table></div>
+  <p style="font-size:13.5px;margin-top:10px">
+    消化が3分の1まで落ちた翌日、<b>1日で元以上に戻り、CPCはむしろ¥112→¥93に改善</b>しています。
+    戻りに数日かかる状態ではありません。
+  </p>
+
+  <h3>③ 損して得を取れるか</h3>
+  <div class="flow">
+    <div class="flow-box flow-from">
+      <div class="l">失うもの（見積）</div>
+      <div class="v">約 1件</div>
+      <div class="s">4日間のMeta減で0.7件＋戻りの鈍りで0.3件</div>
+    </div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-box flow-to">
+      <div class="l">得るもの（見積）</div>
+      <div class="v">4.5〜6.2件</div>
+      <div class="s">Amazonのセール価格で獲得</div>
     </div>
   </div>
 
   <div class="decide">
-    <div class="t">それでも、今回は Meta 据え置きを推します</div>
+    <div class="t">結論：一気に下げて大丈夫。ただし2つ条件をつけます</div>
     <ol>
-      <li><b>Metaは8/17-21にCPAが¥5,668へ改善したばかり</b>です（5日で4件）。8/22に不振3本を停止した効果が出始めている可能性があり、ここで予算も切ると<b>「セールのせいか、切ったせいか」が分からなくなります</b></li>
-      <li><b>同日に複数媒体を動かさない</b>という切り分けの原則。今回はAmazon側だけを動かして、効果をきれいに測ります</li>
+      <li><b>ゼロにはしない（¥1,000を残す）。</b>完全停止すると再開時に配信の立ち上がりが遅く、審査が入り直すこともあります。少額でも回し続ければ、9/1に戻したとき1日で復帰します</li>
+      <li><b>4日間で必ず戻す。</b>9/1に¥3,800へ復帰させます。恒久的な減額ではなく、セール期間限定の移動です</li>
     </ol>
-    <p style="margin-top:12px">
-    → <b>9月のシルバーウィークでMetaの−50%を実施</b>し、そこでMetaを絞る影響を測ります。
-    その結果を見て、<b>10月の感謝祭・11月のブラックフライデーで「Metaを削ってAmazonへ」を本採用するか</b>を決めます。</p>
+    <p style="margin-top:12px">→ <b>9月のシルバーウィーク（9/19-23）</b>でも同じ−50%を実施し、そこで
+    「Metaを絞ると何が起きるか」をもう一度測ります。その2回の結果を見て、
+    <b>10月の感謝祭・11月のブラックフライデーで本採用するか</b>を決めます。</p>
   </div>
 </section>
 
-<!-- TODO -->
-<section>
-  <h2><span class="num">実行</span>セール前にやること</h2>
-  <table>
-    <thead><tr><th>期限</th><th>やること</th><th>状態</th></tr></thead>
-    <tbody>
-      <tr class="crit">
-        <td><b>8/26</b></td>
-        <td><b>広告費の月額を確定する</b><br>
-          <span style="font-size:12.5px;color:var(--sub)">
-          打ち合わせの「合計 月10万」vs 実測「月 約20万」。実測は Meta ¥3,802/日 ＋ Amazon ¥2,793/日。
-          <b>打ち合わせで出た日額（4,000＋3,300）の方が実績と一致</b>します。ここがズレたまま9月予算は組めません</span></td>
-        <td><span class="chip ng">要確認</span></td>
-      </tr>
-      <tr class="crit">
-        <td><b>8/26</b></td>
-        <td><b>スマイルセールの正確な日程を確認</b><br>
-          <span style="font-size:12.5px;color:var(--sub)">8/28-31 は前年ベースの推定です。Amazon側の告知で確定させます</span></td>
-        <td><span class="chip wait">告知待ち</span></td>
-      </tr>
-      <tr>
-        <td>8/27</td>
-        <td><b>AM-04 自動キャンペーンの入札是正</b><br>
-          <span style="font-size:12.5px;color:var(--sub)">「動的な入札＝ダウンのみ」＋「掲載枠ごとの調整＝全て0%」の両方を確認</span></td>
-        <td><span class="chip ng">未着手</span></td>
-      </tr>
-      <tr>
-        <td>8/27</td>
-        <td>Amazon 上限 ¥4,000 → ¥7,000、入札 +40%（売れるKW専用に寄せる）</td>
-        <td><span class="chip wait">承認待ち</span></td>
-      </tr>
-      <tr>
-        <td>8/27-28</td>
-        <td>IGフィード＋ストーリーでセール告知（打ち合わせで決定）</td>
-        <td><span class="chip wait">制作中</span></td>
-      </tr>
-      <tr>
-        <td>8/28〜</td>
-        <td>毎日の消化率を確認。70%のままなら入札を追加</td>
-        <td><span class="chip wait">セール中</span></td>
-      </tr>
-    </tbody>
-  </table>
+<section class="pb">
+  <h2><span class="num">その後</span>9月のシルバーウィークは別途 −50%</h2>
+  <p class="lead">こちらはセールの原資ではなく、単独で成立する話です。</p>
+  <div class="tl">
+    <div class="tl-row">
+      <div class="tl-date">8/23 〜 8/27<br><span style="font-weight:400">5日間</span></div>
+      <div class="tl-bar tl-flat"><span class="tag flat">据置</span><span class="lab">需要回帰期</span>
+        <span class="amt">Meta ¥3,800 ／ Yahoo ¥700 ／ Amazon ¥4,800</span></div>
+    </div>
+    <div class="tl-row">
+      <div class="tl-date">8/28 〜 8/31<br><span style="font-weight:400">4日間</span></div>
+      <div class="tl-bar tl-up"><span class="tag up">載せ替え</span><span class="lab">🟢 Amazonスマイルセール</span>
+        <span class="amt">Meta <b>¥1,000</b> ／ Yahoo ¥700 ／ Amazon <b>¥7,600</b></span>
+        <div style="flex-basis:100%;font-size:12px;color:var(--sub)">合計は¥9,300のまま。移動総額 ¥11,200</div></div>
+    </div>
+    <div class="tl-row">
+      <div class="tl-date">9/1 〜 9/18<br><span style="font-weight:400">18日間</span></div>
+      <div class="tl-bar tl-flat"><span class="tag flat">戻す</span><span class="lab">通常運転に復帰</span>
+        <span class="amt">Meta ¥3,800 に戻す（9/1）</span></div>
+    </div>
+    <div class="tl-row">
+      <div class="tl-date">9/19 〜 9/23<br><span style="font-weight:400">5日間</span></div>
+      <div class="tl-bar tl-dn"><span class="tag dn">−50%</span><span class="lab">🔴 シルバーウィーク</span>
+        <span class="amt">3媒体とも −50%</span>
+        <div style="flex-basis:100%;font-size:12px;color:var(--sub)">
+          前年の連休7日は −63.3%（P=0.038）・<b>ROASが1.0を割る</b>（0.99 / 0.87）。完全停止はしない</div></div>
+    </div>
+    <div class="tl-row">
+      <div class="tl-date">9/24 〜 9/30<br><span style="font-weight:400">7日間</span></div>
+      <div class="tl-bar tl-mid"><span class="tag mid">+20%</span><span class="lab">🟢 連休明け</span>
+        <span class="amt">3媒体とも +20%</span>
+        <div style="flex-basis:100%;font-size:12px;color:var(--sub)">
+          前年の連休明け（9/24-30）は通常比 +22.4%。需要は消えず後ろにずれる</div></div>
+    </div>
+  </div>
 </section>
 
-<!-- 弱点 -->
+<section>
+  <h2><span class="num">実行</span>セール前にやること</h2>
+  <div class="tw"><table>
+    <thead><tr><th>期限</th><th>やること</th><th>状態</th></tr></thead>
+    <tbody>
+      <tr class="crit"><td><b>8/26</b></td>
+        <td><b>広告費の月額を確定する</b><br>
+          <span style="font-size:12.5px;color:var(--sub)">打ち合わせの「3媒体合計 月10万」vs 実績「月 約22万」。
+          日予算は Meta ¥3,800＋Yahoo ¥700＋Amazon ¥4,800＝<b>¥9,300/日</b>。
+          ここがズレたまま9月予算は組めません</span></td>
+        <td><span class="chip ng">要確認</span></td></tr>
+      <tr class="crit"><td><b>8/26</b></td>
+        <td><b>スマイルセールの正確な日程を確認</b><br>
+          <span style="font-size:12.5px;color:var(--sub)">8/28-31 は前年ベースの推定です</span></td>
+        <td><span class="chip wait">告知待ち</span></td></tr>
+      <tr><td>8/27</td>
+        <td><b>AM-04 自動キャンペーンの入札是正</b><br>
+          <span style="font-size:12.5px;color:var(--sub)">「動的な入札＝ダウンのみ」＋「掲載枠ごとの調整＝全て0%」の両方を確認</span></td>
+        <td><span class="chip ng">未着手</span></td></tr>
+      <tr><td>8/27</td><td>Amazon 日予算 ¥4,800 → ¥7,600、入札 +20〜30%（売れるKW専用に寄せる）</td>
+        <td><span class="chip wait">承認待ち</span></td></tr>
+      <tr><td>8/28</td><td>Meta 日予算 ¥3,800 → ¥1,000（Yahooは触らない）</td>
+        <td><span class="chip wait">承認待ち</span></td></tr>
+      <tr><td>8/27-28</td><td>IGフィード＋ストーリーでセール告知（打ち合わせで決定）</td>
+        <td><span class="chip wait">制作中</span></td></tr>
+      <tr><td>8/28〜</td><td>毎日の消化率を確認。伸びていなければ入札を追加</td>
+        <td><span class="chip wait">セール中</span></td></tr>
+      <tr class="crit"><td><b>9/1</b></td><td><b>Meta を ¥3,800 に戻す</b>（戻し忘れると恒久減額になります）</td>
+        <td><span class="chip ng">必須</span></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
 <section class="weak">
   <h3>この案の弱いところ（正直に）</h3>
   <ul>
     <li><b>セールCPAの根拠は前年1年分・注文8件のみ</b>です。件数が少なく、統計的な検定には耐えません</li>
     <li><b>2026年8月のAmazonは前年比で規模が約3倍</b>（注文 0.44件/日 → 1.7件/日）。前年の伸び率がそのまま乗る保証はありません</li>
-    <li><b>消化率70%の原因を特定していません。</b>入札が低いのか、在庫・カート取得の問題かで打ち手が変わります</li>
+    <li><b>「消化見込 ¥7,700/日」は前年の伸び率を今年に当てはめた推定</b>です。実際に伸びるかはセール当日にしか分かりません</li>
     <li>シルバーウィークの根拠は<b>前年Amazonのみ</b>（−63.3%・P=0.038）。<b>Metaの前年SW実績は手元にありません</b></li>
     <li>10月の感謝祭・11月のブラックフライデーの<b>日程は例年ベースの推定</b>で、確定ではありません</li>
   </ul>
@@ -519,9 +569,8 @@ footer{text-align:center;font-size:12px;color:var(--sub);margin-top:30px;line-he
 
 <footer>
   ミチルシリカ ／ 広告予算配分 ／ 2026-08-23 作成<br>
-  元資料：共通/_予算配分_8月末セール_20260823.md ／ _年間スケジューリング_連休と予算メリハリ_2026-08-20.md
+  日予算の正: Meta ¥3,800 ／ Yahoo ¥700 ／ Amazon ¥4,800（合計 ¥9,300/日）
 </footer>
-
 </div>
 </body>
 </html>
