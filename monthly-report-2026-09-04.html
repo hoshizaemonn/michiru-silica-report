@@ -1,0 +1,694 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ミチルシリカ 月次レポート | 2026年9月4日</title><style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #0d47a1; --primary-light: #1976d2;
+            --success: #2e7d32; --success-light: #4caf50;
+            --warning: #ef6c00; --danger: #c62828;
+            --text: #263238; --text-light: #546e7a;
+            --bg: #f5f7fa; --card-bg: #ffffff;
+            --border: #e0e4e8; --radius: 12px;
+            --shadow: 0 2px 12px rgba(0,0,0,0.06);
+            --shadow-lg: 0 8px 30px rgba(0,0,0,0.1);
+        }
+        body { font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif; line-height: 1.7; color: var(--text); background: var(--bg); padding: 30px 20px; }
+        .container { max-width: 1100px; margin: 0 auto; }
+
+        .report-header { background: linear-gradient(135deg, #0d47a1 0%, #1565c0 50%, #1976d2 100%); color: white; padding: 50px 40px; border-radius: var(--radius); margin-bottom: 30px; box-shadow: var(--shadow-lg); position: relative; overflow: hidden; }
+        .report-header::before { content: ''; position: absolute; top: -50%; right: -10%; width: 300px; height: 300px; background: rgba(255,255,255,0.05); border-radius: 50%; }
+        .report-header h1 { font-size: 2em; font-weight: 800; margin-bottom: 8px; }
+        .report-header .subtitle { font-size: 1.1em; opacity: 0.9; }
+        .report-header .meta { margin-top: 16px; font-size: 0.9em; opacity: 0.75; display: flex; gap: 20px; flex-wrap: wrap; }
+
+        .section { background: var(--card-bg); border-radius: var(--radius); margin-bottom: 24px; box-shadow: var(--shadow); overflow: hidden; }
+        .section-header { padding: 20px 28px; font-size: 1.2em; font-weight: 700; color: white; display: flex; align-items: center; gap: 10px; }
+        .section-header.blue { background: linear-gradient(135deg, var(--primary), var(--primary-light)); }
+        .section-header.green { background: linear-gradient(135deg, var(--success), var(--success-light)); }
+        .section-header.orange { background: linear-gradient(135deg, #e65100, var(--warning)); }
+        .section-header.purple { background: linear-gradient(135deg, #4a148c, #7b1fa2); }
+        .section-header.teal { background: linear-gradient(135deg, #00695c, #00897b); }
+        .section-header.dark { background: linear-gradient(135deg, #263238, #37474f); }
+        .section-header.pink { background: linear-gradient(135deg, #880e4f, #c2185b); }
+        .section-body { padding: 28px; }
+
+        .purchase-hero { background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 50%, #43a047 100%); color: white; padding: 40px; border-radius: var(--radius); margin-bottom: 24px; text-align: center; box-shadow: var(--shadow-lg); }
+        .ph-label { font-size: 1em; opacity: 0.85; letter-spacing: 2px; margin-bottom: 4px; }
+        .ph-period { font-size: 0.9em; opacity: 0.7; margin-bottom: 16px; }
+        .ph-number { font-size: 5em; font-weight: 900; line-height: 1; }
+        .ph-unit { font-size: 1.2em; opacity: 0.85; margin-top: 4px; }
+        .purchase-breakdown { display: flex; justify-content: center; gap: 40px; margin-top: 24px; flex-wrap: wrap; }
+        .pb-item { text-align: center; }
+        .pb-value { font-size: 2.8em; font-weight: 900; }
+        .pb-label { font-size: 0.85em; opacity: 0.8; }
+
+        .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 24px; }
+        .summary-card { background: var(--card-bg); border-radius: var(--radius); padding: 24px; text-align: center; box-shadow: var(--shadow); border-top: 4px solid var(--primary); }
+        .summary-card.green-border { border-top-color: var(--success); }
+        .summary-card.orange-border { border-top-color: var(--warning); }
+        .summary-card.red-border { border-top-color: var(--danger); }
+        .summary-card .sc-label { font-size: 0.85em; color: var(--text-light); margin-bottom: 8px; }
+        .summary-card .sc-value { font-size: 2.2em; font-weight: 900; }
+        .summary-card .sc-value.blue { color: var(--primary); }
+        .summary-card .sc-value.green { color: var(--success); }
+        .summary-card .sc-value.orange { color: var(--warning); }
+        .summary-card .sc-value.red { color: var(--danger); }
+        .summary-card .sc-sub { font-size: 0.8em; color: var(--text-light); margin-top: 6px; }
+
+        .data-table { width: 100%; border-collapse: collapse; font-size: 0.9em; }
+        .data-table thead { background: #263238; color: white; }
+        .data-table th { padding: 12px 14px; text-align: left; font-weight: 600; font-size: 0.85em; }
+        .data-table td { padding: 12px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+        .data-table tbody tr:hover { background: #f5f8ff; }
+        .data-table .num { text-align: right; font-variant-numeric: tabular-nums; }
+        .data-table .total-row { background: #f0f4ff; font-weight: 700; }
+        .data-table .highlight-row { background: #fff8e1; }
+
+        .note-box { padding: 16px 20px; border-radius: 8px; font-size: 0.9em; line-height: 1.7; margin: 12px 0; }
+        .note-box.success { background: #e8f5e9; border-left: 4px solid var(--success); }
+        .note-box.info { background: #e3f2fd; border-left: 4px solid var(--primary); }
+        .note-box.warning { background: #fff3e0; border-left: 4px solid var(--warning); }
+        .note-box.danger { background: #ffebee; border-left: 4px solid var(--danger); }
+
+        .badge { display: inline-block; padding: 3px 12px; border-radius: 20px; font-size: 0.8em; font-weight: 700; white-space: nowrap; }
+        .badge-up { background: #e8f5e9; color: var(--success); }
+        .badge-down { background: #ffebee; color: var(--danger); }
+        .badge-flat { background: #fff3e0; color: var(--warning); }
+        .badge-info { background: #e3f2fd; color: var(--primary); }
+
+        .action-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; }
+        .action-card { border: 2px solid var(--border); border-radius: var(--radius); padding: 22px; transition: transform 0.2s, box-shadow 0.2s; }
+        .action-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+        .action-card .ac-status { font-size: 0.75em; font-weight: 700; letter-spacing: 1px; margin-bottom: 8px; }
+        .action-card .ac-status.done { color: var(--success); }
+        .action-card .ac-status.progress { color: var(--primary); }
+        .action-card .ac-status.pending { color: var(--warning); }
+        .action-card .ac-status.new { color: #7b1fa2; }
+        .action-card .ac-title { font-size: 1.05em; font-weight: 700; margin-bottom: 10px; }
+        .action-card .ac-desc { font-size: 0.85em; color: var(--text-light); line-height: 1.6; }
+        .action-card.done-card { border-color: var(--success); background: linear-gradient(135deg, #f9fff9, #fff); }
+        .action-card.progress-card { border-color: var(--primary); background: linear-gradient(135deg, #f8fbff, #fff); }
+        .action-card.pending-card { border-color: var(--warning); background: linear-gradient(135deg, #fffdf5, #fff); }
+        .action-card.new-card { border-color: #7b1fa2; background: linear-gradient(135deg, #faf5ff, #fff); }
+
+        .malz-box { background: linear-gradient(135deg, #4a148c 0%, #7b1fa2 50%, #9c27b0 100%); color: white; padding: 30px; border-radius: var(--radius); margin-bottom: 24px; }
+        .malz-box h3 { font-size: 1.3em; margin-bottom: 16px; }
+        .malz-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .malz-item { background: rgba(255,255,255,0.12); padding: 16px; border-radius: 8px; }
+        .malz-item .label { font-size: 0.8em; opacity: 0.8; margin-bottom: 4px; }
+        .malz-item .value { font-size: 1.4em; font-weight: 900; }
+
+        @media (max-width: 900px) {
+            .summary-grid { grid-template-columns: 1fr 1fr; }
+            .container { padding: 16px; }
+            .action-grid { grid-template-columns: 1fr; }
+            .malz-grid { grid-template-columns: 1fr; }
+        }
+
+        /* --- スマホ横溢れ対策（360/375px） --- */
+        .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin-bottom: 20px; }
+        .table-scroll > .data-table { margin-bottom: 0; }
+        @media (max-width: 480px) {
+            .summary-grid { grid-template-columns: 1fr; }
+            .report-header { padding: 28px 18px; }
+            .container { padding: 12px; }
+            .data-table { min-width: 520px; }
+            .purchase-breakdown { flex-wrap: wrap; }
+        }
+        h3, .ph-label, .sc-label { overflow-wrap: break-word; line-break: strict; }
+        .ph-label { padding-right: 2px; }  /* letter-spacing の右端余りで3px溢れるため */
+        h3 { padding-right: 4px; }
+    </style></head><body>
+<div class="container">
+
+<div class="report-header">
+    <h1>ミチルシリカ 月次レポート</h1>
+    <div class="subtitle">8月の締め ＋ スマイルセールの結果 ＋ 解約の状況</div>
+    <div class="meta">
+        <span>会議日: 2026年9月4日（木）</span>
+        <span>前回会議: 2026年8月20日</span>
+        <span>対象期間: 8/1 〜 8/31（＋セール 9/1まで）</span>
+    </div>
+</div>
+
+<div class="note-box info">
+    <strong>このレポートの結論（4行）</strong><br>
+    ① 自社ECの新規は <strong>8月12件</strong>（7月16件・6月27件）。<strong>3ヶ月続けて減っています。</strong>CPAは &yen;4,964 → &yen;8,692 → <strong>&yen;11,464</strong>。<br>
+    ② いっぽう <strong>Amazonの8月売上は &yen;510,479（昨年比 +55%）、注文は151件（昨年82件・+84%）。</strong>
+    広告費 &yen;113,338 に対して<strong>総売上ベースのROASは 4.50</strong>です。<strong>お客様が買う場所がAmazonへ移っています。</strong>7月のプライムデーに続き2回目です。<br>
+    ③ <strong>スマイルセール（8/28〜9/1）は昨年とほぼ互角。</strong>8/29の入札調整で消化率が58%→101%に上がり、新規が0→4→8件と伸びました。<br>
+    ④ <strong>解約は8月6件で、会員は純増（+6件）しています。</strong>ただし<strong>解約の70%が「1回で解約」</strong>で、お試し目的の方が定着していません。<strong>ここが最大の伸びしろです。</strong>
+</div>
+
+<div class="note-box success">
+    <strong>8月の売上は3チャネル合計 &yen;853,419。広告費 &yen;250,912 に対して全体ROAS 3.40 です。</strong>
+    （Amazon &yen;510,479 ／ カラーミー &yen;271,450 ／ 代引き &yen;71,490）<br>
+    <strong>カラーミーも代引きも、売上の94%が「続けてくださっている方」から。</strong>新規は減っていますが、売上は前月より伸びています。
+</div>
+
+<div class="note-box success">
+    <strong>9月の目標 — 「2日に1回は売れる」状態にします（月15件）</strong><br><br>
+    <strong>広告費は増やしません。</strong>いま <strong>CPCが &yen;120 を超えている広告が4本あり、予算の28%を使ってクリックは218しか出ていません</strong>。
+    これを新主力「日常5」並み（CPC &yen;52）に置き換えると、<strong>同じ予算でクリックが +31%</strong>。目標に必要な20%改善を上回ります。<br>
+    あわせて<strong>解約を6件 → 4件以下</strong>に。2026年の解約の29%は「やめたい」ではなく「今は要らない」でした。
+    <strong>解約の前に休止・配送間隔の変更をご案内するだけで拾えます。</strong>
+    <span style="opacity:.85">→ 具体的な手順と日程は「7. 9月の目標」、セールの準備は「8. セールに向けて」に記載しています。</span>
+</div>
+
+<div class="summary-grid">
+    <div class="summary-card red-border">
+        <div class="sc-label">自社EC 新規（8月）</div>
+        <div class="sc-value red">12件</div>
+        <div class="sc-sub">7月16件 → &minus;25%</div>
+    </div>
+    <div class="summary-card red-border">
+        <div class="sc-label">8月 CPA</div>
+        <div class="sc-value red">&yen;11,464</div>
+        <div class="sc-sub">7月 &yen;8,692 から悪化</div>
+    </div>
+    <div class="summary-card green-border">
+        <div class="sc-label">Amazon 総売上（8月）</div>
+        <div class="sc-value green">&yen;510,479</div>
+        <div class="sc-sub">昨年 &yen;329,112 → +55%</div>
+    </div>
+    <div class="summary-card green-border">
+        <div class="sc-label">会員の純増減（8月）</div>
+        <div class="sc-value green">+6件</div>
+        <div class="sc-sub">新規12件 &minus; 解約6件</div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="section-header blue">1. 8月の着地</div>
+    <div class="section-body">
+        <div class="purchase-hero">
+            <div class="ph-label">自社EC 新規購入件数</div>
+            <div class="ph-period">2026年8月1日 〜 8月31日</div>
+            <div class="ph-number">12</div>
+            <div class="ph-unit">件</div>
+            <div class="purchase-breakdown">
+                <div class="pb-item"><div class="pb-value">9</div><div class="pb-label">カラーミー定期便</div></div>
+                <div class="pb-item"><div class="pb-value">3</div><div class="pb-label">代引き</div></div>
+            </div>
+        </div>
+
+        <div class="table-scroll"><table class="data-table">
+            <thead><tr><th>月</th><th class="num">新規</th><th class="num">Meta</th><th class="num">Yahoo</th><th class="num">広告費計</th><th class="num">CPA</th><th>判定</th></tr></thead>
+            <tbody>
+                <tr><td>4月</td><td class="num">17件</td><td class="num">&yen;43,753</td><td class="num">&yen;21,417</td><td class="num">&yen;65,170</td><td class="num green">&yen;3,833</td><td><span class="badge badge-up">好調</span></td></tr>
+                <tr><td>5月</td><td class="num">16件</td><td class="num">&yen;108,914</td><td class="num">&yen;20,556</td><td class="num">&yen;129,470</td><td class="num">&yen;8,091</td><td><span class="badge badge-flat">横ばい</span></td></tr>
+                <tr><td>6月</td><td class="num">27件</td><td class="num">&yen;112,753</td><td class="num">&yen;21,276</td><td class="num">&yen;134,029</td><td class="num green">&yen;4,964</td><td><span class="badge badge-up">ピーク</span></td></tr>
+                <tr><td>7月</td><td class="num">16件</td><td class="num">&yen;117,815</td><td class="num">&yen;21,271</td><td class="num">&yen;139,086</td><td class="num">&yen;8,692</td><td><span class="badge badge-down">プライムデー</span></td></tr>
+                <tr class="highlight-row"><td><strong>8月</strong></td><td class="num"><strong>12件</strong></td><td class="num">&yen;117,618</td><td class="num">&yen;19,956</td><td class="num">&yen;137,574</td><td class="num red"><strong>&yen;11,464</strong></td><td><span class="badge badge-down">3ヶ月連続減</span></td></tr>
+            </tbody>
+        </table></div>
+
+        <div class="note-box warning">
+            <strong>広告費はほぼ変えていません（7月 &yen;139,086 → 8月 &yen;137,574）。</strong>
+            同じ金額を使って、自社ECで取れた新規が16→12件に減りました。
+            ただし同じ期間にAmazonが伸びているため、<strong>「広告が効かなくなった」ではなく「買う場所が移った」</strong>と見ています（次章）。
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="section-header green">2. Amazon — ここが伸びています</div>
+    <div class="section-body">
+
+        <div class="purchase-hero">
+            <div class="ph-label">Amazon 総売上（8月・オーガニック含む）</div>
+            <div class="ph-period">2026年8月1日 〜 8月31日</div>
+            <div class="ph-number">51.0<span style="font-size:.35em">万円</span></div>
+            <div class="ph-unit">昨年 32.9万円 → +55%</div>
+            <div class="purchase-breakdown">
+                <div class="pb-item"><div class="pb-value">151</div><div class="pb-label">注文（昨年82）</div></div>
+                <div class="pb-item"><div class="pb-value">69</div><div class="pb-label">うち新規（46%）</div></div>
+                <div class="pb-item"><div class="pb-value">4.50</div><div class="pb-label">総売上ベースROAS</div></div>
+            </div>
+        </div>
+
+        <div class="table-scroll"><table class="data-table">
+            <thead><tr><th>8月</th><th class="num">広告費</th><th class="num">広告経由 購入</th><th class="num">広告経由 売上</th><th class="num">ROAS</th><th class="num">総売上</th><th class="num">注文</th></tr></thead>
+            <tbody>
+                <tr><td>2025年8月</td><td class="num">&yen;50,183</td><td class="num">20件</td><td class="num">&mdash;</td><td class="num">1.54</td><td class="num">&yen;329,112</td><td class="num">82件</td></tr>
+                <tr class="highlight-row"><td><strong>2026年8月</strong></td><td class="num">&yen;113,338</td><td class="num"><strong>82件</strong></td><td class="num">&yen;241,553</td><td class="num green"><strong>2.13</strong></td><td class="num green"><strong>&yen;510,479</strong></td><td class="num green"><strong>151件</strong></td></tr>
+                <tr class="total-row"><td>増減</td><td class="num">+126%</td><td class="num green"><strong>+310%</strong></td><td class="num">&mdash;</td><td class="num">+0.59</td><td class="num green"><strong>+55%</strong></td><td class="num green"><strong>+84%</strong></td></tr>
+            </tbody>
+        </table></div>
+
+        <div class="note-box success">
+            <strong>広告費 &yen;113,338 に対して、Amazon全体の売上は &yen;510,479。総売上ベースのROASは 4.50 です。</strong><br>
+            内訳は <strong>広告経由 &yen;241,553（47%）／広告を通さず売れた分 &yen;268,926（53%）</strong>。
+            <strong>広告で商品ページに人を集めた結果、半分以上がオーガニックで売れています。</strong>
+            広告経由だけを見た ROAS 2.13 は、実力を半分に見積もった数字です。
+        </div>
+
+        <h3 style="margin:28px 0 12px">🔴 9/4の議題に関わる発見 — 手動キャンペーンが自動を上回りました</h3>
+        <div class="table-scroll"><table class="data-table">
+            <thead><tr><th>キャンペーン</th><th class="num">広告費</th><th class="num">購入</th><th class="num">売上</th><th class="num">ROAS</th><th class="num">獲得単価</th></tr></thead>
+            <tbody>
+                <tr><td>自動キャンペーン</td><td class="num">&yen;88,071</td><td class="num">61件</td><td class="num">&yen;174,417</td><td class="num">1.98</td><td class="num">&yen;1,444</td></tr>
+                <tr class="highlight-row"><td><strong>手動キャンペーン</strong>（動CP_売れるKW専用）</td><td class="num">&yen;25,266</td><td class="num">21件</td><td class="num">&yen;67,136</td><td class="num green"><strong>2.66</strong></td><td class="num green"><strong>&yen;1,203</strong></td></tr>
+            </tbody>
+        </table></div>
+        <div class="note-box warning">
+            <strong>前回まで「手動キャンペーンは自動に14ヶ月勝てていないので畳むべきか」という議題でしたが、8月は手動の方が効率が良い結果でした。</strong>
+            ROAS 2.66 対 1.98、獲得単価も &yen;1,203 対 &yen;1,444。<strong>畳む判断は保留し、9月も並走させて再確認することをご提案します。</strong>
+            （単月の結果なので、これだけで「手動が優れている」とも言い切りません）
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="section-header orange">3. Amazonスマイルセール（8/28 〜 9/1）</div>
+    <div class="section-body">
+        <div class="table-scroll"><table class="data-table">
+            <thead><tr><th>日</th><th>SALE</th><th class="num">広告消化</th><th class="num">消化率</th><th class="num">ROAS</th><th class="num">注文</th><th class="num">新規</th><th class="num">売上</th><th class="num">昨年同日</th></tr></thead>
+            <tbody>
+                <tr><td>8/28</td><td>1日目</td><td class="num">&yen;4,200</td><td class="num red">58%</td><td class="num">2.19</td><td class="num">11</td><td class="num">0</td><td class="num">&yen;35,972</td><td class="num">9件</td></tr>
+                <tr><td>8/29</td><td>2日目</td><td class="num">&yen;5,923</td><td class="num orange">82%</td><td class="num">0.77</td><td class="num">7</td><td class="num">4</td><td class="num">&yen;22,168</td><td class="num">11件</td></tr>
+                <tr class="highlight-row"><td>8/30</td><td>3日目</td><td class="num">&yen;7,263</td><td class="num green">101%</td><td class="num green">2.37</td><td class="num">9</td><td class="num"><strong>8</strong></td><td class="num">&yen;30,940</td><td class="num">7件</td></tr>
+                <tr><td>8/31</td><td>4日目</td><td class="num">&yen;7,287</td><td class="num green">101%</td><td class="num">0.62</td><td class="num">4</td><td class="num">2</td><td class="num">&yen;11,084</td><td class="num">9件</td></tr>
+                <tr><td>9/1</td><td>5日目</td><td class="num">&yen;7,436</td><td class="num green">103%</td><td class="num">1.24</td><td class="num">10</td><td class="num">7</td><td class="num">&yen;32,232</td><td class="num">5件</td></tr>
+            </tbody>
+        </table></div>
+
+        <div class="note-box success">
+            <strong>8/29に入札を調整したところ、広告の消化率が58% → 101%に上がり、新規が 0 → 4 → 8件と伸びました。</strong>
+            検索結果の上部枠を +50% にした設定が効いています。セール終了後（9/4）に7日分で最終判定します。
+        </div>
+
+        <div class="note-box success">
+            <strong>5日間の累計は 41件・新規21件（51%）・売上 &yen;132,396。昨年の同じ5日間は41件・新規20件でしたので、件数はまったく同じです。</strong>
+            全注文レポートで確定させました。
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="section-header dark">4. 解約の状況</div>
+    <div class="section-body">
+        <div class="note-box success">
+            <strong>結論から。8月の解約は6件、新規は12件でしたので、会員は +6件の純増です。</strong>
+            会員数は減っていません。<strong>ただし解約の70%が「1回だけ買って解約」</strong>で、ここが最大の伸びしろです。
+        </div>
+
+        <div class="table-scroll"><table class="data-table">
+            <thead><tr><th>月</th><th class="num">新規</th><th class="num">解約</th><th class="num">純増減</th><th class="num">カラーミー</th><th class="num">代引き</th></tr></thead>
+            <tbody>
+                <tr><td>4月</td><td class="num">17件</td><td class="num">7件</td><td class="num green">+10</td><td class="num">5</td><td class="num">2</td></tr>
+                <tr><td>5月</td><td class="num">16件</td><td class="num">11件</td><td class="num">+5</td><td class="num">6</td><td class="num">5</td></tr>
+                <tr><td>6月</td><td class="num">27件</td><td class="num">4件</td><td class="num green">+23</td><td class="num">1</td><td class="num">3</td></tr>
+                <tr><td>7月</td><td class="num">16件</td><td class="num">11件</td><td class="num">+5</td><td class="num">6</td><td class="num">5</td></tr>
+                <tr class="highlight-row"><td><strong>8月</strong></td><td class="num"><strong>12件</strong></td><td class="num"><strong>6件</strong></td><td class="num green"><strong>+6</strong></td><td class="num">2</td><td class="num">4</td></tr>
+            </tbody>
+        </table></div>
+
+        <div class="note-box warning">
+            <strong>🔴 いちばんの課題：解約された方の70%が、1回しか買っていません。</strong><br>
+            2026年の解約56件のうち<strong>39件（70%）が購入1回以下</strong>。中央値は<strong>1回</strong>、平均2.3回です。
+            つまり<strong>「新規は取れているが、2回目に進んでいない」</strong>のが実態です。
+            広告で新規を1件増やすより、<strong>初回の方に2回目を届ける方が、いま効率が良い</strong>と考えています。
+        </div>
+
+        <div class="table-scroll"><table class="data-table">
+            <thead><tr><th>解約までの購入回数</th><th class="num">件数</th><th class="num">割合</th></tr></thead>
+            <tbody>
+                <tr class="highlight-row"><td><strong>1回以下（初回で離脱）</strong></td><td class="num red"><strong>39件</strong></td><td class="num red"><strong>70%</strong></td></tr>
+                <tr><td>2〜3回</td><td class="num">9件</td><td class="num">16%</td></tr>
+                <tr><td>4回以上（定着後）</td><td class="num">8件</td><td class="num">14%</td></tr>
+            </tbody>
+        </table></div>
+
+        <h3 style="margin:28px 0 12px">8月の解約6件 — 全件の内訳</h3>
+        <div class="table-scroll"><table class="data-table">
+            <thead><tr><th>契約</th><th class="num">購入回数</th><th>理由（お客様の言葉）</th><th>分類</th></tr></thead>
+            <tbody>
+                <tr><td>代引き</td><td class="num">4回</td><td>在庫がかなり多くなってきた</td><td><span class="badge badge-down">飲みきれない</span></td></tr>
+                <tr><td>代引き</td><td class="num">0回</td><td>急遽、長期不在となるため</td><td><span class="badge badge-flat">生活の変化</span></td></tr>
+                <tr><td>カラーミー</td><td class="num">1回</td><td>家族にと思い購入したが飲まないため</td><td><span class="badge badge-down">飲みきれない</span></td></tr>
+                <tr><td>カラーミー</td><td class="num">2回</td><td>1回限りと思っていた様子</td><td><span class="badge badge-down">定期便の誤解</span></td></tr>
+                <tr><td>代引き</td><td class="num">1回</td><td>（記入なし）</td><td><span class="badge badge-flat">無回答</span></td></tr>
+                <tr><td>代引き</td><td class="num">4回</td><td>（記入なし）</td><td><span class="badge badge-flat">無回答</span></td></tr>
+            </tbody>
+        </table></div>
+
+        <div class="note-box info">
+            <strong>8月は6件中4件が代引きでした。</strong>そのうち2件が「在庫が余る／長期不在」＝<strong>配送のペースが生活に合っていない</strong>という理由です。
+            これは<strong>解約せずに『配送を止める・間隔を空ける』で防げた可能性があります。</strong>
+        </div>
+
+        <h3 style="margin:28px 0 12px">2026年の解約理由（56件）— 何が起きているか</h3>
+        <div class="table-scroll"><table class="data-table">
+            <thead><tr><th>理由</th><th class="num">件数</th><th>代表的なお客様の言葉</th><th>打てる手</th></tr></thead>
+            <tbody>
+                <tr class="highlight-row"><td><strong>お試しのつもりだった</strong></td><td class="num">7件</td><td>「とりあえず試してみたかった」「夏に向けてストックしたかっただけ」「1回限りと思っていた」</td><td>定期便であることの伝え方／初回同梱物</td></tr>
+                <tr><td><strong>他の水へ移った</strong></td><td class="num">9件</td><td>「安いのをみつけた」「ジムで別の安いシリカ水を見つけた」「他の水も買っている」</td><td>価格以外の理由づくり（産地・軟水）</td></tr>
+                <tr><td><strong>飲みきれない・在庫が余る</strong></td><td class="num">6件</td><td>「家族が飲まなくて減らない」「そんなに飲まない」「在庫がかなり多くなってきた」</td><td><strong>24本への案内／配送間隔の変更提案</strong></td></tr>
+                <tr><td><strong>体に合わなかった</strong></td><td class="num">6件</td><td>「お腹を下してしまった」「飲みにくかった」</td><td>—（無理に引き留めない）</td></tr>
+                <tr><td><strong>価格・経済的な事情</strong></td><td class="num">6件</td><td>「価格が高い」「経済的困難」「支払い困難」</td><td>24本プランの案内</td></tr>
+                <tr><td><strong>生活の変化</strong></td><td class="num">6件</td><td>転居・転勤・入院・長期出張</td><td><strong>解約ではなく休止の案内</strong></td></tr>
+                <tr><td><strong>受取拒否・不達</strong>（代引きのみ）</td><td class="num">4件</td><td>「受取拒否 電話でず」「保管期間超過で返送」</td><td><strong>発送前の連絡・決済方法の見直し</strong></td></tr>
+                <tr><td>その他・無回答</td><td class="num">12件</td><td>—</td><td>—</td></tr>
+            </tbody>
+        </table></div>
+
+        <div class="note-box success">
+            <strong>ここまでで、手を打てば防げた可能性のある解約は 16件</strong>
+            （飲みきれない6・生活の変化6・受取拒否4）。<strong>2026年の解約の29%です。</strong>
+            いずれも「解約」ではなく<strong>「休止」「配送間隔を空ける」「24本に変える」</strong>で受け止められた可能性があります。
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="section-header purple">5. 前回会議（8/20）以降に行ったこと</div>
+    <div class="section-body">
+        <div class="table-scroll"><table class="data-table">
+            <thead><tr><th>日</th><th>やったこと</th><th>種類</th><th>結果</th></tr></thead>
+            <tbody>
+                <tr><td>8/21</td><td>トップLP 比較表のHTML化</td><td>LP改修</td><td>画像 → HTMLテーブル。表示速度の改善</td></tr>
+                <tr><td>8/22</td><td>Yahoo LP 改修（追従CTA・比較表）</td><td>LP改修</td><td>反映済み</td></tr>
+                <tr><td>8/22</td><td>競合広告の調査（Facebook広告ライブラリ）</td><td>調査</td><td>次のクリエイティブの方向づけに使用</td></tr>
+                <tr><td>8/22</td><td>日常4後継「UGC型」制作</td><td>動画</td><td>検証の結果、綺麗版（＝日常5）を採用</td></tr>
+                <tr><td>8/27</td><td>日常4後継「綺麗版」完成</td><td>動画</td><td>テロップ・QAまで完了</td></tr>
+                <tr class="highlight-row"><td><strong>8/29</strong></td><td><strong>新クリエイティブ「日常5」を投入</strong></td><td>動画</td><td><strong>翌日には配信の78%を占める主力に。CPC &yen;49・完視聴率14.2%</strong></td></tr>
+                <tr class="highlight-row"><td><strong>8/29</strong></td><td><strong>Amazon広告の入札を調整</strong>（検索結果上部 +50% ほか）</td><td>広告運用</td><td><strong>消化率 58% → 101%、新規が 0 → 4 → 8件に</strong></td></tr>
+                <tr><td>8/28〜9/1</td><td>Amazonスマイルセールの運用・日次モニタリング</td><td>広告運用</td><td>3章のとおり</td></tr>
+                <tr><td>8/31</td><td>計測の不整合を調査（form_start と begin_checkout の乖離）</td><td>計測</td><td>原因特定・解消</td></tr>
+                <tr><td>9/1</td><td>Instagram ストーリーズ（セール告知）制作</td><td>SNS</td><td>価格・CTAを追加。安全域まで実測して確認</td></tr>
+                <tr><td>9/2</td><td>Instagram フィード「水の選び方」カルーセル5枚 制作</td><td>SNS</td><td>投稿</td></tr>
+                <tr><td>9/1〜9/2</td><td>レポート数値の精度点検</td><td>データ整備</td><td>Yahoo広告費とAmazonの累計値を再点検し、本レポートの数字を精査しました</td></tr>
+            </tbody>
+        </table></div>
+
+        <div class="note-box success">
+            <strong>この期間のいちばんの成果は 8/29 の2つです。</strong>
+            新クリエイティブ「日常5」の投入で Meta の1クリック単価が下がり、
+            Amazonの入札調整でセールの新規が伸びました。<strong>どちらも投入翌日から数字が動いています。</strong>
+        </div>
+
+        <h3 style="margin:28px 0 12px">Meta広告 — 8月に回した16本の内訳</h3>
+        <p>総消化 &yen;117,618。上位6本で全体の94%です。</p>
+        <div class="table-scroll"><table class="data-table">
+            <thead><tr><th>広告名</th><th class="num">消化</th><th class="num">占有</th><th class="num">クリック</th><th class="num">CPC</th><th class="num">完視聴率</th><th>判定</th></tr></thead>
+            <tbody>
+                <tr><td>飲む美容_99円</td><td class="num">&yen;29,562</td><td class="num">25.1%</td><td class="num">370</td><td class="num green">&yen;80</td><td class="num green">52.6%</td><td><span class="badge badge-up">主力</span></td></tr>
+                <tr><td>日常4_腸内</td><td class="num">&yen;27,452</td><td class="num">23.3%</td><td class="num">359</td><td class="num green">&yen;76</td><td class="num">13.9%</td><td><span class="badge badge-up">主力</span></td></tr>
+                <tr><td>価格訴求　若者</td><td class="num">&yen;19,193</td><td class="num">16.3%</td><td class="num">211</td><td class="num">&yen;91</td><td class="num">8.3%</td><td><span class="badge badge-flat">継続</span></td></tr>
+                <tr><td>価格訴求-年配ver2</td><td class="num">&yen;14,459</td><td class="num">12.3%</td><td class="num">103</td><td class="num red">&yen;140</td><td class="num">12.6%</td><td><span class="badge badge-down">監視</span></td></tr>
+                <tr><td>価格訴求-年配</td><td class="num">&yen;13,928</td><td class="num">11.8%</td><td class="num">88</td><td class="num red">&yen;158</td><td class="num red">3.5%</td><td><span class="badge badge-down">監視</span></td></tr>
+                <tr class="highlight-row"><td><strong>日常5</strong>（8/29投入・3日）</td><td class="num">&yen;5,669</td><td class="num">4.8%</td><td class="num">108</td><td class="num green"><strong>&yen;52</strong></td><td class="num">13.0%</td><td><span class="badge badge-up">新主力</span></td></tr>
+            </tbody>
+        </table></div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="section-header dark">6. チャネル別の売上 — 8月は3チャネル合計 85.3万円</div>
+    <div class="section-body">
+
+        <div class="purchase-hero">
+            <div class="ph-label">8月の売上（3チャネル合計）</div>
+            <div class="ph-period">Amazon ＋ カラーミー ＋ 代引き</div>
+            <div class="ph-number">85.3<span style="font-size:.35em">万円</span></div>
+            <div class="ph-unit">広告費 25.1万円 に対して <strong>全体ROAS 3.40</strong></div>
+            <div class="purchase-breakdown">
+                <div class="pb-item"><div class="pb-value">51.0</div><div class="pb-label">Amazon（万円）</div></div>
+                <div class="pb-item"><div class="pb-value">27.1</div><div class="pb-label">カラーミー（万円）</div></div>
+                <div class="pb-item"><div class="pb-value">7.1</div><div class="pb-label">代引き（万円）</div></div>
+            </div>
+        </div>
+
+        <div class="table-scroll"><table class="data-table">
+            <thead><tr><th>チャネル</th><th class="num">7月</th><th class="num">8月</th><th class="num">増減</th><th class="num">構成比</th><th>内訳（8月）</th></tr></thead>
+            <tbody>
+                <tr class="highlight-row"><td><strong>Amazon</strong></td><td class="num">&mdash;</td><td class="num green"><strong>&yen;510,479</strong></td><td class="num green">昨年比<br><strong>+55%</strong></td><td class="num">59.8%</td><td>広告経由 &yen;241,553 ／ オーガニック &yen;268,926</td></tr>
+                <tr><td><strong>カラーミー</strong>（定期便）</td><td class="num">&yen;265,204</td><td class="num"><strong>&yen;271,450</strong></td><td class="num green">+2.4%</td><td class="num">31.8%</td><td>初回 8件 &yen;15,840 ／ <strong>継続 68件 &yen;255,610（94%）</strong></td></tr>
+                <tr><td><strong>代引き</strong></td><td class="num">&yen;51,175</td><td class="num"><strong>&yen;71,490</strong></td><td class="num green">+39.7%</td><td class="num">8.4%</td><td>初回 2件 &yen;3,960 ／ <strong>継続 17件 &yen;67,530（94%）</strong></td></tr>
+                <tr class="total-row"><td><strong>合計</strong></td><td class="num">&mdash;</td><td class="num"><strong>&yen;853,419</strong></td><td class="num">&mdash;</td><td class="num">100%</td><td>広告費計 &yen;250,912 → <strong>全体ROAS 3.40</strong></td></tr>
+            </tbody>
+        </table></div>
+
+        <div class="note-box info">
+            <strong>※ 代引きの7月について。</strong>前回は &yen;57,725 とお伝えしていましたが、
+            上の表では<strong>8月と同じ数え方（その月に発送した分の合計）で計算し直して &yen;51,175</strong> としています。
+            月ごとの増減を正しく比べられるように、7月・8月を同じ基準で揃えました。
+        </div>
+
+        <div class="note-box success">
+            <strong>🔴 いちばんお伝えしたいのはここです。カラーミーも代引きも、売上の94%が「続けてくださっている方」からでした。</strong><br><br>
+            カラーミーは発送76件のうち初回は8件、代引きは19件のうち初回は2件。<strong>残りはすべて継続の方です。</strong><br>
+            新規は8月12件まで減りましたが、<strong>売上はカラーミー +2.4%・代引き +39.7% と伸びています。</strong>
+            これは<strong>過去に獲得した方が続けてくださっているから</strong>で、いま会社を支えているのは新規ではなく継続です。
+        </div>
+
+        <div class="note-box warning">
+            <strong>だからこそ、4章の「解約の70%が購入1回以下」が重い意味を持ちます。</strong>
+            1回で去る方が7割いる一方、残った方が売上の94%を作っている。
+            <strong>初回の方を2回目に進めることが、そのまま売上に直結します。</strong>
+            9月の打ち手（7章）で、これを最優先に置いた理由です。
+        </div>
+
+        </div>
+</div>
+
+<div class="section">
+    <div class="section-header teal">7. LPで何が起きているか — 3本の行動解析（8月・スマートフォン）</div>
+    <div class="section-body">
+
+        <p>8月の1ヶ月間、<strong>お客様がLPのどこまで読み、どこを押したか</strong>を3本すべてで記録しました。
+        「広告が悪いのか、LPが悪いのか」がわからないままでは打ち手が決められないため、実際の行動データで切り分けています。</p>
+
+        <div class="table-scroll"><table class="data-table">
+            <thead><tr><th>LP</th><th class="num">閲覧数</th><th class="num">冒頭で離脱</th><th class="num">半分まで読了</th><th class="num">最後まで読了</th></tr></thead>
+            <tbody>
+                <tr><td><strong>美容LP</strong>（Meta広告の受け皿・HTML化済）</td><td class="num">1,134</td><td class="num green">2%</td><td class="num">28.0%</td><td class="num green">7.3%</td></tr>
+                <tr><td><strong>通常LP</strong>（自然流入・画像）</td><td class="num">339</td><td class="num">25%</td><td class="num green">29.8%</td><td class="num">5.3%</td></tr>
+                <tr class="highlight-row"><td><strong>Yahoo LP</strong>（Yahoo広告の受け皿・画像）</td><td class="num">461</td><td class="num red"><strong>41%</strong></td><td class="num red"><strong>13.2%</strong></td><td class="num red"><strong>1.1%</strong></td></tr>
+            </tbody>
+        </table></div>
+
+        <div class="note-box info">
+            <strong>広告そのものは正常に機能しています。</strong>
+            Meta広告のクリック1,310に対し、LPへの到達が1,112（<strong>85%</strong>）。広告からLPまでの経路に問題はありません。
+            <strong>売上が伸びない原因は、広告ではなくLPの側にあります。</strong>
+        </div>
+
+        <h3 style="margin:32px 0 12px">① Yahoo LP — 読ませれば買っていただけているのに、読める形になっていません</h3>
+
+        <p>録画を確認すると、<strong>Yahoo経由でご購入いただいた方は、じっくり読み込んだうえで購入されています。</strong>
+        検討して納得してから買う層です。ところが全体では、その手前で大半が離脱しています。</p>
+
+        <div class="table-scroll"><table class="data-table">
+            <thead><tr><th>Yahoo LPで起きていること</th><th class="num">数字</th></tr></thead>
+            <tbody>
+                <tr><td>開いた直後に離脱（461人中）</td><td class="num red"><strong>190人（41%）</strong></td></tr>
+                <tr><td>最後まで読んだ方</td><td class="num red"><strong>5人（1.1%）</strong></td></tr>
+                <tr class="highlight-row"><td><strong>注文ボタンが押された回数</strong>（全60タップ中）</td><td class="num red"><strong>1回</strong></td></tr>
+                <tr><td>「押せない画像」を押してしまった割合</td><td class="num red"><strong>43%</strong></td></tr>
+            </tbody>
+        </table></div>
+
+        <div class="note-box danger">
+            <strong>「押せない画像へのタップ」は、拡大して読もうとした操作です。</strong>
+            画像で作られたLPは、スマートフォンでは文字が小さく読めません。実際、
+            <strong>比較表の画像や、注釈の小さな文字が繰り返しタップされています。</strong>
+            読みたいのに読めず、離脱している状態です。
+        </div>
+
+        <p><strong>この傾向は、LPの作り方の違いとしてはっきり数字に出ています。</strong></p>
+
+        <div class="table-scroll"><table class="data-table">
+            <thead><tr><th>LPの作り</th><th>該当LP</th><th class="num">「押せない画像」へのタップ</th></tr></thead>
+            <tbody>
+                <tr><td>画像で作成</td><td>Yahoo LP</td><td class="num red"><strong>43.3%</strong></td></tr>
+                <tr><td>画像で作成</td><td>通常LP</td><td class="num">19.2%</td></tr>
+                <tr class="highlight-row"><td><strong>HTMLで作成</strong></td><td><strong>美容LP</strong>（8/21に比較表をHTML化）</td><td class="num green"><strong>9.6%</strong></td></tr>
+            </tbody>
+        </table></div>
+
+        <div class="note-box success">
+            <strong>→ 9月は Yahoo LP をHTML化します。</strong>まず比較表とファーストビューから着手します。
+            美容LPで同じ改修を行った箇所は、この数字が明確に低く出ています。
+        </div>
+
+        <h3 style="margin:32px 0 12px">② 美容LP — 買う方は即決。迷う方は「疑問」を抱えたまま帰っています</h3>
+
+        <p>こちらは正反対でした。<strong>ご購入された方は、ほとんど迷わずに注文ボタンを押されています。</strong>
+        いっぽう購入に至らなかった方の行動を見ると、<strong>よくある質問（FAQ）の開封が、注文ボタンのタップを上回っていました。</strong></p>
+
+        <div class="table-scroll"><table class="data-table">
+            <thead><tr><th>美容LPで押されたもの（全450タップ）</th><th class="num">タップ数</th><th class="num">構成比</th></tr></thead>
+            <tbody>
+                <tr class="highlight-row"><td><strong>よくある質問（FAQ）</strong></td><td class="num red"><strong>183</strong></td><td class="num red"><strong>40.7%</strong></td></tr>
+                <tr><td>注文ボタン（5箇所の合計）</td><td class="num">103</td><td class="num">22.9%</td></tr>
+            </tbody>
+        </table></div>
+
+        <p>FAQはLPの下部、価格をご覧いただいた直後に置いてあります。そこまで残っている方は約180名。
+        <strong>つまり、価格を見て購入直前まで進んだ方のほぼ全員が、何かしらの疑問を開いて確かめている</strong>という状態です。</p>
+
+        <div class="table-scroll"><table class="data-table">
+            <thead><tr><th class="num">順位</th><th>開かれた質問</th><th class="num">回数</th></tr></thead>
+            <tbody>
+                <tr class="highlight-row"><td class="num">1</td><td><strong>どのくらいで効果を実感できますか？</strong></td><td class="num red"><strong>58</strong></td></tr>
+                <tr><td class="num">2</td><td>配送サイクルの変更・お休みはできますか？</td><td class="num">44</td></tr>
+                <tr><td class="num">3</td><td>どんな味ですか？</td><td class="num">40</td></tr>
+                <tr><td class="num">4</td><td>赤ちゃんや妊婦さんも飲めますか？</td><td class="num">27</td></tr>
+            </tbody>
+        </table></div>
+
+        <div class="note-box success">
+            <strong>→ 9月は、この疑問を「広告の段階で」先にお答えします。</strong><br><br>
+            美容LPでご購入される方は即決型のため、LPで長く説得しても効果は限定的です。
+            それよりも、<strong>いちばん多い「効果はいつ実感できるか」への答えを広告のクリエイティブに組み込み、
+            疑問を持ったままLPに来る状態自体をなくします。</strong>
+            具体的には「1ヶ月目は習慣づくり、2〜3ヶ月で実感される方が多い」という実際の目安を、広告の訴求に入れます。<br><br>
+            あわせて<strong>「どんな味か」（40回）</strong>も購入前の関心が高いため、
+            <strong>硬度24mg/Lのまろやかな軟水</strong>という点を広告で伝えます。
+        </div>
+
+        <div class="note-box info">
+            <strong>この2本は、同じ「改善」でも打ち手が真逆になります。</strong><br>
+            Yahoo LP＝<strong>読ませる</strong>（HTML化して読めるようにする）／
+            美容LP＝<strong>読ませない</strong>（疑問を広告で先に潰し、迷わせない）。
+            一律の施策ではなく、それぞれのお客様の買い方に合わせて分けて実行します。
+        </div>
+
+    </div>
+</div>
+
+<div class="section">
+    <div class="section-header green">8. 9月の目標 — 「2日に1回は売れる」状態にします</div>
+    <div class="section-body">
+
+        <div class="purchase-hero">
+            <div class="ph-label">9月の目標（自社EC 新規）</div>
+            <div class="ph-period">2日に1回 &times; 30日</div>
+            <div class="ph-number">15</div>
+            <div class="ph-unit">件</div>
+            <div class="purchase-breakdown">
+                <div class="pb-item"><div class="pb-value">12</div><div class="pb-label">8月実績</div></div>
+                <div class="pb-item"><div class="pb-value">+3</div><div class="pb-label">積み増し</div></div>
+                <div class="pb-item"><div class="pb-value">4</div><div class="pb-label">解約の上限（8月6件）</div></div>
+            </div>
+        </div>
+
+        <div class="note-box info">
+            <strong>この目標は「広告費を増やす」ではなく「同じ予算で効率を上げる」で届きます。</strong>数字はこうです。<br><br>
+            8月は 15件なら CPA &yen;9,172 が必要で、実績は &yen;11,464。<strong>20%の改善が要ります。</strong>
+            いっぽう <strong>CPCが &yen;120 を超えている広告が4本あり、予算の28%（&yen;32,714）を使ってクリックは218しか出ていません。</strong>
+            これを新主力「日常5」並み（CPC &yen;52）に置き換えると、
+            <strong>同じ予算でクリックが 1,310 → 約1,721（+31%）</strong>。必要な20%改善を上回ります。<br><br><strong>さらに第7章の行動解析にもとづき、Yahoo LPのHTML化と、広告クリエイティブへの「実感の目安」の追加を行います。</strong>こちらも広告費を増やさずに転換率を上げる施策です。
+        </div>
+
+        <div class="table-scroll"><table class="data-table">
+            <thead><tr><th>いま</th><th class="num">8月実績</th><th class="num">9月目標</th><th>届かせ方</th></tr></thead>
+            <tbody>
+                <tr><td>自社EC 新規</td><td class="num">12件</td><td class="num green"><strong>15件</strong></td><td>非効率クリエイティブの入れ替え（下記A）</td></tr>
+                <tr><td>Meta CPC</td><td class="num red">&yen;90</td><td class="num green"><strong>&yen;70以下</strong></td><td>CPC &yen;120超の4本を停止し、日常5型へ寄せる</td></tr>
+                <tr><td>解約</td><td class="num">6件</td><td class="num green"><strong>4件以下</strong></td><td>解約の前に休止・間隔変更を出す（下記B）</td></tr>
+                <tr class="highlight-row"><td><strong>会員の純増</strong></td><td class="num">+6</td><td class="num green"><strong>+11</strong></td><td>—</td></tr>
+            </tbody>
+        </table></div>
+
+        <h3 style="margin:32px 0 12px">A. 新規を増やす — 何を、いつ</h3>
+        <div class="table-scroll"><table class="data-table">
+            <thead><tr><th>時期</th><th>やること</th><th>期待する効果</th></tr></thead>
+            <tbody>
+                <tr class="highlight-row"><td><strong>9/8（月）</strong></td><td><strong>「価格訴求-年配」を停止</strong>（CPC &yen;158・完視聴率3.5%・8月消化 &yen;13,928）</td><td>浮いた予算が日常5へ回る</td></tr>
+                <tr><td>9/15（月）</td><td>「価格訴求-年配ver2」を停止（CPC &yen;140・8月消化 &yen;14,459）</td><td>同上</td></tr>
+                <tr><td>9/22（月）</td><td>残る非効率2本を停止</td><td>CPC &yen;120超をゼロに</td></tr>
+                <tr><td>9月上旬</td><td><strong>日常5の横展開を2本制作</strong>（勝ちパターンの型を複製）</td><td>1本に依存しない。鮮度切れの前倒し対策</td></tr>
+                <tr class="highlight-row"><td><strong>9月上旬</strong></td><td><strong>広告クリエイティブに「実感の目安」を入れる</strong>（1ヶ月目は習慣づくり／2〜3ヶ月で実感される方が多い）</td><td>LPで最も開かれた疑問（58回）を広告で先に解消し、迷いのない状態でLPへ（第7章①②）</td></tr>
+                <tr class="highlight-row"><td><strong>9月中旬</strong></td><td><strong>Yahoo LP をHTML化</strong>（比較表・ファーストビューから）</td><td>冒頭離脱41%・注文ボタンのタップ1回・拡大しようとした操作43%（第7章①）</td></tr>
+                <tr><td>9月中</td><td>広告の訴求に「まろやかな軟水（硬度24mg/L）」を追加</td><td>「どんな味か」がLP上で40回確認されている</td></tr>
+                <tr><td>9月中</td><td>注文フォームの入力項目を減らす</td><td>「注文ボタンの先での離脱」への対策</td></tr>
+            </tbody>
+        </table></div>
+        <div class="note-box warning">
+            <strong>停止は1本ずつ・7日間隔で行います。</strong>複数本を同時に止めると配信量そのものが落ち、
+            かえって獲得が減ることが過去にありました。<strong>止めた翌週に数字を確認してから次へ進みます。</strong>
+        </div>
+
+        <h3 style="margin:32px 0 12px">B. 解約を減らす — 何を、いつ</h3>
+        <div class="table-scroll"><table class="data-table">
+            <thead><tr><th>時期</th><th>やること</th><th>根拠（8月・2026年の実データ）</th></tr></thead>
+            <tbody>
+                <tr class="highlight-row"><td><strong>9月上旬</strong></td><td><strong>解約フォームと電話対応に「休止」「配送間隔を空ける」「24本に変える」の3択を追加</strong></td><td>2026年の解約56件のうち<strong>16件（29%）</strong>が「在庫が余る」「長期不在」「受取拒否」。やめたいのではなく“今は要らない”</td></tr>
+                <tr><td>9月中旬</td><td>初回のお届けに<strong>「定期便であること」「休止のしかた」</strong>を同梱</td><td>8月に「1回限りと思っていた」が1件。2026年通期では「お試しのつもり」が7件</td></tr>
+                <tr><td>9月中旬</td><td><strong>初回購入から2週間後にフォロー連絡</strong>（飲み方・保管・次回のご案内）</td><td><strong>解約の70%が購入1回以下。</strong>2回目に進めば定着率が跳ね上がる</td></tr>
+                <tr><td>9月中</td><td>代引きの<strong>発送前ご連絡</strong>を試す</td><td>受取拒否・保管期間超過による返送が2026年で4件</td></tr>
+            </tbody>
+        </table></div>
+        <div class="note-box success">
+            <strong>Bは広告費がかかりません。</strong>新規を1件増やすのに &yen;11,464 かかる一方、
+            <strong>解約を1件止めるのは実質ゼロ円</strong>です。9月はここに時間を使わせてください。
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="section-header orange">9. セールに向けて — 何を準備するか</div>
+    <div class="section-body">
+        <div class="note-box info">
+            <strong>7月のプライムデー、8月のスマイルセールと、2回続けて「セール中は自社ECが止まり、Amazonが伸びる」形が出ました。</strong>
+            次は <strong>10月のプライム感謝祭</strong>と<strong>11月のブラックフライデー</strong>です。今回わかったことを、そのまま型にします。
+        </div>
+
+        <h3 style="margin:8px 0 12px">今回のセールで効いたこと（次も同じことをやります）</h3>
+        <div class="table-scroll"><table class="data-table">
+            <thead><tr><th>やったこと</th><th class="num">効果</th><th>次回への申し送り</th></tr></thead>
+            <tbody>
+                <tr class="highlight-row"><td><strong>セール2日目に入札を上げた</strong>（検索結果の上部 +50%）</td><td class="num green">消化率 58% → 101%<br>新規 0 → 4 → 8件</td><td><strong>初日から入れる。</strong>今回は2日目からで、初日の新規が0件だった</td></tr>
+                <tr><td>日予算をセール中だけ1.5倍にした</td><td class="num">消化率100%到達</td><td>同じ設定を感謝祭・BFにも適用</td></tr>
+                <tr><td>日次で消化率・新規・昨年同日を追った</td><td class="num">2日目に異常を検知</td><td>継続。初日夜に1回目の判定を入れる</td></tr>
+            </tbody>
+        </table></div>
+
+        <h3 style="margin:32px 0 12px">10月・11月に向けた準備（9月中に着手）</h3>
+        <div class="table-scroll"><table class="data-table">
+            <thead><tr><th>時期</th><th>やること</th><th>ねらい</th></tr></thead>
+            <tbody>
+                <tr class="highlight-row"><td><strong>9/4〜9/10</strong></td><td><strong>Amazonの除外キーワードを整理</strong></td><td>8/28〜31の広告費のうち<strong>購入ゼロの検索語に80%（約 &yen;19,800）</strong>。ただし少数でも購入のある語を巻き込むと逆効果なので、<strong>期間を広げて確認してから</strong>外す</td></tr>
+                <tr><td>9月中旬</td><td><strong>セール期の予算配分ルールを文書化</strong>（自社ECを絞り、Amazonへ寄せる）</td><td>7月・8月と2回同じ形が出た。3回目は事前に決めて動く</td></tr>
+                <tr><td>9月中旬</td><td>昨年10月・11月の実績を洗い出す</td><td>感謝祭・BFの規模感を先に掴む。今年は2年分のデータが揃う</td></tr>
+                <tr><td>9月下旬</td><td>セール用のクリエイティブを先に作っておく</td><td>今回は直前制作だった。前倒しで余裕を持たせる</td></tr>
+                <tr><td>10月上旬</td><td>在庫と価格設定の確認</td><td>セール中の欠品を防ぐ</td></tr>
+                <tr class="highlight-row"><td><strong>9月中</strong></td><td><strong>手動キャンペーンを畳まず並走させ、9月単月でもう一度比較する</strong></td><td>8月は手動 ROAS 2.66 &gt; 自動 1.98 と逆転した（2章）。<strong>畳む判断を1ヶ月保留する</strong></td></tr>
+            </tbody>
+        </table></div>
+
+        <div class="note-box warning">
+            <strong>9/4（本日）にご確認いただきたいこと:</strong>
+            セール中に設定した日予算の1.5倍ルール（&yen;6,000 / &yen;1,200）が<strong>自動で終了し、通常の &yen;4,000 / &yen;800 に戻っているか</strong>。
+            戻す作業自体は不要ですが、戻っていなければ手で戻します。
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="section-header dark">10. 月次推移</div>
+    <div class="section-body">
+        <div class="table-scroll"><table class="data-table">
+            <thead><tr><th>月</th><th class="num">新規</th><th class="num">解約</th><th class="num">純増減</th><th class="num">CPA</th><th class="num">Amazon 購入</th><th class="num">Amazon ROAS</th></tr></thead>
+            <tbody>
+                <tr><td>4月</td><td class="num">17件</td><td class="num">7件</td><td class="num green">+10</td><td class="num green">&yen;3,833</td><td class="num">68件</td><td class="num">1.73</td></tr>
+                <tr><td>5月</td><td class="num">16件</td><td class="num">11件</td><td class="num">+5</td><td class="num">&yen;8,091</td><td class="num">97件</td><td class="num">2.10</td></tr>
+                <tr><td>6月</td><td class="num">27件</td><td class="num">4件</td><td class="num green">+23</td><td class="num green">&yen;4,964</td><td class="num">45件</td><td class="num">1.63</td></tr>
+                <tr><td>7月</td><td class="num">16件</td><td class="num">11件</td><td class="num">+5</td><td class="num">&yen;8,692</td><td class="num">76件</td><td class="num">2.26</td></tr>
+                <tr class="highlight-row"><td><strong>8月</strong></td><td class="num red"><strong>12件</strong></td><td class="num"><strong>6件</strong></td><td class="num green"><strong>+6</strong></td><td class="num red"><strong>&yen;11,464</strong></td><td class="num green"><strong>82件</strong></td><td class="num green"><strong>2.13</strong></td></tr>
+            </tbody>
+        </table></div>
+        <div class="note-box warning">
+            Amazon列は<strong>広告経由</strong>の数字です。オーガニックを含む8月の総売上は <strong>&yen;510,479（注文151件・昨年比+55%）</strong>。<br>
+            <strong>自社ECの新規は3ヶ月連続で減っていますが、解約も少ないため会員は毎月増えています。そしてAmazonが大きく伸びています。</strong>——これが8月の全体像です。
+        </div>
+    </div>
+</div>
+
+<div class="note-box" style="margin:40px 0 60px">
+    株式会社 斗 ／ 2026年9月4日
+</div>
+
+</div>
+</body></html>
