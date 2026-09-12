@@ -313,19 +313,39 @@
             件数では昨年を5件上回っています（ただし予算の違いについては下の訂正をご確認ください）。
         </div>
 
-        <div class="note-box danger">
-            <strong>🔴 訂正します。「昨年を上回った」は正しい評価ではありませんでした。</strong>
-            2025年同期間（8/28〜9/3）の実際の広告費を取得したところ、<strong>&yen;24,678</strong>でした。
-            今年（8/28〜9/3）の広告費は <strong>&yen;46,765</strong>で、<strong>予算は昨年の約1.9倍</strong>使っています。<br><br>
-            <strong>約2倍の予算を投じて、注文数は55件→60件と+9%しか伸びていません。</strong>
-            広告経由ROASも2025年2.20→2026年1.37と悪化しています。<br><br>
-            <strong>さらに、増やした予算の中身を見ると新規獲得にはほとんど効いていません。</strong>
-            新規獲得数は29件→30件で<strong>+1件（ほぼ横ばい）</strong>、新規率にいたっては53%→50%と<strong>むしろ低下</strong>しています。
-            つまり<strong>増やした予算の大半はリピーターの追加購入に使われた</strong>ということです。
-            初日（8/28）の11件が全件リピートだったのも、「初日の入札が弱かったから」ではなく、
-            <strong>この施策自体が新規を取りにくい構造だった</strong>可能性が高いと見ています。<br><br>
-            <strong>10月の感謝祭・11月のブラックフライデーは、「同じ入札設定を適用する」ではなく、
-            今回の予算増加分がなぜ新規に結びつかなかったかを先に検証してから臨みます。</strong>
+        <div class="note-box warning">
+            <strong>訂正します。「昨年を上回った」を単純な件数比較だけで評価していました。実際に広告費まで揃えて比較し直しました。</strong><br><br>
+            <strong>去年と同じ曜日基準の7日間</strong>（2025年8/29〜9/4／2026年8/28〜9/3）で、キャンペーンレポートから広告費・購入数を再集計しています。
+        </div>
+
+        <div class="table-scroll"><table class="data-table">
+            <thead><tr><th></th><th class="num">2025年</th><th class="num">2026年</th><th class="num">変化</th></tr></thead>
+            <tbody>
+                <tr><td>広告費</td><td class="num">&yen;27,017</td><td class="num">&yen;46,602</td><td class="num">+73%</td></tr>
+                <tr class="highlight-row"><td><strong>広告経由 購入数</strong></td><td class="num">17件</td><td class="num"><strong>28件</strong></td><td class="num green"><strong>+65%</strong></td></tr>
+                <tr class="highlight-row"><td><strong>1件あたり広告費（CPA）</strong></td><td class="num">&yen;1,589</td><td class="num">&yen;1,664</td><td class="num"><strong>+5%（ほぼ横ばい）</strong></td></tr>
+                <tr><td>広告経由 売上</td><td class="num">&yen;63,405</td><td class="num">&yen;77,703</td><td class="num">+23%</td></tr>
+                <tr><td>ROAS</td><td class="num">2.35</td><td class="num">1.67</td><td class="num red">-29%</td></tr>
+                <tr><td>1件あたり売上（客単価）</td><td class="num">&yen;3,730</td><td class="num">&yen;2,775</td><td class="num red">-26%</td></tr>
+            </tbody>
+        </table></div>
+
+        <div class="note-box success">
+            <strong>結論: 予算を増やしたこと自体は無駄ではありませんでした。</strong>
+            広告費+73%に対して広告経由の購入は+65%で、<strong>1件獲得あたりの費用（CPA）はほぼ横ばい（&yen;1,589→&yen;1,664）</strong>です。
+            予算とほぼ比例して成果が伸びており、「予算を増やしても効かなかった」というのは正しくありませんでした。<br><br>
+            <strong>ROASが2.35→1.67に悪化して見えた主因は、広告の当たり方ではなく客単価の低下（&yen;3,730→&yen;2,775、-26%）でした。</strong>
+            これは今回のセールの価格設計・割引幅の違いによるものと見ています。
+        </div>
+
+        <div class="note-box info">
+            <strong>ひとつだけ、断定はできませんが気になる点が残っています。</strong>
+            広告経由の購入は+65%伸びていますが、<strong>Amazon全体の総注文数は55件→60件の+9%しか伸びていません。</strong>
+            広告の数字は伸びているのに全体の伸びが小さいのは、<strong>「広告が無ければ買わなかった人」を新しく連れてきたというより、
+            元々買う予定だった方の購入に広告の実績が付いた（アトリビューションの重複）割合が大きい可能性</strong>があります。
+            新規獲得数がほぼ横ばい（29件→30件）だったこととも矛盾しません。ここは仕組み上、完全な切り分けが難しい領域です。<br><br>
+            <strong>10月の感謝祭・11月のブラックフライデーも、同じ曜日基準の去年データと広告費・CPAをセットで日次追跡します。</strong>
+            件数だけで「昨年超え」と判断しないようにします。
         </div>
     </div>
 </div>
@@ -729,21 +749,22 @@
             次は <strong>10月のプライム感謝祭</strong>と<strong>11月のブラックフライデー</strong>です。今回わかったことを、そのまま型にします。
         </div>
 
-        <h3 style="margin:8px 0 12px">今回のセールでやったこと（そのまま真似はしません）</h3>
+        <h3 style="margin:8px 0 12px">今回のセールでやったこと</h3>
         <div class="table-scroll"><table class="data-table">
             <thead><tr><th>やったこと</th><th class="num">効果</th><th>次回への申し送り</th></tr></thead>
             <tbody>
-                <tr class="highlight-row"><td><strong>セール2日目に入札を上げた</strong>（検索結果の上部 +50%）</td><td class="num green">消化率 58% → 101%<br>新規 0 → 4 → 8件</td><td>初日から強く入れるかは、下の予算増加の検証結果を見てから判断します</td></tr>
-                <tr><td>日予算をセール中だけ1.5倍にした</td><td class="num">消化率100%到達・広告費は昨年同期間比 <strong>約1.9倍</strong></td><td><strong>「同じ設定を適用」は保留。</strong>予算を2倍近くに増やして件数+9%だった原因を先に特定します</td></tr>
+                <tr class="highlight-row"><td><strong>セール2日目に入札を上げた</strong>（検索結果の上部 +50%）</td><td class="num green">消化率 58% → 101%<br>新規 0 → 4 → 8件</td><td><strong>次回は初日から入れる。</strong>広告費を増やした分はCPAほぼ横ばいで成果に見合っていたと確認できたため（3章参照）</td></tr>
+                <tr><td>日予算をセール中だけ1.5倍にした</td><td class="num">消化率100%到達・広告費は昨年同期間比 +73%</td><td>CPAはほぼ横ばい（&yen;1,589→&yen;1,664）。<strong>同じ考え方で感謝祭・BFも予算を積み増す方針を継続</strong></td></tr>
                 <tr><td>日次で消化率・新規・昨年同日を追った</td><td class="num">2日目に異常を検知</td><td>継続。<strong>昨年同日の「注文数」だけでなく「広告費」も一緒に追う</strong>（今回はここが抜けていた）</td></tr>
             </tbody>
         </table></div>
 
-        <div class="note-box danger">
-            <strong>🔴 今回いちばんの反省点です。</strong>セール中、注文数と昨年同日の注文数だけを見て「昨年を上回っている」と判断していましたが、
-            <strong>肝心の広告予算がどれだけ違うかを見ないまま比較していました。</strong>
-            結果は2章でお伝えしたとおり、予算はほぼ倍増していたのに件数は+9%でした。
-            <strong>次回からは日次モニタリングの項目に「昨年同日の広告費」を追加します。</strong>
+        <div class="note-box warning">
+            <strong>今回の反省点です。</strong>セール中は注文数と昨年同日の注文数だけを見て「昨年を上回っている」と判断していましたが、
+            <strong>広告予算がどれだけ違うかを見ないまま比較していました。</strong>
+            後日あらためて広告費まで揃えて比較したところ（3章参照）、予算+73%に対し広告経由購入+65%・CPAほぼ横ばいと、
+            見た目ほど悪い結果ではありませんでしたが、<strong>件数だけで「昨年超え」と判断するのはこれきりにします。</strong>
+            次回からは日次モニタリングの項目に「昨年同日の広告費」を追加します。
         </div>
 
         <h3 style="margin:32px 0 12px">10月・11月に向けた準備（9月中に着手）</h3>
