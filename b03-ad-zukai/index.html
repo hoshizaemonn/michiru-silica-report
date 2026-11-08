@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>ミチル Google広告 イメージ図解</title>
+<style>
+:root{
+  --b900:#0a3a78; --b800:#1259a8; --b700:#1c79c8; --b500:#43a8e0; --b300:#9fd2ee; --b100:#e3f2fb;
+  --aqua:#6fd6cc; --orange:#f28a1e; --ink:#17304f; --mute:#5b7089; --line:#d4e4f1; --bg:#f4f9fd; --card:#fff;
+  --red:#d93a3a; --ok:#18956a;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP",Meiryo,sans-serif;line-height:1.7}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+header.top{background:linear-gradient(135deg,var(--b800),var(--b500) 70%,var(--aqua));color:#fff;padding:34px 0 30px}
+header.top h1{margin:0 0 8px;font-size:clamp(22px,4.6vw,34px);letter-spacing:.02em;line-height:1.35}
+header.top p{margin:0;opacity:.95;font-size:14px}
+header.top .tag{display:inline-block;background:rgba(255,255,255,.22);border:1px solid rgba(255,255,255,.5);border-radius:99px;padding:2px 12px;font-size:12px;margin-bottom:10px}
+section{padding:34px 0 8px}
+h2{font-size:clamp(19px,3.4vw,25px);margin:0 0 6px;color:var(--b900);display:flex;gap:10px;align-items:center}
+h2 .n{flex:none;width:34px;height:34px;border-radius:50%;background:var(--b700);color:#fff;display:grid;place-items:center;font-size:16px}
+.lead{color:var(--mute);margin:0 0 18px;font-size:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:0 2px 10px rgba(18,89,168,.06)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:820px){.grid2{grid-template-columns:1fr}}
+.note{font-size:12.5px;color:var(--mute)}
+.pill{display:inline-block;border-radius:99px;padding:1px 10px;font-size:12px;font-weight:700;vertical-align:middle}
+.pill.new{background:#fff1de;color:#b25a00}
+.pill.fix{background:#fde8e8;color:#b02a2a}
+.pill.ok{background:#e3f6ee;color:#0f7a56}
+.pill.hold{background:#eef1f5;color:#53657c}
+
+/* ── 全体の流れ（図解） */
+.flow{display:grid;grid-template-columns:1fr 54px 1.15fr 54px 1fr;align-items:stretch;gap:0}
+.flow .col{display:flex;flex-direction:column;gap:12px}
+.flow .arrow{display:grid;place-items:center;color:var(--b500)}
+.flow .arrow svg{width:46px;height:46px}
+.node{border-radius:14px;padding:12px 14px;border:2px solid var(--b300);background:#fff}
+.node h3{margin:0 0 2px;font-size:15px}
+.node .sub{font-size:12px;color:var(--mute)}
+.flow .col .node{min-height:124px}
+.node.src{border-color:var(--b700);background:var(--b100)}
+.node.lp{border-color:var(--aqua);background:#effbf9}
+.node.end{border-color:var(--orange);background:#fff7ec}
+.badge{display:inline-block;font-size:11px;font-weight:700;color:#fff;background:var(--b700);border-radius:6px;padding:0 7px;margin-right:6px}
+.badge.p2{background:var(--orange)}
+@media(max-width:860px){
+  .flow{grid-template-columns:1fr}
+  .flow .arrow{transform:rotate(90deg);height:40px}
+}
+.phase{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
+@media(max-width:700px){.phase{grid-template-columns:1fr}}
+.phase .card h3{margin:0 0 4px;font-size:15px}
+.kv{display:grid;grid-template-columns:96px 1fr;gap:2px 10px;font-size:13px;margin:6px 0 0}
+.kv dt{color:var(--mute)} .kv dd{margin:0}
+
+/* ── 検索結果のモック */
+.serp{background:#fff;border:1px solid #dfe4ea;border-radius:12px;padding:16px 18px;font-family:Arial,"Hiragino Sans",sans-serif}
+.serp .q{border:1px solid #dfe4ea;border-radius:99px;padding:6px 14px;font-size:14px;margin-bottom:14px;color:#333;display:flex;justify-content:space-between}
+.serp .ad-row{display:flex;gap:8px;align-items:center;font-size:12.5px;color:#202124}
+.serp .ad-row b{border:1px solid #202124;border-radius:4px;padding:0 4px;font-size:11px}
+.serp .url{color:#202124;font-size:12.5px}
+.serp .title{color:#1a0dab;font-size:19px;line-height:1.35;margin:4px 0 4px}
+.serp .desc{color:#4d5156;font-size:14px;line-height:1.55}
+.serp .sitelinks{display:grid;grid-template-columns:1fr 1fr;gap:6px 18px;margin-top:10px;font-size:14px;color:#1a0dab}
+.serp .callouts{margin-top:8px;font-size:13px;color:#4d5156}
+.serp .callouts span+span::before{content:" ・ "}
+.hl{background:#fff1b8;border-radius:4px;padding:0 3px}
+.mark{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px}
+.chip{background:var(--b100);border:1px solid var(--b300);color:var(--b900);border-radius:8px;padding:2px 9px;font-size:12.5px}
+.chip.fixed{background:#fff1f1;border-color:#f3b9b9;color:#9a2020}
+table{width:100%;border-collapse:collapse;font-size:13px;background:#fff;border-radius:12px;overflow:hidden}
+th,td{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--b100);color:var(--b900);font-weight:700;white-space:nowrap}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:12px;border:1px solid var(--line)}
+.scroll table{min-width:0}
+td,th{word-break:break-word;overflow-wrap:anywhere}
+.scroll table:not(.vs) td:first-child,.scroll table:not(.vs) th:first-child{white-space:nowrap;width:44px}
+.top3{background:#fff;border:2px solid var(--b300);border-radius:16px;padding:16px 18px;margin-top:-18px;position:relative;box-shadow:0 6px 20px rgba(18,89,168,.12)}
+.top3 h2{font-size:17px;margin:0 0 6px}.top3 ol{margin:0;padding-left:20px}.top3 li{margin:2px 0}.top3 .wait{margin-top:10px;background:#fff8e5;border:1px solid #f0d58a;border-radius:10px;padding:8px 12px;font-size:13px}
+.pill{white-space:nowrap}
+@media(max-width:700px){th,td{padding:7px 8px;font-size:12.5px}.vs th:nth-child(1){width:74px}}
+td.ng{color:#b02a2a} td.good{color:#0f7a56}
+.cnt{color:var(--mute);font-variant-numeric:tabular-nums;white-space:nowrap}
+
+/* ── YouTube */
+.yt-wrap{display:grid;grid-template-columns:330px 1fr;gap:22px;align-items:start}
+@media(max-width:900px){.yt-wrap{grid-template-columns:1fr}}
+.phone{width:310px;max-width:100%;margin:0 auto;background:#111;border-radius:34px;padding:12px 8px 16px;box-shadow:0 10px 30px rgba(10,58,120,.28)}
+.phone .bar{height:22px;display:flex;justify-content:space-between;align-items:center;color:#ddd;font-size:11px;padding:0 14px}
+.phone .screen{background:#fff;border-radius:18px;overflow:hidden}
+.yt-head{display:flex;align-items:center;gap:8px;padding:8px 10px;font-weight:700;font-size:15px}
+.yt-head i{width:22px;height:16px;background:#f00;border-radius:4px;display:inline-block;position:relative}
+.yt-head i::after{content:"";position:absolute;left:8px;top:4px;border-left:7px solid #fff;border-top:4px solid transparent;border-bottom:4px solid transparent}
+video{display:block;width:100%;background:#000}
+.ad-meta{padding:10px 12px 12px}
+.ad-meta .row{display:flex;gap:10px;align-items:flex-start}
+.avatar{flex:none;width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--b500),var(--aqua));display:grid;place-items:center;color:#fff;font-weight:800;font-size:13px}
+.ad-meta .h{font-weight:700;font-size:14px;line-height:1.4}
+.ad-meta .d{font-size:12px;color:#4a5b6e;line-height:1.5;margin-top:2px}
+.ad-meta .sp{font-size:11px;color:#6b7b8d;margin-top:2px}
+.btn{display:block;margin-top:10px;text-align:center;background:var(--b700);color:#fff;font-weight:700;border-radius:8px;padding:9px 0;font-size:14px}
+.vctl{display:flex;gap:8px;justify-content:center;margin-top:8px}
+.vctl button{border:1px solid var(--b300);background:#fff;color:var(--b800);border-radius:99px;padding:4px 14px;font-size:13px;font-weight:700;cursor:pointer}
+video[data-zv]{cursor:pointer}
+.player{background:#000;border-radius:14px;overflow:hidden;box-shadow:0 6px 22px rgba(10,58,120,.2)}
+.anno{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:10px}
+@media(max-width:700px){.anno{grid-template-columns:1fr}}
+.anno div{background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 10px;font-size:12.5px}
+.anno b{display:block;color:var(--b800);margin-bottom:2px}
+
+/* ── 比較 */
+.vs th:nth-child(1){width:120px}
+.vs td:nth-child(2){background:#fbfdff}
+.vs td:nth-child(3){background:#f4fbf9}
+
+/* ── チェック */
+.check{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:700px){.check{grid-template-columns:1fr}}
+.check .it{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 12px;font-size:13px;display:flex;gap:10px}
+.check .it i{flex:none;width:22px;height:22px;border-radius:6px;display:grid;place-items:center;font-style:normal;font-weight:800;font-size:13px;color:#fff}
+.check .ok i{background:var(--ok)} .check .wait i{background:#e0a100} .check .todo i{background:#9aa8b8}
+footer{padding:30px 0 50px;color:var(--mute);font-size:12px}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <span class="tag">社内資料・未送付・広告アカウントは未操作</span>
+    <h1>ミチル Google広告の<span style="white-space:nowrap">イメージ図解</span><br>検索 と YouTube（20秒動画）</h1>
+    <p>温泉水99の広告（URLの付き方・広告文111件・LP・20秒動画）を分解して、ミチルの入稿案に落とした。文面は文字数を機械で数え、数字は正本（facts.json）と照合済み。</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+<div class="top3">
+  <h2>結論（TOP3）</h2>
+  <ol>
+    <li><b>出す場所は2つ</b>：Google検索（11月〜・着地 /yahoo/）と YouTube（12月〜・着地 /water-bibyou/）。温泉水99は P-MAX と デマンドジェネレーションの2本立てで、ミチルは P-MAX をやらない</li>
+    <li><b>広告文は温泉水99の型</b>（飲みやすさ → 悩みの入口 → 数字 → 価格）に寄せ、<b>「初回は1本あたり約50円」「2回目以降 3,960円」を必ず明記</b>。効能・受賞・芸能人は書かない</li>
+    <li><b>YouTubeは20秒・三分割の動画</b>（今日完成）。右の価格が常時出る型で、母と子の自然な会話を中央に</li>
+  </ol>
+  <div class="wait"><b>未確定（先に決める）</b>：①定期購入の条件の正本（回数の縛り・解約の期限）→広告文は価格と「定期購入」までに止めた ②YouTubeに動画を上げてよいか（既存チャンネルの有無・限定公開の許可） ③広告の審査結果は出してみないと分からない</div>
+</div>
+
+<!-- 1 全体の流れ -->
+<section>
+  <h2><span class="n">1</span>全体の流れ：どこに出して、どこに着地させるか</h2>
+  <p class="lead">温泉水99は「P-MAX」と「デマンドジェネレーション」を同じ広告アカウントで動かしている（URLのパラメータから読める）。ミチルは P-MAX をやらず、検索 → YouTube の順に出す。</p>
+
+  <div class="card">
+    <div class="flow">
+      <div class="col">
+        <div class="node src"><h3><span class="badge">11月</span>Google検索</h3><div class="sub">指名＋「シリカ水 定期」などの組み合わせ語。日予算 ¥700</div></div>
+        <div class="node src"><h3><span class="badge p2">12月〜</span>YouTube（デマンドジェネレーション）</h3><div class="sub">20秒の動画＋見出し・説明。YouTubeのフィード等。日予算 ¥700〜1,000</div></div>
+      </div>
+      <div class="arrow"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 24h34M28 12l12 12-12 12"/></svg></div>
+      <div class="col">
+        <div class="node lp"><h3>/yahoo/（検索の着地）</h3><div class="sub">Yahoo検索と同じLP。数字を同じ土俵で比べられる。復元した特徴・玄米・CTA増量済み</div></div>
+        <div class="node lp"><h3>/water-bibyou/（YouTubeの着地）</h3><div class="sub">今日刷新したFV：人物写真＋価格行（通常3,960円→初回1,980円）＋3タグ＋追従バー</div></div>
+      </div>
+      <div class="arrow"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 24h34M28 12l12 12-12 12"/></svg></div>
+      <div class="col" style="justify-content:center">
+        <div class="node end"><h3>カラーミー 定期便ページ</h3><div class="sub">CTAはすべて <code>couponCode=MCL50</code> 付きの同じリンク（5本）。代金引換は同じLP内のフォーム</div></div>
+        <div class="node" style="border-style:dashed"><h3>計測</h3><div class="sub">GA4の <code>google / cpc</code> と購入（cv_40）を、Yahoo・Metaと並べて判断</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="phase">
+    <div class="card"><h3><span class="badge">Phase 1</span>検索（11月・最初の2〜3週間）</h3>
+      <dl class="kv"><dt>目的</dt><dd>購入につながる語を探す（クリック数最大化＋上限CPC）</dd><dt>予算</dt><dd>日 ¥700（月 約¥21,000）</dd><dt>判断</dt><dd>100クリック or 21日で、購入・cv_40をYahooと比較</dd></dl></div>
+    <div class="card"><h3><span class="badge p2">Phase 2</span>YouTube（12月〜・鈴木さん判断）</h3>
+      <dl class="kv"><dt>目的</dt><dd>動画で「商品そのもの」を見せてからLPへ</dd><dt>予算</dt><dd>日 ¥700〜1,000（月 約¥21,000〜30,000）</dd><dt>判断</dt><dd>14日 or 100クリックで、購入・cv_40を比較（動画はビュースルーが混ざる点に注意）</dd></dl></div>
+  </div>
+</section>
+
+<!-- 2 検索 -->
+<section>
+  <h2><span class="n">2</span>Google検索に出る広告のイメージ</h2>
+  <p class="lead">レスポンシブ検索広告：見出し15本・説明4本を登録すると、Googleが見出し3本＋説明2本を自動で組み合わせて出す。下は<b>組み合わせの一例</b>。</p>
+
+  <div class="grid2">
+    <div class="serp">
+      <div class="q"><span>ミチル シリカ水 定期</span><span>🔍</span></div>
+      <div class="ad-row"><b>広告</b><span class="url">michiru.olivia-store.com › 初回1箱1,980円</span></div>
+      <div class="title">ミチルシリカ公式サイト | 初回1箱1,980円（税込） | 40本入り・送料無料※</div>
+      <div class="desc">自分に合う水を探している方へ。初回1箱（40本）1,980円（税込）の定期購入です。 送料無料（北海道・東北・沖縄・離島は別途700円）。代金引換にも対応。</div>
+      <div class="sitelinks"><span>お客様の声</span><span>よくある質問</span></div>
+      <div class="callouts"><span>送料無料</span><span>代金引換OK</span><span>大分・玖珠の天然水</span><span>初めての方限定</span></div>
+    </div>
+    <div class="serp">
+      <div class="q"><span>シリカ水 お試し</span><span>🔍</span></div>
+      <div class="ad-row"><b>広告</b><span class="url">michiru.olivia-store.com › 天然シリカ水</span></div>
+      <div class="title">飲みやすい軟水の天然水 | はじめての方限定価格 | 定期購入・初回特別価格</div>
+      <div class="desc">大分・玖珠町の天然水。シリカ72mg/L含有、硬度24mg/Lの軟水です。 初回は1本あたり約50円。2回目以降は3,960円（税込）、1本あたり約99円です。</div>
+      <div class="sitelinks"><span>お客様の声</span><span>よくある質問</span></div>
+      <div class="callouts"><span>送料無料</span><span>代金引換OK</span></div>
+    </div>
+  </div>
+  <p class="note" style="margin-top:8px">※実際にどの組み合わせが出るかはGoogleが自動で決める（見出しはピン留めしない）。サイトリンクのリンク先アンカー（お客様の声・よくある質問）は、入稿前にLPで存在確認する。</p>
+
+  <h3 style="margin:22px 0 8px;font-size:16px">登録する見出し（15本・全角15字相当＝半角30以内）</h3>
+  <div class="scroll"><table>
+    <tr><th>#</th><th>見出し</th><th>字数</th><th>状態</th><th>メモ</th></tr>
+    <tr><td>1</td><td>ミチルシリカ公式サイト</td><td class="cnt">22</td><td><span class="pill ok">草案</span></td><td class="note"></td></tr>
+    <tr><td>2</td><td>天然シリカ水 ミチル</td><td class="cnt">19</td><td><span class="pill ok">草案</span></td><td class="note"></td></tr>
+    <tr><td>3</td><td>初回1箱1,980円（税込）</td><td class="cnt">22</td><td><span class="pill ok">草案</span></td><td class="note"></td></tr>
+    <tr><td>4</td><td>40本入り・送料無料※</td><td class="cnt">19</td><td><span class="pill ok">草案</span></td><td class="note">※は説明文3で補足</td></tr>
+    <tr><td>5</td><td>大分・玖珠町の天然水</td><td class="cnt">20</td><td><span class="pill ok">草案</span></td><td class="note"></td></tr>
+    <tr><td>6</td><td>硬度24mg/Lの軟水</td><td class="cnt">16</td><td><span class="pill ok">草案</span></td><td class="note"></td></tr>
+    <tr><td>7</td><td>シリカ72mg/L含有</td><td class="cnt">16</td><td><span class="pill ok">草案</span></td><td class="note"></td></tr>
+    <tr><td>8</td><td>初回は1本あたり約50円</td><td class="cnt">21</td><td><span class="pill fix">直し</span></td><td class="note">約50円は初回だけの値段。条件を付けた</td></tr>
+    <tr><td>9</td><td>はじめての方限定価格</td><td class="cnt">20</td><td><span class="pill ok">草案</span></td><td class="note"></td></tr>
+    <tr><td>10</td><td>定期購入・初回特別価格</td><td class="cnt">22</td><td><span class="pill ok">草案</span></td><td class="note">定期購入の明記</td></tr>
+    <tr><td>11</td><td>代金引換にも対応</td><td class="cnt">16</td><td><span class="pill ok">草案</span></td><td class="note"></td></tr>
+    <tr><td>12</td><td>飲みやすい軟水の天然水</td><td class="cnt">22</td><td><span class="pill new">差替</span></td><td class="note">LPに「常温でも飲みやすい軟水」の記載あり</td></tr>
+    <tr><td>13</td><td>自分に合う水を探している方へ</td><td class="cnt">28</td><td><span class="pill new">追加</span></td><td class="note">悩みの入口（温泉水99の最多の型）</td></tr>
+    <tr><td>14</td><td>常温でも飲みやすい軟水</td><td class="cnt">22</td><td><span class="pill new">追加</span></td><td class="note">LPの表現</td></tr>
+    <tr><td>15</td><td>毎日の水を、ミチルに替えよう</td><td class="cnt">28</td><td><span class="pill new">追加</span></td><td class="note">美容LPのFVの帯と同じ言葉</td></tr>
+  </table></div>
+
+  <h3 style="margin:22px 0 8px;font-size:16px">登録する説明文（4本・半角90以内）</h3>
+  <div class="scroll"><table>
+    <tr><th>#</th><th>説明文</th><th>字数</th><th>状態</th></tr>
+    <tr><td>1</td><td>大分・玖珠町の天然水。シリカ72mg/L含有、硬度24mg/Lの軟水です。</td><td class="cnt">62</td><td><span class="pill ok">草案</span></td></tr>
+    <tr><td>2</td><td>自分に合う水を探している方へ。初回1箱（40本）1,980円（税込）の定期購入です。</td><td class="cnt">76</td><td><span class="pill new">差替</span></td></tr>
+    <tr><td>3</td><td>送料無料（北海道・東北・沖縄・離島は別途700円）。代金引換にも対応。</td><td class="cnt">67</td><td><span class="pill ok">草案</span></td></tr>
+    <tr><td>4</td><td>初回は1本あたり約50円。2回目以降は3,960円（税込）、1本あたり約99円です。</td><td class="cnt">72</td><td><span class="pill fix">直し</span></td></tr>
+  </table></div>
+</section>
+
+<!-- 3 YouTube -->
+<section>
+  <h2><span class="n">3</span>YouTubeに出る広告のイメージ（20秒・三分割の動画）</h2>
+  <p class="lead">温泉水99の20秒広告と同じ型：<b>左＝縦書きの一言／中央＝縦動画（母と子が箱を開けて飲む）／右＝ボトル＋価格が常時表示</b>。ナレーションなしでも、テロップだけで伝わる。動画は今日作った本物。</p>
+
+  <div class="yt-wrap">
+    <div>
+      <div class="phone">
+        <div class="bar"><span>9:41</span><span>YouTube</span><span>● ● ●</span></div>
+        <div class="screen">
+          <div class="yt-head"><i></i><span>YouTube</span></div>
+          <video src="video/lframe_親子動画.mp4#t=12" muted loop playsinline preload="metadata" data-zv></video>
+          <div class="ad-meta">
+            <div class="row"><div class="avatar">M</div>
+              <div><div class="h">飲みやすい軟水の天然シリカ水</div>
+              <div class="d">自分に合う水を探している方へ。初回1箱（40本）1,980円（税込）の定期購入です。</div>
+              <div class="sp">広告 ・ ミチルシリカ</div></div></div>
+            <span class="btn">詳細を見る（ボタン文言は入稿画面で選択）</span>
+          </div>
+        </div>
+      </div>
+      <div class="vctl"><button type="button" data-play>▶ 再生 / 停止</button><button type="button" data-snd>🔇 音なし</button></div>
+      <p class="note" style="text-align:center;margin-top:8px">スマホのYouTubeフィードに出た時のイメージ<br>（実際の見え方は面で変わる）</p>
+    </div>
+
+    <div>
+      <div class="player"><video src="video/lframe_親子動画.mp4#t=12" muted loop playsinline preload="metadata" data-zv></video></div>
+      <div class="vctl"><button type="button" data-play>▶ 再生 / 停止</button><button type="button" data-snd>🔇 音なし</button></div>
+      <div class="anno">
+        <div><b>左：縦書きの見出し</b>「大分・玖珠の／天然シリカ水」。青いミチルカラーの背景に白文字。</div>
+        <div><b>中央：縦動画（28.6秒）</b>母と子が箱を開けて、ミチルを注いで飲む。最後の約4秒は動画内の訴求カード。</div>
+        <div><b>右：価格が常時</b>「初回限定 特別価格／1箱 40本入り／1,980円（税込）／送料無料」＋注記「※北海道・東北・沖縄・離島は別途700円」。</div>
+      </div>
+      <p class="note" style="margin-top:8px">※動画ファイルは容量のため Git には入れていない（<code>video/</code> は無視設定）。この図解は、同じフォルダの <code>video/</code> を置いたまま開く。</p>
+    </div>
+  </div>
+
+  <h3 style="margin:22px 0 8px;font-size:16px">YouTube広告に登録する文面（デマンドジェネレーション）</h3>
+  <div class="scroll"><table>
+    <tr><th>項目</th><th>文面</th><th>字数／上限</th></tr>
+    <tr><td>事業者名</td><td>ミチルシリカ</td><td class="cnt">12／25</td></tr>
+    <tr><td>見出し1</td><td>飲みやすい軟水の天然シリカ水</td><td class="cnt">28／40</td></tr>
+    <tr><td>見出し2</td><td>初回限定 1箱40本 1,980円（税込）</td><td class="cnt">32／40</td></tr>
+    <tr><td>見出し3</td><td>毎日の水を、ミチルに替えよう</td><td class="cnt">28／40</td></tr>
+    <tr><td>見出し4</td><td>大分・玖珠町の天然水 ミチル</td><td class="cnt">27／40</td></tr>
+    <tr><td>見出し5</td><td>はじめての方限定の定期便</td><td class="cnt">24／40</td></tr>
+    <tr><td>説明文1</td><td>自分に合う水を探している方へ。初回1箱（40本）1,980円（税込）の定期購入です。</td><td class="cnt">76／90</td></tr>
+    <tr><td>説明文2</td><td>大分・玖珠町の天然水。常温でも飲みやすい軟水で、毎日の水をミチルに替えるだけ。</td><td class="cnt">78／90</td></tr>
+    <tr><td>説明文3</td><td>送料無料（北海道・東北・沖縄・離島は別途700円）。2回目以降は3,960円（税込）。</td><td class="cnt">77／90</td></tr>
+    <tr><td>説明文4</td><td>初回は1本あたり約50円、2回目以降は約99円。お届け間隔は1・2・3ヶ月から選べます。</td><td class="cnt">79／90</td></tr>
+    <tr><td>説明文5</td><td>はじめての方限定。代金引換にも対応しています。</td><td class="cnt">46／90</td></tr>
+    <tr><td>最終ページ</td><td><b>/water-bibyou/</b>（URLオプション <code>utm_source=google&amp;utm_medium=cpc&amp;utm_campaign=dg_202612&amp;utm_content={adgroupid}</code>）</td><td></td></tr>
+  </table></div>
+</section>
+
+<!-- 4 温泉水99との比較 -->
+<section>
+  <h2><span class="n">4</span>温泉水99と、ミチルの違い（使う型・使わない型）</h2>
+  <div class="scroll"><table class="vs">
+    <tr><th>項目</th><th>温泉水99</th><th>ミチル</th></tr>
+    <tr><td>広告の種類</td><td>P-MAX＋デマンドジェネレーション（URLのパラメータから）</td><td class="good">検索 → デマンドジェネレーション（P-MAXはやらない）</td></tr>
+    <tr><td>文面の型</td><td>飲みやすさ → 悩みの入口 → 数字 → 価格（約7割が同じ1組）</td><td class="good">同じ型で、数字は正本（硬度24mg/L・シリカ72mg/L）</td></tr>
+    <tr><td>価格</td><td>初回6本 1,480円（買い切り）</td><td class="good">初回1箱40本 1,980円（<b>定期購入</b>。2回目以降 3,960円を明記）</td></tr>
+    <tr><td>受賞・芸能人</td><td>モンドセレクション等を動画で訴求</td><td class="ng">使わない（該当なし）</td></tr>
+    <tr><td>美容・浸透力</td><td>広告文では6%、LPで語る</td><td class="ng">使わない（効能の示唆。LPもぼかす）</td></tr>
+    <tr><td>動画</td><td>20秒・三分割・UGC・ナレなし・価格常時</td><td class="good">同じ型（今日完成）。母と子の自然な会話</td></tr>
+    <tr><td>着地</td><td>お試しLP（カート直行）／記事LP→お試しLP</td><td class="good">/yahoo/（検索）・/water-bibyou/（YouTube）→ カラーミー</td></tr>
+  </table></div>
+</section>
+
+<!-- 5 チェック -->
+<section>
+  <h2><span class="n">5</span>入稿前の確認と、まだ決まっていないこと</h2>
+  <div class="check">
+    <div class="it ok"><i>✓</i><div>文字数：見出し・説明文すべて上限内（機械確認）</div></div>
+    <div class="it ok"><i>✓</i><div>数字：1,980円・3,960円・40本・約50円・約99円・700円・シリカ72・硬度24が正本と一致</div></div>
+    <div class="it ok"><i>✓</i><div>禁止の言葉：縛りなし／いつでも解約／返金保証／Amazon比較／効能／受賞 は0件</div></div>
+    <div class="it ok"><i>✓</i><div>動画：文字・欠け・隠れ・動画の周りの枠を目視確認（別エージェント・原寸）</div></div>
+    <div class="it wait"><i>!</i><div><b>定期購入の条件の正本</b>（回数の縛り・解約の期限）が未確定。広告文は価格と「定期購入」までに止めた（鈴木さん・杉さん）</div></div>
+    <div class="it wait"><i>!</i><div><b>YouTubeに動画を上げてよいか</b>（既存チャンネルの有無・限定公開の許可）が未確認</div></div>
+    <div class="it todo"><i>–</i><div>広告アカウント：新規作成（未操作）。有効化は Sanity Pause＋鈴木さんの明示OKの後</div></div>
+    <div class="it todo"><i>–</i><div>テストクリック：<code>gclid</code>・<code>utm</code> が付いても /yahoo/ ・ /water-bibyou/ が崩れないか（1回）</div></div>
+    <div class="it todo"><i>–</i><div>動画の 1:1・9:16 版の書き出し（16:9は完成）／サイトリンクのアンカー確認</div></div>
+    <div class="it todo"><i>–</i><div>数時間後：今日反映した /water-bibyou/ のGA4・Pixel・Clarityの発火確認</div></div>
+  </div>
+</section>
+
+</main>
+<script>
+(function(){
+  var vids=[].slice.call(document.querySelectorAll('video[data-zv]'));
+  function toggle(v){ if(v.paused){v.play().catch(function(){});}else{v.pause();} }
+  vids.forEach(function(v){ v.addEventListener('click',function(){toggle(v);}); });
+  [].forEach.call(document.querySelectorAll('[data-play]'),function(b){
+    b.addEventListener('click',function(){ var v=b.closest('div[class]').parentNode.querySelector('video[data-zv]')||vids[0]; toggle(v); });
+  });
+  [].forEach.call(document.querySelectorAll('[data-snd]'),function(b){
+    b.addEventListener('click',function(){ var v=b.closest('div[class]').parentNode.querySelector('video[data-zv]')||vids[0]; v.muted=!v.muted; b.textContent=v.muted?'🔇 音なし':'🔊 音あり'; });
+  });
+})();
+</script>
+<footer><div class="wrap">作成 2026-11-07 ／ 出典：温泉水99の広告（透明性センター111件・URL・20秒動画・LP2本の実測）／ 文面の詳細：<code>B03_温泉水99の広告設定と広告文の分析_ミチル版の入稿案_20261107.md</code></div></footer>
+</body>
+</html>
