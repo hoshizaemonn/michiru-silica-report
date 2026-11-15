@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>ミチル 売れていない理由と予算配分</title>
+<style>
+:root{--bg:#f5f7fa;--card:#fff;--ink:#1d2733;--sub:#5b6776;--line:#dfe5ec;--meta:#3b6fd4;--yahoo:#d4523b;--google:#2e9e5b;--warn:#b7791f;--warnbg:#fff6e0;--bad:#c0392b}
+@media (prefers-color-scheme:dark){:root{--bg:#12171d;--card:#1b222b;--ink:#e8edf2;--sub:#9aa7b5;--line:#2c3743;--warnbg:#3a2f14}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,"Hiragino Sans","Noto Sans JP",sans-serif;line-height:1.7}
+.wrap{max-width:960px;margin:0 auto;padding:20px 16px 60px}
+h1{font-size:22px;margin:8px 0 4px}
+.lead{color:var(--sub);font-size:13px;margin:0 0 18px}
+h2{font-size:17px;margin:0 0 12px;padding-left:10px;border-left:4px solid var(--meta)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin:14px 0}
+.top3{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.top3 .item{border:1px solid var(--line);border-radius:10px;padding:12px;background:var(--bg)}
+.top3 b{display:block;font-size:13px;color:var(--meta);margin-bottom:4px}
+.top3 p{margin:0;font-size:14px}
+.note{background:var(--warnbg);border:1px solid var(--warn);border-radius:10px;padding:12px;font-size:13px}
+.note b{color:var(--warn)}
+.kpi{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}
+.kpi div{border:1px solid var(--line);border-radius:10px;padding:10px;text-align:center}
+.kpi small{color:var(--sub);display:block;font-size:12px}
+.kpi strong{font-size:20px}
+.kpi .arrow{font-size:12px;color:var(--bad)}
+.chart{display:flex;align-items:flex-end;gap:6px;height:190px;padding:8px 4px 0;border-bottom:1px solid var(--line);overflow-x:auto}
+.col{flex:1;min-width:34px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%}
+.pair{display:flex;align-items:flex-end;gap:2px;height:150px}
+.bar{width:12px;border-radius:3px 3px 0 0;position:relative}
+.bar span{position:absolute;top:-16px;left:50%;transform:translateX(-50%);font-size:10px;color:var(--sub)}
+.new{background:var(--meta)}.cancel{background:#a8b3c0}.ly{background:#c9d6ee}
+.lab{font-size:11px;color:var(--sub);margin-top:4px}
+.legend{font-size:12px;color:var(--sub);margin-top:8px;display:flex;gap:12px;flex-wrap:wrap}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:4px;vertical-align:-1px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{border-bottom:1px solid var(--line);padding:8px 6px;text-align:left;vertical-align:top}
+th{color:var(--sub);font-weight:600;font-size:12px}
+.tag{display:inline-block;font-size:11px;border-radius:999px;padding:1px 8px;border:1px solid var(--line);color:var(--sub);white-space:nowrap}
+.tag.main{background:#fdecea;color:var(--bad);border-color:#f5b7b1}
+.tag.mid{background:var(--warnbg);color:var(--warn);border-color:var(--warn)}
+.tag.no{background:var(--bg)}
+.stack{display:flex;height:46px;border-radius:8px;overflow:hidden;margin:6px 0 4px;font-size:12px;color:#fff}
+.stack div{display:flex;align-items:center;justify-content:center;white-space:nowrap}
+.stk-lab{font-size:12px;color:var(--sub);margin-bottom:12px}
+.two{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.ok{color:var(--google);font-weight:600}
+.small{font-size:12px;color:var(--sub)}
+ul{margin:6px 0;padding-left:20px}
+li{font-size:14px;margin:3px 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>ミチル 売れていない理由と、広告予算の配分</h1>
+<p class="lead">2026-11-15 作成（星崎）｜鈴木さん・杉さんへの報告用｜<b>限定共有（URLを知っている人のみ・検索には出ません）</b>｜数字の出典は各項目の下に記載</p>
+
+<div class="card">
+<h2>結論（先に3つ）</h2>
+<div class="top3">
+<div class="item"><b>① 売れていない理由</b><p>落ちているのは<strong>新規の獲得</strong>です。9月18件→10月7件。原因は<strong>Meta広告の効率低下</strong>（購入単価 ¥7,473→¥11,445）と、Yahoo用LPで離脱が多いことです。Meta→Amazonへの予算の寄せは、主因ではありません。</p></div>
+<div class="item"><b>② ただし去年よりは悪くない</b><p>カラーミー売上は<strong>10月 ¥277,390（去年 ¥175,040・+58%）</strong>。新規も去年10月（5件）より多い。「6月に27件と突出したあとの反動」で、落ちて見えている面があります。</p></div>
+<div class="item"><b>③ 予算の配分</b><p>自社ECの広告は<strong>日¥4,500のまま</strong>。Meta ¥3,100／Yahoo ¥700／Google ¥700（新規）。Metaの¥700は、購入単価の高い2つの広告セットから回します。Amazonは別枠です。</p></div>
+</div>
+</div>
+
+<div class="note">
+<b>未確定・要確認（先に読んでください）</b>
+<ul>
+<li>Metaを下げる額：会議の文字起こしは「12,000円」でしたが、鈴木さんから「誤り」と回答済み。本資料の<b>Meta −¥700は、星崎の案</b>です（Google ¥700を、総額¥4,500の中で作るため）。鈴木さんのOKが必要です。</li>
+<li>10月の広告費：11/6報告の確定値は <b>¥125,900</b>（Meta ¥105,337＋Yahoo ¥20,563）。共有シートの10月欄は ¥94,453 で、<b>差があります</b>（取り込みが一部の日を欠いた可能性）。本資料は確定値を使用。シート側は未修正です。</li>
+<li>Yahooのコンバージョンは、<b>2倍に数えられている可能性</b>があります（過去のタグ二重）。修正済みかは未確認。Yahoo側の購入件数は参考値としてのみ扱います。</li>
+<li>原因は、記録と数字からの<b>推定</b>です。広告の変更前後を厳密に比べた検証ではありません（確度は表のとおり）。</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>① 売れていない理由</h2>
+<p class="small" style="margin-top:0">何が落ちたか：自社ECの新規件数（カラーミー新規＋代引き）。出典：昨年比シート（2026-11-10時点）</p>
+
+<div class="chart" id="chart"></div>
+<div class="legend"><span><i class="new"></i>2026年 新規</span><span><i class="ly"></i>昨年同月 新規</span><span><i class="cancel"></i>2026年 解約</span></div>
+<p class="small">11月は1〜10日の途中経過。10月は、新規7に対し解約10で<b>差し引き−3</b>（昨年10月も−2）。</p>
+
+<h3 style="font-size:14px;margin:18px 0 8px">9月→10月で、何が変わったか（自社EC：Meta＋Yahoo）</h3>
+<div class="kpi">
+<div><small>広告費</small><strong>¥134,522 → ¥125,900</strong><span class="arrow">−6%（ほぼ同じ）</span></div>
+<div><small>購入件数</small><strong>18件 → 11件</strong><span class="arrow">−39%</span></div>
+<div><small>購入単価（CPA）</small><strong>¥7,473 → ¥11,445</strong><span class="arrow">+53%（悪化）</span></div>
+</div>
+<p class="small">広告費はほぼ変わらず、<b>同じお金で買う人が減った</b>＝効率の低下です。予算を削ったことが主因ではありません。出典：11/6 鈴木さん報告（10月結果）</p>
+
+<h3 style="font-size:14px;margin:18px 0 8px">考えられる原因（確度つき）</h3>
+<table>
+<tr><th style="width:26%">原因</th><th>根拠</th><th style="width:72px">確度</th></tr>
+<tr><td><b>Metaの効率低下</b><br>広告の入れ替わり・クリエイティブの鮮度</td><td>10/10に3つの広告（価格訴求・若者、飲む美容99円、日常4）を停止した構造変更のあと、クリックが減った（10/24分析）。11/1〜4のCPCは¥127〜156とやや高め。直近30日のMeta購入は、<b>広告セット1つに集中</b>（購入最適化_30-65+女性：約10件・単価¥6,536）。他の3セットは1件ずつ（単価¥7,249〜¥21,060）。</td><td><span class="tag main">高</span></td></tr>
+<tr><td><b>Yahoo用LPで離脱が多い</b></td><td>/yahoo/：スクロール約17%・滞在約18秒（10/24のFV刷新後も、刷新前の7〜18%と同水準）。GA4のYahoo流入は、CTAクリック0が続いた（11/1〜5のClarity、11/6報告）。</td><td><span class="tag mid">中</span></td></tr>
+<tr><td><b>Amazonの広告効率の低下</b><br>（Amazon側の不調）</td><td>全注文133件（去年10月151件・−12%）。広告費+21%に対しROAS 1.57（去年1.96）。自動キャンペーンは費用1.8倍で購入は41→38件。</td><td><span class="tag main">高</span></td></tr>
+<tr><td>6月の突出（27件）との比較</td><td>6月だけが突出。7月16、8月12、9月18と、通常は10〜19件の範囲。10月の7件は、通常より低い。</td><td><span class="tag no">参考</span></td></tr>
+<tr><td>Meta→Amazonへの予算の寄せ（10/12〜19）</td><td>検証済み（B01）：Metaの購入は減らず、セール期のAmazon注文は3.4→8.1件/日。<b>主因ではない</b>。</td><td><span class="tag no">否定</span></td></tr>
+</table>
+<p class="small">出典：昨年比シート、11/6報告、B01検証（10/31）、Metaの10/24分析、Clarity（11/1〜5）。Meta広告マネージャー（10/15〜11/13・星崎の画面）。</p>
+</div>
+
+<div class="card">
+<h2>② 予算の配分（自社ECの広告：日¥4,500）</h2>
+<p class="small" style="margin-top:0">11/10会議：<b>総額は上げず、配分で最適化</b>。Meta・Yahoo・Googleの3つで、日¥4,500を分けます（Amazonは別枠）。</p>
+
+<div class="two">
+<div>
+<b style="font-size:13px">現状（日¥4,500）</b>
+<div class="stack">
+<div style="width:84.4%;background:var(--meta)">Meta ¥3,800</div>
+<div style="width:15.6%;background:var(--yahoo)">Yahoo ¥700</div>
+</div>
+<div class="stk-lab">Google：未開始</div>
+</div>
+<div>
+<b style="font-size:13px">案（日¥4,500・総額変わらず）</b>
+<div class="stack">
+<div style="width:68.9%;background:var(--meta)">Meta ¥3,100</div>
+<div style="width:15.6%;background:var(--yahoo)">Yahoo ¥700</div>
+<div style="width:15.6%;background:var(--google)">Google ¥700</div>
+</div>
+<div class="stk-lab">Metaの¥700を、Googleへ</div>
+</div>
+</div>
+
+<h3 style="font-size:14px;margin:14px 0 8px">Metaの内訳（日予算）</h3>
+<table>
+<tr><th>広告セット</th><th>現状</th><th>案</th><th>30日の消化</th><th>購入単価</th></tr>
+<tr><td>購入最適化_30-65+女性_20261010</td><td>¥2,300</td><td><b>¥2,300</b></td><td>¥65,355</td><td>¥6,536（約10件）</td></tr>
+<tr><td>CTA最適化_30-65+女性_価格訴求</td><td>¥750</td><td><b>¥250（−¥500）</b></td><td>¥21,060</td><td>¥21,060（1件）</td></tr>
+<tr><td>CV最適化_65+女性_悩み訴求</td><td>¥500</td><td><b>¥300（−¥200）</b></td><td>¥14,168</td><td>¥14,168（1件）</td></tr>
+<tr><td>リタゲ_日常5視聴者_価格訴求</td><td>¥250</td><td><b>¥250</b></td><td>¥7,249</td><td>¥7,249（1件）</td></tr>
+<tr><td><b>合計</b></td><td><b>¥3,800</b></td><td><b>¥3,100</b></td><td>¥107,832</td><td></td></tr>
+</table>
+<p class="small">考え方：購入が出ている1つ目を守り、単価のいちばん悪い2つから¥700を回す。各セットの購入は1件で、数が少ないため、<b>1〜2週間後に見直し</b>ます。出典：Meta広告マネージャー（10/15〜11/13）</p>
+
+<h3 style="font-size:14px;margin:14px 0 8px">Yahooは、そのまま（日¥700）</h3>
+<ul>
+<li>11/1〜11/14：コスト¥7,954（日平均¥568・予算を使い切っていない）、クリック171、CPC¥47。</li>
+<li><b>アカウント残高¥12,413（残り24日）</b>：このペースだと12/8頃に尽きる見込み。BF前に入金の確認が必要。</li>
+<li>11/10会議：「Yahoo・Googleはそのまま」。</li>
+</ul>
+
+<h3 style="font-size:14px;margin:14px 0 8px">Googleは、日¥700で小さく始める</h3>
+<ul>
+<li>検索キャンペーン1本（指名＋組み合わせ語）。クリック数の最大化・上限CPC¥100。検索ネットワークのみ。</li>
+<li>状態：下書きまで完了（一時停止）。<b>公開は、鈴木さんのOKのあと</b>。</li>
+<li>計測：GA4の<code>cv_40</code>（代引き申込）を観察用で取り込み。<b>最終の購入数は、カラーミーの注文CSVで見る</b>（広告側のタグでは、カラーミーでの購入完了を追えないため）。</li>
+<li>判断の目安（設計書）：100クリック（または21日）で、Yahoo検索と並べて見る。CPCがYahoo（約¥47）を大きく上回り、cv_40が0なら、語を見直す。</li>
+</ul>
+
+<h3 style="font-size:14px;margin:14px 0 8px">参考：Amazon（別枠・BF期間）</h3>
+<ul>
+<li>11/10会議：Amazonは約2倍（日約¥4,700→約¥9,500・目標1日20ケース）。売れ行きが良ければ、途中でさらに上げる。在庫は先方が補充。</li>
+<li>注意：2026年8月のスマイルSALEで広告費を約2倍にしたら、ROASが2.19→1.37に悪化した前例があります。<b>ROASが2日続けて1.0未満なら、予算ルールを止める</b>（10月の運用基準）。</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>③ このあとの予定</h2>
+<table>
+<tr><th>いつ</th><th>やること</th><th>担当</th></tr>
+<tr><td>鈴木さんOK後</td><td>Metaの予算変更（2セット）。変更前の値を記録してから行う</td><td>星崎</td></tr>
+<tr><td>同日</td><td>Google広告を有効化（開始日・状態の最終確認のあと）</td><td>星崎</td></tr>
+<tr><td>BF前</td><td>Yahooの残高の確認・入金。Amazonの予算の引き上げ</td><td>鈴木さん・星崎</td></tr>
+<tr><td>開始から1〜2週間</td><td>Metaの2セットの成績を確認。Googleの100クリックの確認</td><td>星崎</td></tr>
+<tr><td>12/1（火）13:00</td><td>定例で、11月の結果とBFの進捗を報告</td><td>—</td></tr>
+</table>
+</div>
+
+<p class="small">この資料は、ミチル関係者への報告用です。広告費・売上などの実データを含むため、URLを転送・掲載しないでください。</p>
+</div>
+
+<script>
+(function(){
+var months=['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月*'];
+var nw=[19,14,13,17,16,27,16,12,18,7,5];
+var cn=[5,4,7,7,11,4,11,6,12,10,4];
+var ly=[9,8,7,10,9,11,7,3,9,5,7];
+var max=30,h=150,el=document.getElementById('chart');
+months.forEach(function(m,i){
+ var c=document.createElement('div');c.className='col';
+ function b(v,cls){return '<div class="bar '+cls+'" style="height:'+Math.max(2,v/max*h)+'px"><span>'+v+'</span></div>';}
+ c.innerHTML='<div class="pair">'+b(nw[i],'new')+b(ly[i],'ly')+b(cn[i],'cancel')+'</div><div class="lab">'+m+'</div>';
+ el.appendChild(c);
+});
+})();
+</script>
+</body>
+</html>
